@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1386491679 &1
+PresetManager:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_DefaultPresets:
+  - first:
+      m_NativeTypeID: 1020
+      m_ManagedTypePPtr: {fileID: 0}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 0dae74f47dd2c5d4896faf93f552a50e,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*SFX*/**.wav"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 7a006df74a910fe4691a6bc3b5118f85,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*SFX*/**.mp3"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: b02e95c9b7be1324a878f5720ccfce85,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*MUSICS*/**.mp3"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: b02e95c9b7be1324a878f5720ccfce85,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*MUSICS*/**.wav"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 0dae74f47dd2c5d4896faf93f552a50e,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*UI*/**.wav"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 7a006df74a910fe4691a6bc3b5118f85,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*UI*/**.mp3"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: eebf1573cf46a0e44af011ed959d9913,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*VOICES*/**.mp3"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: eebf1573cf46a0e44af011ed959d9913,
+        type: 2}
+      m_Filter: glob:"-AUDIO*/*VOICES*/**.wav"
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 1006
+      m_ManagedTypePPtr: {fileID: 0}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 0fd36a17d5eff23459cc60a8521fa8f3,
+        type: 2}
+      m_Filter: glob:"-3D*/**.jpg"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 0fd36a17d5eff23459cc60a8521fa8f3,
+        type: 2}
+      m_Filter: glob:"-3D*/**.png"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 6a3bac1637f715645aefc08f03d6dbca,
+        type: 2}
+      m_Filter: glob:"-2D BACKGROUNDS*/**.jpg"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 6a3bac1637f715645aefc08f03d6dbca,
+        type: 2}
+      m_Filter: glob:"-2D BACKGROUNDS*/**.png"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: e2d5bdaf013fdce47a9730c4c8a86e5b,
+        type: 2}
+      m_Filter: glob:"-2D SPRITES PIXELART*/**.jpg"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: e2d5bdaf013fdce47a9730c4c8a86e5b,
+        type: 2}
+      m_Filter: glob:"-2D SPRITES PIXELART*/**.png"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 09b744acc50e65047bfadb27ad900482,
+        type: 2}
+      m_Filter: glob:"-2D SPRITES HD*/**.jpg"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 09b744acc50e65047bfadb27ad900482,
+        type: 2}
+      m_Filter: glob:"-2D SPRITES HD*/**.png"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 0fd36a17d5eff23459cc60a8521fa8f3,
+        type: 2}
+      m_Filter: glob:"-MATERIALS*/**.png"
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: 0fd36a17d5eff23459cc60a8521fa8f3,
+        type: 2}
+      m_Filter: glob:"-MATERIALS*/**.jpg"
+      m_Disabled: 0

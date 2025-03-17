@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: New Scene Template
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 2f642fa2e8b7e0a49a9329cd5c3833d5, type: 3}
+  templateName: "GAME CORE DEFAULT SCENE \u2B05\uFE0F"
+  description: 
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 11400000, guid: 95f6a3292f881d848871880a63424f15, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 2100000, guid: 931ea43d75d7a7142adc131e647b4e00, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 32b23d5d74f3aee4f9364e34e2f59379, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 112000000, guid: 04324bec8bdfa0545912e1f48fc15b41, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 4890085278179872738, guid: b9f506e59b7167b4a8fee1dd645fdf38,
+      type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 8900000, guid: 9ffa3f82f712c7f4daed8c41b25ee51d, type: 3}
+    instantiationMode: 0
+  templatePipeline: {fileID: 0}
+  badge: {fileID: 0}
+  addToDefaults: 0

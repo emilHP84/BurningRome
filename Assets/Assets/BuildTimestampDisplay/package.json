@@ -1,0 +1,31 @@
+{
+    "name": "jp.gigacreation.tools.buildtimestampdisplay",
+    "version": "2.0.0",
+    "displayName": "Build Timestamp Display",
+    "description": "This package allows you to display the latest build timestamp.",
+    "unity": "2019.4",
+    "dependencies": {
+        "com.unity.ugui": "1.0.0"
+    },
+    "keywords": [
+        "Build",
+        "Timestamp"
+    ],
+    "author": {
+        "name": "GIGA CREATION",
+        "email": "gigacee@gigacreation.jp",
+        "url": "https://www.gigacreation.jp/"
+    },
+    "samples": [
+        {
+            "displayName": "01 - Legacy Text",
+            "description": "Display the timestamp in the lower left corner of the screen by using Legacy Text.",
+            "path": "Samples~/01_LegacyText"
+        },
+        {
+            "displayName": "02 - TextMesh Pro",
+            "description": "Display the timestamp in the lower left corner of the screen by using TextMesh Pro.",
+            "path": "Samples~/02_TextMeshPro"
+        }
+    ]
+}
