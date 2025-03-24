@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048ada8f5d8f6d44c832896788279e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_delayBetweenExplose: 3
+  m_delayExplose: 1
 --- !u!135 &4888651156444548378
 SphereCollider:
   m_ObjectHideFlags: 0
