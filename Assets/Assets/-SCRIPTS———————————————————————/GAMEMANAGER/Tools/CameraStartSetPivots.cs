@@ -4,7 +4,7 @@ public class CameraStartSetPivots : MonoBehaviour
 {
     Transform hPivot, vPivot, camSnaper;
 
-    void Awake()
+    void Start()
     {
         hPivot = transform.GetChild(0);
         vPivot = hPivot.GetChild(0);
