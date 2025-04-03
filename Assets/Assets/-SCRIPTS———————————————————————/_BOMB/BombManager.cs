@@ -62,5 +62,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
             StartCoroutine(Explose());
 
         }
+        if (detect is Obstacle)
+        {
+            Debug.Log("bloc touché_________________________//");
+            IBreakable breakable = (IBreakable)detect;
+            breakable.Break();
+        }
     }
 }
