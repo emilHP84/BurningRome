@@ -12,18 +12,19 @@ public class CustomPlayerJoin : MonoBehaviour
     private int playerIndex = 0;
     private List<Gamepad> usedGamepads = new List<Gamepad>();
     public Transform[] spawnPoints;
-    // Start is called before the first frame update
+
+    private DropComponent dropComponent;
+    public GameObject dropGameObject;
     void Start()
     {
-        
+        dropComponent = GetComponent<DropComponent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         foreach (Gamepad gamepad in Gamepad.all)
         {
-           if (!usedGamepads.Contains(gamepad))
+            if (!usedGamepads.Contains(gamepad))
             {
                 if (gamepad.buttonSouth.wasPressedThisFrame)
                 {
@@ -39,14 +40,20 @@ public class CustomPlayerJoin : MonoBehaviour
                             usedGamepads.Add(gamepad);
                             playerIndex++;
                         }
-
                     }
                 }
+
+                if (gamepad.buttonWest.wasPressedThisFrame)
+                {
+                    dropComponent.DroppingObject
+                        (
+                            dropGameObject,
+                            new Vector3(transform.position.x, 3, transform.position.z),
+                            transform.rotation,
+                            null
+                        );
+                }
             }
-        } 
-
-
-
-
+        }
     }
 }
