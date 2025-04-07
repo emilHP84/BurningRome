@@ -1,57 +1,82 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static Rewired.ComponentControls.Effects.RotateAroundAxis;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MovementPlayerTest : MonoBehaviour
 {
-    public float Speed;
+    public float speed;
     private Vector3 direction;
-    private bool KeyPressed = false; // Par défaut, aucune touche n'est active
-    private KeyCode activeKey = KeyCode.None; // Stocke la touche actuellement pressée
+    private bool KeyPressed = false; // Par dÃ©faut, aucune touche n'est active
+    private KeyCode activeKey = KeyCode.None; // Stocke la touche actuellement pressÃ©e
+    private Vector2 moveInput = Vector2.zero;
 
+    private void Start()
+    {
+        moveInput = Vector2.zero;
+    }
     void Update()
     {
-        // Vérifier si une touche est enfoncée et qu'aucune autre touche n'est active
-        if (!KeyPressed)
-        {
-            if (Input.GetKey(KeyCode.D))
-            {
-                StartMoving(KeyCode.D, Vector3.right);
-            }
-            else if (Input.GetKey(KeyCode.Q))
-            {
-                StartMoving(KeyCode.Q, Vector3.left);
-            }
-            else if (Input.GetKey(KeyCode.Z))
-            {
-                StartMoving(KeyCode.Z, Vector3.forward);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                StartMoving(KeyCode.S, Vector3.back);
-            }
-        }
+        //// VÃ©rifier si une touche est enfoncÃ©e et qu'aucune autre touche n'est active
+        //if (!KeyPressed)
+        //{
+        //    if (Input.GetKey(KeyCode.D))
+        //    {
+        //        StartMoving(KeyCode.D, Vector3.right);
+        //    }
+        //    else if (Input.GetKey(KeyCode.Q))
+        //    {
+        //        StartMoving(KeyCode.Q, Vector3.left);
+        //    }
+        //    else if (Input.GetKey(KeyCode.Z))
+        //    {
+        //        StartMoving(KeyCode.Z, Vector3.forward);
+        //    }
+        //    else if (Input.GetKey(KeyCode.S))
+        //    {
+        //        StartMoving(KeyCode.S, Vector3.back);
+        //    }
+        //}
 
-        // Si une touche est active, continuer le déplacement
-        if (KeyPressed)
-        {
-            transform.Translate(direction * Speed * Time.deltaTime);
-        }
+        //// Si une touche est active, continuer le dÃ©placement
+        //if (KeyPressed)
+        //{
+        //    transform.Translate(direction * Speed * Time.deltaTime);
+        //}
 
-        // Si la touche active est relâchée, réinitialiser KeyPressed
-        if (KeyPressed && Input.GetKeyUp(activeKey))
+        //// Si la touche active est relÃ¢chÃ©e, rÃ©initialiser KeyPressed
+        //if (KeyPressed && Input.GetKeyUp(activeKey))
+        //{
+        //    KeyPressed = false;
+        //    activeKey = KeyCode.None;
+        //}
+
+        if (moveInput.magnitude >= 0.1f)
         {
-            KeyPressed = false;
-            activeKey = KeyCode.None;
+            Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+            transform.Translate(move * speed * Time.deltaTime);
         }
     }
 
-    // Fonction pour démarrer le déplacement
-    void StartMoving(KeyCode key, Vector3 dir)
+    // Fonction pour dÃ©marrer le dÃ©placement
+
+
+    public void OnMove(InputValue value)
     {
-        activeKey = key; // Mémoriser la touche enfoncée
-        direction = dir; // Mettre à jour la direction
-        KeyPressed = true; // Empêcher d'autres touches d'agir
+        moveInput = value.Get<Vector2>();
+        Debug.Log("OnMove reÃ§u : " + moveInput);
     }
+
+
+
+
+    //void StartMoving(KeyCode key, Vector3 dir)
+    //{
+    //    activeKey = key; // MÃ©moriser la touche enfoncÃ©e
+    //    direction = dir; // Mettre Ã  jour la direction
+    //    KeyPressed = true; // EmpÃªcher d'autres touches d'agir
+    //}
 }
 
