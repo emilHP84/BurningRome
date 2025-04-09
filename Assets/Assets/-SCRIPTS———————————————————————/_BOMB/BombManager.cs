@@ -60,7 +60,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
         {
             Debug.Log("tetttet");
             StartCoroutine(Explose());
-
         }
         if (detect is Obstacle)
         {

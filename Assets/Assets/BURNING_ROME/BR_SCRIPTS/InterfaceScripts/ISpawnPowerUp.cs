@@ -2,22 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ISpawnPowerUp : MonoBehaviour
+public interface ISpawnPowerUp 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public void SpawnPowerUp(ISpawnPowerUp SpawnPU);
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SpawnPowerUp()
-    {
-
-    }
 }
