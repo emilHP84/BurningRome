@@ -11,6 +11,6 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect
 
     public void OnDetectionWith(IDetect detect)
     {
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
 }

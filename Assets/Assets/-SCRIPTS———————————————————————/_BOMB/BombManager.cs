@@ -8,13 +8,13 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     private Rigidbody rb;
     private SphereCollider sphereCollider;
 
-    [SerializeField][Range(0,6)] float m_delayBetweenExplose;
-    [SerializeField][Range(0,3)] float m_delayExplose;
+    [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
+    [SerializeField][Range(0, 3)] float m_delayExplose;
     [SerializeField] GameObject m_ExplosionPatern;
 
     private float time;
     private bool HasExplose;
-    
+
     void Start()
     {
         SetComponent();
@@ -25,11 +25,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
         rb = GetComponent<Rigidbody>();
         sphereCollider = rb.GetComponent<SphereCollider>();
     }
-    
+
     void Update()
     {
         time += Time.deltaTime;
-        if (HasExplose == false && time >= m_delayBetweenExplose ) 
+        if (HasExplose == false && time >= m_delayBetweenExplose)
         {
             StartCoroutine(Explose());
             HasExplose = true;
@@ -47,25 +47,14 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     // detecte les différent objet en collision ( nécésite un rigidbody )
     public void OnCollisionWith(ICollisionable collisionable)
     {
-        if(collisionable is Ground)
+        if (collisionable is Ground)
         {
             rb.isKinematic = true;
         }
-        
     }
 
     public void OnDetectionWith(IDetect detect)
     {
-        if (detect is BombManager)
-        {
-            Debug.Log("tetttet");
-            StartCoroutine(Explose());
-        }
-        if (detect is Obstacle)
-        {
-            Debug.Log("bloc touché_________________________//");
-            IBreakable breakable = (IBreakable)detect;
-            breakable.Break();
-        }
+        StartCoroutine(Explose());
     }
 }
