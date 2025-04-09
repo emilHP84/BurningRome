@@ -5,14 +5,26 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour, IDetect
 {
     [Header("GAME SYSTEM")]
-    [SerializeField] private float playerID;
+    [SerializeField] private int playerID;
+    public int PlayerID
+    {
+        get { return playerID; }
+        private set { playerID = value; }
+    }
+
 
     [Header("DEATH")]
     [SerializeField] private bool isAlive;
+    [SerializeField] private bool hited;
     public bool IsAlive
     {
         get { return isAlive; }
         private set { isAlive = value; }
+    }
+    public bool Hited
+    {
+        get { return hited; }
+        private set { Hited = value; }
     }
     [SerializeField] private float deathTime;
 
@@ -41,8 +53,10 @@ public class PlayerManager : MonoBehaviour, IDetect
     IEnumerator OnDeath(float deathTime)
     {
         transform.DOScale(new Vector3(0, 0, 0), deathTime);
+        isAlive = false;
+        hited = true;
         yield return new WaitForSeconds(deathTime);
-        IsAlive = false;
+        EVENTS.InvokeOnDeath(this, playerID);
         gameObject.SetActive(false);
     }
 
