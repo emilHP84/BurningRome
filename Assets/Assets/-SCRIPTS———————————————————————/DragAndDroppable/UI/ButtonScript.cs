@@ -107,7 +107,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (button.interactable==false) return;
         #if UNITY_EDITOR
-        Debug.Log("👆Hovering "+buttonName);
+        //Debug.Log("👆Hovering "+buttonName);
         #endif
         SelectButtonEffect();
     }
@@ -116,7 +116,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (button.interactable==false) return;
         #if UNITY_EDITOR
-        Debug.Log("👇✅Clicked on "+buttonName);
+        //Debug.Log("👇✅Clicked on "+buttonName);
         #endif
         if (unselectAfterClicked) EventSystemUnselectThis();
         ClickButtonEffect();
@@ -127,7 +127,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (button.interactable==false) return;
         if (buttonExit.clip) PlaySound(buttonExit.clip,buttonExit.volume);
         #if UNITY_EDITOR
-        Debug.Log("✊Leave "+buttonName);
+        //Debug.Log("✊Leave "+buttonName);
         #endif
         UnselectButtonEffect();
     }

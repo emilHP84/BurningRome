@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class TriggerComponent : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject.name);
-        IDetect obj = other.gameObject.GetComponent<IDetect>();
-        if (obj == null) return;
-        obj.OnDetectionWith(other.gameObject.GetComponent<IDetect>());
+        IDetect detect = other.GetComponent<IDetect>();
+        if (detect != null)
+        {
+            detect.OnDetectionWith(detect);
+        }
     }
 }
