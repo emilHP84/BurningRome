@@ -92,7 +92,7 @@ public class EVENTS
 
     // <-- Add new game events here
 
-    public static EventHandler<EventArgs> OnDeathEventHandler;
-    public static void InvokeOnDeath(object invoker,EventArgs e) { OnDeathEventHandler?.Invoke(invoker,e); }
+    public static EventHandler<int> OnDeathEventHandler;
+    public static void InvokeOnDeath(object invoker,int e) { OnDeathEventHandler?.Invoke(invoker,e); }
 
 } // SCRIPT END
