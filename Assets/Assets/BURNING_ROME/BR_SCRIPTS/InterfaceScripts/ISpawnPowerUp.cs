@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface ISpawnPowerUp
 {
-    public void SpawnPowerUp(ISpawnPowerUp SpawnPU);
+    public void SpawnPowerUp()
+    {
+
+    }
 }

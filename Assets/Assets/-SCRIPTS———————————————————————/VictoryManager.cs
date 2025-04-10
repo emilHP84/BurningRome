@@ -18,7 +18,7 @@ public class VictoryManager : MonoBehaviour
 
     public void AddNewPlayer(GameObject obj)
     {
-        PlayerAlive.Add();
+        //PlayerAlive.Add();
     }
 
     public void SetLooser(int playerID)

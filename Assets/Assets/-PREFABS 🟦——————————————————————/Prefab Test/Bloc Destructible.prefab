@@ -100,6 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c780fd328e7d9444bcbd798a8051617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUps:
+  - prefab: {fileID: 0}
+    pourcentage: 70
+  - prefab: {fileID: 0}
+    pourcentage: 20
+  - prefab: {fileID: 0}
+    pourcentage: 10
 --- !u!65 &2104787414141824102
 BoxCollider:
   m_ObjectHideFlags: 0

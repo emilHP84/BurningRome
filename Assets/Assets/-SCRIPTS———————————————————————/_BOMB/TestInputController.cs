@@ -1,9 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace testScript {
+namespace testScript
+{
     [RequireComponent(typeof(DropComponent))]
     public class TestInputController : MonoBehaviour
     {
+        [SerializeField] private int bombStock = 1; // Peut être augmenté par power-up
+        private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
+        [SerializeField] private int explosionRange = 1; // portée initiale
+        public int ExplosionRange => explosionRange; // accès en lecture seule
         private DropComponent dropComponent;
         public GameObject dropGameObject;
         void Start()
@@ -18,16 +24,45 @@ namespace testScript {
         }
         void DropBomb()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && CanPlaceBomb())
             {
-                dropComponent.DroppingObject
-                    (
-                    dropGameObject,
-                    new Vector3(transform.position.x, 3, transform.position.z),
-                    transform.rotation,
-                    null
-                    );
+                GameObject bomb = dropComponent.DroppingObject
+               (
+                    dropGameObject,new Vector3(transform.position.x, 3, transform.position.z),transform.rotation,null
+               );
+
+                bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
+
+
+                PlaceBomb(); //  Déclenche le cooldown
             }
+        }
+
+        private bool CanPlaceBomb()
+        {
+            // Supprimer les bombes dont le cooldown est terminé
+            bombCooldowns.RemoveAll(t => Time.time >= t);
+
+            // Si on a encore du stock utilisable, on peut poser une bombe
+            return bombCooldowns.Count < bombStock;
+        }
+
+        private void PlaceBomb()
+        {
+            // 1. Instancier ta bombe ici (à ta manière actuelle)
+
+            // 2. Ajouter un timer de 5 secondes dans le cooldown
+            bombCooldowns.Add(Time.time + 5f);
+        }
+
+        public void AddBombStock(int amount)
+        {
+            bombStock += amount;
+        }
+
+        public void AddExplosionRange(int amount)
+        {
+            explosionRange += amount;
         }
     }
 }
