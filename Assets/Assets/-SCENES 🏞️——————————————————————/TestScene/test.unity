@@ -2030,6 +2030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210773468}
   - component: {fileID: 210773467}
+  - component: {fileID: 210773469}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -2044,7 +2045,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210773466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ee74861a61c7bf4aaaa2edc85d3f5cb, type: 3}
   m_Name: 
@@ -2069,6 +2070,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210773469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210773466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785730eb092d51c48b7a94cf31e89c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 60
+  BlocApparitionDuration: 0.5
+  height: 17
+  width: 11
+  m_gameObject: {fileID: 8495267454006963734, guid: 1d62e514afc22bb4a98c24fd611004a9,
+    type: 3}
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
 --- !u!1 &242184217
 GameObject:
   m_ObjectHideFlags: 0
