@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, IDetect
+public class PlayerManager : MonoBehaviour ,IDetect
 {
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;

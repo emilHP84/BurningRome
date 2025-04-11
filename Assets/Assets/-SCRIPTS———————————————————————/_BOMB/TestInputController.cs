@@ -58,11 +58,13 @@ namespace testScript
         public void AddBombStock(int amount)
         {
             bombStock += amount;
+            Debug.Log("+ 1 Bombe dans le stock !");
         }
 
         public void AddExplosionRange(int amount)
         {
             explosionRange += amount;
+            Debug.Log("+ 1 de range ");
         }
     }
 }

@@ -7,12 +7,15 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
 {
     public void Break()
     {
+        SpawnPowerUp();
         Destroy(gameObject);
     }
 
     public void OnDetectionWith(IDetect detect)
     {
+        SpawnPowerUp();
         Destroy(gameObject);
+
     }
 
 
@@ -47,15 +50,5 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
         public GameObject prefab;
         public float pourcentage;
     }
-
-
-
-    private void OnDestroy()
-    {
-        SpawnPowerUp();
-    }
-
-   
-
    
 }
