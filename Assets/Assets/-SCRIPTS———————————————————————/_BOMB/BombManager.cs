@@ -12,6 +12,10 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     [SerializeField][Range(0, 3)] float m_delayExplose;
     [SerializeField] GameObject m_ExplosionPatern;
     private int explosionRange = 1;
+    public Transform RangeUp;
+    public Transform RangeDown;
+    public Transform RangeLeft;
+    public Transform RangeRight;
 
     private float time;
     private bool HasExplose;
@@ -41,10 +45,10 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     IEnumerator Explose()
     {
         // Récupérer les cubes
-        Transform up = m_ExplosionPatern.transform.Find("Up");
-        Transform down = m_ExplosionPatern.transform.Find("Down");
-        Transform left = m_ExplosionPatern.transform.Find("Left");
-        Transform right = m_ExplosionPatern.transform.Find("Right");
+        Transform up = RangeUp;
+        Transform down = RangeDown;
+        Transform left = RangeLeft;
+        Transform right = RangeRight;
 
         // Les déplacer selon la portée
         up.localPosition = Vector3.forward * explosionRange;
