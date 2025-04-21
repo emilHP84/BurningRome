@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
+public class Obstacle : MonoBehaviour, IBreakable, IDetect, ICollisionable, ISpawnPowerUp
 {
     public void Break()
     {
@@ -38,6 +38,11 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
                 break; // On stoppe dès qu’un power-up est choisi
             }
         }
+
+    }
+
+    public void OnCollisionWith(ICollisionable collisionable)
+    {
 
     }
 

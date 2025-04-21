@@ -11,6 +11,7 @@ public class DeadZoneManager : MonoBehaviour
     [Header(" matrice")]
     [SerializeField] private int height = 17;
     [SerializeField] private int width = 11;
+    [SerializeField] private int YHeight = 3;
 
     [SerializeField] private int[,] m_matrice;
 
@@ -72,7 +73,7 @@ public class DeadZoneManager : MonoBehaviour
             for (int j = 0; j < right; j++)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
-                GenerateBloc(new Vector3(j, transform.position.y, top));
+                GenerateBloc(new Vector3(j, YHeight, top));
             }
             right--;
             left++;
@@ -81,7 +82,7 @@ public class DeadZoneManager : MonoBehaviour
             for (int j = width; j > 0 + bottom ; j--)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
-                GenerateBloc(new Vector3(right, transform.position.y, j));
+                GenerateBloc(new Vector3(right, YHeight, j));
             }
             top--;
             bottom++;
@@ -90,24 +91,25 @@ public class DeadZoneManager : MonoBehaviour
             for (int j = right; j > 0 + left ; j--)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
-                GenerateBloc(new Vector3(j , transform.position.y, bottom));
+                GenerateBloc(new Vector3(j , YHeight, bottom));
             }
 
             // bottom --> top
             for (int j = 0; j < top; j++)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
-                GenerateBloc(new Vector3(left, transform.position.y, j));
+                GenerateBloc(new Vector3(left, YHeight, j));
             }            
         }
-        GenerateBloc(new Vector3(left, transform.position.y, top));
+        GenerateBloc(new Vector3(left, YHeight, top));
     }
 
     public void GenerateBloc(Vector3 direction)
     {
+        Vector3 originScale = new Vector3 (1,1,1);
         GameObject obj = Instantiate(m_gameObject, direction, Quaternion.identity, transform.parent);
         obj.transform.localScale = new Vector3(0, 0, 0);
-        obj.transform.DOScale(new Vector3(1, 1, 1), 0.6f);
+        obj.transform.DOScale(originScale, 0.6f);
 
     }
 

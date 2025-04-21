@@ -64,12 +64,16 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     // detecte les différent objet en collision ( nécésite un rigidbody )
     public void OnCollisionWith(ICollisionable collisionable)
     {
-        if (collisionable is Ground)
+        if (collisionable is PlayerManager)
+        {
+            rb.isKinematic = false;
+        }
+        else if (collisionable is Ground)
         {
             rb.isKinematic = true;
         }
     }
-
+    
     public void OnDetectionWith(IDetect detect)
     {
         StartCoroutine(Explose());
@@ -79,6 +83,4 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     {
         explosionRange = range;
     }
-
-
 }

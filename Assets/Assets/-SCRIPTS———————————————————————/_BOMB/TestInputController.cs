@@ -28,7 +28,7 @@ namespace testScript
             {
                 GameObject bomb = dropComponent.DroppingObject
                (
-                    dropGameObject,new Vector3(transform.position.x, 3, transform.position.z),transform.rotation,null
+                    dropGameObject,new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)),transform.rotation,null
                );
 
                 bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);

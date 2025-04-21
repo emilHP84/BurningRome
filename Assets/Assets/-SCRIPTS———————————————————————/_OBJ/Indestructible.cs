@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Indestructible : MonoBehaviour, ICollisionable
+{
+    public void OnCollisionWith(ICollisionable collisionable)
+    {
+
+    }
+}
