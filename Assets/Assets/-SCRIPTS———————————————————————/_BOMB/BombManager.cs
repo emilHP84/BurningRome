@@ -8,13 +8,14 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     private Rigidbody rb;
     private SphereCollider sphereCollider;
 
-    [SerializeField][Range(0,6)] float m_delayBetweenExplose;
-    [SerializeField][Range(0,3)] float m_delayExplose;
+    [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
+    [SerializeField][Range(0, 3)] float m_delayExplose;
     [SerializeField] GameObject m_ExplosionPatern;
+    private int explosionRange = 1;
 
     private float time;
     private bool HasExplose;
-    
+
     void Start()
     {
         SetComponent();
@@ -25,11 +26,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
         rb = GetComponent<Rigidbody>();
         sphereCollider = rb.GetComponent<SphereCollider>();
     }
-    
+
     void Update()
     {
         time += Time.deltaTime;
-        if (HasExplose == false && time >= m_delayBetweenExplose ) 
+        if (HasExplose == false && time >= m_delayBetweenExplose)
         {
             StartCoroutine(Explose());
             HasExplose = true;
@@ -39,34 +40,47 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
 
     IEnumerator Explose()
     {
+        // Récupérer les cubes
+        Transform up = m_ExplosionPatern.transform.Find("Up");
+        Transform down = m_ExplosionPatern.transform.Find("Down");
+        Transform left = m_ExplosionPatern.transform.Find("Left");
+        Transform right = m_ExplosionPatern.transform.Find("Right");
+
+        // Les déplacer selon la portée
+        up.localPosition = Vector3.forward * explosionRange;
+        down.localPosition = Vector3.back * explosionRange;
+        left.localPosition = Vector3.left * explosionRange;
+        right.localPosition = Vector3.right * explosionRange;
+
+        // Activer l'explosion
         m_ExplosionPatern.SetActive(true);
+
+        // Attendre la fin de l'explosion
         yield return new WaitForSeconds(m_delayExplose);
         Destroy(this.gameObject);
+
     }
 
     // detecte les différent objet en collision ( nécésite un rigidbody )
     public void OnCollisionWith(ICollisionable collisionable)
     {
-        if(collisionable is Ground)
+        if (collisionable is PlayerManager)
+        {
+            rb.isKinematic = false;
+        }
+        else if (collisionable is Ground)
         {
             rb.isKinematic = true;
         }
-        
     }
-
+    
     public void OnDetectionWith(IDetect detect)
     {
-        if (detect is BombManager)
-        {
-            Debug.Log("tetttet");
-            StartCoroutine(Explose());
+        StartCoroutine(Explose());
+    }
 
-        }
-        if (detect is Obstacle)
-        {
-            Debug.Log("bloc touché_________________________//");
-            IBreakable breakable = (IBreakable)detect;
-            breakable.Break();
-        }
+    public void SetExplosionRange(int range)
+    {
+        explosionRange = range;
     }
 }
