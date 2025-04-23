@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-public class BombManager : MonoBehaviour, ICollisionable, IDetect
+public class BombManager : MonoBehaviour, ICollisionable
 {
     private Rigidbody rb;
     private SphereCollider sphereCollider;
@@ -11,11 +11,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 3)] float m_delayExplose;
     [SerializeField] GameObject m_ExplosionPatern;
-    private int explosionRange = 1;
-    public Transform RangeUp;
-    public Transform RangeDown;
-    public Transform RangeLeft;
-    public Transform RangeRight;
+    [SerializeField] private int explosionRange = 1;
+
 
     private float time;
     private bool HasExplose;
@@ -36,53 +33,66 @@ public class BombManager : MonoBehaviour, ICollisionable, IDetect
         time += Time.deltaTime;
         if (HasExplose == false && time >= m_delayBetweenExplose)
         {
-            StartCoroutine(Explose());
+            Explose();
             HasExplose = true;
             time = 0;
         }
+        else if(HasExplose &&  time >= m_delayExplose)
+        {
+            // Attendre la fin de l'explosion
+            Destroy(this.gameObject);
+        }
     }
 
-    IEnumerator Explose()
+    void Explose()
     {
+        //Emilien: a dégager ( code ci dessous non fonctionnelle ) 
+        /*
         // Récupérer les cubes
-        Transform up = RangeUp;
-        Transform down = RangeDown;
-        Transform left = RangeLeft;
-        Transform right = RangeRight;
+        Transform up = m_ExplosionPatern.transform.Find("Up");
+        Transform down = m_ExplosionPatern.transform.Find("Down");
+        Transform left = m_ExplosionPatern.transform.Find("Left");
+        Transform right = m_ExplosionPatern.transform.Find("Right");
 
         // Les déplacer selon la portée
-        up.localPosition = Vector3.forward * explosionRange;
+        up.localPosition = Vector3.forward / explosionRange;
         down.localPosition = Vector3.back * explosionRange;
         left.localPosition = Vector3.left * explosionRange;
         right.localPosition = Vector3.right * explosionRange;
 
         // Activer l'explosion
         m_ExplosionPatern.SetActive(true);
+        */
 
-        // Attendre la fin de l'explosion
-        yield return new WaitForSeconds(m_delayExplose);
-        Destroy(this.gameObject);
+        RaycastHit[] hits = new RaycastHit[4];
+        Physics.Raycast(transform.position,Vector3.forward,out hits[0], explosionRange);
+        Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
+        Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
+        Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
+
+        foreach (var hit in hits)
+        {
+            
+            hit.transform?.GetComponent<IExplodable>()?.Explode();
+        }
 
     }
 
     // detecte les différent objet en collision ( nécésite un rigidbody )
     public void OnCollisionWith(ICollisionable collisionable)
     {
-        if (collisionable is Ground)
+        if (collisionable is PlayerManager)
+        {
+            rb.isKinematic = false;
+        }
+        else if (collisionable is Ground)
         {
             rb.isKinematic = true;
         }
-    }
-
-    public void OnDetectionWith(IDetect detect)
-    {
-        StartCoroutine(Explose());
     }
 
     public void SetExplosionRange(int range)
     {
         explosionRange = range;
     }
-
-
 }

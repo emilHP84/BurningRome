@@ -1,24 +1,11 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
+public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable
 {
-    public void Break()
-    {
-        SpawnPowerUp();
-        Destroy(gameObject);
-    }
-
-    public void OnDetectionWith(IDetect detect)
-    {
-        SpawnPowerUp();
-        Destroy(gameObject);
-
-    }
-
-
 
     public void SpawnPowerUp()
     {
@@ -41,6 +28,30 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
 
     }
 
+    public void OnCollisionWith(ICollisionable collisionable)
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("1");
+        MovementPlayerTest move = collision.gameObject.GetComponent<MovementPlayerTest>();
+        if (move)
+        {
+
+            Debug.Log($"{gameObject.name}");
+
+            move.PlayerBlocked();
+        }
+    }
+
+    public void Explode()
+    {
+        SpawnPowerUp();
+        Destroy(gameObject);
+    }
+
     [SerializeField]
     private List<PowerUpData> powerUps;
 
@@ -50,5 +61,5 @@ public class Obstacle : MonoBehaviour, IBreakable, IDetect, ISpawnPowerUp
         public GameObject prefab;
         public float pourcentage;
     }
-   
+
 }
