@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour ,IDetect
+public class PlayerManager : MonoBehaviour ,IDetect, ICollisionable
 {
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
@@ -71,5 +71,10 @@ public class PlayerManager : MonoBehaviour ,IDetect
     {
         Debug.Log("player touché...");
         StartCoroutine(OnDeath(deathTime));
+    }
+
+    public void OnCollisionWith(ICollisionable collisionable)
+    {
+        
     }
 }

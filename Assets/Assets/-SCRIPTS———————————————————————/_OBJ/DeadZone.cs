@@ -14,6 +14,11 @@ public class DeadZone : MonoBehaviour, ICollisionable
         {
             DestroyBloc(ind.gameObject);
         }
+        if(collisionable is PlayerManager player) 
+        {
+            Debug.Log("test");
+            EVENTS.InvokeOnDeath(this, player.PlayerID);
+        }
     }
 
     void DestroyBloc(GameObject obj) 
