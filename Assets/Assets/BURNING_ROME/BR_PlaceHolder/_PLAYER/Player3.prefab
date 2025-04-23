@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 837289695570888396}
   - component: {fileID: 4824676283869804982}
   - component: {fileID: 5104385261382358490}
-  - component: {fileID: 7808150508335829761}
   - component: {fileID: 7273555538026760461}
-  - component: {fileID: 2199310172798038201}
   - component: {fileID: 8723475961172459407}
+  - component: {fileID: 5582661331393229884}
+  - component: {fileID: 1246786414811122112}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -158,19 +158,6 @@ MonoBehaviour:
   isAlive: 0
   hited: 0
   deathTime: 1
---- !u!114 &7808150508335829761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570089093847741416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 165fccefa56673745bb68c4da7304e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &7273555538026760461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,22 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f0c21cdd5298246966d4dcf4611488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2199310172798038201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570089093847741416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb2dc9f66ce16a4789f483bbb812384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombStock: 1
-  explosionRange: 1
-  dropGameObject: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
-    type: 3}
 --- !u!114 &8723475961172459407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +201,33 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5582661331393229884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570089093847741416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77634cb9c50a30a4fa43031a9e176897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombStock: 1
+  explosionRange: 1
+  dropGameObject: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
+    type: 3}
+--- !u!114 &1246786414811122112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570089093847741416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db4df58028f461499cda3a46d13e180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  isBlocked: 0

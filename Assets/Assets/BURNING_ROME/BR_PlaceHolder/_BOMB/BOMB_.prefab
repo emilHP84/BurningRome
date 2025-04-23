@@ -255,10 +255,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4038464818063998892}
-  - component: {fileID: 768094991056287150}
   - component: {fileID: 4888651156444548378}
   - component: {fileID: 1610166982352414454}
   - component: {fileID: 1789298228353090975}
+  - component: {fileID: 1879754482895544003}
   m_Layer: 0
   m_Name: BOMB_
   m_TagString: Untagged
@@ -283,22 +283,6 @@ Transform:
   - {fileID: 5806267012052427429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &768094991056287150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2457780494778257777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 048ada8f5d8f6d44c832896788279e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_delayBetweenExplose: 3
-  m_delayExplose: 1
-  m_ExplosionPatern: {fileID: 7871839663240356362}
-  explosionRange: 1
 --- !u!135 &4888651156444548378
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -359,6 +343,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5325a120a25a041ba0fc5503ecfbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1879754482895544003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457780494778257777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f8f1375964f0a4386ed9b470d70d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_delayBetweenExplose: 3
+  m_delayExplose: 1
+  m_ExplosionPatern: {fileID: 7871839663240356362}
+  explosionRange: 1
 --- !u!1 &5090486007952188663
 GameObject:
   m_ObjectHideFlags: 0
