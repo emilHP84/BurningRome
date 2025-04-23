@@ -62,10 +62,10 @@ public class VictoryManager : MonoBehaviour
     public void SetLooser(int playerID)
     {
         Debug.Log("playezrID" + playerID);
-        if (PlayerAlive[playerID].gameObject.GetComponent<PlayerManager>().Hited == false &&
-            playerID == PlayerAlive[playerID-1].gameObject.GetComponent<PlayerManager>().PlayerID)
+        if (PlayerAlive[playerID-1].gameObject.GetComponent<PlayerManager>().Hited == false && playerID == PlayerAlive[playerID-1].gameObject.GetComponent<PlayerManager>().PlayerID)
         {
-            PlayerAlive.Remove(PlayerAlive[playerID-1]);
+            PlayerAlive[playerID - 1].SetActive(false);
+            PlayerAlive[playerID - 1] = null;
         }
     }
     //-----------------------------------------------------------------------//

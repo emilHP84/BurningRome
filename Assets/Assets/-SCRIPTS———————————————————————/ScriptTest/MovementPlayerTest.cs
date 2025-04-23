@@ -10,6 +10,7 @@ public class MovementPlayerTest : MonoBehaviour
     public float speed;
     private Vector3 direction;
     private bool KeyPressed = false; // Par défaut, aucune touche n'est active
+    public bool isBlocked = false;
     private KeyCode activeKey = KeyCode.None; // Stocke la touche actuellement pressée
     private Vector2 moveInput = Vector2.zero;
 
@@ -40,36 +41,56 @@ public class MovementPlayerTest : MonoBehaviour
             }
         }
 
-        // Si une touche est active, continuer le déplacement
-        if (KeyPressed)
-        {
-            transform.Translate(direction * speed * Time.deltaTime);
-        }
+        
 
         // Si la touche active est relâchée, réinitialiser KeyPressed
         if (KeyPressed && Input.GetKeyUp(activeKey))
         {
             KeyPressed = false;
             activeKey = KeyCode.None;
+            isBlocked = false;
         }
+        // Emilien: ce bout de code est un doublon de l'autres transform.translate
+        // ## START ##
+        /*
+            if (moveInput.magnitude >= 0.1f)
+            {
+                Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+                transform.Translate(move * speed * Time.deltaTime);
+            }
+        // ## END ##
+        */
+    }
 
-        if (moveInput.magnitude >= 0.1f)
+    private void FixedUpdate()
+    {
+        // Si une touche est active, continuer le déplacement
+        if (KeyPressed) //&& !isBlocked
         {
-            Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
-            transform.Translate(move * speed * Time.deltaTime);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            Debug.Log($"position : {rb.position}");
+            Debug.Log($"direction : {direction}");
+            Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
+            rb.MovePosition( rb.position + direction * speed * Time.fixedDeltaTime);
+
+
+
+            //transform.Translate(direction * speed * Time.deltaTime);
         }
     }
 
-    // Fonction pour démarrer le déplacement
 
-
+    // Emilien: ce bout de code n'est utilisé nul part, je l'ai mis en commentaire 
+    // ## START ##
+    /*
+    //Fonction pour démarrer le déplacement
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
         Debug.Log("OnMove reçu : " + moveInput);
     }
-
-
+    // ## END ##
+    */
 
 
     void StartMoving(KeyCode key, Vector3 dir)
@@ -77,6 +98,11 @@ public class MovementPlayerTest : MonoBehaviour
         activeKey = key; // Mémoriser la touche enfoncée
         direction = dir; // Mettre à jour la direction
         KeyPressed = true; // Empêcher d'autres touches d'agir
+    }
+
+    public void PlayerBlocked()
+    {
+        isBlocked = true;
     }
 }
 

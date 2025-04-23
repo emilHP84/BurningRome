@@ -21,12 +21,15 @@ public class GenerationTiles : MonoBehaviour
                 if (i % 2 != 0 && j % 2 != 0 && !estZoneSpawn && j > 0 && j < 10)
                 {
                     estIndestructible = true;
-                    Instantiate(BlocInDestructible, new Vector3(i, 0.6f, j), Quaternion.identity).transform.parent = GenerationTerrain;
+                   GameObject go =  Instantiate(BlocInDestructible, new Vector3(i, 0.6f, j), Quaternion.identity, GenerationTerrain);
+                    go.name = $"bloc indestructible ({i}, {j})";
                 }
 
                 if (!estZoneSpawn && !estIndestructible && Random.value <= 0.9f)
-                {
-                    Instantiate(BlocDestructible, new Vector3(i, 0.6f, j), Quaternion.identity).transform.parent = GenerationTerrain;
+                { 
+                    GameObject go = Instantiate(BlocDestructible, new Vector3(i, 0.6f, j), Quaternion.identity, GenerationTerrain);
+                    go.name = $"bloc destructible ({i}, {j})";
+
                 }
             }
         }
