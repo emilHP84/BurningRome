@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3919471381833742979}
   - component: {fileID: 3877379369587850211}
   - component: {fileID: 6868313801923037192}
-  - component: {fileID: -7809963748265634783}
   - component: {fileID: 2104787414141824102}
   - component: {fileID: -1742535719917075438}
+  - component: {fileID: 325003116102312215}
   m_Layer: 0
   m_Name: Bloc Destructible
   m_TagString: Untagged
@@ -88,28 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7809963748265634783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8951621100866531645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c780fd328e7d9444bcbd798a8051617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUps:
-  - prefab: {fileID: 3617961079453434432, guid: 1c1892145cc632744b021fa06dcdd658,
-      type: 3}
-    pourcentage: 70
-  - prefab: {fileID: 3617961079453434432, guid: ee87d749b42331b40b62d81092119e9a,
-      type: 3}
-    pourcentage: 70
-  - prefab: {fileID: 3617961079453434432, guid: 686ae01277114af4fb4d6424ad82f66f,
-      type: 3}
-    pourcentage: 10
 --- !u!65 &2104787414141824102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -158,3 +136,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &325003116102312215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8951621100866531645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94224fff410dc5c45a30babb86b33bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUps:
+  - prefab: {fileID: 3617961079453434432, guid: 1c1892145cc632744b021fa06dcdd658,
+      type: 3}
+    pourcentage: 90
+  - prefab: {fileID: 3617961079453434432, guid: ee87d749b42331b40b62d81092119e9a,
+      type: 3}
+    pourcentage: 30
