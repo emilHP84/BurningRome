@@ -8,18 +8,24 @@ public class VictoryManager : MonoBehaviour
     private CustomPlayerJoin m_customPlayerJoin;
     [SerializeField] private List<GameObject> PlayerAlive = new List<GameObject>();
 
+    float PlayerNumber = 4; // temporaire le 4
+
     private void OnEnable()
     {
         EVENTS.OnDeathEventHandler += OnDeath;
+        EVENTS.OnPlayerConnectEventHandler += SetNewNumberOfPlayer;
     }
 
     private void Awake()
     {
-        
+
     }
 
     private void Start()
     {
+        //Emilien: à réplacer plus tard
+        // PlayerNumber = 0;
+
         m_customPlayerJoin = GetComponent<CustomPlayerJoin>();
         SetPlayerAlive();
     }
@@ -29,8 +35,13 @@ public class VictoryManager : MonoBehaviour
 
     }
 
+    //-ajout des joueur présent dans le la partit----------------------------//
+    void SetNewNumberOfPlayer(object invoker, int i)
+    {
+        PlayerNumber++;
+    }
 
-
+    //-----------------------------------------------------------------------//
 
 
     //-ajout des joueur présent dans le CustomPlayerJoin---------------------//
@@ -39,13 +50,15 @@ public class VictoryManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             AddNewPlayer(i);
-        }   
+        }
     }
 
     public void AddNewPlayer(int playerNumber)
     {
-        PlayerAlive.Add(m_customPlayerJoin.playerPrefabs[playerNumber]);
+        GameObject OBJ = Instantiate(m_customPlayerJoin.playerPrefabs[playerNumber]);
+        PlayerAlive.Add(OBJ);
     }
+
     //-----------------------------------------------------------------------//
 
 
@@ -55,18 +68,23 @@ public class VictoryManager : MonoBehaviour
     //-retier le joueur de la liste des joueur encore vivant-----------------//
     void OnDeath(object invoker, int e)
     {
-            SetLooser(e);
-            CheckVictory();
+        SetLooser(e);
+        CheckVictory();
     }
-    
+
     public void SetLooser(int playerID)
     {
         Debug.Log("playezrID" + playerID);
-        if (PlayerAlive[playerID-1].gameObject.GetComponent<PlayerManager>().Hited == false && playerID == PlayerAlive[playerID-1].gameObject.GetComponent<PlayerManager>().PlayerID)
-        {
-            PlayerAlive[playerID - 1].SetActive(false);
-            PlayerAlive[playerID - 1] = null;
-        }
+
+        PlayerAlive[playerID - 1].gameObject.SetActive(false);
+        PlayerAlive[playerID - 1] = null;
+
+
+        //if (PlayerAlive[playerID - 1].gameObject.GetComponent<PlayerManager>().Hited == false && playerID == PlayerAlive[playerID - 1].gameObject.GetComponent<PlayerManager>().PlayerID)
+        //{
+
+        //}
+        //else return;
     }
     //-----------------------------------------------------------------------//
 
@@ -77,15 +95,24 @@ public class VictoryManager : MonoBehaviour
     //-vérifie si il reste un joueur, si oui lancer Victoire()---------------//
     public void CheckVictory()
     {
-        if(PlayerAlive.Count == 1) 
-        { 
+        for(int i = 0; i < 3 ; i++) 
+        {
+            if (PlayerAlive[i] == null)
+            {
+                PlayerNumber--;
+            }
+        }
+
+        if (PlayerNumber == 1)
+        {
             SetVictory();
         }
+        else return;
     }
 
     public void SetVictory()
     {
-        SceneManager.LoadScene("VictoryScene");
+        SceneLoader.access.LoadScene(3);
     }
     //-----------------------------------------------------------------------//
 
@@ -95,6 +122,7 @@ public class VictoryManager : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        EVENTS.OnDeathEventHandler -= OnDeath;
+        EVENTS.OnPlayerConnectEventHandler -= SetNewNumberOfPlayer;
     }
 }

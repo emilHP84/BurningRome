@@ -95,4 +95,7 @@ public class EVENTS
     public static EventHandler<int> OnDeathEventHandler;
     public static void InvokeOnDeath(object invoker,int e) { OnDeathEventHandler?.Invoke(invoker,e); }
 
+    public static EventHandler<int> OnPlayerConnectEventHandler;
+    public static void InvokeOnPlayerConnect(object invoker, int e) { OnPlayerConnectEventHandler?.Invoke(invoker, e); }
+
 } // SCRIPT END
