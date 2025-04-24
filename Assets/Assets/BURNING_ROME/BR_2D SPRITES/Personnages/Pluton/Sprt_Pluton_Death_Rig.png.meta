@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f3384dd7ad425da4cade8e4a74b512a0
+guid: 55acd0180ede1134cb4bdd725b0293fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,10 +132,10 @@ TextureImporter:
         rgba: 4278255360
     - name: tissu1
       guid: 9316e169b0d4df447861b0fc41db1f09
-      position: {x: 10.89254, y: -186.60085, z: 1}
-      rotation: {x: 0, y: 0, z: -0.62677884, w: 0.7791972}
+      position: {x: 922.718, y: 332.11697, z: 1}
+      rotation: {x: 0, y: 0, z: 0.11342368, w: 0.9935468}
       length: 63.41029
-      parentId: 4
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901760
@@ -151,25 +151,25 @@ TextureImporter:
     - name: corp1
       guid: 58e459686409caf46b7c1282ba76716b
       position: {x: 736.253, y: 319.10446, z: 0}
-      rotation: {x: 0, y: 0, z: 0.71111345, w: 0.70307726}
-      length: 48.341106
+      rotation: {x: 0, y: 0, z: 0.7111135, w: 0.7030773}
+      length: 48.341095
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4286643968
     - name: corp2
       guid: 789feb8e28d27c14baf88847e3651dbd
-      position: {x: 48.34109, y: 0.000019242361, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0056811897, w: 0.99998385}
-      length: 52.18302
+      position: {x: 48.341084, y: -0.000058585592, z: 0}
+      rotation: {x: 0, y: 0, z: -0.005683813, w: 0.99998385}
+      length: 52.183006
       parentId: 4
       color:
         serializedVersion: 2
         rgba: 4294934528
     - name: corp3
       guid: 58d108342e7b1774fa5dfc15bde12268
-      position: {x: 52.18302, y: -0.00016145429, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0036505016, w: 0.9999933}
+      position: {x: 52.183002, y: 0.00015111391, z: 0}
+      rotation: {x: 0, y: 0, z: -0.0036478846, w: 0.9999934}
       length: 301.02167
       parentId: 5
       color:
@@ -177,26 +177,26 @@ TextureImporter:
         rgba: 4294901888
     - name: brasD1
       guid: 2e59595bbb982144d8b1b4ceeaeff4b9
-      position: {x: 361.35568, y: 359.94733, z: -1}
-      rotation: {x: 0, y: -0, z: -0.99556977, w: 0.09402571}
-      length: 205.84378
-      parentId: 6
+      position: {x: 378.4032, y: 783.5986, z: -1}
+      rotation: {x: 0, y: 0, z: -0.6402953, w: 0.76812893}
+      length: 205.84373
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278255615
     - name: brasD2
       guid: f05adcc03d2b4904e9c2d52da6bee0ad
-      position: {x: 205.84378, y: 0.000036361373, z: 3}
+      position: {x: 205.8438, y: 0.00003397691, z: 3}
       rotation: {x: 0, y: 0, z: 0.038704183, w: 0.9992507}
-      length: 98.8609
+      length: 98.86092
       parentId: 7
       color:
         serializedVersion: 2
         rgba: 4278255360
     - name: mainD
       guid: 02d849d8842916d46be4ee8e66953cad
-      position: {x: 98.860916, y: -0.000035181285, z: 3}
-      rotation: {x: 0, y: 0, z: 0.0016194569, w: 0.9999987}
+      position: {x: 98.86093, y: -0.000012649227, z: 3}
+      rotation: {x: 0, y: 0, z: 0.001619416, w: 0.9999987}
       length: 63.689816
       parentId: 8
       color:
@@ -204,26 +204,26 @@ TextureImporter:
         rgba: 4294967040
     - name: brasG1
       guid: f200f0f2c9e312849aede1bda435c596
-      position: {x: 377.85648, y: -517.4385, z: 2}
-      rotation: {x: 0, y: -0, z: 0.9993352, w: 0.036456686}
-      length: 219.32489
-      parentId: 6
+      position: {x: 1255.8861, y: 793.6955, z: 2}
+      rotation: {x: 0, y: 0, z: 0.7348953, w: -0.6781807}
+      length: 219.32492
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901760
     - name: brasG2
       guid: 2438e16cdf5f6164baef3ae521bd2d1b
-      position: {x: 219.3249, y: -0.00019651474, z: 3}
-      rotation: {x: 0, y: 0, z: -0.10600162, w: 0.994366}
-      length: 89.49462
+      position: {x: 219.32492, y: -0.00018334019, z: 3}
+      rotation: {x: 0, y: 0, z: -0.106001474, w: 0.994366}
+      length: 89.494675
       parentId: 10
       color:
         serializedVersion: 2
         rgba: 4294902015
     - name: mainG
       guid: a10e64c99356be84aba1af638c196a3a
-      position: {x: 89.49466, y: 0.000041903946, z: 3}
-      rotation: {x: 0, y: 0, z: 0.021052616, w: -0.9997784}
+      position: {x: 89.49467, y: -0.00000021628875, z: 3}
+      rotation: {x: 0, y: 0, z: 0.02105272, w: -0.9997784}
       length: 53.504803
       parentId: 11
       color:
@@ -231,19 +231,19 @@ TextureImporter:
         rgba: 4278190335
     - name: tete
       guid: 0c61d59e101a76448a4cea1714dc0fb7
-      position: {x: 449.5027, y: 1.7949632, z: 2}
-      rotation: {x: 0, y: 0, z: -0.0016981558, w: 0.99999857}
+      position: {x: 737.1894, y: 869.12933, z: 2}
+      rotation: {x: 0, y: 0, z: 0.70331556, w: 0.7108779}
       length: 436.88892
-      parentId: 6
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278255488
     - name: bassin
       guid: 60e841ba61917ee4c8e0a09f4fe0c921
-      position: {x: -63.47017, y: -2.6038983, z: 1}
-      rotation: {x: 0, y: 0, z: -0.0056811897, w: 0.99998385}
+      position: {x: 739.57806, y: 255.66798, z: 1}
+      rotation: {x: 0, y: 0, z: 0.7071077, w: 0.70710593}
       length: 40.293446
-      parentId: 4
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901888
