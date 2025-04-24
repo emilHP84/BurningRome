@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-public class BombManager : MonoBehaviour, ICollisionable
+public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     private Rigidbody rb;
     private SphereCollider sphereCollider;
@@ -33,11 +33,12 @@ public class BombManager : MonoBehaviour, ICollisionable
         time += Time.deltaTime;
         if (HasExplose == false && time >= m_delayBetweenExplose)
         {
+            if (HasExplose) return;
             Explose();
             HasExplose = true;
             time = 0;
         }
-        else if(HasExplose &&  time >= m_delayExplose)
+        else if (HasExplose && time >= m_delayExplose)
         {
             // Attendre la fin de l'explosion
             Destroy(this.gameObject);
@@ -46,6 +47,8 @@ public class BombManager : MonoBehaviour, ICollisionable
 
     void Explose()
     {
+        if (HasExplose) return;
+        HasExplose = true;
         //Emilien: a dégager ( code ci dessous non fonctionnelle ) 
         /*
         // Récupérer les cubes
@@ -65,15 +68,16 @@ public class BombManager : MonoBehaviour, ICollisionable
         */
 
         RaycastHit[] hits = new RaycastHit[4];
-        Physics.Raycast(transform.position,Vector3.forward,out hits[0], explosionRange);
+        Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange);
         Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
         Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
         Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
 
         foreach (var hit in hits)
         {
-            
+
             hit.transform?.GetComponent<IExplodable>()?.Explode();
+
         }
 
     }
@@ -94,5 +98,12 @@ public class BombManager : MonoBehaviour, ICollisionable
     public void SetExplosionRange(int range)
     {
         explosionRange = range;
+    }
+
+    public void Explode()
+    {
+        Explose();
+        HasExplose = true;
+        time = 0;
     }
 }

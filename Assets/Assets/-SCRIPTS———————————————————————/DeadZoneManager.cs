@@ -67,10 +67,10 @@ public class DeadZoneManager : MonoBehaviour
 
     public IEnumerator GenerateSpirale()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             // left --> right
-            for (int j = 0; j < right; j++)
+            for (int j = 0 + i ; j < right; j++)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
                 GenerateBloc(new Vector3(j, YHeight, top));
@@ -79,7 +79,7 @@ public class DeadZoneManager : MonoBehaviour
             left++;
 
             // top --> bottom
-            for (int j = width; j > 0 + bottom ; j--)
+            for (int j = width - i - 1; j > 0 + bottom; j--)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
                 GenerateBloc(new Vector3(right, YHeight, j));
@@ -88,14 +88,14 @@ public class DeadZoneManager : MonoBehaviour
             bottom++;
 
             // right --> left
-            for (int j = right; j > 0 + left ; j--)
+            for (int j = right - 1; j > 0 + left ; j--)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
                 GenerateBloc(new Vector3(j , YHeight, bottom));
             }
 
             // bottom --> top
-            for (int j = 0; j < top; j++)
+            for (int j = 0 + i; j < top + 1; j++)
             {
                 yield return new WaitForSeconds(BlocApparitionDuration);
                 GenerateBloc(new Vector3(left, YHeight, j));
@@ -107,7 +107,7 @@ public class DeadZoneManager : MonoBehaviour
     public void GenerateBloc(Vector3 direction)
     {
         Vector3 originScale = new Vector3 (1,1,1);
-        GameObject obj = Instantiate(m_gameObject, direction, Quaternion.identity, transform.parent);
+        GameObject obj = Instantiate(m_gameObject, direction, Quaternion.identity, this.gameObject.transform);
         obj.transform.localScale = new Vector3(0, 0, 0);
         obj.transform.DOScale(originScale, 0.6f);
 
