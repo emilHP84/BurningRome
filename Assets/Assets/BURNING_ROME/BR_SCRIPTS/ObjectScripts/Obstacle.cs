@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
 
     public void SpawnPowerUp()
     {
-        if (UnityEngine.Random.Range(0f, 1f) >= 0.1f)
+        if (UnityEngine.Random.Range(0f, 1f) >= 1f)
         {
             return; // Échec du tirage global  rien ne se passe
         }

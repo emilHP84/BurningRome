@@ -52,14 +52,14 @@ public class MovementPlayerTest : MonoBehaviour
         }
         // Emilien: ce bout de code est un doublon de l'autres transform.translate
         // ## START ##
-        /*
-            if (moveInput.magnitude >= 0.1f)
-            {
-                Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
-                transform.Translate(move * speed * Time.deltaTime);
-            }
+
+        if (moveInput.magnitude >= 0.1f)
+        {
+            Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+            transform.Translate(move * speed * Time.deltaTime);
+        }
         // ## END ##
-        */
+
     }
 
     private void FixedUpdate()
@@ -82,7 +82,7 @@ public class MovementPlayerTest : MonoBehaviour
 
     // Emilien: ce bout de code n'est utilisé nul part, je l'ai mis en commentaire 
     // ## START ##
-    /*
+
     //Fonction pour démarrer le déplacement
     public void OnMove(InputValue value)
     {
@@ -90,7 +90,7 @@ public class MovementPlayerTest : MonoBehaviour
         Debug.Log("OnMove reçu : " + moveInput);
     }
     // ## END ##
-    */
+
 
 
     void StartMoving(KeyCode key, Vector3 dir)

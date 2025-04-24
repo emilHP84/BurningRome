@@ -71,8 +71,7 @@ public class BombManager : MonoBehaviour, ICollisionable
         Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
 
         foreach (var hit in hits)
-        {
-            
+        {           
             hit.transform?.GetComponent<IExplodable>()?.Explode();
         }
 
