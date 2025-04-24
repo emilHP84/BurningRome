@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using testScript;
 using UnityEngine;
 
 public class FakePowerUpScript : MonoBehaviour
@@ -19,5 +20,15 @@ public class FakePowerUpScript : MonoBehaviour
     public void FakePowerUp()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var input = other.GetComponent<TestInputController>();
+        if (input != null)
+        {
+            input.FakeBomb(1);
+            Destroy(gameObject);
+        }
     }
 }

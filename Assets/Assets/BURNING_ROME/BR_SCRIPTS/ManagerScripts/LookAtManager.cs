@@ -10,10 +10,7 @@ public class LookAtManager : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main.transform;
-
-        cam.rotation = transform.rotation;
-        Vector3 camEuler = cam.eulerAngles;
-        camEuler.x = transform.eulerAngles.x;
-        cam.eulerAngles = camEuler;
+        Vector3 camrot = Vector3.right * cam.eulerAngles.x;
+        transform.localEulerAngles = camrot;
     }
 }

@@ -21,6 +21,7 @@ namespace testScript
         void Update()
         {
             DropBomb();
+            bombStock = Mathf.Clamp(bombStock, 1, 100);
         }
         void DropBomb()
         {
@@ -66,5 +67,11 @@ namespace testScript
             explosionRange += amount;
             Debug.Log("+ 1 de range ");
         }
+
+        public void FakeBomb(int amount)
+        {
+            bombStock -= amount;
+        }
+
     }
 }
