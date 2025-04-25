@@ -32,7 +32,7 @@ public class MovementPlayerTest : MonoBehaviour
     {
         if (initialposition != transform.position)
         {
-            AudioSource sound = gameObject.GetComponent<AudioSource>();
+            AudioSource sound = gameObject.GetComponentInChildren<AudioSource>();
             sound.Play();
             initialposition = transform.position;
         }
