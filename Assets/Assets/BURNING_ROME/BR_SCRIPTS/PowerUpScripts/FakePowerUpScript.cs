@@ -17,11 +17,6 @@ public class FakePowerUpScript : MonoBehaviour
         
     }
 
-    public void FakePowerUp()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         var input = other.GetComponent<MovementPlayerTest>();

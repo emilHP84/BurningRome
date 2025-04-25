@@ -1,11 +1,16 @@
 using DG.Tweening;
 using System.Collections;
+using testScript;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour ,IDetect, ICollisionable,IExplodable
+public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
+    private TestInputController controller;
+
+  
     public int PlayerID
     {
         get { return playerID; }
@@ -37,12 +42,12 @@ public class PlayerManager : MonoBehaviour ,IDetect, ICollisionable,IExplodable
 
     private void Awake()
     {
-        
+
     }
 
     void Start()
     {
-
+        controller = GetComponent<TestInputController>();
     }
 
     void Update()
@@ -69,18 +74,25 @@ public class PlayerManager : MonoBehaviour ,IDetect, ICollisionable,IExplodable
 
     public void OnDetectionWith(IDetect detect)
     {
-        Debug.Log("player touché...");
-        StartCoroutine(OnDeath(deathTime));
+        if (controller.IsInvicible == false)
+        {
+            Debug.Log("player touché...");
+            StartCoroutine(OnDeath(deathTime));
+        }
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
     {
-        
+
     }
 
     public void Explode()
-    {
-        Debug.Log("player touché...");
-        StartCoroutine(OnDeath(deathTime));
+    {  if (controller.IsInvicible== false)
+        {
+            Debug.Log("player touché...");
+            StartCoroutine(OnDeath(deathTime));
+        }
+
+        
     }
 }

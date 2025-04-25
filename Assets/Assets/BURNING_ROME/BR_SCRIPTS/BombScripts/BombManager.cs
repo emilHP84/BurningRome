@@ -12,6 +12,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     [SerializeField][Range(0, 3)] float m_delayExplose;
     [SerializeField] GameObject m_ExplosionPatern;
     [SerializeField] private int explosionRange = 1;
+    private bool IsRed;
 
 
     private float time;
@@ -30,22 +31,31 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
-        time += Time.deltaTime;
-        if (HasExplose == false && time >= m_delayBetweenExplose)
+        if(IsRed==false)
         {
-            if (HasExplose) return;
-            Explose();
-            HasExplose = true;
-            time = 0;
+            time += Time.deltaTime;
+            if (HasExplose == false && time >= m_delayBetweenExplose)
+            {
+                if (HasExplose) return;
+                Explose();
+                HasExplose = true;
+                time = 0;
+            }
+            else if (HasExplose && time >= m_delayExplose)
+            {
+                // Attendre la fin de l'explosion
+                Destroy(this.gameObject);
+            }
         }
-        else if (HasExplose && time >= m_delayExplose)
-        {
-            // Attendre la fin de l'explosion
-            Destroy(this.gameObject);
-        }
+       
     }
 
-    void Explose()
+    public void ChangeBombState(bool Active)
+    {
+        IsRed = Active;
+    }
+
+    public void Explose()
     {
         if (HasExplose) return;
         HasExplose = true;

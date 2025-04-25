@@ -155,7 +155,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570089093847741416}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -333,3 +333,4 @@ MonoBehaviour:
   explosionRange: 1
   dropGameObject: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
     type: 3}
+  IsInvicible: 0
