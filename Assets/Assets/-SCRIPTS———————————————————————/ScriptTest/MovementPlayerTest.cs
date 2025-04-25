@@ -87,7 +87,7 @@ public class MovementPlayerTest : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log("OnMove reçu : " + moveInput);
+        //Debug.Log("OnMove reçu : " + moveInput);
     }
     // ## END ##
 

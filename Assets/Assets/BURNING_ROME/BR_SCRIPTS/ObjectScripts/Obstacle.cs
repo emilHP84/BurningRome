@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable
+public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable,IDestructible
 {
 
     public void SpawnPowerUp()
@@ -33,21 +33,26 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        MovementPlayerTest move = collision.gameObject.GetComponent<MovementPlayerTest>();
-        if (move)
-        {
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    MovementPlayerTest move = collision.gameObject.GetComponent<MovementPlayerTest>();
+    //    if (move)
+    //    {
 
-            Debug.Log($"{gameObject.name}");
+    //        Debug.Log($"{gameObject.name}");
 
-            move.PlayerBlocked();
-        }
-    }
+    //        move.PlayerBlocked();
+    //    }
+    //}
 
     public void Explode()
     {
         SpawnPowerUp();
+        Destroy(gameObject);
+    }
+
+    public void DestroySelf()
+    {
         Destroy(gameObject);
     }
 
