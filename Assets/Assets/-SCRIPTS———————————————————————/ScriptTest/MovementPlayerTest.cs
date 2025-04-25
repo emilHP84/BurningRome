@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Rewired.ComponentControls.Effects.RotateAroundAxis;
-using static UnityEngine.Rendering.DebugUI;
 
 public class MovementPlayerTest : MonoBehaviour
 {
+    private DropComponent dropComponent;
+
     public float speed;
     private Vector3 direction;
     private bool KeyPressed = false; // Par défaut, aucune touche n'est active
@@ -14,8 +13,16 @@ public class MovementPlayerTest : MonoBehaviour
     private KeyCode activeKey = KeyCode.None; // Stocke la touche actuellement pressée
     private Vector2 moveInput = Vector2.zero;
 
+    [SerializeField] private int bombStock = 1; // Peut être augmenté par power-up
+    private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
+    [SerializeField] private int explosionRange = 1; // portée initiale
+    public int ExplosionRange => explosionRange;
+
+    public GameObject dropGameObject;
+
     private void Start()
     {
+        dropComponent = GetComponent<DropComponent>();
         moveInput = Vector2.zero;
     }
     void Update()
@@ -41,57 +48,44 @@ public class MovementPlayerTest : MonoBehaviour
             }
         }
 
-        
 
-        // Si la touche active est relâchée, réinitialiser KeyPressed
         if (KeyPressed && Input.GetKeyUp(activeKey))
         {
             KeyPressed = false;
             activeKey = KeyCode.None;
             isBlocked = false;
         }
-        // Emilien: ce bout de code est un doublon de l'autres transform.translate
-        // ## START ##
 
         if (moveInput.magnitude >= 0.1f)
         {
             Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
             transform.Translate(move * speed * Time.deltaTime);
         }
-        // ## END ##
 
     }
 
     private void FixedUpdate()
     {
-        // Si une touche est active, continuer le déplacement
-        if (KeyPressed) //&& !isBlocked
+
+        if (KeyPressed)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
             Debug.Log($"position : {rb.position}");
             Debug.Log($"direction : {direction}");
             Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
             rb.MovePosition( rb.position + direction * speed * Time.fixedDeltaTime);
-
-
-
-            //transform.Translate(direction * speed * Time.deltaTime);
         }
     }
 
+    //-----------------------------------------------------------------------//
+    //-PLAYER-SYSTEM-CONTROLLER----------------------------------------------//
+    //-----------------------------------------------------------------------//
 
-    // Emilien: ce bout de code n'est utilisé nul part, je l'ai mis en commentaire 
-    // ## START ##
-
-    //Fonction pour démarrer le déplacement
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log("OnMove reçu : " + moveInput);
+        //Debug.Log("OnMove reçu : " + moveInput);
     }
-    // ## END ##
-
-
 
     void StartMoving(KeyCode key, Vector3 dir)
     {
@@ -104,5 +98,59 @@ public class MovementPlayerTest : MonoBehaviour
     {
         isBlocked = true;
     }
+    //-----------------------------------------------------------------------//
+
+
+    #region BOMBE CONTROLLER
+    //-----------------------------------------------------------------------//
+    //-BOMB-SYSTEM-CONTROLLER------------------------------------------------//
+    //-----------------------------------------------------------------------//
+
+    public void OnDropBomb(InputValue value)
+    {
+        bombStock = Mathf.Clamp(bombStock, 1, 100);
+
+        if (value.isPressed && CanPlaceBomb())
+        {
+            GameObject bomb = dropComponent.DroppingObject
+               (
+                    dropGameObject, new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)), transform.rotation, null
+               );
+
+            bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
+
+            PlaceBomb();
+        }
+    }
+
+    private bool CanPlaceBomb()
+    {
+        bombCooldowns.RemoveAll(t => Time.time >= t);
+        return bombCooldowns.Count < bombStock;
+    }
+
+    private void PlaceBomb()
+    {
+        bombCooldowns.Add(Time.time + 5f);
+    }
+
+    public void AddBombStock(int amount)
+    {
+        bombStock += amount;
+        Debug.Log("+ 1 Bombe dans le stock !");
+    }
+
+    public void AddExplosionRange(int amount)
+    {
+        explosionRange += amount;
+        Debug.Log("+ 1 de range ");
+    }
+
+    public void FakeBomb(int amount)
+    {
+        bombStock -= amount;
+    }
+    //-----------------------------------------------------------------------//
+    #endregion
 }
 

@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.InputSystem.Users;
-using InputSystem = UnityEngine.InputSystem;
 
 public class CustomPlayerJoin : MonoBehaviour
 {
@@ -17,8 +13,6 @@ public class CustomPlayerJoin : MonoBehaviour
     public GameObject dropGameObject;
     void Start()
     {
-        dropComponent = GetComponent<DropComponent>();
-
         
         InstantiateEntity();
     }
@@ -27,7 +21,6 @@ public class CustomPlayerJoin : MonoBehaviour
     {
         for(int i = 0; i < 4; i++) 
         {
-            Debug.Log("ertyi");
             GameObject obj = Instantiate(playerPrefabs[i], spawnPoints[i].position,Quaternion.identity,this.gameObject.transform);
             obj.SetActive(false);
             playerPrefabs[i] = obj;
@@ -61,19 +54,6 @@ public class CustomPlayerJoin : MonoBehaviour
                     }
                 }
             }
-
-            if (gamepad.buttonEast.wasPressedThisFrame)
-            {
-                Debug.Log("testatonaton");
-                dropComponent.DroppingObject
-                    (
-                        dropGameObject,
-                        new Vector3(transform.position.x, 3, transform.position.z),
-                        transform.rotation,
-                        null
-                    );
-            }
-
         }
     }
 }

@@ -32,7 +32,7 @@ public class BombUpScript : MonoBehaviour, IDetect
 
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<TestInputController>();
+        var input = other.GetComponent<MovementPlayerTest>();
         if (input != null)
         {
             input.AddBombStock(1); // On ajoute +1 bombe

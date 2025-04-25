@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8723475961172459407}
   - component: {fileID: 300943874492639220}
   - component: {fileID: 368038366220824171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isBlocked: 0
+  dropGameObject: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
+    type: 3}
 --- !u!114 &368038366220824171
 MonoBehaviour:
   m_ObjectHideFlags: 0

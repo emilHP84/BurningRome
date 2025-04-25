@@ -8,7 +8,7 @@ public class RangeUpScript : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        TestInputController input = other.GetComponent<TestInputController>();
+        MovementPlayerTest input = other.GetComponent<MovementPlayerTest>();
         if (input != null)
         {
             input.AddExplosionRange(1); //  On augmente la portée

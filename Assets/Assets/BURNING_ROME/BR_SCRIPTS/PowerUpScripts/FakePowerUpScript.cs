@@ -24,7 +24,7 @@ public class FakePowerUpScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<TestInputController>();
+        var input = other.GetComponent<MovementPlayerTest>();
         if (input != null)
         {
             input.FakeBomb(1);

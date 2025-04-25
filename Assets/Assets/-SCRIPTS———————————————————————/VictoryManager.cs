@@ -8,7 +8,7 @@ public class VictoryManager : MonoBehaviour
     private CustomPlayerJoin m_customPlayerJoin;
     [SerializeField] private List<GameObject> PlayerAlive = new List<GameObject>();
 
-    float PlayerNumber = 4; // temporaire le 4
+    [SerializeField]float PlayerNumber; // temporaire le 4
 
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class VictoryManager : MonoBehaviour
     private void Start()
     {
         //Emilien: à réplacer plus tard
-        // PlayerNumber = 0;
+         PlayerNumber = 0;
 
         m_customPlayerJoin = GetComponent<CustomPlayerJoin>();
         SetPlayerAlive();
@@ -112,7 +112,7 @@ public class VictoryManager : MonoBehaviour
 
     public void SetVictory()
     {
-        SceneLoader.access.LoadScene(3);
+        SceneLoader.access.LoadScene(2);
     }
     //-----------------------------------------------------------------------//
 

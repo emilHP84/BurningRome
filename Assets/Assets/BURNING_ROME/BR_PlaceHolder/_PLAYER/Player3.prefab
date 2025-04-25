@@ -18,13 +18,13 @@ GameObject:
   - component: {fileID: 8723475961172459407}
   - component: {fileID: 5582661331393229884}
   - component: {fileID: 1246786414811122112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3718320729936273126
 Transform:
   m_ObjectHideFlags: 0
@@ -231,3 +231,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isBlocked: 0
+  dropGameObject: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
+    type: 3}

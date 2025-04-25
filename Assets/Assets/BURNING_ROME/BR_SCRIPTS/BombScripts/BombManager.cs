@@ -88,10 +88,17 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         if (collisionable is PlayerManager)
         {
             rb.isKinematic = false;
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bomb"), true);
         }
         else if (collisionable is Ground)
         {
             rb.isKinematic = true;
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bomb"), false);
+        }
+        if(collisionable is PlayerManager && collisionable is Ground)
+        {
+            rb.isKinematic = true;
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bomb"), false);
         }
     }
 
