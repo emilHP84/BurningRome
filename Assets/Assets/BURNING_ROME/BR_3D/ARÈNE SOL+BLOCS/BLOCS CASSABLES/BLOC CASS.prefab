@@ -302,10 +302,13 @@ MonoBehaviour:
   powerUps:
   - prefab: {fileID: 3617961079453434432, guid: 1c1892145cc632744b021fa06dcdd658,
       type: 3}
-    pourcentage: 15
+    pourcentage: 0
   - prefab: {fileID: 3617961079453434432, guid: ee87d749b42331b40b62d81092119e9a,
       type: 3}
-    pourcentage: 15
+    pourcentage: 0
+  - prefab: {fileID: 3617961079453434432, guid: 22a94c7b9f266bb4f83794ede04ca89f,
+      type: 3}
+    pourcentage: 90
 --- !u!1 &5493415881143209302
 GameObject:
   m_ObjectHideFlags: 0

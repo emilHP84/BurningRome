@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using testScript;
 using UnityEngine;
 
 public class FlammeHadesScript : MonoBehaviour
@@ -16,8 +17,14 @@ public class FlammeHadesScript : MonoBehaviour
         
     }
 
-    public void FlammeHades()
+    private void OnTriggerEnter(Collider other)
     {
-
+        var input = other.GetComponent<MovementPlayerTest>();
+        if (input != null)
+        {
+            input.AdesFire();
+            Destroy(gameObject);
+        }
     }
 }
+
