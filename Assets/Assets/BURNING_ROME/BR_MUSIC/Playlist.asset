@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ade8f64d82a7c4fb641157b75b125b, type: 3}
+  m_Name: Playlist
+  m_EditorClassIdentifier: 
+  playlist:
+    looping: 1
+    randomizeTracks: 0
+    timeScale: 1
+    fadeInDuration: 5
+    fadeOutDuration: 1
+    tracks:
+    - clipTitle: Musc_Menu_01
+      clip: {fileID: 8300000, guid: 3c31eeff6fdbd4c408364df70c18c9a6, type: 3}
+      volume: 1
+    - clipTitle: Musc_InGame
+      clip: {fileID: 8300000, guid: 8b4c8ef6f39da124f9b859c513dc16e7, type: 3}
+      volume: 1
+    - clipTitle: Musc_MortSubit
+      clip: {fileID: 8300000, guid: d24f38e6085db1a41914930150680ee3, type: 3}
+      volume: 1
+    - clipTitle: Musc_EndGame
+      clip: {fileID: 8300000, guid: 4c1812e72b646714abb3eb3164e96732, type: 3}
+      volume: 1
