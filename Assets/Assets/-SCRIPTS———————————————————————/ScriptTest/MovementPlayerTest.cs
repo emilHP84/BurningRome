@@ -17,17 +17,25 @@ public class MovementPlayerTest : MonoBehaviour
     private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
     [SerializeField] private int explosionRange = 1; // portée initiale
     public int ExplosionRange => explosionRange;
+    private Vector3 initialposition;
 
     public GameObject dropGameObject;
     private GameObject actualBomb;
 
     private void Start()
     {
+        initialposition = transform.position;
         dropComponent = GetComponent<DropComponent>();
         moveInput = Vector2.zero;
     }
     void Update()
     {
+        if (initialposition != transform.position)
+        {
+            AudioSource sound = gameObject.GetComponent<AudioSource>();
+            sound.Play();
+            initialposition = transform.position;
+        }
         // Vérifier si une touche est enfoncée et qu'aucune autre touche n'est active
         if (!KeyPressed)
         {

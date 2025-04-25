@@ -45,6 +45,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             if (HasExplose == false && time >= m_delayBetweenExplose)
             {
                 if (HasExplose) return;
+                AudioSource sound = gameObject.GetComponent<AudioSource>();
+                sound.Play();
                 Explose();
                 HasExplose = true;
                 time = 0;
@@ -52,6 +54,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             else if (HasExplose && time >= m_delayExplose)
             {
                 // Attendre la fin de l'explosion
+                AudioSource sound = gameObject.GetComponent<AudioSource>();
+                sound.Play();
                 Destroy(this.gameObject);
             }
         }

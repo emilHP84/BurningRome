@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable,IDestructible
+public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
 {
 
     public void SpawnPowerUp()
@@ -48,6 +48,13 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     public void Explode()
     {
         SpawnPowerUp();
+        AudioSource sound = gameObject.GetComponent<AudioSource>();
+        sound.Play();
+        Invoke("DestroyObject", sound.clip.length);
+    }
+
+    private void DestroyObject()
+    {
         Destroy(gameObject);
     }
 
@@ -65,5 +72,4 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
         public GameObject prefab;
         public float pourcentage;
     }
-
 }
