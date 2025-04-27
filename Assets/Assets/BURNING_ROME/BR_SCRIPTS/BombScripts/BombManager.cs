@@ -9,10 +9,16 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     private SphereCollider sphereCollider;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
-    [SerializeField][Range(0, 3)] float m_delayExplose;
+    [SerializeField][Range(0, 10)] float m_delayExplose;
+    public float DelayExplose {
+        get { return m_delayExplose; }
+        set { m_delayExplose = value; }
+    }
+
     [SerializeField] GameObject m_ExplosionPatern;
     [SerializeField] private int explosionRange = 1;
     private bool IsRed;
+    private bool IsAdesFire;
 
 
     private float time;
@@ -22,7 +28,9 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     {
         SetComponent();
         time = 0;
+        DelayExplose = 1;
     }
+
     void SetComponent()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,7 +39,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
-        if(IsRed==false)
+        if (IsRed == false)
         {
             time += Time.deltaTime;
             if (HasExplose == false && time >= m_delayBetweenExplose)
@@ -51,7 +59,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
                 Destroy(this.gameObject);
             }
         }
-       
+
+        if (IsAdesFire)
+        {
+            Explose();
+        }
     }
 
     public void ChangeBombState(bool Active)
@@ -59,10 +71,18 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         IsRed = Active;
     }
 
+    public void ChangeBombStateToAdes(bool Active)
+    {
+        IsAdesFire = Active;
+    }
+
     public void Explose()
     {
-        if (HasExplose) return;
-        HasExplose = true;
+        if (!IsAdesFire)
+        {
+            if (HasExplose) return;
+            HasExplose = true;
+        }
         //Emilien: a dégager ( code ci dessous non fonctionnelle ) 
         /*
         // Récupérer les cubes
@@ -109,7 +129,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             rb.isKinematic = true;
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bomb"), false);
         }
-        if(collisionable is PlayerManager && collisionable is Ground)
+        if (collisionable is PlayerManager && collisionable is Ground)
         {
             rb.isKinematic = true;
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Bomb"), false);

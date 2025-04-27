@@ -20,6 +20,7 @@ public class MovementPlayerTest : MonoBehaviour
     private Vector3 initialposition;
 
     public GameObject dropGameObject;
+    private GameObject actualBomb;
 
     private void Start()
     {
@@ -85,6 +86,7 @@ public class MovementPlayerTest : MonoBehaviour
         }
     }
 
+    #region PLAYER CONTROLLER
     //-----------------------------------------------------------------------//
     //-PLAYER-SYSTEM-CONTROLLER----------------------------------------------//
     //-----------------------------------------------------------------------//
@@ -107,6 +109,7 @@ public class MovementPlayerTest : MonoBehaviour
         isBlocked = true;
     }
     //-----------------------------------------------------------------------//
+    #endregion
 
 
     #region BOMBE CONTROLLER
@@ -116,6 +119,7 @@ public class MovementPlayerTest : MonoBehaviour
 
     public void OnDropBomb(InputValue value)
     {
+
         bombStock = Mathf.Clamp(bombStock, 1, 100);
 
         if (value.isPressed && CanPlaceBomb())
@@ -126,6 +130,7 @@ public class MovementPlayerTest : MonoBehaviour
                );
 
             bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
+
 
             PlaceBomb();
         }
@@ -152,6 +157,12 @@ public class MovementPlayerTest : MonoBehaviour
     {
         explosionRange += amount;
         Debug.Log("+ 1 de range ");
+    }
+
+    public void AdesFire()
+    {
+        dropGameObject.GetComponent<BombManager>().DelayExplose = 5;
+        dropGameObject.GetComponent<BombManager>().ChangeBombStateToAdes(true);
     }
 
     public void FakeBomb(int amount)
