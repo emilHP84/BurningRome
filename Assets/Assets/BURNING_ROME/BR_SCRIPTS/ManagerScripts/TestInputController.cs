@@ -17,6 +17,7 @@ namespace testScript
         public bool IsRedButton = false;
         private BombManager bombManager;
         private GameObject bomb1 = null;
+        private BombManager bombmanager;
         void Start()
         {
             bombManager = GetComponent<BombManager>();
@@ -49,19 +50,17 @@ namespace testScript
             }
             else if (IsRedButton == true)
             {
-               
+                Debug.Log("il est true");
                 if (Input.GetKeyDown(KeyCode.Space))
-                {                    
+                {
                     GameObject bomb = dropComponent.DroppingObject
 
                  (
-                        dropGameObject, new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)), transform.rotation, null
-                   );
+                    dropGameObject, new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)), transform.rotation, null
+                 );
                     bomb.GetComponent<BombManager>().ChangeBombState(true);
                     bomb1 = bomb;
-
                     bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
-                    
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -69,7 +68,7 @@ namespace testScript
                     bomb1.GetComponent<BombManager>().Explode();
                     bomb1.GetComponent<BombManager>().ChangeBombState(false);
                     IsRedButton = false;
-                    Destroy( bomb1,0.5f );
+                    Destroy(bomb1, 0.5f);
                 }
             }
 
