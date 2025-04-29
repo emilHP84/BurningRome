@@ -107,6 +107,11 @@ public class VictoryManager : MonoBehaviour
         {
             SetVictory();
         }
+        else if (PlayerNumber == 0) 
+        {
+            SetVictory();
+
+        }
         else return;
     }
 

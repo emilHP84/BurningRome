@@ -6,35 +6,36 @@ using UnityEngine;
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     private Rigidbody rb;
-    private SphereCollider sphereCollider;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
-    public float DelayExplose {
+    public float DelayExplose
+    {
         get { return m_delayExplose; }
         set { m_delayExplose = value; }
     }
-
     [SerializeField] GameObject m_ExplosionPatern;
     [SerializeField] private int explosionRange = 1;
+
+    public GameObject FlammePrefab;
+
+    private LayerMask ignoreLayer = 3;
+
     private bool IsRed;
     private bool IsAdesFire;
-
+    private bool IsPercing;
 
     private float time;
-    private bool HasExplose;
 
     void Start()
     {
         SetComponent();
         time = 0;
-        DelayExplose = 1;
     }
 
     void SetComponent()
     {
         rb = GetComponent<Rigidbody>();
-        sphereCollider = rb.GetComponent<SphereCollider>();
     }
 
     void Update()
@@ -42,20 +43,13 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         if (IsRed == false)
         {
             time += Time.deltaTime;
-            if (HasExplose == false && time >= m_delayBetweenExplose)
+            if (time >= m_delayBetweenExplose)
             {
-                if (HasExplose) return;
-                AudioSource sound = gameObject.GetComponent<AudioSource>();
-                sound.Play();
+                //AudioSource sound = gameObject.GetComponent<AudioSource>();
+                //sound.Play();
                 Explose();
-                HasExplose = true;
+
                 time = 0;
-            }
-            else if (HasExplose && time >= m_delayExplose)
-            {
-                // Attendre la fin de l'explosion
-                AudioSource sound = gameObject.GetComponent<AudioSource>();
-                sound.Play();
                 Destroy(this.gameObject);
             }
         }
@@ -76,13 +70,18 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         IsAdesFire = Active;
     }
 
+    public void ChangeBombStateToPercing(bool Active)
+    {
+        IsAdesFire = Active;
+    }
+
     public void Explose()
     {
         if (!IsAdesFire)
         {
-            if (HasExplose) return;
-            HasExplose = true;
+
         }
+
         //Emilien: a dégager ( code ci dessous non fonctionnelle ) 
         /*
         // Récupérer les cubes
@@ -102,18 +101,20 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         */
 
         RaycastHit[] hits = new RaycastHit[4];
-        Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange);
-        Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
-        Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
-        Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
+        Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange, ignoreLayer);
+        Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange, ignoreLayer);
+        Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange, ignoreLayer);
+        Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange, ignoreLayer);
 
         foreach (var hit in hits)
         {
+            for (int i = 1; i <= hit.distance + 0.5f; i++) 
+            {
+                Vector3 direction = (hit.point - transform.position).normalized;
+                Destroy(Instantiate(FlammePrefab, transform.position + (direction * i), Quaternion.identity),DelayExplose);
 
-            hit.transform?.GetComponent<IExplodable>()?.Explode();
-
+            }
         }
-
     }
 
     // detecte les différent objet en collision ( nécésite un rigidbody )
@@ -144,7 +145,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public void Explode()
     {
         Explose();
-        HasExplose = true;
         time = 0;
     }
 }

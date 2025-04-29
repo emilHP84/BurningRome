@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NUnit.Framework.Constraints;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,25 +18,25 @@ public class MovementPlayerTest : MonoBehaviour
     private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
     [SerializeField] private int explosionRange = 1; // portée initiale
     public int ExplosionRange => explosionRange;
-    private Vector3 initialposition;
 
     public GameObject dropGameObject;
     private GameObject actualBomb;
 
+
+
+    AudioSource sound;
+
     private void Start()
     {
-        initialposition = transform.position;
         dropComponent = GetComponent<DropComponent>();
-        moveInput = Vector2.zero;
+
+        sound = gameObject.GetComponentInChildren<AudioSource>();
+
     }
     void Update()
     {
-        if (initialposition != transform.position)
-        {
-            AudioSource sound = gameObject.GetComponentInChildren<AudioSource>();
-            sound.Play();
-            initialposition = transform.position;
-        }
+        direction = Vector3.zero;
+
         // Vérifier si une touche est enfoncée et qu'aucune autre touche n'est active
         if (!KeyPressed)
         {
@@ -67,22 +68,32 @@ public class MovementPlayerTest : MonoBehaviour
 
         if (moveInput.magnitude >= 0.1f)
         {
-            Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
-            transform.Translate(move * speed * Time.deltaTime);
+            direction = new Vector3(moveInput.x, 0, moveInput.y);
         }
+
+
+        if (direction.magnitude > 0.1f)
+        {
+            sound.Play();
+        }
+        else sound.Stop();
+    }
+
+    private void Move()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Debug.Log($"position : {rb.position}");
+        Debug.Log($"direction : {direction}");
+        Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
 
     }
 
     private void FixedUpdate()
     {
-
-        if (KeyPressed)
+        if (direction.magnitude > 0.1f)
         {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            Debug.Log($"position : {rb.position}");
-            Debug.Log($"direction : {direction}");
-            Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
-            rb.MovePosition( rb.position + direction * speed * Time.fixedDeltaTime);
+            Move();
         }
     }
 
@@ -157,6 +168,11 @@ public class MovementPlayerTest : MonoBehaviour
     {
         explosionRange += amount;
         Debug.Log("+ 1 de range ");
+    }
+
+    public void ExplosivePowerUp()
+    {
+
     }
 
     public void AdesFire()
