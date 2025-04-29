@@ -7,6 +7,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     private Rigidbody rb;
     private SphereCollider sphereCollider;
+    public GameObject vfx;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
@@ -19,6 +20,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     [SerializeField] private int explosionRange = 1;
     private bool IsRed;
     private bool IsAdesFire;
+    private Vector3 InitialPosition;
 
 
     private float time;
@@ -26,6 +28,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Start()
     {
+        InitialPosition = transform.position;
         SetComponent();
         time = 0;
         DelayExplose = 1;
@@ -100,19 +103,46 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         // Activer l'explosion
         m_ExplosionPatern.SetActive(true);
         */
-
-        RaycastHit[] hits = new RaycastHit[4];
-        Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange);
-        Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
-        Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
-        Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
-
-        foreach (var hit in hits)
+        Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
+        foreach (var direction in directions)
         {
+            // 3. Pour chaque unité de distance (1, 2, 3... jusqu'à explosionRange)
+            for (int i = 1; i <= explosionRange; i++)
+            {
+                // 4. Calculer la nouvelle position
+                Vector3 newPosition = transform.position + direction * i;
+                if (Physics.Raycast(transform.position, direction, out RaycastHit hit, explosionRange))
+                {
+                    // Quelque chose est touché
+                    // Si c'est un mur
+                    if(hit.transform.tag == "Mur")
+                    {
+                        break;
+                    }
+                    // Si c'est destructible
+                    hit.transform?.GetComponent<IExplodable>()?.Explode();
+                    Instantiate(vfx, hit.transform.position, Quaternion.Euler(-90, 0, 0));
 
-            hit.transform?.GetComponent<IExplodable>()?.Explode();
-
+                    break; // On arrête la propagation dans cette direction
+                }
+                else
+                {
+                    // Rien touché, donc libre : on instancie le VFX
+                    Instantiate(vfx, newPosition, Quaternion.Euler(-90, 0, 0));
+                }
+                
+            }
         }
+        //RaycastHit[] hits = new RaycastHit[4];
+        //Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
+
+        //foreach (var hit in hits)
+        //{
+        //    hit.transform?.GetComponent<IExplodable>()?.Explode(); 
+        //}
 
     }
 

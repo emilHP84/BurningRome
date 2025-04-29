@@ -51,6 +51,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
         AudioSource sound = gameObject.GetComponent<AudioSource>();
         sound.Play();
         Invoke("DestroyObject", sound.clip.length);
+
     }
 
     private void DestroyObject()

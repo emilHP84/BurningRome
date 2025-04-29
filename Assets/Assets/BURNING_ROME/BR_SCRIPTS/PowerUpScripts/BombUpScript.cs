@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class BombUpScript : MonoBehaviour, IDetect
+public class BombUpScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,19 +15,6 @@ public class BombUpScript : MonoBehaviour, IDetect
     void Update()
     {
 
-    }
-
-    public void BombUp()
-    {
-
-    }
-
-    public void OnDetectionWith(IDetect detect)
-    {
-        if (detect is PlayerManager)
-        {
-            BombUp();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
