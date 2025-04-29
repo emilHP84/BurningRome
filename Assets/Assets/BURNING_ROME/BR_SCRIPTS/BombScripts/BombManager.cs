@@ -6,36 +6,38 @@ using UnityEngine;
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     private Rigidbody rb;
+    private SphereCollider sphereCollider;
+    public GameObject vfx;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
-    public float DelayExplose
-    {
+    public float DelayExplose {
         get { return m_delayExplose; }
         set { m_delayExplose = value; }
     }
+
     [SerializeField] GameObject m_ExplosionPatern;
     [SerializeField] private int explosionRange = 1;
-
-    public GameObject FlammePrefab;
-
-    private LayerMask ignoreLayer = 3;
-
     private bool IsRed;
     private bool IsAdesFire;
-    private bool IsPercing;
+    private Vector3 InitialPosition;
+
 
     private float time;
+    private bool HasExplose;
 
     void Start()
     {
+        InitialPosition = transform.position;
         SetComponent();
         time = 0;
+        DelayExplose = 1;
     }
 
     void SetComponent()
     {
         rb = GetComponent<Rigidbody>();
+        sphereCollider = rb.GetComponent<SphereCollider>();
     }
 
     void Update()
@@ -43,13 +45,20 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         if (IsRed == false)
         {
             time += Time.deltaTime;
-            if (time >= m_delayBetweenExplose)
+            if (HasExplose == false && time >= m_delayBetweenExplose)
             {
-                //AudioSource sound = gameObject.GetComponent<AudioSource>();
-                //sound.Play();
+                if (HasExplose) return;
+                AudioSource sound = gameObject.GetComponent<AudioSource>();
+                sound.Play();
                 Explose();
-
+                HasExplose = true;
                 time = 0;
+            }
+            else if (HasExplose && time >= m_delayExplose)
+            {
+                // Attendre la fin de l'explosion
+                AudioSource sound = gameObject.GetComponent<AudioSource>();
+                sound.Play();
                 Destroy(this.gameObject);
             }
         }
@@ -70,18 +79,13 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         IsAdesFire = Active;
     }
 
-    public void ChangeBombStateToPercing(bool Active)
-    {
-        IsAdesFire = Active;
-    }
-
     public void Explose()
     {
         if (!IsAdesFire)
         {
-
+            if (HasExplose) return;
+            HasExplose = true;
         }
-
         //Emilien: a dégager ( code ci dessous non fonctionnelle ) 
         /*
         // Récupérer les cubes
@@ -99,22 +103,47 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         // Activer l'explosion
         m_ExplosionPatern.SetActive(true);
         */
-
-        RaycastHit[] hits = new RaycastHit[4];
-        Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange, ignoreLayer);
-        Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange, ignoreLayer);
-        Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange, ignoreLayer);
-        Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange, ignoreLayer);
-
-        foreach (var hit in hits)
+        Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
+        foreach (var direction in directions)
         {
-            for (int i = 1; i <= hit.distance + 0.5f; i++) 
+            // 3. Pour chaque unité de distance (1, 2, 3... jusqu'à explosionRange)
+            for (int i = 1; i <= explosionRange; i++)
             {
-                Vector3 direction = (hit.point - transform.position).normalized;
-                Destroy(Instantiate(FlammePrefab, transform.position + (direction * i), Quaternion.identity),DelayExplose);
+                // 4. Calculer la nouvelle position
+                Vector3 newPosition = transform.position + direction * i;
+                if (Physics.Raycast(transform.position, direction, out RaycastHit hit, explosionRange))
+                {
+                    // Quelque chose est touché
+                    // Si c'est un mur
+                    if(hit.transform.tag == "Mur")
+                    {
+                        break;
+                    }
+                    // Si c'est destructible
+                    hit.transform?.GetComponent<IExplodable>()?.Explode();
+                    Instantiate(vfx, hit.transform.position, Quaternion.Euler(-90, 0, 0));
 
+                    break; // On arrête la propagation dans cette direction
+                }
+                else
+                {
+                    // Rien touché, donc libre : on instancie le VFX
+                    Instantiate(vfx, newPosition, Quaternion.Euler(-90, 0, 0));
+                }
+                
             }
         }
+        //RaycastHit[] hits = new RaycastHit[4];
+        //Physics.Raycast(transform.position, Vector3.forward, out hits[0], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.right, out hits[1], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.back, out hits[2], explosionRange);
+        //Physics.Raycast(transform.position, Vector3.left, out hits[3], explosionRange);
+
+        //foreach (var hit in hits)
+        //{
+        //    hit.transform?.GetComponent<IExplodable>()?.Explode(); 
+        //}
+
     }
 
     // detecte les différent objet en collision ( nécésite un rigidbody )
@@ -145,6 +174,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public void Explode()
     {
         Explose();
+        HasExplose = true;
         time = 0;
     }
 }
