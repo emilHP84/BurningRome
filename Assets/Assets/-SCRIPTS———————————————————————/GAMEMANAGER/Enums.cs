@@ -6,6 +6,8 @@ public enum Direction{Up,Down,Left,Right,Forward,Back}
 
 public enum State{menu,gameplay,paused,waiting}
 
+public enum GameplayState {off, joining, gameplay, suddenDeath, end }
+
 public enum TransitionType{Fade,Iris,None}
 
 public enum UIAnimStartState{Play,Show,Hide}

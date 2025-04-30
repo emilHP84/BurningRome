@@ -180,7 +180,7 @@ public class MENU : MonoBehaviour
     IEnumerator NewGameRoutine()
     {
         MenusList(true);
-        SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene,2f,1f,1f,false,0);
+        SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene + 1,2f,1f,1f,false,0);
         while (SceneLoader.access.IsLoading) yield return null;
         MenusList(false);
         EVENTS.InvokeGameStart();

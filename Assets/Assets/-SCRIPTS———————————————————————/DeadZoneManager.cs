@@ -8,7 +8,7 @@ public class DeadZoneManager : MonoBehaviour
     public float Delay;
     public float BlocApparitionDuration;
     // a placer autre par
-    [Header(" matrice")]
+    [Header("matrice")]
     [SerializeField] private int height = 17;
     [SerializeField] private int width = 11;
     [SerializeField] private int YHeight = 3;
@@ -18,7 +18,7 @@ public class DeadZoneManager : MonoBehaviour
     [Header("GameObject")]
     [SerializeField] private GameObject m_gameObject;
 
-    [Header(" position")]
+    [Header("position")]
     [SerializeField] private int top = 0;
     [SerializeField] private int bottom = 0;
     [SerializeField] private int left = 0;
@@ -30,7 +30,7 @@ public class DeadZoneManager : MonoBehaviour
 
     private void OnEnable()
     {
-
+        EVENTS.OnSuddenDeathEventHandler += GenerateDeadZone;
     }
 
     public void Awake()
@@ -49,18 +49,18 @@ public class DeadZoneManager : MonoBehaviour
         //GenerateDeadZone();
     }
 
-    private void Update()
-    {
-        time += Time.deltaTime;
-        if (time >= Delay && isTimed == false) 
-        { 
-            GenerateDeadZone();
-            Delay = 0;
-            isTimed = true;
-        }
-    }
+    //private void Update()
+    //{
+    //    time += Time.deltaTime;
+    //    if (time >= Delay && isTimed == false) 
+    //    { 
+    //        GenerateDeadZone(this, new System.EventArgs());
+    //        Delay = 0;
+    //        isTimed = true;
+    //    }
+    //}
 
-    public void GenerateDeadZone()
+    public void GenerateDeadZone(object invoker, EventArgs e)
     {
         StartCoroutine(GenerateSpirale());
     }
@@ -115,6 +115,6 @@ public class DeadZoneManager : MonoBehaviour
 
     private void OnDisable()
     {
-
+        EVENTS.OnSuddenDeathEventHandler -= GenerateDeadZone;
     }
 }
