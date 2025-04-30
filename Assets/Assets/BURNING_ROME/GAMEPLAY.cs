@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GAMEPLAY : MonoBehaviour
 {
-    public GameplayState State;
+    public GameplayState CurrentState;
 
     public float timeToJoin = 10;
     public float timeToSuddenDeath = 60;
@@ -21,16 +20,13 @@ public class GAMEPLAY : MonoBehaviour
 
     private void Start()
     {
-        time = 0;
+        EnterState(GameplayState.off);
     }
 
     private void Update()
     {
-        if (State is GameplayState.joining || State is GameplayState.gameplay)
-        {
-            IncreaseTimer();
-        }
-        SwitchGameplayState();
+        IncreaseTimer();
+        UpdateCurrentState();
     }
 
     #region PLAYER NUMBER
@@ -45,8 +41,8 @@ public class GAMEPLAY : MonoBehaviour
 
     private void AddPlayerNumber(object invoker, int e)
     {
+        ResetTimer();
         playerNumber++;
-        time = 0;
     }
 
     //-----------------------------------------------------------------------//
@@ -74,71 +70,77 @@ public class GAMEPLAY : MonoBehaviour
     //-----------------------------------------------------------------------//
     //-STATE-GAMEPLAY-SYSTEM-------------------------------------------------//
     //-----------------------------------------------------------------------//
-    private void SwitchGameplayState()
+    void EnterState(GameplayState newState)
     {
-        switch (State)
+        ResetTimer();
+        CurrentState = newState;
+
+        switch(newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
-                if (SceneManager.GetActiveScene().buildIndex == 1) SwitchToJoining();
-                    break;
+                GAME.MANAGER.SwitchTo(State.menu);
+            break;
 
             case GameplayState.joining:
-                if (time >= timeToJoin && playerNumber >= 2)
-                {
-                    IncreaseTimer();
-                    SwitchToGameplay();
-                }
-                break;
+                GAME.MANAGER.SwitchTo(State.gameplay);
+            break;
 
             case GameplayState.gameplay:
-                if (time >= timeToSuddenDeath)
-                {
-                    IncreaseTimer();
-                    SwitchToSuddenDeath();
-                }
-                break;
+                GAME.MANAGER.SwitchTo(State.gameplay);
+            break;
 
             case GameplayState.suddenDeath:
                 EVENTS.InvokeOnSuddenDeath(this, new System.EventArgs());
-                if (playerNumber == 0 || playerNumber == 1)
-                {
-                    SwitchToEnd();
-                }
-                break;
+            break;
 
             case GameplayState.end:
-                SceneLoader.access.LoadScene(0, 1, 0.25f, 1, false, 0.5f);
-                SwitchToOff();
-                break;
+            break;
+        }
+    }
+    
+    private void UpdateCurrentState() // L'Update de ma machine à état
+    {
+        switch (CurrentState)
+        {
+            case GameplayState.off:
+            break;
+
+            case GameplayState.joining:
+                if (time >= timeToJoin && playerNumber > 1) EnterState(GameplayState.gameplay);
+            break;
+
+            case GameplayState.gameplay:
+                if (time >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
+                if (playerNumber<2) EnterState(GameplayState.end);
+            break;
+
+            case GameplayState.suddenDeath:
+                if (playerNumber<2) EnterState(GameplayState.end);
+            break;
+
+            case GameplayState.end:
+                if (time>3f)
+                {
+                    SceneLoader.access.LoadScene(0, 1, 0.25f, 1, false, 0.5f);
+                    GAME.MANAGER.SwitchTo(State.menu);
+                    EnterState(GameplayState.off);
+                }
+            break;
         }
     }
 
-    public void SwitchToOff()
+    public void WaitPlayersToJoin()
     {
-         State = GameplayState.off;
+        EnterState(GameplayState.joining);
     }
 
-    public void SwitchToJoining()
+    public void Rematch()
     {
-        ResetTimer();
-        State = GameplayState.joining;
+        EnterState(GameplayState.gameplay);
     }
 
-    public void SwitchToGameplay()
-    {
-        ResetTimer();
-        State = GameplayState.gameplay;
-    }
 
-    public void SwitchToSuddenDeath()
-    {
-        State = GameplayState.suddenDeath;
-    }
 
-    public void SwitchToEnd()
-    {
-        State = GameplayState.end;
-    }
 
     //-----------------------------------------------------------------------//
     #endregion
@@ -148,5 +150,5 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnDeathEventHandler -= RemovePlayerNumber;
         EVENTS.OnPlayerConnectEventHandler -= AddPlayerNumber;
     }
-}
+} // FIN DU SCRIPT
 
