@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class ExplosivePowerUpScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void ExplosivePowerUp()
-    {
-
+        var input = other.GetComponent<MovementPlayerTest>();
+        if (input != null)
+        {
+            input.AdesFire();
+            Destroy(gameObject);
+        }
     }
 }
