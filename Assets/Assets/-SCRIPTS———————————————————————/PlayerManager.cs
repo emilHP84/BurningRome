@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using testScript;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
@@ -92,7 +91,5 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
             Debug.Log("player touché...");
             StartCoroutine(OnDeath(deathTime));
         }
-
-        
     }
 }

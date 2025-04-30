@@ -47,7 +47,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
                 sound.Play();
                 Explose();
                 time = 0;
-                Destroy(this.gameObject);
             }
         }
 
@@ -69,6 +68,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     public void Explose()
     {
+        
+
         if (!IsAdesFire)
         {
 
@@ -100,6 +101,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             }
         }
         foreachBoucle = 0;
+        Destroy(this.gameObject);
+
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
