@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822734455983661309}
   - component: {fileID: 9208590102300500303}
+  - component: {fileID: 236960332846423640}
   - component: {fileID: 7883080504873649145}
   - component: {fileID: 5607580650440813669}
   - component: {fileID: 1291543132805540031}
@@ -202,6 +203,26 @@ MonoBehaviour:
   gameState: 0
   gameCam: {fileID: 8897048716721443251}
   menuCam: {fileID: 4811252213820895901}
+--- !u!114 &236960332846423640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094687345795912794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e277d89dcacc1d242b16569d9b4f7b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  timeToJoin: 10
+  timeToSuddenDeath: 5
+  playerPrefabs:
+  - {fileID: 6570089093847741416, guid: 1006f9093cb522c4aa34c9b93b67d519, type: 3}
+  - {fileID: 6570089093847741416, guid: 84c9cdb70046c6b43a8a1d1a87c21f64, type: 3}
+  - {fileID: 6570089093847741416, guid: 5bb148a69fcc13044bd19504eb8907b5, type: 3}
+  - {fileID: 6570089093847741416, guid: 2c169d774504e1246ac60aa4dd87aecb, type: 3}
 --- !u!114 &7883080504873649145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,7 +2066,7 @@ PrefabInstance:
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 191.75
+      value: 110.25
       objectReference: {fileID: 0}
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4934,7 +4955,7 @@ PrefabInstance:
     - target: {fileID: 5589807902338513523, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 594.75
+      value: 342.1
       objectReference: {fileID: 0}
     - target: {fileID: 5589807902338513523, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5049,7 +5070,7 @@ PrefabInstance:
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 191.75
+      value: 110.25
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5503,6 +5524,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 236960332846423640}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WaitPlayersToJoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GAMEPLAY, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6592538348392565735, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
