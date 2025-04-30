@@ -99,6 +99,7 @@ public class GAMEPLAY : MonoBehaviour
                 break;
 
             case GameplayState.suddenDeath:
+                EVENTS.InvokeOnSuddenDeath(this, new System.EventArgs());
                 if (playerNumber == 0 || playerNumber == 1)
                 {
                     SwitchToEnd();

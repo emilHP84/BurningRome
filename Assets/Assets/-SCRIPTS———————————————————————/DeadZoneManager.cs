@@ -25,7 +25,7 @@ public class DeadZoneManager : MonoBehaviour
     [SerializeField] private int right = 0;
 
 
-    bool isTimed;
+    bool isTimed = true;
     private float time;
 
     private void OnEnable()
@@ -62,7 +62,12 @@ public class DeadZoneManager : MonoBehaviour
 
     public void GenerateDeadZone(object invoker, EventArgs e)
     {
-        StartCoroutine(GenerateSpirale());
+        if(isTimed)
+        {
+            Debug.Log("ergyytybdydbryybrddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddu");
+            StartCoroutine(GenerateSpirale());
+            isTimed = false;
+        }
     }
 
     public IEnumerator GenerateSpirale()

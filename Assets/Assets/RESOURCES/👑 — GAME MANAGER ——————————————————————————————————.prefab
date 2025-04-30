@@ -217,7 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   timeToJoin: 10
-  timeToSuddenDeath: 60
+  timeToSuddenDeath: 5
+  playerNumber: 0
+  time: 0
 --- !u!114 &7883080504873649145
 MonoBehaviour:
   m_ObjectHideFlags: 0
