@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         isAlive = false;
         hited = true;
         yield return new WaitForSeconds(deathTime);
-        EVENTS.InvokeOnDeath(this, playerID);
+        EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }
 
@@ -75,7 +75,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
         if (controller.IsInvicible == false)
         {
-            Debug.Log("player touché...");
+            Debug.Log("player touchï¿½...");
             StartCoroutine(OnDeath(deathTime));
         }
     }
@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public void Explode()
     {  if (controller.IsInvicible== false)
         {
-            Debug.Log("player touché...");
+            Debug.Log("player touchï¿½...");
             StartCoroutine(OnDeath(deathTime));
         }
     }

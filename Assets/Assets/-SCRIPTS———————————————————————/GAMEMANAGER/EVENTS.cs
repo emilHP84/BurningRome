@@ -92,14 +92,15 @@ public class EVENTS
 
     // <-- Add new game events here
 
-    public static EventHandler<int> OnDeathEventHandler;
-    public static void InvokeOnDeath(object invoker,int e) { OnDeathEventHandler?.Invoke(invoker,e); }
+    public static event Action OnBattleStart;
+    public static void InvokeBattleStart() {LogEventInConsole("🏁Battle Start"); OnBattleStart?.Invoke();}
 
-    public static EventHandler<int> OnPlayerConnectEventHandler;
-    public static void InvokeOnPlayerConnect(object invoker, int e) { OnPlayerConnectEventHandler?.Invoke(invoker, e); }
+    public static event Action OnSuddenDeathStart;
+    public static void InvokeSuddenDeathStart() {LogEventInConsole("⌚Sudden Death!"); OnSuddenDeathStart?.Invoke();}
 
-    public static EventHandler<EventArgs> OnSuddenDeathEventHandler;
-    public static void InvokeOnSuddenDeath(object invoker, EventArgs e) { OnSuddenDeathEventHandler?.Invoke(invoker, e); }
+    public static event Action<int> OnPlayerDeath;
+    public static void InvokePlayerDeath(int deadID) {LogEventInConsole("☠️Player Death! #"+deadID); OnPlayerDeath?.Invoke(deadID);}
+
 
 
 } // SCRIPT END

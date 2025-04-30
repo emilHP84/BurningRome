@@ -30,7 +30,7 @@ public class DeadZoneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EVENTS.OnSuddenDeathEventHandler += GenerateDeadZone;
+        EVENTS.OnSuddenDeathStart += GenerateDeadZone;
     }
 
     public void Awake()
@@ -60,7 +60,7 @@ public class DeadZoneManager : MonoBehaviour
     //    }
     //}
 
-    public void GenerateDeadZone(object invoker, EventArgs e)
+    public void GenerateDeadZone()
     {
         if(isTimed)
         {
@@ -120,6 +120,6 @@ public class DeadZoneManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EVENTS.OnSuddenDeathEventHandler -= GenerateDeadZone;
+        EVENTS.OnSuddenDeathStart -= GenerateDeadZone;
     }
 }
