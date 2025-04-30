@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 namespace testScript
 {
     [RequireComponent(typeof(DropComponent))]
     public class TestInputController : MonoBehaviour
     {
+        [SerializeField] int playerID = 0;
+        Player player;
         [SerializeField] private int bombStock = 1; // Peut être augmenté par power-up
         private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
         [SerializeField] private int explosionRange = 1; // portée initiale
@@ -20,6 +23,7 @@ namespace testScript
         private BombManager bombmanager;
         void Start()
         {
+            player = ReInput.players.GetPlayer(playerID);
             bombManager = GetComponent<BombManager>();
             dropComponent = GetComponent<DropComponent>();
         }
@@ -35,7 +39,7 @@ namespace testScript
         {
             if (IsRedButton == false)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && CanPlaceBomb())
+                if (player.GetButtonDown("Bomb") && CanPlaceBomb())
                 {
                     GameObject bomb = dropComponent.DroppingObject
                    (

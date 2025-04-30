@@ -37,7 +37,7 @@ public class VictoryManager : MonoBehaviour
     void SetNewNumberOfPlayer(object invoker, int playerIndex)
     {
         PlayerNumber++;
-        m_customPlayerJoin.playerPrefabs[playerIndex].gameObject.SetActive(true);
+        //m_customPlayerJoin.playerPrefabs[playerIndex].gameObject.SetActive(true);
     }
 
     //-----------------------------------------------------------------------//
@@ -54,7 +54,7 @@ public class VictoryManager : MonoBehaviour
 
     public void AddNewPlayer(int playerNumber)
     {
-        PlayerAlive.Add(m_customPlayerJoin.playerPrefabs[playerNumber]);
+        //PlayerAlive.Add(m_customPlayerJoin.playerPrefabs[playerNumber]);
     }
 
     //-----------------------------------------------------------------------//
