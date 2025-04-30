@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8437370911448083030}
   - component: {fileID: 7284708617036142487}
   - component: {fileID: 6595164467150651639}
+  - component: {fileID: 557364837565798337}
   m_Layer: 0
   m_Name: Dalle_Prefab ne pas utiliser dans la scene
   m_TagString: Untagged
@@ -137,3 +138,15 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
+--- !u!114 &557364837565798337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742733281768550504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19f24976080a8146912f8956c593762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

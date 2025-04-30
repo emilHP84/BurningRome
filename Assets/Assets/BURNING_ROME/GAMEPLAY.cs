@@ -162,6 +162,7 @@ public class GAMEPLAY : MonoBehaviour
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);
+        Debug.Log("CreatePlayer"+playerID);
     }
 
     void DestroyAllPlayers()
