@@ -3,6 +3,7 @@ using Rewired;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GAMEPLAY : MonoBehaviour
 {
@@ -142,7 +143,13 @@ public class GAMEPLAY : MonoBehaviour
 
     public void WaitPlayersToJoin()
     {
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
         SceneLoader.access.LoadScene(SceneManager.GetActiveScene().buildIndex, 1, 0.25f, 1, false, 0.5f);
+        while (SceneLoader.access.IsLoading) yield return null;
         EnterState(GameplayState.joining);
     }
 
