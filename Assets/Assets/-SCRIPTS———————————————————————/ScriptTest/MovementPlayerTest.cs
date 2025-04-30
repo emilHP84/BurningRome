@@ -177,7 +177,7 @@ public class MovementPlayerTest : MonoBehaviour
 
     public void AdesFire()
     {
-        dropGameObject.GetComponent<BombManager>().DelayExplose = 5;
+        dropGameObject.GetComponent<BombManager>().DelayExplose = 2;
         dropGameObject.GetComponent<BombManager>().ChangeBombStateToAdes(true);
     }
 
