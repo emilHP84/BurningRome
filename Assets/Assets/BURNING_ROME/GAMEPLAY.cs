@@ -142,6 +142,7 @@ public class GAMEPLAY : MonoBehaviour
 
     public void WaitPlayersToJoin()
     {
+        SceneLoader.access.LoadScene(SceneManager.GetActiveScene().buildIndex, 1, 0.25f, 1, false, 0.5f);
         EnterState(GameplayState.joining);
     }
 
