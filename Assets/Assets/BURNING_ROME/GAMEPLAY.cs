@@ -7,6 +7,8 @@ using System.Collections;
 
 public class GAMEPLAY : MonoBehaviour
 {
+    public static GAMEPLAY access;
+    public bool PlayerControl = false;
     public GameplayState CurrentState;
     public float timeToJoin = 3f;
     public float timeToSuddenDeath = 60f;
@@ -29,6 +31,7 @@ public class GAMEPLAY : MonoBehaviour
 
     private void Start()
     {
+        access = this;
         EnterState(GameplayState.off);
         DestroyAllPlayers();
         ResetAllControllers();
@@ -83,16 +86,21 @@ public class GAMEPLAY : MonoBehaviour
         switch(newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
+                PlayerControl = false;
                 DestroyAllPlayers();
                 ResetAllControllers();
                 GAME.MANAGER.SwitchTo(State.menu);
             break;
 
             case GameplayState.joining:
-                CreatePlayer(0);
+                PlayerControl = false;
+                GAME.MANAGER.SwitchTo(State.waiting);
+                if (totalPlayers>0) CreatePlayer(0);
             break;
 
             case GameplayState.battle:
+                PlayerControl = true;
+                EVENTS.InvokeBattleStart();
                 alivePlayers = totalPlayers;
                 GAME.MANAGER.SwitchTo(State.gameplay);
             break;
@@ -102,6 +110,7 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.end:
+                PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
             break;
@@ -149,7 +158,7 @@ public class GAMEPLAY : MonoBehaviour
     IEnumerator Wait()
     {
         SceneLoader.access.LoadScene(SceneManager.GetActiveScene().buildIndex, 1, 0.25f, 1, false, 0.5f);
-        while (SceneLoader.access.IsLoading) yield return null;
+        while (Black.screen.IsWorking) yield return null;
         EnterState(GameplayState.joining);
     }
 
@@ -214,7 +223,7 @@ public class GAMEPLAY : MonoBehaviour
             Controller lastActive = ReInput.controllers.GetLastActiveController();
             if (!activeControllers.Contains(lastActive) && lastActive.type!=ControllerType.Mouse)
             {
-                for (int i = 1; i < 4; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     if (activeControllers[i] == null)
                     {

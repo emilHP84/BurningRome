@@ -16,7 +16,7 @@ public class PlayerBombing : MonoBehaviour
 
     void Update()
     {
-        if (canBomb)
+        if (canBomb && GAMEPLAY.access.PlayerControl)
         {
             if (player.GetButtonDown("Bomb"))
             {

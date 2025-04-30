@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (canMove) Movement();
+        if (canMove && GAMEPLAY.access.PlayerControl) Movement();
     }
 
     void Activate()
