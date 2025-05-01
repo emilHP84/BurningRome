@@ -46,9 +46,13 @@ public class PlayerBombing : MonoBehaviour
     void NewBomb()
     {
         if (bombPrefab==null) return;
-        activeBombs.Add(Instantiate(bombPrefab,transform.position+Vector3.up,transform.rotation));
+        Vector3 bombPos = transform.position;
+        bombPos.x = Mathf.Round(bombPos.x);
+        bombPos.z = Mathf.Round(bombPos.z);
+        bombPos.y = 2f;
+        activeBombs.Add(Instantiate(bombPrefab,bombPos,transform.rotation));
         remainingBomb--;
-        if (bombFx) Instantiate(bombFx,transform.position,transform.rotation);
+        if (bombFx) Instantiate(bombFx,bombPos,transform.rotation);
     }
 
     void OnEnable()
