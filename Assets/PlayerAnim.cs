@@ -52,7 +52,7 @@ public class PlayerAnim : MonoBehaviour
 
     void Play(GameObject anim)
     {
-        if (anim.activeSelf) return;
+        //if (anim.activeSelf) return;
         HideAllAnim();
         anim.SetActive(true);
     }
