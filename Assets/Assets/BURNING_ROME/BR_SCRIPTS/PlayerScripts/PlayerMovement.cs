@@ -67,11 +67,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (realMovement.y!=0)
+            if (realMovement.x>=realMovement.y)
             {
                 if (realMovement.y>0) anims.PlayMoveUp(); else anims.PlayMoveDown();
             }
-            if (realMovement.x!=0)
+            else
             {
                 if (realMovement.x>0) anims.PlayMoveRight(); else anims.PlayMoveLeft();
             }
