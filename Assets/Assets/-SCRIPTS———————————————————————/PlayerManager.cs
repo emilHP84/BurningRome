@@ -55,11 +55,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void OnDetectionWith(IDetect detect)
     {
-        //if (controller.IsInvicible == false)
-        //{
-        //    Debug.Log("player touch�...");
-        //    StartCoroutine(OnDeath(deathTime));
-        //}
+        if (invincible == false)
+        {
+           StartCoroutine(OnDeath(deathTime));
+        }
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
