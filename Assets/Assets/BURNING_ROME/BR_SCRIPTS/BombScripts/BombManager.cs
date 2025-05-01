@@ -10,7 +10,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
-    public float DelayExplose {
+    public float DelayExplose
+    {
         get { return m_delayExplose; }
         set { m_delayExplose = value; }
     }
@@ -68,8 +69,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     public void Explose()
     {
-        
-
         if (!IsAdesFire)
         {
 
@@ -84,7 +83,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         {
             for (int i = 1; i <= explosionRange; i++)
             {
-                Vector3 newPosition = transform.position + direction * i;
                 Physics.Raycast(transform.position, direction, out hits[foreachBoucle], explosionRange);
                 Debug.DrawRay(transform.position, direction, Color.red, explosionRange);
             }
@@ -93,42 +91,41 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
         foreach (var hit in hits)
         {
-            for (int i = 1; i <= hit.distance + 0.5f; i++)
+            for (int i = 1; hits.Length == 0 ? i <= explosionRange + 0.5f :  i<= hit.distance + 0.5f; i++)
             {
                 Vector3 direction = (hit.point - transform.position).normalized;
-                Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
+                if (hit.collider.GetComponent<Indestructible>() == null) Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
                 hit.transform?.GetComponent<IExplodable>()?.Explode();
             }
         }
         foreachBoucle = 0;
         Destroy(this.gameObject);
-
     }
 
-    public void OnCollisionWith(ICollisionable collisionable)
-    {
-        if (collisionable is PlayerManager)
+        public void OnCollisionWith(ICollisionable collisionable)
         {
-            rb.isKinematic = false;
+            if (collisionable is PlayerManager)
+            {
+                rb.isKinematic = false;
+            }
+            else if (collisionable is Ground)
+            {
+                rb.isKinematic = true;
+            }
+            if (collisionable is PlayerManager && collisionable is Ground)
+            {
+                rb.isKinematic = true;
+            }
         }
-        else if (collisionable is Ground)
-        {
-            rb.isKinematic = true;
-        }
-        if (collisionable is PlayerManager && collisionable is Ground)
-        {
-            rb.isKinematic = true;
-        }
-    }
 
-    public void SetExplosionRange(int range)
-    {
-        explosionRange = range;
-    }
+        public void SetExplosionRange(int range)
+        {
+            explosionRange = range;
+        }
 
-    public void Explode()
-    {
-        Explose();
-        time = 0;
+        public void Explode()
+        {
+            Explose();
+            time = 0;
+        }
     }
-}
