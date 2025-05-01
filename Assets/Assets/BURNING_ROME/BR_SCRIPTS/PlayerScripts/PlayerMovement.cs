@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     void WalkAnimations()
     {
         Vector3 realMovement = transform.localPosition - lastPos;
+        realMovement.y = 0;
         if (realMovement.sqrMagnitude==0)
         {
             if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
@@ -67,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (realMovement.x>=realMovement.y)
+            if (realMovement.z>=realMovement.x)
             {
-                if (realMovement.y>0) anims.PlayMoveUp(); else anims.PlayMoveDown();
+                if (realMovement.z>0) anims.PlayMoveUp(); else anims.PlayMoveDown();
             }
             else
             {
