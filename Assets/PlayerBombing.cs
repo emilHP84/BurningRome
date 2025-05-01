@@ -57,6 +57,7 @@ public class PlayerBombing : MonoBehaviour
             if(activeBombs[i]==null)
             {
                 remainingBomb++;
+                if(remainingBomb>maxBomb) remainingBomb = maxBomb;
                 activeBombs.RemoveAt(i);
             }
         }
@@ -112,13 +113,14 @@ public class PlayerBombing : MonoBehaviour
     {
         if (desired<1) desired = 1;
         maxBomb = desired;
+        remainingBomb = desired;
         if (remainingBomb>maxBomb) remainingBomb=maxBomb;
-        if (activeBombs.Count>maxBomb) activeBombs = new List<BombManager>();
+        //if (activeBombs.Count>maxBomb) activeBombs = new List<BombManager>();
     }
 
     public void ChangeRange(int desired)
     {
-        explosionRange = Mathf.Clamp(desired,1,99);
+        explosionRange += Mathf.Clamp(desired,1,99);
     }
 
     public void AddManualDetonation()
