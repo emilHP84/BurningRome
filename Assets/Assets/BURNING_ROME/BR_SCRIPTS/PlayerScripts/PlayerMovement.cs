@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     void WalkAnimations()
     {
         Vector3 realMovement = transform.localPosition - lastPos;
+        realMovement.y = 0;
         if (realMovement.sqrMagnitude==0)
         {
             if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
