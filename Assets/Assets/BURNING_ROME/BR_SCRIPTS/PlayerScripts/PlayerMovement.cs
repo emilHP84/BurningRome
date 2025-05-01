@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     bool canMove = false;
     CharacterController character=>GetComponent<CharacterController>();
     [SerializeField] float speed = 5f;
+    PlayerAnim anims => GetComponent<PlayerAnim>();
+    Vector3 lastPos;
 
     void OnEnable()
     {
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (canMove && GAMEPLAY.access.PlayerControl) Movement();
+        else anims.PlayIdle();
+
     }
 
     void Activate()
@@ -49,6 +53,34 @@ public class PlayerMovement : MonoBehaviour
         movement*=Time.deltaTime*speed;
         movement.y = -0.1f;
         character.Move(movement);
+        WalkAnimations();
+    }
+
+
+    void WalkAnimations()
+    {
+        Vector3 realMovement = transform.localPosition - lastPos;
+        if (realMovement.sqrMagnitude==0)
+        {
+            if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
+            else anims.PlayIdle();
+        }
+        else
+        {
+            if (realMovement.y!=0)
+            {
+                if (realMovement.y>0) anims.PlayMoveUp(); else anims.PlayMoveDown();
+            }
+            if (realMovement.x!=0)
+            {
+                if (realMovement.x>0) anims.PlayMoveRight(); else anims.PlayMoveLeft();
+            }
+        }
+    }
+
+    void LateUpdate()
+    {
+        lastPos = transform.localPosition;
     }
 
 } // FIN DU SCRIPT
