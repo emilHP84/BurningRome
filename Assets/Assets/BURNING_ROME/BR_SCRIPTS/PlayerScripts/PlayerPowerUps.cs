@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerPowerUps : MonoBehaviour
 {
     PlayerBombing bombSystem => GetComponent<PlayerBombing>();
-    
+    PlayerManager manager => GetComponent<PlayerManager>();
 
         public void BombUp(int amount)
         {
@@ -27,9 +27,9 @@ public class PlayerPowerUps : MonoBehaviour
 
         public void Invincibility()
         {
-
+            manager.InvincibilityFor(10f);
         }
 
 
 
-}
+} // FIN DU SCRIPT

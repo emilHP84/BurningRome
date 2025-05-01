@@ -7,8 +7,6 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
-    private TestInputController controller;
-
   
     public int PlayerID
     {
@@ -19,46 +17,30 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     [Header("DEATH")]
     [SerializeField] private bool isAlive;
-    [SerializeField] private bool hited;
     public bool IsAlive
     {
         get { return isAlive; }
         private set { isAlive = value; }
     }
-    public bool Hited
-    {
-        get { return hited; }
-        private set { Hited = value; }
-    }
     [SerializeField] private float deathTime;
+    public bool Invincible{get{return invincible;}}
+    bool invincible = false;
 
 
 
     private void OnEnable()
     {
         isAlive = true;
+        invincible = false;
+        invincibilityTime = 0;
     }
 
-    private void Awake()
-    {
-
-    }
-
-    void Start()
-    {
-        controller = GetComponent<TestInputController>();
-    }
-
-    void Update()
-    {
-
-    }
 
     IEnumerator OnDeath(float deathTime)
     {
+        if (isAlive==false) yield break;
         transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        hited = true;
         yield return new WaitForSeconds(deathTime);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
@@ -73,11 +55,11 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void OnDetectionWith(IDetect detect)
     {
-        if (controller.IsInvicible == false)
-        {
-            Debug.Log("player touch�...");
-            StartCoroutine(OnDeath(deathTime));
-        }
+        //if (controller.IsInvicible == false)
+        //{
+        //    Debug.Log("player touch�...");
+        //    StartCoroutine(OnDeath(deathTime));
+        //}
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
@@ -86,10 +68,31 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     }
 
     public void Explode()
-    {  if (controller.IsInvicible== false)
+    { 
+        if (!invincible)
         {
-            Debug.Log("player touch�...");
-            StartCoroutine(OnDeath(deathTime));
+           StartCoroutine(OnDeath(deathTime));
         }
     }
-}
+
+    public void InvincibilityFor(float duration)
+    {
+        invincibilityTime = duration;
+        StartCoroutine(WaitForInvincibilityEnd());
+    }
+
+    float invincibilityTime = 0;
+
+    IEnumerator WaitForInvincibilityEnd()
+    {
+        invincible = true;
+        while(invincibilityTime>0)
+        {
+            if (GAME.MANAGER.CurrentState==State.gameplay) invincibilityTime-=Time.deltaTime;
+            yield return null;
+        }
+        invincible = false;
+    }
+
+
+} // FIN DU SCRIPT
