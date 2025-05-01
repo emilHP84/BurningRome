@@ -95,9 +95,9 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.joining:
+                if (totalPlayers>0) CreatePlayer(0); else Debug.Log("Je t'encule thérèse");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
-                if (totalPlayers>0) CreatePlayer(0);
             break;
 
             case GameplayState.battle:
@@ -169,6 +169,7 @@ public class GAMEPLAY : MonoBehaviour
     IEnumerator Wait()
     {
         SceneLoader.access.LoadScene(SceneManager.GetActiveScene().buildIndex, 1, 0.25f, 1, false, 0.5f);
+        while (SceneLoader.access.IsLoading) yield return null;
         while (Black.screen.IsWorking) yield return null;
         EnterState(GameplayState.joining);
     }
@@ -239,7 +240,6 @@ public class GAMEPLAY : MonoBehaviour
                     if (activeControllers[i] == null)
                     {
                         CreatePlayer(i);
-                        totalPlayers++;
                         ResetTimer();
                         AssignControllerToPlayer(i, lastActive);
                         ReInput.players.GetPlayer(i).isPlaying = true;
@@ -253,6 +253,7 @@ public class GAMEPLAY : MonoBehaviour
 
     void AssignControllerToPlayer(int playerID, Controller controller)
     {
+        totalPlayers++;
         ReInput.players.GetPlayer(playerID).controllers.AddController(controller, true);
         activeControllers[playerID] = controller;
         Debug.Log("🎮" + controller.name + " to Player" + playerID);
