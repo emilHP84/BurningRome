@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class GAMEPLAY : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class GAMEPLAY : MonoBehaviour
     float timer;
     [SerializeField]GameObject[] playerPrefabs;
     List<GameObject> alivePlayersList = new List<GameObject>();
+    [SerializeField] TextMeshProUGUI Countdown;
     
-
     private void OnEnable()
     {
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
@@ -86,6 +87,7 @@ public class GAMEPLAY : MonoBehaviour
         switch(newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
+                Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = false;
                 DestroyAllPlayers();
                 ResetAllControllers();
@@ -99,6 +101,7 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.battle:
+                Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = true;
                 EVENTS.InvokeBattleStart();
                 alivePlayers = totalPlayers;
@@ -126,7 +129,15 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.joining:
-                if (timer >= timeToJoin && totalPlayers > 1) EnterState(GameplayState.battle);
+                if (totalPlayers > 1)
+                {
+                    Countdown.transform.parent.parent.gameObject.SetActive(true);
+                    Countdown.text = Mathf.CeilToInt(timeToJoin - timer).ToString();
+                }
+                if (timer >= timeToJoin && totalPlayers > 1)
+                {
+                    EnterState(GameplayState.battle);
+                }
                 if (totalPlayers<4) ListenNewControllers();
             break;
 
@@ -229,6 +240,7 @@ public class GAMEPLAY : MonoBehaviour
                     {
                         CreatePlayer(i);
                         totalPlayers++;
+                        ResetTimer();
                         AssignControllerToPlayer(i, lastActive);
                         ReInput.players.GetPlayer(i).isPlaying = true;
                         break;
