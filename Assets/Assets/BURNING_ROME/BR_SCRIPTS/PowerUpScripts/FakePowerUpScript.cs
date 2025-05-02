@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class FakePowerUpScript : MonoBehaviour
+public class FakePowerUpScript : MonoBehaviour, IExplodable
 {
+    public void Explode()
+    {
+        Destroy(gameObject);        //  Et on détruit le power-up
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +24,10 @@ public class FakePowerUpScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<MovementPlayerTest>();
+        var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            input.FakeBomb(1);
+            input.BombDown(1);
             Destroy(gameObject);
         }
     }

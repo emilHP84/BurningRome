@@ -25,12 +25,12 @@ public class DeadZoneManager : MonoBehaviour
     [SerializeField] private int right = 0;
 
 
-    bool isTimed;
+    bool isTimed = true;
     private float time;
 
     private void OnEnable()
     {
-        EVENTS.OnSuddenDeathEventHandler += GenerateDeadZone;
+        EVENTS.OnSuddenDeathStart += GenerateDeadZone;
     }
 
     public void Awake()
@@ -60,9 +60,13 @@ public class DeadZoneManager : MonoBehaviour
     //    }
     //}
 
-    public void GenerateDeadZone(object invoker, EventArgs e)
+    public void GenerateDeadZone()
     {
-        StartCoroutine(GenerateSpirale());
+        if(isTimed)
+        {
+            StartCoroutine(GenerateSpirale());
+            isTimed = false;
+        }
     }
 
     public IEnumerator GenerateSpirale()
@@ -115,6 +119,6 @@ public class DeadZoneManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EVENTS.OnSuddenDeathEventHandler -= GenerateDeadZone;
+        EVENTS.OnSuddenDeathStart -= GenerateDeadZone;
     }
 }

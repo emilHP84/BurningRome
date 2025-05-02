@@ -3,26 +3,19 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class GrosBoutonRougeScript : MonoBehaviour
+public class GrosBoutonRougeScript : MonoBehaviour,IExplodable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Explode()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject);        //  Et on détruit le power-up
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<TestInputController>();
+        var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            input.GrosBoutonRouge(true);
+            input.RedButton();
             Destroy(gameObject);
         }
     }

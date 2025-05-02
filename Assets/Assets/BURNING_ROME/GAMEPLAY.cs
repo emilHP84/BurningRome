@@ -1,36 +1,47 @@
 using UnityEngine;
+using Rewired;
+using System.Linq;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 
 public class GAMEPLAY : MonoBehaviour
 {
-    public GameplayState State;
-
-    public float timeToJoin = 10;
-    public float timeToSuddenDeath = 60;
-
-    [SerializeField] private int playerNumber;
-
-    [SerializeField]private float time;
-
-
+    public static GAMEPLAY access;
+    public bool PlayerControl = false;
+    public GameplayState CurrentState;
+    public float timeToJoin = 3f;
+    public float timeToSuddenDeath = 60f;
+    int totalPlayers = 0;
+    int alivePlayers = 0;
+    float timer;
+    [SerializeField]GameObject[] playerPrefabs;
+    List<GameObject> alivePlayersList = new List<GameObject>();
+    [SerializeField] TextMeshProUGUI Countdown;
+    
     private void OnEnable()
     {
-        EVENTS.OnDeathEventHandler += RemovePlayerNumber;
-        EVENTS.OnPlayerConnectEventHandler += AddPlayerNumber;
+        EVENTS.OnPlayerDeath += RemovePlayerNumber;
+    }
+
+    private void OnDisable()
+    {
+        EVENTS.OnPlayerDeath -= RemovePlayerNumber;
     }
 
     private void Start()
     {
-        time = 0;
+        access = this;
+        EnterState(GameplayState.off);
+        DestroyAllPlayers();
+        ResetAllControllers();
     }
 
     private void Update()
     {
-        if (State is GameplayState.joining || State is GameplayState.gameplay)
-        {
-            IncreaseTimer();
-        }
-        SwitchGameplayState();
+        IncreaseTimer();
+        UpdateCurrentState();
     }
 
     #region PLAYER NUMBER
@@ -38,15 +49,9 @@ public class GAMEPLAY : MonoBehaviour
     //-PLAYER-NUMBER---------------------------------------------------------//
     //-----------------------------------------------------------------------//
 
-    private void RemovePlayerNumber(object invoker, int e)
+    private void RemovePlayerNumber(int deadID)
     {
-        playerNumber--;
-    }
-
-    private void AddPlayerNumber(object invoker, int e)
-    {
-        playerNumber++;
-        time = 0;
+        alivePlayers--;
     }
 
     //-----------------------------------------------------------------------//
@@ -59,12 +64,12 @@ public class GAMEPLAY : MonoBehaviour
 
     private void IncreaseTimer()
     {
-        time += Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
     private void ResetTimer()
     {
-        time = 0;
+        timer = 0;
     }
 
     //-----------------------------------------------------------------------//
@@ -74,78 +79,187 @@ public class GAMEPLAY : MonoBehaviour
     //-----------------------------------------------------------------------//
     //-STATE-GAMEPLAY-SYSTEM-------------------------------------------------//
     //-----------------------------------------------------------------------//
-    private void SwitchGameplayState()
+    void EnterState(GameplayState newState)
     {
-        switch (State)
+        ResetTimer();
+        CurrentState = newState;
+
+        switch(newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
-                if (SceneManager.GetActiveScene().buildIndex == 1) SwitchToJoining();
-                    break;
+                Countdown.transform.parent.parent.gameObject.SetActive(false);
+                PlayerControl = false;
+                DestroyAllPlayers();
+                ResetAllControllers();
+                GAME.MANAGER.SwitchTo(State.menu);
+            break;
 
             case GameplayState.joining:
-                if (time >= timeToJoin && playerNumber >= 2)
-                {
-                    IncreaseTimer();
-                    SwitchToGameplay();
-                }
-                break;
+                if (totalPlayers>0) CreatePlayer(0); else Debug.Log("Je t'encule thérèse");
+                PlayerControl = false;
+                GAME.MANAGER.SwitchTo(State.waiting);
+            break;
 
-            case GameplayState.gameplay:
-                if (time >= timeToSuddenDeath)
-                {
-                    IncreaseTimer();
-                    SwitchToSuddenDeath();
-                }
-                break;
+            case GameplayState.battle:
+                Countdown.transform.parent.parent.gameObject.SetActive(false);
+                PlayerControl = true;
+                EVENTS.InvokeBattleStart();
+                alivePlayers = totalPlayers;
+                GAME.MANAGER.SwitchTo(State.gameplay);
+            break;
 
             case GameplayState.suddenDeath:
-                if (playerNumber == 0 || playerNumber == 1)
-                {
-                    SwitchToEnd();
-                }
-                break;
+                EVENTS.InvokeSuddenDeathStart();
+            break;
 
             case GameplayState.end:
-                SceneLoader.access.LoadScene(0, 1, 0.25f, 1, false, 0.5f);
-                SwitchToOff();
-                break;
+                PlayerControl = false;
+                GAME.MANAGER.SwitchTo(State.waiting);
+                // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
+            break;
+        }
+    }
+    
+    private void UpdateCurrentState() // L'Update de ma machine à état
+    {
+        switch (CurrentState)
+        {
+            case GameplayState.off:
+                if (activeControllers[0] == null) GetFirstPlayer();
+            break;
+
+            case GameplayState.joining:
+                if (totalPlayers > 1)
+                {
+                    Countdown.transform.parent.parent.gameObject.SetActive(true);
+                    Countdown.text = Mathf.CeilToInt(timeToJoin - timer).ToString();
+                }
+                if (timer >= timeToJoin && totalPlayers > 1)
+                {
+                    EnterState(GameplayState.battle);
+                }
+                if (totalPlayers<4) ListenNewControllers();
+            break;
+
+            case GameplayState.battle:
+                if (timer >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
+                if (alivePlayers<2) EnterState(GameplayState.end);
+            break;
+
+            case GameplayState.suddenDeath:
+                if (alivePlayers<2) EnterState(GameplayState.end);
+            break;
+
+            case GameplayState.end:
+                if (timer>3f)
+                {
+                    SceneLoader.access.LoadScene(2, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
+                    GAME.MANAGER.SwitchTo(State.menu);
+                    EnterState(GameplayState.off);
+                }
+            break;
         }
     }
 
-    public void SwitchToOff()
+    public void WaitPlayersToJoin()
     {
-         State = GameplayState.off;
+        StartCoroutine(Wait());
     }
 
-    public void SwitchToJoining()
+    IEnumerator Wait()
     {
-        ResetTimer();
-        State = GameplayState.joining;
+        SceneLoader.access.LoadScene(SceneManager.GetActiveScene().buildIndex, 1, 0.25f, 1, false, 0.5f);
+        while (SceneLoader.access.IsLoading) yield return null;
+        while (Black.screen.IsWorking) yield return null;
+        EnterState(GameplayState.joining);
     }
 
-    public void SwitchToGameplay()
+    public void Rematch()
     {
-        ResetTimer();
-        State = GameplayState.gameplay;
+        EnterState(GameplayState.battle);
     }
 
-    public void SwitchToSuddenDeath()
-    {
-        State = GameplayState.suddenDeath;
-    }
 
-    public void SwitchToEnd()
-    {
-        State = GameplayState.end;
-    }
+
 
     //-----------------------------------------------------------------------//
     #endregion
 
-    private void OnDisable()
+    void CreatePlayer(int playerID)
     {
-        EVENTS.OnDeathEventHandler -= RemovePlayerNumber;
-        EVENTS.OnPlayerConnectEventHandler -= AddPlayerNumber;
+        GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
+        SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
+        alivePlayersList.Add(newPlayer);
+        Debug.Log("CreatePlayer"+playerID);
     }
-}
+
+    void DestroyAllPlayers()
+    {
+        for (int i=0; i<alivePlayersList.Count;i++) Destroy(alivePlayersList[i]);
+        alivePlayersList = new List<GameObject>();
+        alivePlayers = totalPlayers = 0;
+    }
+
+
+
+    // 🎮 CONTROLLER ASSIGNMENT
+    Controller[] activeControllers = new Controller[4];
+
+
+    void ResetAllControllers()
+    {
+        totalPlayers = 0;
+        activeControllers = new Controller[4];
+        foreach (Player player in ReInput.players.GetPlayers())
+        {
+            player.controllers.ClearAllControllers();
+            player.isPlaying = false;
+        }
+        ReInput.players.GetPlayer(0).controllers.AddController(ControllerType.Mouse, 0, true);
+    }
+
+    void GetFirstPlayer()
+    {
+        if (ReInput.controllers.GetAnyButton())
+        {
+            Controller lastActive = ReInput.controllers.GetLastActiveController();
+            if (lastActive.type == ControllerType.Mouse) return;
+            AssignControllerToPlayer(0, lastActive);
+        }
+    }
+
+    void ListenNewControllers()
+    {
+        if (ReInput.controllers.GetAnyButton())
+        {
+            Controller lastActive = ReInput.controllers.GetLastActiveController();
+            if (!activeControllers.Contains(lastActive) && lastActive.type!=ControllerType.Mouse)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (activeControllers[i] == null)
+                    {
+                        CreatePlayer(i);
+                        ResetTimer();
+                        AssignControllerToPlayer(i, lastActive);
+                        ReInput.players.GetPlayer(i).isPlaying = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+    void AssignControllerToPlayer(int playerID, Controller controller)
+    {
+        totalPlayers++;
+        ReInput.players.GetPlayer(playerID).controllers.AddController(controller, true);
+        activeControllers[playerID] = controller;
+        Debug.Log("🎮" + controller.name + " to Player" + playerID);
+    }
+
+
+
+} // FIN DU SCRIPT
 

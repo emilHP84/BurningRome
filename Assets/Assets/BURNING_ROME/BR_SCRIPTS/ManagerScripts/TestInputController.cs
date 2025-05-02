@@ -159,5 +159,11 @@ namespace testScript
         {
             IsRedButton = Active;
         }
+
+        public void AdesFire()
+        {
+            dropGameObject.GetComponent<BombManager>().DelayExplose = 2;
+            dropGameObject.GetComponent<BombManager>().ChangeBombStateToAdes(true);
+        }
     }
 }

@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
+    public AudioClip explosionClip;
     private Rigidbody rb;
     public GameObject vfx;
+    bool soundbool = false;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
-    public float DelayExplose {
+    public float DelayExplose
+    {
         get { return m_delayExplose; }
         set { m_delayExplose = value; }
     }
@@ -20,13 +23,18 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     private bool IsRed;
     private bool IsAdesFire;
+    [SerializeField] private bool isPercing;
+    public bool IsPercing
+    {
+        get { return isPercing; }
+        set { isPercing = value; }
+    }
 
 
     private float time;
 
     void Start()
     {
-        m_delayExplose = 1;
         SetComponent();
         time = 0;
     }
@@ -38,9 +46,21 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
+
         if (IsRed == false)
         {
+           
             time += Time.deltaTime;
+            if ( soundbool == false && time >= m_delayBetweenExplose - 0.5)
+            {
+                GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+                AudioSource aus = gameObject.AddComponent<AudioSource>();
+                aus.clip = explosionClip;
+                aus.Play();
+                soundbool = true;
+                Destroy(Go, aus.clip.length);
+            }
+               
             if (time >= m_delayBetweenExplose)
             {
                 AudioSource sound = gameObject.GetComponent<AudioSource>();
@@ -69,14 +89,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public void Explose()
     {
         
-
-        if (!IsAdesFire)
-        {
-
-        }
-
         int foreachBoucle = 0;
-
         Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
         RaycastHit[] hits = new RaycastHit[4];
 
@@ -84,25 +97,34 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         {
             for (int i = 1; i <= explosionRange; i++)
             {
-                Vector3 newPosition = transform.position + direction * i;
                 Physics.Raycast(transform.position, direction, out hits[foreachBoucle], explosionRange);
                 Debug.DrawRay(transform.position, direction, Color.red, explosionRange);
+                if (hits[foreachBoucle].collider == null)
+                    Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
             }
-            foreachBoucle++;
-        }
 
-        foreach (var hit in hits)
-        {
-            for (int i = 1; i <= hit.distance + 0.5f; i++)
+            foreachBoucle++;
+
+            foreach (var hit in hits)
             {
-                Vector3 direction = (hit.point - transform.position).normalized;
-                Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
-                hit.transform?.GetComponent<IExplodable>()?.Explode();
+                for (int i = 1; hits.Length == 0 ? i <= explosionRange + 0.5f : i <= hit.distance + 0.5f; i++)
+                {
+                    Vector3 diirection = (hit.point - transform.position).normalized;
+                    if (IsPercing || hit.collider.GetComponent<Indestructible>() == null && hit.collider.GetComponent<Limit>() == null)
+                    {
+                       
+                        Destroy(Instantiate(vfx, transform.position + (diirection * i), Quaternion.identity), DelayExplose);
+                        hit.transform?.GetComponent<IExplodable>()?.Explode();
+                    }
+                }
             }
         }
         foreachBoucle = 0;
-        Destroy(this.gameObject);
 
+        Destroy(Instantiate(vfx, transform.position, Quaternion.identity), DelayExplose);
+        ChangeBombStateToAdes(false);
+        isPercing = false;
+        Destroy(this.gameObject);
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
