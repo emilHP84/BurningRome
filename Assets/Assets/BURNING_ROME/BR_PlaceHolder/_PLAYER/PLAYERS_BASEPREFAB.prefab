@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d14e447ef6402e42b92360b7181416e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfx: {fileID: 6089237566075303425, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
   playerID: 0
   isAlive: 0
   deathTime: 1
@@ -1296,8 +1297,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   onSpawn: []
   onHit: []
-  onDeath:
-  - {fileID: 431313984897085736, guid: 961793bea8e7b9648af61a8ae40f4f2e, type: 3}
+  onDeath: []
 --- !u!143 &9092949447849222937
 CharacterController:
   m_ObjectHideFlags: 0
