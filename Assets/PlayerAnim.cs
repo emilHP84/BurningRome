@@ -32,6 +32,10 @@ public class PlayerAnim : MonoBehaviour
     {
         Play(spawn);
     }
+    public void PlayDeath()
+    {
+        Play(death);
+    }
 
     public void HideAllAnim()
     {
@@ -41,11 +45,12 @@ public class PlayerAnim : MonoBehaviour
         moveleft.SetActive(false);
         moveright.SetActive(false);
         spawn.SetActive(false);
+        death.SetActive(false);
     }
 
 
 
-    [SerializeField]GameObject idle,movedown,moveup,moveleft,moveright,spawn;
+    [SerializeField] GameObject idle, movedown, moveup, moveleft, moveright, spawn,death;
 
     Vector3 lastPos;
     

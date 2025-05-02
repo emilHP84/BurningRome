@@ -3,6 +3,7 @@ using Rewired;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject vfx;
     [SerializeField] int playerID = 0;
     Player player;
     bool canMove = false;
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (realMovement.x>0) anims.PlayMoveRight(); else anims.PlayMoveLeft();
             }
+            Instantiate(vfx, transform.localPosition, Quaternion.identity);
         }
     }
 

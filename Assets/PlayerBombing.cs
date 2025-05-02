@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerBombing : MonoBehaviour
 {
+    public AudioClip placeClip;
     [SerializeField] int playerID = 0;
     Player player;
     bool canBomb = false;
@@ -49,7 +50,11 @@ public class PlayerBombing : MonoBehaviour
                 }
                 else
                 {
-                    if (bombFx) Instantiate(noBombFx,transform.position,transform.rotation);
+                    if (bombFx)
+                    {
+                        
+                        Instantiate(noBombFx, transform.position, transform.rotation); 
+                    }
                 }
             }
         }
@@ -73,6 +78,11 @@ public class PlayerBombing : MonoBehaviour
         bombPos.x = Mathf.Round(bombPos.x);
         bombPos.z = Mathf.Round(bombPos.z);
         bombPos.y = 2f;
+        GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+        AudioSource aus = gameObject.AddComponent<AudioSource>();
+        aus.clip = placeClip;
+        aus.Play();
+        Destroy(Go, aus.clip.length);
         BombManager newBomb = Instantiate(bombPrefab,bombPos,transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
         newBomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
