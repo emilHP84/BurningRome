@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeadZone : MonoBehaviour, ICollisionable
@@ -17,7 +15,7 @@ public class DeadZone : MonoBehaviour, ICollisionable
         if(collisionable is PlayerManager player) 
         {
             Debug.Log("test");
-            EVENTS.InvokeOnDeath(this, player.PlayerID);
+            player.Explode();
         }
     }
 

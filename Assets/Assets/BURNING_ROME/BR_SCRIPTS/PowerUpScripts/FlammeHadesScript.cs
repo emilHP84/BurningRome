@@ -3,28 +3,21 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class FlammeHadesScript : MonoBehaviour
+public class FlammeHadesScript : MonoBehaviour,IExplodable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<MovementPlayerTest>();
+        var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
             input.AdesFire();
             Destroy(gameObject);
         }
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
     }
 }
 

@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4263283087076437333, guid: 02532d58bcd3b7a4c9a91634a3acd32c,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dfe3b6e5a0ea214195551128d8a5007, type: 2}
     - target: {fileID: 6227488371878372322, guid: 02532d58bcd3b7a4c9a91634a3acd32c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -61,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 8742733281768550504, guid: 02532d58bcd3b7a4c9a91634a3acd32c,
         type: 3}
       propertyPath: m_Name
-      value: Dalle_Prefab Variant
+      value: Dalle_Prefab Variant2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

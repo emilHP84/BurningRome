@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822734455983661309}
   - component: {fileID: 9208590102300500303}
+  - component: {fileID: 236960332846423640}
   - component: {fileID: 7883080504873649145}
   - component: {fileID: 5607580650440813669}
   - component: {fileID: 1291543132805540031}
@@ -202,6 +203,28 @@ MonoBehaviour:
   gameState: 0
   gameCam: {fileID: 8897048716721443251}
   menuCam: {fileID: 4811252213820895901}
+--- !u!114 &236960332846423640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094687345795912794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e277d89dcacc1d242b16569d9b4f7b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerControl: 0
+  CurrentState: 0
+  timeToJoin: 3
+  timeToSuddenDeath: 60
+  playerPrefabs:
+  - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
+  - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
+  - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
+  - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  Countdown: {fileID: 4707074564944162816}
 --- !u!114 &7883080504873649145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,7 +2068,7 @@ PrefabInstance:
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 191.75
+      value: 207.25
       objectReference: {fileID: 0}
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4934,7 +4957,7 @@ PrefabInstance:
     - target: {fileID: 5589807902338513523, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 594.75
+      value: 642.95
       objectReference: {fileID: 0}
     - target: {fileID: 5589807902338513523, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5049,7 +5072,7 @@ PrefabInstance:
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 191.75
+      value: 207.25
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5504,6 +5527,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 236960332846423640}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WaitPlayersToJoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584974885910980178, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GAMEPLAY, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6592538348392565735, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Enabled
@@ -5623,6 +5661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753375093310018906, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6788585149925366853, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7104,6 +7147,22 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8440001661582954898, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8440001661582954898, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8440001661582954898, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8443669762217899208, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: fr
@@ -7469,6 +7528,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9024077703356038518, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9105497768533845150, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -7807,6 +7871,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4707074564944162816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8440001661582954898, guid: c6b26752e8dc0b34ab30cc91105625db,
+    type: 3}
+  m_PrefabInstance: {fileID: 3779095870153040274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4811252213820895901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8554318998098219791, guid: c6b26752e8dc0b34ab30cc91105625db,
