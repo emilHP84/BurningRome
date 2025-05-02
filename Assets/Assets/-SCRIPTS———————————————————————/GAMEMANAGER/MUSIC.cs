@@ -144,7 +144,7 @@ public class MUSIC : MonoBehaviour
             players[current].loop = false;
             players[current].clip = desired.clip;
             players[current].volume = desired.volume;
-            //players[current].Play();
+            players[current].Play();
             if (playRoutine!=null) StopCoroutine(playRoutine);
             playRoutine = StartCoroutine(PlayAndCheckTrackEnd());
             ApplyFinalMusicPitch();

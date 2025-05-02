@@ -6,7 +6,7 @@ public class MusicSwitcher : MonoBehaviour
 
     void OnEnable()
     {
-        MUSIC.PLAYER.SetPlaylist(playlist);
+        MUSIC.PLAYER?.SetPlaylist(playlist);
     }
 
 
