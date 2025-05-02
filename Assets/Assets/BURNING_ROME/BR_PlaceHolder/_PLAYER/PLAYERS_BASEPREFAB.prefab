@@ -318,7 +318,7 @@ MonoBehaviour:
   feetSounds:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 0.9, y: 1.1}
-  stepSize: 0.5
+  stepSize: 0.8
 --- !u!82 &2403647525315291269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d14e447ef6402e42b92360b7181416e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfx: {fileID: 6089237566075303425, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
   playerID: 0
   isAlive: 0
   deathTime: 1
@@ -1254,6 +1255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ef502bdcb20f14ead1c339a62c963b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupclip: {fileID: 8300000, guid: 4ffa0c2ccbdec5d449a4985268036d30, type: 3}
+  vfx: {fileID: 431313984897085736, guid: f9a019c99bcf6d54594f34d3a098d20b, type: 3}
+  vfxinvincibility: {fileID: 431313984897085736, guid: 7268a49c36725b4449593edfcddd27ae,
+    type: 3}
 --- !u!114 &7551913959494250804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,17 +1480,17 @@ PrefabInstance:
     - target: {fileID: 8935225746388349070, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2965015426393733475}
   - component: {fileID: 5049297232247043293}
   - component: {fileID: 6187113400584395046}
+  - component: {fileID: -5508016357038091546}
   m_Layer: 0
   m_Name: BlessedByGods
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9326b5d0e6911841933153d64fb6034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5508016357038091546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617961079453434432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc12fefd78f98be43b0deab40ac6c66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 431313984897085736, guid: dc894b37492354c4db33f1bb2c500b2a, type: 3}

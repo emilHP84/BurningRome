@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -374010053805616460}
   - component: {fileID: -4098160477775688299}
   - component: {fileID: 8883604282025853620}
+  - component: {fileID: -1106338217916066454}
   m_Layer: 0
   m_Name: BombeUp
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3427b9afea4cbe844abb0edee0b30cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1106338217916066454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617961079453434432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc12fefd78f98be43b0deab40ac6c66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 431313984897085736, guid: dc894b37492354c4db33f1bb2c500b2a, type: 3}

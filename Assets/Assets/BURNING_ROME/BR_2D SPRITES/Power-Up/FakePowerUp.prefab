@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4098862175794900550}
   - component: {fileID: 2859070411954504256}
   - component: {fileID: -838070715431612380}
+  - component: {fileID: -7368433447382261962}
   m_Layer: 0
   m_Name: FakePowerUp
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6555a6b8e852e448adbbd94e83c7c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7368433447382261962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617961079453434432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc12fefd78f98be43b0deab40ac6c66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 431313984897085736, guid: dc894b37492354c4db33f1bb2c500b2a, type: 3}
