@@ -4,10 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
 {
     public AudioClip destroyClip;
+    public GameObject vfx;
 
     public void SpawnPowerUp()
     {
