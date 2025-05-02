@@ -8,6 +8,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
 {
     public AudioClip destroyClip;
+    bool hasDrop;
 
     public void SpawnPowerUp()
     {
@@ -21,13 +22,13 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
             float chance = powerUp.pourcentage / 100f;
             float tirage = UnityEngine.Random.Range(0f, 1f);
 
-            if (tirage < chance)
+            if (!hasDrop && tirage < chance)
             {
                 Instantiate(powerUp.prefab, transform.position, Quaternion.identity);
+                hasDrop = true;
                 break; // On stoppe dès qu’un power-up est choisi
             }
         }
-
     }
 
     public void OnCollisionWith(ICollisionable collisionable)

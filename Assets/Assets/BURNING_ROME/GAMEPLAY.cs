@@ -153,7 +153,7 @@ public class GAMEPLAY : MonoBehaviour
             case GameplayState.end:
                 if (timer>3f)
                 {
-                    SceneLoader.access.LoadScene(2, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
+                    SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
                     GAME.MANAGER.SwitchTo(State.menu);
                     EnterState(GameplayState.off);
                 }
