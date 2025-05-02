@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NUnit.Framework.Constraints;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,14 +20,23 @@ public class MovementPlayerTest : MonoBehaviour
     public int ExplosionRange => explosionRange;
 
     public GameObject dropGameObject;
+    private GameObject actualBomb;
+
+
+
+    AudioSource sound;
 
     private void Start()
     {
         dropComponent = GetComponent<DropComponent>();
-        moveInput = Vector2.zero;
+
+        sound = gameObject.GetComponentInChildren<AudioSource>();
+
     }
     void Update()
     {
+        direction = Vector3.zero;
+
         // Vérifier si une touche est enfoncée et qu'aucune autre touche n'est active
         if (!KeyPressed)
         {
@@ -58,25 +68,36 @@ public class MovementPlayerTest : MonoBehaviour
 
         if (moveInput.magnitude >= 0.1f)
         {
-            Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
-            transform.Translate(move * speed * Time.deltaTime);
+            direction = new Vector3(moveInput.x, 0, moveInput.y);
         }
+
+
+        if (direction.magnitude > 0.1f)
+        {
+            sound.Play();
+        }
+        else sound.Stop();
+    }
+
+    private void Move()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Debug.Log($"position : {rb.position}");
+        Debug.Log($"direction : {direction}");
+        Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
 
     }
 
     private void FixedUpdate()
     {
-
-        if (KeyPressed)
+        if (direction.magnitude > 0.1f)
         {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            Debug.Log($"position : {rb.position}");
-            Debug.Log($"direction : {direction}");
-            Debug.Log($"nouvelle position : {rb.position + direction * speed * Time.fixedDeltaTime}");
-            rb.MovePosition( rb.position + direction * speed * Time.fixedDeltaTime);
+            Move();
         }
     }
 
+    #region PLAYER CONTROLLER
     //-----------------------------------------------------------------------//
     //-PLAYER-SYSTEM-CONTROLLER----------------------------------------------//
     //-----------------------------------------------------------------------//
@@ -99,6 +120,7 @@ public class MovementPlayerTest : MonoBehaviour
         isBlocked = true;
     }
     //-----------------------------------------------------------------------//
+    #endregion
 
 
     #region BOMBE CONTROLLER
@@ -108,6 +130,7 @@ public class MovementPlayerTest : MonoBehaviour
 
     public void OnDropBomb(InputValue value)
     {
+
         bombStock = Mathf.Clamp(bombStock, 1, 100);
 
         if (value.isPressed && CanPlaceBomb())
@@ -118,6 +141,7 @@ public class MovementPlayerTest : MonoBehaviour
                );
 
             bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
+
 
             PlaceBomb();
         }
@@ -144,6 +168,17 @@ public class MovementPlayerTest : MonoBehaviour
     {
         explosionRange += amount;
         Debug.Log("+ 1 de range ");
+    }
+
+    public void ExplosivePowerUp()
+    {
+
+    }
+
+    public void AdesFire()
+    {
+        dropGameObject.GetComponent<BombManager>().DelayExplose = 2;
+        dropGameObject.GetComponent<BombManager>().ChangeBombStateToAdes(true);
     }
 
     public void FakeBomb(int amount)

@@ -12,7 +12,7 @@ public class Indestructible : MonoBehaviour, ICollisionable
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("1");
+        //Debug.Log("1");
         MovementPlayerTest move = collision.gameObject.GetComponent<MovementPlayerTest>();
         if (move)
         {

@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class BombUpScript : MonoBehaviour, IDetect
+public class BombUpScript : MonoBehaviour, IExplodable
 {
+    public void Explode()
+    {
+        Destroy(gameObject);        //  Et on détruit le power-up
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,25 +22,12 @@ public class BombUpScript : MonoBehaviour, IDetect
 
     }
 
-    public void BombUp()
-    {
-
-    }
-
-    public void OnDetectionWith(IDetect detect)
-    {
-        if (detect is PlayerManager)
-        {
-            BombUp();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<MovementPlayerTest>();
+        var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            input.AddBombStock(1); // On ajoute +1 bombe
+            input.BombUp(1); // On ajoute +1 bombe
             Destroy(gameObject);   // On détruit le power-up
         }
     }   

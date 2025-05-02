@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosivePowerUpScript : MonoBehaviour
+public class ExplosivePowerUpScript : MonoBehaviour, IExplodable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Explode()
     {
-        
+        Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    public void ExplosivePowerUp()
-    {
-
+        var input = other.GetComponentInParent<PlayerPowerUps>();
+        if (input != null)
+        {
+            input.Perçing();
+            Destroy(gameObject);
+        }
     }
 }

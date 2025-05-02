@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 namespace testScript
 {
     [RequireComponent(typeof(DropComponent))]
     public class TestInputController : MonoBehaviour
     {
+        [SerializeField] int playerID = 0;
+        Player player;
         [SerializeField] private int bombStock = 1; // Peut être augmenté par power-up
         private List<float> bombCooldowns = new(); // Stocke les timestamps de recharge
         [SerializeField] private int explosionRange = 1; // portée initiale
@@ -17,8 +20,10 @@ namespace testScript
         public bool IsRedButton = false;
         private BombManager bombManager;
         private GameObject bomb1 = null;
+        private BombManager bombmanager;
         void Start()
         {
+            player = ReInput.players.GetPlayer(playerID);
             bombManager = GetComponent<BombManager>();
             dropComponent = GetComponent<DropComponent>();
         }
@@ -34,7 +39,7 @@ namespace testScript
         {
             if (IsRedButton == false)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && CanPlaceBomb())
+                if (player.GetButtonDown("Bomb") && CanPlaceBomb())
                 {
                     GameObject bomb = dropComponent.DroppingObject
                    (
@@ -49,19 +54,17 @@ namespace testScript
             }
             else if (IsRedButton == true)
             {
-               
+                Debug.Log("il est true");
                 if (Input.GetKeyDown(KeyCode.Space))
-                {                    
+                {
                     GameObject bomb = dropComponent.DroppingObject
 
                  (
-                        dropGameObject, new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)), transform.rotation, null
-                   );
+                    dropGameObject, new Vector3(Mathf.RoundToInt(transform.position.x), 3, Mathf.RoundToInt(transform.position.z)), transform.rotation, null
+                 );
                     bomb.GetComponent<BombManager>().ChangeBombState(true);
                     bomb1 = bomb;
-
                     bomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
-                    
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -69,7 +72,7 @@ namespace testScript
                     bomb1.GetComponent<BombManager>().Explode();
                     bomb1.GetComponent<BombManager>().ChangeBombState(false);
                     IsRedButton = false;
-                    Destroy( bomb1,0.5f );
+                    Destroy(bomb1, 0.5f);
                 }
             }
 

@@ -4,7 +4,7 @@ using System.Threading;
 using testScript;
 using UnityEngine;
 
-public class BlessedByGodsScript : MonoBehaviour
+public class BlessedByGodsScript : MonoBehaviour, IExplodable
 {
     // Update is called once per frame
     void Update()
@@ -14,11 +14,16 @@ public class BlessedByGodsScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var input = other.GetComponent<TestInputController>();
+        var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            input.AddInvicibility(true);
+            input.Invincibility();
             Destroy(gameObject);
         }
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
     }
 }

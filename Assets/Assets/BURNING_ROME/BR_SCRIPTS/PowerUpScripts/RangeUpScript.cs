@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using testScript;
 using UnityEngine;
 
-public class RangeUpScript : MonoBehaviour
+public class RangeUpScript : MonoBehaviour, IExplodable
 {
+    public void Explode()
+    {
+        Destroy(gameObject);        //  Et on détruit le power-up
+    }
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        MovementPlayerTest input = other.GetComponent<MovementPlayerTest>();
+        PlayerPowerUps input = other.GetComponentInParent<PlayerPowerUps>();
         if (input != null)
         {
-            input.AddExplosionRange(1); //  On augmente la portée
+            input.RangeUp(1);           //  On augmente la portée
             Destroy(gameObject);        //  Et on détruit le power-up
         }
     }

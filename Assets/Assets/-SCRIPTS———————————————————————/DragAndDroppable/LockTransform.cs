@@ -1,6 +1,6 @@
+
 using UnityEngine;
 using UnityEngine.UI;
-
 #if UNITY_EDITOR
 using UnityEditor;
 [ExecuteInEditMode]
@@ -10,7 +10,6 @@ public class LockTransform : MonoBehaviour
     public bool lockRotation = true;
     public bool lockScale = true;
     public bool lockParenting = true;
-
     Vector3 lockedPos = Vector3.zero;
     Quaternion lockedRot = Quaternion.identity;
     Vector3 lockedScale = Vector3.one;
@@ -19,14 +18,23 @@ public class LockTransform : MonoBehaviour
     RectTransform rt;
     Vector2 lockedOffsetMin,lockedOffsetMax = Vector2.zero;
     AspectRatioFitter aspectFitter;
-
     void OnEnable()
     {
+        if (EditorApplication.isPlaying)
+        {
+            this.enabled = false;
+            return;
+        }
         GetLockedData();
         rt = GetComponent<RectTransform>();
         aspectFitter = GetComponent<AspectRatioFitter>();
     }
-
+    
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnPlayModeStart()
+    {
+        foreach (LockTransform lt in FindObjectsByType<LockTransform>(FindObjectsInactive.Include,FindObjectsSortMode.None)) lt.enabled = false;
+    }
     void GetLockedData()
     {
         lockedPos = transform.localPosition;
@@ -40,12 +48,8 @@ public class LockTransform : MonoBehaviour
             lockedOffsetMin = rt.offsetMin;
         }
     }
-
-
     void Update()
-    {
-        if (EditorApplication.isPlaying) this.enabled = false;
-        
+    {   
         if (rt==null)
         {
             if (lockPosition) transform.localPosition = lockedPos;
@@ -64,13 +68,10 @@ public class LockTransform : MonoBehaviour
                 lockedOffsetMin=rt.offsetMin;
             }
         }
-
         if (lockRotation) transform.localRotation = lockedRot;
         else lockedRot = transform.localRotation;
-
         if (lockScale) transform.localScale = lockedScale;
         else lockedScale = transform.localScale;
-
         if (lockParenting)
         {
             if(transform.parent!=lockedParent)
@@ -85,6 +86,5 @@ public class LockTransform : MonoBehaviour
             siblingIndex = transform.GetSiblingIndex();
         }
     }
-
 }
 #endif

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mur
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - Player
   - Bomb
-  - 
+  - IgnoreBloc
   - 
   - 
   - 
@@ -38,6 +39,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BACKGROUND
+    uniqueID: 3866004993
+    locked: 0
+  - name: BACK
+    uniqueID: 1034293217
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FX
+    uniqueID: 1186578729
+    locked: 0
+  - name: FRONT
+    uniqueID: 3289577007
+    locked: 0
+  - name: UI
+    uniqueID: 3867409299
+    locked: 0
+  - name: UIFRONT
+    uniqueID: 1814902069
     locked: 0

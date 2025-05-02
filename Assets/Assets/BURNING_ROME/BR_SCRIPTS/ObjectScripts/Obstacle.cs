@@ -2,10 +2,12 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable,IDestructible
+public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
 {
+    public AudioClip destroyClip;
 
     public void SpawnPowerUp()
     {
@@ -48,6 +50,16 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     public void Explode()
     {
         SpawnPowerUp();
+        GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+        AudioSource aus = gameObject.AddComponent<AudioSource>();
+        aus.clip = destroyClip;
+        aus.Play();
+        Destroy(Go, aus.clip.length);
+        DestroyObject();
+    }
+
+    private void DestroyObject()
+    {
         Destroy(gameObject);
     }
 
@@ -55,6 +67,9 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     {
         Destroy(gameObject);
     }
+
+
+
 
     [SerializeField]
     private List<PowerUpData> powerUps;
@@ -65,5 +80,4 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
         public GameObject prefab;
         public float pourcentage;
     }
-
 }
