@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
+    public AudioClip explosionClip;
     private Rigidbody rb;
     public GameObject vfx;
+    bool soundbool = false;
 
     [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
     [SerializeField][Range(0, 10)] float m_delayExplose;
@@ -21,7 +23,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     private bool IsRed;
     private bool IsAdesFire;
-    [SerializeField]private bool isPercing;
+    [SerializeField] private bool isPercing;
     public bool IsPercing
     {
         get { return isPercing; }
@@ -44,9 +46,21 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
+
         if (IsRed == false)
         {
+           
             time += Time.deltaTime;
+            if ( soundbool == false && time >= m_delayBetweenExplose - 0.5)
+            {
+                GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+                AudioSource aus = gameObject.AddComponent<AudioSource>();
+                aus.clip = explosionClip;
+                aus.Play();
+                soundbool = true;
+                Destroy(Go, aus.clip.length);
+            }
+               
             if (time >= m_delayBetweenExplose)
             {
                 AudioSource sound = gameObject.GetComponent<AudioSource>();
@@ -74,6 +88,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     public void Explose()
     {
+        
         int foreachBoucle = 0;
         Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
         RaycastHit[] hits = new RaycastHit[4];
@@ -96,8 +111,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
                 {
                     Vector3 diirection = (hit.point - transform.position).normalized;
                     if (IsPercing || hit.collider.GetComponent<Indestructible>() == null && hit.collider.GetComponent<Limit>() == null)
+                    {
+                       
                         Destroy(Instantiate(vfx, transform.position + (diirection * i), Quaternion.identity), DelayExplose);
-                    hit.transform?.GetComponent<IExplodable>()?.Explode();
+                        hit.transform?.GetComponent<IExplodable>()?.Explode();
+                    }
                 }
             }
         }

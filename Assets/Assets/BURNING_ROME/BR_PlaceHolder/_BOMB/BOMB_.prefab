@@ -356,11 +356,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f8f1375964f0a4386ed9b470d70d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: 3a6ab1749ccb4b84eae5c4c1c11daa8e, type: 3}
   vfx: {fileID: 5875988840303855967, guid: b28776057e1499d42929db1a81aa7a6f, type: 3}
   m_delayBetweenExplose: 3
   m_delayExplose: 1
   m_ExplosionPatern: {fileID: 7871839663240356362}
   explosionRange: 1
+  isPercing: 0
 --- !u!82 &3625055421433150178
 AudioSource:
   m_ObjectHideFlags: 0

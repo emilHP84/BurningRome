@@ -3,6 +3,7 @@ using System;
 
 public class HealthScript : MonoBehaviour, iDamageable
 {
+    public AudioClip deathClip;
     [Range(1f,100f)][SerializeField] float hpMax = 1;
     float hp;
     public float HP { get {return hp;} set {hp=value; if(hp<1) Death();} }
@@ -75,7 +76,15 @@ public class HealthScript : MonoBehaviour, iDamageable
         dead = true;
         for (int i=0;i<onDeath.Length;i++) if (onDeath[i]) Instantiate (onDeath[i], transform);
         InvokeDeath();
-        if (destroyOnDeath) Destroy(gameObject);
+        if (destroyOnDeath)
+        {
+            GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+            AudioSource aus = gameObject.AddComponent<AudioSource>();
+            aus.clip = deathClip;
+            aus.Play();
+            Destroy(Go, aus.clip.length);
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float amount)
