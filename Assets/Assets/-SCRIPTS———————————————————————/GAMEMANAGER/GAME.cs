@@ -56,6 +56,7 @@ public class GAME: MonoBehaviour
     {
         if (MANAGER!=null) return;
         string gmName = "👑 — GAME MANAGER ——————————————————————————————————";
+        
         GameObject gm = Instantiate(Resources.Load(gmName, typeof(GameObject))) as GameObject;
         gm.name = gmName;
         DontDestroyOnLoad(gm);
