@@ -414,6 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 354341167}
+  - component: {fileID: 354341168}
   m_Layer: 0
   m_Name: Mur
   m_TagString: Untagged
@@ -440,6 +441,18 @@ Transform:
   - {fileID: 1001751571}
   m_Father: {fileID: 462675886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &354341168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354341166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e240d5e6cf0a41822fb8c4b1130fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450084669
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +465,7 @@ GameObject:
   - component: {fileID: 450084673}
   - component: {fileID: 450084672}
   - component: {fileID: 450084671}
+  - component: {fileID: 450084674}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Mur
@@ -547,6 +561,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450084669}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &450084674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450084669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e240d5e6cf0a41822fb8c4b1130fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &462675885
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +667,7 @@ GameObject:
   - component: {fileID: 681283983}
   - component: {fileID: 681283982}
   - component: {fileID: 681283981}
+  - component: {fileID: 681283984}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Mur
@@ -736,6 +763,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681283979}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &681283984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681283979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e240d5e6cf0a41822fb8c4b1130fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &749079500
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +818,7 @@ GameObject:
   - component: {fileID: 1001751574}
   - component: {fileID: 1001751573}
   - component: {fileID: 1001751572}
+  - component: {fileID: 1001751575}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Mur
@@ -874,6 +914,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001751570}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1001751575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001751570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e240d5e6cf0a41822fb8c4b1130fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265611287
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +938,7 @@ GameObject:
   - component: {fileID: 1265611291}
   - component: {fileID: 1265611290}
   - component: {fileID: 1265611289}
+  - component: {fileID: 1265611292}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Mur
@@ -981,6 +1034,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265611287}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1265611292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265611287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8e240d5e6cf0a41822fb8c4b1130fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1348087599
 PrefabInstance:
   m_ObjectHideFlags: 0

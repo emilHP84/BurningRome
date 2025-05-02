@@ -93,5 +93,15 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         invincible = false;
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (invincible) 
+        {
+            if (collision.gameObject.GetComponent<Obstacle>())
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+    }
 
 } // FIN DU SCRIPT

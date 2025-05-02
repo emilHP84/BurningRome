@@ -64,7 +64,6 @@ public class DeadZoneManager : MonoBehaviour
     {
         if(isTimed)
         {
-            Debug.Log("ergyytybdydbryybrddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddu");
             StartCoroutine(GenerateSpirale());
             isTimed = false;
         }

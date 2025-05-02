@@ -10,7 +10,7 @@ public class FlammeHadesScript : MonoBehaviour,IExplodable
         var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            //input.AdesFire();
+            input.AdesFire();
             Destroy(gameObject);
         }
     }

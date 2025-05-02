@@ -14,7 +14,7 @@ public class ExplosivePowerUpScript : MonoBehaviour, IExplodable
         var input = other.GetComponentInParent<PlayerPowerUps>();
         if (input != null)
         {
-            //input.();
+            input.Perçing();
             Destroy(gameObject);
         }
     }

@@ -19,6 +19,8 @@ public class PlayerBombing : MonoBehaviour
     int manualDetonation = 0;
     BombManager manualBomb;
 
+    float delay = 1;
+
     void Update()
     {
         if (canBomb && GAMEPLAY.access.PlayerControl)
@@ -65,6 +67,7 @@ public class PlayerBombing : MonoBehaviour
 
     void NewBomb()
     {
+        bombPrefab.GetComponent<BombManager>().DelayExplose = delay;
         if (bombPrefab==null) return;
         Vector3 bombPos = transform.position;
         bombPos.x = Mathf.Round(bombPos.x);
@@ -75,6 +78,7 @@ public class PlayerBombing : MonoBehaviour
         newBomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
         remainingBomb--;
         if (bombFx) Instantiate(bombFx,bombPos,transform.rotation);
+        delay = 1;
     }
 
     void OnEnable()
@@ -128,6 +132,14 @@ public class PlayerBombing : MonoBehaviour
         manualDetonation=2;
     }
 
-    
+    public void Switchdelay()
+    {
+        delay = 5;
+    }
+
+    public void BombPercing()
+    {
+        bombPrefab.GetComponent<BombManager>().IsPercing = true;
+    }
 
 } // FIN DU SCRIPT

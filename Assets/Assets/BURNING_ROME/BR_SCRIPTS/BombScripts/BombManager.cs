@@ -21,13 +21,18 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     private bool IsRed;
     private bool IsAdesFire;
+    [SerializeField]private bool isPercing;
+    public bool IsPercing
+    {
+        get { return isPercing; }
+        set { isPercing = value; }
+    }
 
 
     private float time;
 
     void Start()
     {
-        m_delayExplose = 1;
         SetComponent();
         time = 0;
     }
@@ -69,13 +74,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     public void Explose()
     {
-        if (!IsAdesFire)
-        {
-
-        }
-
         int foreachBoucle = 0;
-
         Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
         RaycastHit[] hits = new RaycastHit[4];
 
@@ -85,47 +84,55 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             {
                 Physics.Raycast(transform.position, direction, out hits[foreachBoucle], explosionRange);
                 Debug.DrawRay(transform.position, direction, Color.red, explosionRange);
+                if (hits[foreachBoucle].collider == null)
+                    Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
             }
-            foreachBoucle++;
-        }
 
-        foreach (var hit in hits)
-        {
-            for (int i = 1; hits.Length == 0 ? i <= explosionRange + 0.5f :  i<= hit.distance + 0.5f; i++)
+            foreachBoucle++;
+
+            foreach (var hit in hits)
             {
-                Vector3 direction = (hit.point - transform.position).normalized;
-                if (hit.collider.GetComponent<Indestructible>() == null) Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
-                hit.transform?.GetComponent<IExplodable>()?.Explode();
+                for (int i = 1; hits.Length == 0 ? i <= explosionRange + 0.5f : i <= hit.distance + 0.5f; i++)
+                {
+                    Vector3 diirection = (hit.point - transform.position).normalized;
+                    if (IsPercing || hit.collider.GetComponent<Indestructible>() == null && hit.collider.GetComponent<Limit>() == null)
+                        Destroy(Instantiate(vfx, transform.position + (diirection * i), Quaternion.identity), DelayExplose);
+                    hit.transform?.GetComponent<IExplodable>()?.Explode();
+                }
             }
         }
         foreachBoucle = 0;
+
+        Destroy(Instantiate(vfx, transform.position, Quaternion.identity), DelayExplose);
+        ChangeBombStateToAdes(false);
+        isPercing = false;
         Destroy(this.gameObject);
     }
 
-        public void OnCollisionWith(ICollisionable collisionable)
+    public void OnCollisionWith(ICollisionable collisionable)
+    {
+        if (collisionable is PlayerManager)
         {
-            if (collisionable is PlayerManager)
-            {
-                rb.isKinematic = false;
-            }
-            else if (collisionable is Ground)
-            {
-                rb.isKinematic = true;
-            }
-            if (collisionable is PlayerManager && collisionable is Ground)
-            {
-                rb.isKinematic = true;
-            }
+            rb.isKinematic = false;
         }
-
-        public void SetExplosionRange(int range)
+        else if (collisionable is Ground)
         {
-            explosionRange = range;
+            rb.isKinematic = true;
         }
-
-        public void Explode()
+        if (collisionable is PlayerManager && collisionable is Ground)
         {
-            Explose();
-            time = 0;
+            rb.isKinematic = true;
         }
     }
+
+    public void SetExplosionRange(int range)
+    {
+        explosionRange = range;
+    }
+
+    public void Explode()
+    {
+        Explose();
+        time = 0;
+    }
+}
