@@ -1,131 +1,85 @@
-using Rewired;
-using System.Collections;
-using Unity.Jobs;
 using UnityEngine;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
-    public AudioClip explosionClip;
-    private Rigidbody rb;
-    public GameObject vfx;
-    bool soundbool = false;
-
-    [SerializeField][Range(0, 6)] float m_delayBetweenExplose;
-    [SerializeField][Range(0, 10)] float m_delayExplose;
-    public float DelayExplose
+    public void SetDelay(float newDelay)
     {
-        get { return m_delayExplose; }
-        set { m_delayExplose = value; }
+        time = delayBeforeExplosion = newDelay;
     }
 
-    [SerializeField] GameObject m_ExplosionPatern;
-    [SerializeField] private int explosionRange = 1;
-
-    private bool IsRed;
-    private bool IsAdesFire;
-    [SerializeField] private bool isPercing;
-    public bool IsPercing
+    public void SetExplosionRange(int range)
     {
-        get { return isPercing; }
-        set { isPercing = value; }
+        explosionRange = range;
     }
 
+    public void SetBombOwner(PlayerBombing player)
+    {
+        owner = player;
+    }
 
-    private float time;
+    public void SetManualDetonation(bool Active)
+    {
+        ManualDetonation = Active;
+    }
+
+    public void SetPiercing(bool wanted)
+    {
+        isPiercing = wanted;
+    }
+
+    public void SetFlameDuration(float newDuration)
+    {
+        flameDuration = newDuration;
+    }
+
+    public void Explode()
+    {
+        Explosion();
+    }
+
+    [SerializeField]bool ManualDetonation = false;
+    [SerializeField]bool isPiercing = false;
+    [SerializeField] GameObject fx_bombExplosion;
+    [SerializeField] int explosionRange = 1;
+    [SerializeField][Range(0, 10)] float delayBeforeExplosion = 3f;
+
+    bool exploded = false;
+    Rigidbody rb => GetComponent<Rigidbody>();
+    PlayerBombing owner;
+    float time;
+    float flameDuration = 1f;
 
     void Start()
     {
-        SetComponent();
-        time = 0;
-    }
-
-    void SetComponent()
-    {
-        rb = GetComponent<Rigidbody>();
+        time = delayBeforeExplosion;
     }
 
     void Update()
     {
-
-        if (IsRed == false)
+        if (ManualDetonation == false)
         {
-           
-            time += Time.deltaTime;
-            if ( soundbool == false && time >= m_delayBetweenExplose - 0.5)
-            {
-                GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
-                AudioSource aus = gameObject.AddComponent<AudioSource>();
-                aus.clip = explosionClip;
-                aus.Play();
-                soundbool = true;
-                Destroy(Go, aus.clip.length);
-            }
-               
-            if (time >= m_delayBetweenExplose)
-            {
-                AudioSource sound = gameObject.GetComponent<AudioSource>();
-                sound.Play();
-                Explose();
-                time = 0;
-            }
+            time -= Time.deltaTime;
         }
-
-        if (IsAdesFire)
-        {
-            Explose();
-        }
+        if (time < 0) Explosion();
     }
 
-    public void ChangeBombState(bool Active)
+
+    void Explosion()
     {
-        IsRed = Active;
-    }
-
-    public void ChangeBombStateToAdes(bool Active)
-    {
-        IsAdesFire = Active;
-    }
-
-    public void Explose()
-    {
-        
-        int foreachBoucle = 0;
-        Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
-        RaycastHit[] hits = new RaycastHit[4];
-
-        foreach (var direction in directions)
-        {
-            for (int i = 1; i <= explosionRange; i++)
-            {
-                Physics.Raycast(transform.position, direction, out hits[foreachBoucle], explosionRange);
-                Debug.DrawRay(transform.position, direction, Color.red, explosionRange);
-                if (hits[foreachBoucle].collider == null)
-                    Destroy(Instantiate(vfx, transform.position + (direction * i), Quaternion.identity), DelayExplose);
-            }
-
-            foreachBoucle++;
-
-            foreach (var hit in hits)
-            {
-                for (int i = 1; hits.Length == 0 ? i <= explosionRange + 0.5f : i <= hit.distance + 0.5f; i++)
-                {
-                    Vector3 diirection = (hit.point - transform.position).normalized;
-                    if (IsPercing || hit.collider.GetComponent<Indestructible>() == null && hit.collider.GetComponent<Limit>() == null)
-                    {
-                       
-                        Destroy(Instantiate(vfx, transform.position + (diirection * i), Quaternion.identity), DelayExplose);
-                        hit.transform?.GetComponent<IExplodable>()?.Explode();
-                    }
-                }
-            }
-        }
-        foreachBoucle = 0;
-
-        Destroy(Instantiate(vfx, transform.position, Quaternion.identity), DelayExplose);
-        ChangeBombStateToAdes(false);
-        isPercing = false;
+        if (exploded) return;
+        exploded = true;
+        int row = Mathf.RoundToInt(transform.position.x);
+        int column = Mathf.RoundToInt(transform.position.z);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing);
+        if (fx_bombExplosion) Instantiate(fx_bombExplosion,transform.position,transform.rotation);
+        if (owner) owner.BombExploded(this);
         Destroy(this.gameObject);
     }
+
+
 
     public void OnCollisionWith(ICollisionable collisionable)
     {
@@ -143,14 +97,4 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         }
     }
 
-    public void SetExplosionRange(int range)
-    {
-        explosionRange = range;
-    }
-
-    public void Explode()
-    {
-        Explose();
-        time = 0;
-    }
-}
+} // SCRIPT END

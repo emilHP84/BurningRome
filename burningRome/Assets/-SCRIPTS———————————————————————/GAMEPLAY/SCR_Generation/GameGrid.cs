@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class GameGrid : MonoBehaviour
 {
+    public static GameGrid access;
     [SerializeField] Transform grid;
     GridColumn[] gridColumns;
 
     void Start()
     {
+        access = this;
         GenerateGrid();
     }
 
@@ -24,11 +26,20 @@ public class GameGrid : MonoBehaviour
         }
     }
 
-    public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction)
+    public void BurnCell(int column, int row, float duration)
     {
+        BurnCell(column,row,duration,0,Cardinal.North,false);
+    }
+
+    public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction, bool piercing)
+    {
+        if (column < gridColumns.Length-1 || column > gridColumns.Length-1) return;
+        if (row < gridColumns[column].gridRows.Length-1 || row > gridColumns[column].gridRows.Length-1) return;
+
         IFlamable targetCell = gridColumns[column].gridRows[row];
         if (targetCell == null) return;
-        if (gridColumns[column].gridRows[row].BurnFor(duration) == true) // Si la case autorise la propagation
+        bool cellAuthorizePropagation = gridColumns[column].gridRows[row].BurnFor(duration);
+        if (cellAuthorizePropagation || piercing) // Si la case autorise la propagation ou que la bombe est perçante
         {
             propagation--;
             if (propagation>=0)
@@ -40,7 +51,7 @@ public class GameGrid : MonoBehaviour
                     case Cardinal.East: column++; break;
                     case Cardinal.West: column--; break;
                 }
-                BurnCell(column,row,duration,propagation,direction);
+                BurnCell(column,row,duration,propagation,direction, piercing);
             }
         }
     }

@@ -9,7 +9,8 @@ public class PlayerBombing : MonoBehaviour
     bool canBomb = false;
     public int MaxBomb{get{return maxBomb;}}
     [SerializeField] int maxBomb = 1;
-    int remainingBomb = 1;
+    int RemainingBombs{ get{return remainingBombs;} set{remainingBombs = Mathf.Clamp(value,0,maxBomb);} }
+    int remainingBombs = 1;
 
     [SerializeField] GameObject bombPrefab;
     List<BombManager> activeBombs = new List<BombManager>();
@@ -18,8 +19,9 @@ public class PlayerBombing : MonoBehaviour
     public int ExplosionRange => explosionRange;
     int manualDetonation = 0;
     BombManager manualBomb;
+    bool nextBombIsHadesFire = false;
 
-    float delay = 1;
+    float bombExplodeDelay = 1;
 
     void Update()
     {
@@ -27,7 +29,7 @@ public class PlayerBombing : MonoBehaviour
         {
             if (player.GetButtonDown("Bomb"))
             {
-                if (remainingBomb>0)
+                if (RemainingBombs>0)
                 {
                     if (manualDetonation<1) NewBomb();
                     else
@@ -42,7 +44,7 @@ public class PlayerBombing : MonoBehaviour
                         {
                             NewBomb();
                             manualBomb = activeBombs[activeBombs.Count-1];
-                            manualBomb.ChangeBombState(true);
+                            manualBomb.SetManualDetonation(true);
                             manualDetonation = 1;
                         }
                     }
@@ -51,7 +53,6 @@ public class PlayerBombing : MonoBehaviour
                 {
                     if (bombFx)
                     {
-                        
                         Instantiate(noBombFx, transform.position, transform.rotation); 
                     }
                 }
@@ -62,8 +63,7 @@ public class PlayerBombing : MonoBehaviour
         {
             if(activeBombs[i]==null)
             {
-                remainingBomb++;
-                if(remainingBomb>maxBomb) remainingBomb = maxBomb;
+                RemainingBombs++;
                 activeBombs.RemoveAt(i);
             }
         }
@@ -71,7 +71,6 @@ public class PlayerBombing : MonoBehaviour
 
     void NewBomb()
     {
-        bombPrefab.GetComponent<BombManager>().DelayExplose = delay;
         if (bombPrefab==null) return;
         Vector3 bombPos = transform.position;
         bombPos.x = Mathf.Round(bombPos.x);
@@ -79,10 +78,16 @@ public class PlayerBombing : MonoBehaviour
         bombPos.y = 2f;
         BombManager newBomb = Instantiate(bombPrefab,bombPos,transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
-        newBomb.GetComponent<BombManager>().SetExplosionRange(explosionRange);
-        remainingBomb--;
+        newBomb.SetDelay(bombExplodeDelay);
+        newBomb.SetExplosionRange(explosionRange);
+        newBomb.SetBombOwner(this);
+        if (nextBombIsHadesFire)
+        {
+            newBomb.SetFlameDuration(5f);
+            nextBombIsHadesFire = false;
+        }
+        RemainingBombs--;
         if (bombFx) Instantiate(bombFx,bombPos,transform.rotation);
-        delay = 1;
     }
 
     void OnEnable()
@@ -114,16 +119,24 @@ public class PlayerBombing : MonoBehaviour
     void ResetBombs()
     {
         activeBombs = new List<BombManager>();
-        remainingBomb = maxBomb;
+        RemainingBombs = maxBomb;
+    }
+
+    public void BombExploded(BombManager bomb)
+    {
+        if (activeBombs.Contains(bomb))
+        {
+            RemainingBombs++;
+            activeBombs.Remove(bomb);
+        }
     }
 
     public void ChangeMaxBomb(int desired)
     {
         if (desired<1) desired = 1;
+        int difference = desired-maxBomb;
         maxBomb = desired;
-        remainingBomb = desired;
-        if (remainingBomb>maxBomb) remainingBomb=maxBomb;
-        //if (activeBombs.Count>maxBomb) activeBombs = new List<BombManager>();
+        RemainingBombs += difference;
     }
 
     public void ChangeRange(int desired)
@@ -136,14 +149,19 @@ public class PlayerBombing : MonoBehaviour
         manualDetonation=2;
     }
 
-    public void Switchdelay()
+    public void Switchdelay(float newBombDelay)
     {
-        delay = 5;
+        bombExplodeDelay = newBombDelay;
     }
 
     public void BombPercing()
     {
-        bombPrefab.GetComponent<BombManager>().IsPercing = true;
+        bombPrefab.GetComponent<BombManager>().SetPiercing(true);
+    }
+
+    public void NextBombIsHadesFire()
+    {
+        nextBombIsHadesFire = true;
     }
 
 } // FIN DU SCRIPT
