@@ -21,3 +21,16 @@ public interface iPushableBy
 }
 
 // <-- Setup new interfaces here
+
+
+public interface IFlamable
+{
+    public bool BurnFor(float duration);
+    public void StopBurn();
+}
+
+
+public interface IExplodable
+{
+    public void Explode();
+}

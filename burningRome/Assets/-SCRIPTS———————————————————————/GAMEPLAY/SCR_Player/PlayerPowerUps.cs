@@ -31,12 +31,12 @@ public class PlayerPowerUps : MonoBehaviour
         manager.InvincibilityFor(10f);
     }
 
-    public void AdesFire()
+    public void HadesFire()
     {
-        bombSystem.Switchdelay();
+        bombSystem.NextBombIsHadesFire();
     }
 
-    public void Perçing()
+    public void Piercing()
     {
         bombSystem.BombPercing();
     }

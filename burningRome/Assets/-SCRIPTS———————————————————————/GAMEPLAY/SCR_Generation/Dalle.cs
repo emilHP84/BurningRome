@@ -37,7 +37,7 @@ public class Dalle : MonoBehaviour, IFlamable
         while (burning>0)
         {
             Physics.OverlapBoxNonAlloc(transform.position,Vector3.one*0.45f,allocColliders,transform.rotation,burnableLayers);
-            for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<iDamageable>().TakeDamage(1);
+            for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<IExplodable>().Explode();
             yield return null;
         }
         StopBurn();
@@ -45,9 +45,3 @@ public class Dalle : MonoBehaviour, IFlamable
 
     
 } // FIN DU SCRIPT
-
-public interface IFlamable
-{
-    public bool BurnFor(float duration);
-    public void StopBurn();
-}
