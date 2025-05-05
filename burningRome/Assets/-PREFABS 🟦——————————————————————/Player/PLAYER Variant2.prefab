@@ -168,7 +168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4578186822134600667}
   - component: {fileID: 7301937553468547331}
-  - component: {fileID: 434104532618039061}
   - component: {fileID: 8540109956701940968}
   m_Layer: 0
   m_Name: Neptune_Left
@@ -247,38 +246,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &434104532618039061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557959735019893052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 7069679423110623997}
-  m_BoneTransforms:
-  - {fileID: 7069679423110623997}
-  - {fileID: 8995395268674037611}
-  - {fileID: 5058747647214100348}
-  - {fileID: 3076317212615167457}
-  - {fileID: 418638536637198106}
-  - {fileID: 643711685710738982}
-  - {fileID: 6403371524984486402}
-  - {fileID: 6080562050703102812}
-  - {fileID: 6315318655053530752}
-  - {fileID: 9217361190441600337}
-  - {fileID: 3485843913267505922}
-  - {fileID: 637744821039423467}
-  - {fileID: 2864421236727934436}
-  m_Bounds:
-    m_Center: {x: -0.15999842, y: -0.4337101, z: 0}
-    m_Extent: {x: 4.6900005, y: 6.00214, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &8540109956701940968
 Animator:
   serializedVersion: 7
@@ -410,7 +377,6 @@ GameObject:
   - component: {fileID: 4915538033499826253}
   - component: {fileID: 2552865695328912798}
   - component: {fileID: 9109255265556161382}
-  - component: {fileID: 6933384320382635362}
   m_Layer: 0
   m_Name: Neptune_Down
   m_TagString: Untagged
@@ -510,38 +476,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6933384320382635362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613241479020450795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 256560137111613851}
-  m_BoneTransforms:
-  - {fileID: 1458120580526849796}
-  - {fileID: 8361115003078422865}
-  - {fileID: 4539087505594518974}
-  - {fileID: 3893139590513279831}
-  - {fileID: 1006397144061418828}
-  - {fileID: 3918726213507064519}
-  - {fileID: 5251200662116147055}
-  - {fileID: 6273907745541966256}
-  - {fileID: 8026329332868169749}
-  - {fileID: 1151910697183671855}
-  - {fileID: 8786326868411152160}
-  - {fileID: 3713557987552555254}
-  - {fileID: 256560137111613851}
-  m_Bounds:
-    m_Center: {x: 0.23499966, y: -0.0049996376, z: 0}
-    m_Extent: {x: 5.8550005, y: 6.495, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &701863737073485590
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +519,6 @@ GameObject:
   - component: {fileID: 8880517038300285421}
   - component: {fileID: 120057095950596419}
   - component: {fileID: 8662216018044882776}
-  - component: {fileID: 2776142260875923295}
   m_Layer: 0
   m_Name: Neptune_Top
   m_TagString: Untagged
@@ -685,37 +618,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2776142260875923295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130954654920361827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 5476486900910523002}
-  m_BoneTransforms:
-  - {fileID: 757336772756804400}
-  - {fileID: 5235827967030293757}
-  - {fileID: 3064911925037302491}
-  - {fileID: 494137426519780997}
-  - {fileID: 5476486900910523002}
-  - {fileID: 4327798825025120250}
-  - {fileID: 5873197501498159551}
-  - {fileID: 4304435344108219490}
-  - {fileID: 6741102075935036592}
-  - {fileID: 3632038370031034703}
-  - {fileID: 6978136551723341044}
-  - {fileID: 3067438766531452636}
-  m_Bounds:
-    m_Center: {x: 0.20731068, y: 0.30532598, z: 0}
-    m_Extent: {x: 6.072691, y: 6.154676, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &1244717063268762644
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +756,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3399477320894522984}
   - component: {fileID: 9071945631665941}
-  - component: {fileID: 3877729222628593562}
   - component: {fileID: 5772216621317685726}
   m_Layer: 0
   m_Name: Neptune_Right
@@ -933,38 +834,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3877729222628593562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2185764530042370522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 4726210664129828755}
-  m_BoneTransforms:
-  - {fileID: 4726210664129828755}
-  - {fileID: 5036500274895063792}
-  - {fileID: 4217560473847682509}
-  - {fileID: 1430110505795665766}
-  - {fileID: 5823328098307600766}
-  - {fileID: 6229695097875922462}
-  - {fileID: 3803853416240257550}
-  - {fileID: 1654305816570320602}
-  - {fileID: 6544422581573109676}
-  - {fileID: 7009862195067235236}
-  - {fileID: 6030291391042737867}
-  - {fileID: 7494318619852811345}
-  - {fileID: 1050999308301356394}
-  m_Bounds:
-    m_Center: {x: -0.17499876, y: -0.44798088, z: 0}
-    m_Extent: {x: 4.6850004, y: 6.0079794, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &5772216621317685726
 Animator:
   serializedVersion: 7
@@ -1671,7 +1540,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1157853459744656018}
   - component: {fileID: 8537026658695828387}
-  - component: {fileID: 5277024364269702940}
   - component: {fileID: 8486927908001242407}
   m_Layer: 0
   m_Name: Neptune_Idle
@@ -1750,38 +1618,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5277024364269702940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4220096616373903742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 7151819410138074870}
-  m_BoneTransforms:
-  - {fileID: 4508264503042787892}
-  - {fileID: 5164384188586490149}
-  - {fileID: 7015130125487013105}
-  - {fileID: 7501720245896389591}
-  - {fileID: 1344171366121959716}
-  - {fileID: 165594202551837744}
-  - {fileID: 3033306989749231413}
-  - {fileID: 3320875698196423642}
-  - {fileID: 7253585726083539445}
-  - {fileID: 7448668657658817466}
-  - {fileID: 163973428260875327}
-  - {fileID: 4599691915754358524}
-  - {fileID: 7151819410138074870}
-  m_Bounds:
-    m_Center: {x: 0.23500061, y: -0.004998684, z: 0}
-    m_Extent: {x: 5.8550014, y: 6.4950013, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &8486927908001242407
 Animator:
   serializedVersion: 7
@@ -1846,7 +1682,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8905762515188842697}
   - component: {fileID: 772105307478233515}
-  - component: {fileID: 8268997985147745026}
   - component: {fileID: 8335785641384156535}
   m_Layer: 0
   m_Name: Neptune_Death
@@ -1929,38 +1764,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8268997985147745026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4234054167294297652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 4376005540931199210}
-  m_BoneTransforms:
-  - {fileID: 128652457115778841}
-  - {fileID: 3178166638800542229}
-  - {fileID: 4376005540931199210}
-  - {fileID: 6992276317436640696}
-  - {fileID: 8511885274056600526}
-  - {fileID: 2689824149734664303}
-  - {fileID: 4267253934693606144}
-  - {fileID: 1216180176454191250}
-  - {fileID: 8706439116085478319}
-  - {fileID: 8709639179215713343}
-  - {fileID: 4588261225861760832}
-  - {fileID: 7143527589407271197}
-  - {fileID: 4003839386764224405}
-  m_Bounds:
-    m_Center: {x: 0.23500061, y: -0.0050001144, z: 0}
-    m_Extent: {x: 5.8550005, y: 6.4949994, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &8335785641384156535
 Animator:
   serializedVersion: 7
@@ -3360,6 +3163,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300230, guid: 99cbc473450af4147999e9e68398877b,
         type: 3}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2246704444069768812}
     - target: {fileID: 2578960439312768186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_IsActive
@@ -3375,6 +3183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941618876757015035, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3399903589023675348, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3447,6 +3260,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3860007769605899796, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4831584014450910658, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -3478,6 +3296,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7057137391412115863, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -3487,6 +3310,11 @@ PrefabInstance:
     - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
@@ -3499,6 +3327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7279451766137512850, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3525,6 +3358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129994187179168980, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8182607602943688266, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3569,6 +3407,12 @@ PrefabInstance:
 --- !u!4 &1360272372249443401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4529122136844385708, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2246704444069768812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3681659557141213065, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}

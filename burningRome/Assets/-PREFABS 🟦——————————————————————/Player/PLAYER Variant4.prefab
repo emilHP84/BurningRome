@@ -331,7 +331,6 @@ GameObject:
   m_Component:
   - component: {fileID: 443523377247189376}
   - component: {fileID: 7329301412879558179}
-  - component: {fileID: 4997026612590856808}
   - component: {fileID: 4757112035347303212}
   m_Layer: 0
   m_Name: Venus_Death
@@ -415,38 +414,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4997026612590856808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072338639692059539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 1664229278878358658}
-  m_BoneTransforms:
-  - {fileID: 928403562626429862}
-  - {fileID: 4031277142277750632}
-  - {fileID: 1664229278878358658}
-  - {fileID: 8524936315933382510}
-  - {fileID: 3448991641781262125}
-  - {fileID: 1783180505068899773}
-  - {fileID: 2048373072468331297}
-  - {fileID: 5998344604756837798}
-  - {fileID: 1772572394255221555}
-  - {fileID: 3058098553891337352}
-  - {fileID: 130445789082577668}
-  - {fileID: 4365298908167998183}
-  - {fileID: 21141654301777443}
-  m_Bounds:
-    m_Center: {x: 0.28432465, y: 0.2693243, z: 0}
-    m_Extent: {x: 5.530775, y: 6.1456747, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &4757112035347303212
 Animator:
   serializedVersion: 7
@@ -511,7 +478,6 @@ GameObject:
   - component: {fileID: 1868315170732839795}
   - component: {fileID: 89543775389406241}
   - component: {fileID: 3333782537029938621}
-  - component: {fileID: 1703095434538392911}
   m_Layer: 0
   m_Name: Venus_Right
   m_TagString: Untagged
@@ -611,38 +577,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1703095434538392911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290864650602437057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 7001017607809159012}
-  m_BoneTransforms:
-  - {fileID: 7001017607809159012}
-  - {fileID: 4379696888872268942}
-  - {fileID: 4189299512509254523}
-  - {fileID: 1216128722642211029}
-  - {fileID: 3648842062900649919}
-  - {fileID: 3006974258849977863}
-  - {fileID: 42596411287778318}
-  - {fileID: 927773745324878616}
-  - {fileID: 5847289295078802101}
-  - {fileID: 7574377287828629503}
-  - {fileID: 8917039478279983294}
-  - {fileID: 6556909855198015364}
-  - {fileID: 4026225370185459219}
-  m_Bounds:
-    m_Center: {x: 0.34682965, y: -0.12999964, z: 0}
-    m_Extent: {x: 3.9785304, y: 6.3000007, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &1351371485160305806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1036,6 @@ GameObject:
   - component: {fileID: 312523385114695824}
   - component: {fileID: 812520506475297131}
   - component: {fileID: 3980236199658695379}
-  - component: {fileID: 8975317770696339566}
   m_Layer: 0
   m_Name: Venus_Idle
   m_TagString: Untagged
@@ -1198,38 +1131,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!114 &8975317770696339566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668644418970013030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 6926446001264978397}
-  m_BoneTransforms:
-  - {fileID: 7085234270984064657}
-  - {fileID: 7809956529881602126}
-  - {fileID: 5809797220028595768}
-  - {fileID: 1495802820351094499}
-  - {fileID: 340335289897419174}
-  - {fileID: 8677932635282496475}
-  - {fileID: 5048045045082808224}
-  - {fileID: 3121184542654058459}
-  - {fileID: 8841923380521656813}
-  - {fileID: 366327932790556054}
-  - {fileID: 1058445605769271966}
-  - {fileID: 7474684450978134052}
-  - {fileID: 6926446001264978397}
-  m_Bounds:
-    m_Center: {x: 0.28432417, y: 0.26932526, z: 0}
-    m_Extent: {x: 5.530776, y: 6.145676, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &2675766446589741542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1620,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2672517929668073650}
   - component: {fileID: 4275516726367953926}
-  - component: {fileID: 5397043221752092689}
   - component: {fileID: 3732183056659723740}
   m_Layer: 0
   m_Name: Venus_Down
@@ -1798,38 +1698,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5397043221752092689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4496582284327792620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 5927392637511981683}
-  m_BoneTransforms:
-  - {fileID: 1377299908683993002}
-  - {fileID: 8986023915171226055}
-  - {fileID: 5077048567564509653}
-  - {fileID: 9152062914209166983}
-  - {fileID: 7863186610936604453}
-  - {fileID: 9073539394383458902}
-  - {fileID: 4298425922484742458}
-  - {fileID: 1722696961701119356}
-  - {fileID: 1763461449244743758}
-  - {fileID: 6823021896033881011}
-  - {fileID: 2873112582749986224}
-  - {fileID: 3418965228997700481}
-  - {fileID: 5927392637511981683}
-  m_Bounds:
-    m_Center: {x: 0.28432417, y: 0.26932526, z: 0}
-    m_Extent: {x: 5.530776, y: 6.145676, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &3732183056659723740
 Animator:
   serializedVersion: 7
@@ -2753,7 +2621,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1295443621207127083}
   - component: {fileID: 6141827101693729279}
-  - component: {fileID: 1140437505402429923}
   - component: {fileID: 6537791349674590609}
   m_Layer: 0
   m_Name: Venus_Left
@@ -2832,38 +2699,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1140437505402429923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7494898867669594990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 3361015764988134155}
-  m_BoneTransforms:
-  - {fileID: 3361015764988134155}
-  - {fileID: 5877653310364601577}
-  - {fileID: 8677392130164529354}
-  - {fileID: 4391248460678658601}
-  - {fileID: 8511048479498803111}
-  - {fileID: 7143709210149332161}
-  - {fileID: 301497572622244633}
-  - {fileID: 1404293642404712069}
-  - {fileID: 5491821585503619783}
-  - {fileID: 9126732349089715607}
-  - {fileID: 8468478608885060839}
-  - {fileID: 2030424494449760927}
-  - {fileID: 1913881399042749394}
-  m_Bounds:
-    m_Center: {x: -0.21356463, y: -0.13483, z: 0}
-    m_Extent: {x: 3.7635646, y: 6.3008394, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &6537791349674590609
 Animator:
   serializedVersion: 7
@@ -2896,7 +2731,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9088509585540976394}
   - component: {fileID: 6829455206120188795}
-  - component: {fileID: 729266699682853157}
   - component: {fileID: 8319766257935279602}
   m_Layer: 0
   m_Name: Venus_Top
@@ -2975,37 +2809,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &729266699682853157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530629347185876574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 2721049456460321199}
-  m_BoneTransforms:
-  - {fileID: 1868422101310429627}
-  - {fileID: 5523353386004658573}
-  - {fileID: 393272240048955593}
-  - {fileID: 2756642626038072949}
-  - {fileID: 2721049456460321199}
-  - {fileID: 1242528221163689262}
-  - {fileID: 4258548121466921436}
-  - {fileID: 5778889558412286260}
-  - {fileID: 5263836737575988979}
-  - {fileID: 8895126106338481723}
-  - {fileID: 3927116888327577338}
-  - {fileID: 6084411806254296119}
-  m_Bounds:
-    m_Center: {x: 0.099155426, y: 0.3568263, z: 0}
-    m_Extent: {x: 5.108056, y: 5.9831758, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &8319766257935279602
 Animator:
   serializedVersion: 7
@@ -3763,6 +3566,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2941618876757015035, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3399903589023675348, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3829,6 +3637,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3860007769605899796, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6447984020069635404, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_IsActive
@@ -3840,6 +3653,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d8fd0b66749f18b44be7aac4e015862a,
         type: 3}
+    - target: {fileID: 7057137391412115863, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -3851,6 +3669,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -3861,6 +3684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7279451766137512850, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3882,6 +3710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129994187179168980, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8399220713633372445, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}

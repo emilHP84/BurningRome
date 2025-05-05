@@ -363,7 +363,6 @@ GameObject:
   - component: {fileID: 2942045018913517470}
   - component: {fileID: 8277577789726153049}
   - component: {fileID: 2658685418112657296}
-  - component: {fileID: 2352965648236702742}
   m_Layer: 0
   m_Name: Trivia_Death
   m_TagString: Untagged
@@ -468,38 +467,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2352965648236702742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292910486207983846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 5387007233349790878}
-  m_BoneTransforms:
-  - {fileID: 7461582864741832515}
-  - {fileID: 7921668165865752520}
-  - {fileID: 5387007233349790878}
-  - {fileID: 9144517269675977631}
-  - {fileID: 699185188451842371}
-  - {fileID: 7466283167206819242}
-  - {fileID: 443810056978126239}
-  - {fileID: 5574086090006578269}
-  - {fileID: 7507094870714340726}
-  - {fileID: 6130526920187363441}
-  - {fileID: 5685154780947633347}
-  - {fileID: 7353494931333469667}
-  - {fileID: 8961299058805459230}
-  m_Bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &1311777111878301131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1601,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8916654215477398889}
   - component: {fileID: 3110429323882370542}
-  - component: {fileID: 994948920753946192}
   - component: {fileID: 7446542371584991028}
   m_Layer: 0
   m_Name: Trivia_Top
@@ -1713,37 +1679,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &994948920753946192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4803777875135272050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 8364601639284946710}
-  m_BoneTransforms:
-  - {fileID: 2613772460713541037}
-  - {fileID: 787691329875021810}
-  - {fileID: 357859691758458882}
-  - {fileID: 5380504582361744566}
-  - {fileID: 8364601639284946710}
-  - {fileID: 176640108082669085}
-  - {fileID: 3261041682714570202}
-  - {fileID: 1918904719175360607}
-  - {fileID: 6952161041802857386}
-  - {fileID: 6647297224008996077}
-  - {fileID: 2523343796861470497}
-  - {fileID: 8659057668734128953}
-  m_Bounds:
-    m_Center: {x: -0.125, y: 0.32231045, z: 0}
-    m_Extent: {x: 4.075001, y: 6.477691, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &7446542371584991028
 Animator:
   serializedVersion: 7
@@ -2629,7 +2564,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6595618534116747689}
   - component: {fileID: 2102067309850908739}
-  - component: {fileID: 6399105809091839429}
   - component: {fileID: 3028407532694898776}
   m_Layer: 0
   m_Name: Trivia_Left
@@ -2708,38 +2642,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6399105809091839429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402900633693837133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 1086723120893177369}
-  m_BoneTransforms:
-  - {fileID: 1086723120893177369}
-  - {fileID: 3480010614633558337}
-  - {fileID: 2992803410560984785}
-  - {fileID: 6075671657825639771}
-  - {fileID: 2273813732979086053}
-  - {fileID: 5784064548769007704}
-  - {fileID: 7278695858779477985}
-  - {fileID: 2423159785910666870}
-  - {fileID: 6846001644129803161}
-  - {fileID: 7725678719548245296}
-  - {fileID: 8339698912322620155}
-  - {fileID: 3882483580587993642}
-  - {fileID: 5588924531913855073}
-  m_Bounds:
-    m_Center: {x: 0.11239529, y: 0.30507612, z: 0}
-    m_Extent: {x: 4.4375362, y: 5.990386, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &3028407532694898776
 Animator:
   serializedVersion: 7
@@ -2963,7 +2865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5067936517705022342}
   - component: {fileID: 2294086270606367240}
-  - component: {fileID: 1930179153768420066}
   - component: {fileID: 1376204007375867313}
   m_Layer: 0
   m_Name: Trivia_Down
@@ -3042,38 +2943,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1930179153768420066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7751775978625339243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 4207672052155995016}
-  m_BoneTransforms:
-  - {fileID: 560796198881611465}
-  - {fileID: 8333333320583226939}
-  - {fileID: 4849418543201392084}
-  - {fileID: 42642015644402652}
-  - {fileID: 5050823630429616488}
-  - {fileID: 8555809307633245242}
-  - {fileID: 6043696320856065925}
-  - {fileID: 8935930023996962601}
-  - {fileID: 6055151743144354490}
-  - {fileID: 8816486055648391064}
-  - {fileID: 5134049467315068442}
-  - {fileID: 8110608685814317669}
-  - {fileID: 4207672052155995016}
-  m_Bounds:
-    m_Center: {x: 0.19499874, y: 0.1623106, z: 0}
-    m_Extent: {x: 4.255, y: 6.067692, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &1376204007375867313
 Animator:
   serializedVersion: 7
@@ -3168,7 +3037,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2488961147740321574}
   - component: {fileID: 4859632703606077378}
-  - component: {fileID: 4266302827312694742}
   - component: {fileID: 761916824795453543}
   m_Layer: 0
   m_Name: Trivia_Right
@@ -3247,38 +3115,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4266302827312694742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8360720140514819314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 5402097675737641646}
-  m_BoneTransforms:
-  - {fileID: 5402097675737641646}
-  - {fileID: 6734017464993225590}
-  - {fileID: 7505094227779038262}
-  - {fileID: 3516313598162802085}
-  - {fileID: 1917720089206149385}
-  - {fileID: 3257017573385242508}
-  - {fileID: 6104215451128501217}
-  - {fileID: 1179267868365285393}
-  - {fileID: 5257340777249311738}
-  - {fileID: 6720460726985052133}
-  - {fileID: 706538438881296716}
-  - {fileID: 7525425669864138022}
-  - {fileID: 2490309941250439248}
-  m_Bounds:
-    m_Center: {x: 0.11239529, y: 0.30507612, z: 0}
-    m_Extent: {x: 4.4375362, y: 5.990386, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &761916824795453543
 Animator:
   serializedVersion: 7
@@ -3440,7 +3276,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6315365817004009454}
   - component: {fileID: 6732695622622124321}
-  - component: {fileID: 2670747458980032946}
   - component: {fileID: 5636073285953368892}
   m_Layer: 0
   m_Name: Trivia_Idle
@@ -3519,38 +3354,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2670747458980032946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058611641470573050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 2533900755970471493}
-  m_BoneTransforms:
-  - {fileID: 5104018589943570396}
-  - {fileID: 7506313522618222534}
-  - {fileID: 2900484434017260800}
-  - {fileID: 1374666010573095427}
-  - {fileID: 8642693460789642318}
-  - {fileID: 9094115686299018932}
-  - {fileID: 2352306798062767287}
-  - {fileID: 7051532566024952378}
-  - {fileID: 2106146007897572597}
-  - {fileID: 5636950797139029500}
-  - {fileID: 7537030208296981928}
-  - {fileID: 6581119795880908801}
-  - {fileID: 2533900755970471493}
-  m_Bounds:
-    m_Center: {x: 0.19499874, y: 0.1623106, z: 0}
-    m_Extent: {x: 4.255, y: 6.067692, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &5636073285953368892
 Animator:
   serializedVersion: 7
@@ -3772,6 +3575,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2941618876757015035, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3399903589023675348, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3838,6 +3646,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3860007769605899796, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5658225765538495898, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3869,6 +3682,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7057137391412115863, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -3880,6 +3698,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176966030866628905, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -3890,6 +3713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207839361344799638, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7279451766137512850, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3911,6 +3739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129994187179168980, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8182607602943688266, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}

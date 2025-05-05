@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    public GameObject vfx;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
   
@@ -40,7 +39,6 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
 
         if (isAlive==false) yield break;
-        Instantiate(vfx, transform.position, transform.rotation);   
         transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
         yield return new WaitForSeconds(deathTime);
