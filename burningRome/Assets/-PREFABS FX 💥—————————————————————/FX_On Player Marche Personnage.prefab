@@ -92,6 +92,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: On Player Marche Personnage
       objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: b04ab8844d011874fa815ef208741ffb,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: b04ab8844d011874fa815ef208741ffb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: b04ab8844d011874fa815ef208741ffb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}
       propertyPath: m_LocalPosition.x
