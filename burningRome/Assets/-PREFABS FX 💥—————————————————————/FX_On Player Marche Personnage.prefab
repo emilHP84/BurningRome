@@ -92,6 +92,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: On Player Marche Personnage
       objectReference: {fileID: 0}
+    - target: {fileID: 1124220819475954460, guid: b04ab8844d011874fa815ef208741ffb,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c8c40a0034a77cd4090bca3fc1b59586, type: 2}
+    - target: {fileID: 6796952734005719340, guid: b04ab8844d011874fa815ef208741ffb,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6796952734005719340, guid: b04ab8844d011874fa815ef208741ffb,
         type: 3}
       propertyPath: lengthInSec
