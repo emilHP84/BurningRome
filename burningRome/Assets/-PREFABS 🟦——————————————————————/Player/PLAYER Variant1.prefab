@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8991572386553010908}
   - component: {fileID: 2055319411104298852}
-  - component: {fileID: 6483709189062414398}
   - component: {fileID: 8216363547022329646}
   m_Layer: 0
   m_Name: Sprt_Pluton_Idle
@@ -120,40 +119,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6483709189062414398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118419781554666242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 2904178706095100021}
-  m_BoneTransforms:
-  - {fileID: 8794080625977172080}
-  - {fileID: 2250278714507672358}
-  - {fileID: 7672240465704821872}
-  - {fileID: 3538875933389302686}
-  - {fileID: 7193747629253613325}
-  - {fileID: 4754370107996089366}
-  - {fileID: 7080342133409962730}
-  - {fileID: 3907458280753233469}
-  - {fileID: 6564978367856375234}
-  - {fileID: 3532676684819130557}
-  - {fileID: 8723757201101531755}
-  - {fileID: 184666673600649623}
-  - {fileID: 4558036309694422721}
-  - {fileID: 2528112427407042414}
-  - {fileID: 2904178706095100021}
-  m_Bounds:
-    m_Center: {x: 0.222767, y: -0.018695712, z: 0}
-    m_Extent: {x: 1.0267673, y: 1.2823403, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &8216363547022329646
 Animator:
   serializedVersion: 7
@@ -1213,7 +1178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3051389302703307644}
   - component: {fileID: 6309844318587775638}
-  - component: {fileID: 7094452345420324024}
   - component: {fileID: 3167962470725236391}
   m_Layer: 0
   m_Name: Sprt_Pluton_Down_Rig
@@ -1292,40 +1256,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7094452345420324024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3657166347276253764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 5774992691322068813}
-  m_BoneTransforms:
-  - {fileID: 3623823328444467693}
-  - {fileID: 7916902117574388592}
-  - {fileID: 5446226075762157185}
-  - {fileID: 4494206768602429850}
-  - {fileID: 1441387013749782657}
-  - {fileID: 2311518888563093343}
-  - {fileID: 4926488397946366619}
-  - {fileID: 7047913663457017714}
-  - {fileID: 8629548424187867319}
-  - {fileID: 7441135292104984328}
-  - {fileID: 196653271434728003}
-  - {fileID: 3043367516029870767}
-  - {fileID: 2826871699813754759}
-  - {fileID: 7199583180720234983}
-  - {fileID: 5774992691322068813}
-  m_Bounds:
-    m_Center: {x: 1.1138363, y: -0.09347868, z: 0}
-    m_Extent: {x: 5.133836, y: 6.4117017, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &3167962470725236391
 Animator:
   serializedVersion: 7
@@ -1647,7 +1577,6 @@ GameObject:
   - component: {fileID: 1137319012787696913}
   - component: {fileID: 2278525490545191924}
   - component: {fileID: 4652578380986960093}
-  - component: {fileID: 8107553687556769072}
   m_Layer: 0
   m_Name: Sprt_Pluton_Left_Rig
   m_TagString: Untagged
@@ -1747,43 +1676,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8107553687556769072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4336224174199711445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 3034306865141994802}
-  m_BoneTransforms:
-  - {fileID: 3034306865141994802}
-  - {fileID: 2335032514778864200}
-  - {fileID: 4949563618440052967}
-  - {fileID: 3634151398182445539}
-  - {fileID: 5434441656844995347}
-  - {fileID: 3815381258943605972}
-  - {fileID: 2320042679229978840}
-  - {fileID: 370154825241443582}
-  - {fileID: 387959349237488870}
-  - {fileID: 2571787336425806536}
-  - {fileID: 6105388353683695193}
-  - {fileID: 7161120993641248449}
-  - {fileID: 7075349308301719046}
-  - {fileID: 7196037452954529428}
-  - {fileID: 7696092298328015501}
-  - {fileID: 7963133293298233021}
-  - {fileID: 8075329687497169001}
-  - {fileID: 7334559336645277211}
-  m_Bounds:
-    m_Center: {x: -0.065826, y: 0.038107395, z: 0}
-    m_Extent: {x: 0.9178262, y: 1.275893, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &4442434727997605930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +2167,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2477394658817232904}
   - component: {fileID: 1360441392997164204}
-  - component: {fileID: 456890990862201661}
   - component: {fileID: 7134448135081217551}
   m_Layer: 0
   m_Name: Sprt_Pluton_Right_Rig
@@ -2354,41 +2245,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &456890990862201661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531582648757435888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 152003846100166219}
-  m_BoneTransforms:
-  - {fileID: 152003846100166219}
-  - {fileID: 7067712153706730934}
-  - {fileID: 4637083661614570909}
-  - {fileID: 8985642421142483218}
-  - {fileID: 21371312897975394}
-  - {fileID: 5525769189500394958}
-  - {fileID: 799432829931638060}
-  - {fileID: 2851261250210315251}
-  - {fileID: 5963798737681007186}
-  - {fileID: 5576026952077392340}
-  - {fileID: 1776919883949323488}
-  - {fileID: 1977654260199668264}
-  - {fileID: 144597015640649770}
-  - {fileID: 5863025533957053001}
-  - {fileID: 5650620518715563706}
-  - {fileID: 366275487317753163}
-  m_Bounds:
-    m_Center: {x: 0.11500007, y: 0.04643202, z: 0}
-    m_Extent: {x: 0.82100004, y: 1.2658222, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &7134448135081217551
 Animator:
   serializedVersion: 7
@@ -2896,7 +2752,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7012588675418991994}
   - component: {fileID: 7201959487773335920}
-  - component: {fileID: 8576888238950937742}
   - component: {fileID: 5231205752960246248}
   m_Layer: 0
   m_Name: Sprt_Pluton_Top_Rig
@@ -2975,40 +2830,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8576888238950937742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478437606171992834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 6826594834190726731}
-  m_BoneTransforms:
-  - {fileID: 951080509128184684}
-  - {fileID: 3725469687354559128}
-  - {fileID: 3121495160327380138}
-  - {fileID: 6642525213120931103}
-  - {fileID: 6826594834190726731}
-  - {fileID: 3642798087915182220}
-  - {fileID: 1832841606076668003}
-  - {fileID: 7602561619315664464}
-  - {fileID: 8626029788815695459}
-  - {fileID: 2099705167285066872}
-  - {fileID: 2142348323786919520}
-  - {fileID: 4374399524381064904}
-  - {fileID: 2612246760206340712}
-  - {fileID: 2102218066647520558}
-  - {fileID: 6033434519611849094}
-  m_Bounds:
-    m_Center: {x: -0.0038440228, y: -0.00019586086, z: 0}
-    m_Extent: {x: 1.0794163, y: 1.3368082, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!95 &5231205752960246248
 Animator:
   serializedVersion: 7
@@ -3294,7 +3115,6 @@ GameObject:
   - component: {fileID: 3314658423748507357}
   - component: {fileID: 4184598581306693388}
   - component: {fileID: 3499277938295232940}
-  - component: {fileID: 2143408416052725205}
   m_Layer: 0
   m_Name: Sprt_Pluton_Death_Rig
   m_TagString: Untagged
@@ -3399,40 +3219,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2143408416052725205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526406897240222488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c008f954fe54a8bb972de1018a2cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RootBone: {fileID: 3712874571018698456}
-  m_BoneTransforms:
-  - {fileID: 7988482211513604434}
-  - {fileID: 6319495118817679865}
-  - {fileID: 3712874571018698456}
-  - {fileID: 6501323324603707967}
-  - {fileID: 7480678257248638258}
-  - {fileID: 3272287987861942924}
-  - {fileID: 8893938526992780676}
-  - {fileID: 1541264268966668394}
-  - {fileID: 4495961147810816649}
-  - {fileID: 7313893375630565781}
-  - {fileID: 8269719578931704736}
-  - {fileID: 4256458513262449286}
-  - {fileID: 7273260050960701250}
-  - {fileID: 6120846052540868501}
-  - {fileID: 9126091932817578014}
-  m_Bounds:
-    m_Center: {x: 1.1138358, y: -0.09347963, z: 0}
-    m_Extent: {x: 5.133836, y: 6.4117007, z: 0}
-  m_AlwaysUpdate: 1
-  m_AutoRebind: 0
 --- !u!1 &7622569608363831256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,6 +3706,41 @@ PrefabInstance:
       propertyPath: stepSize
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2246704444069768812}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 3125087588355968414}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 4517469586477368671}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: moveup
+      value: 
+      objectReference: {fileID: 5088534046790330396}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: movedown
+      value: 
+      objectReference: {fileID: 8449266751352755369}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: moveleft
+      value: 
+      objectReference: {fileID: 1148500156761955679}
+    - target: {fileID: 2474196265410904927, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: moveright
+      value: 
+      objectReference: {fileID: 3312181893126668957}
     - target: {fileID: 2578960439312768186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_IsActive
@@ -4161,9 +3982,21 @@ PrefabInstance:
       addedObject: {fileID: 3314658423748507357}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f92cb56d3be1014e86f7c58776ee71e, type: 3}
+--- !u!1 &1148500156761955679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2578960439312768186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1360272372249443401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4529122136844385708, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2246704444069768812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3681659557141213065, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
@@ -4179,9 +4012,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3312181893126668957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 129830297105122168, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4258182367280217710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1666928179309363083, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4517469586477368671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336235047637632186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5088534046790330396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7684300763994532345, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
@@ -4200,6 +4051,12 @@ Transform:
 --- !u!4 &7114572847277767807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5658225765538495898, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8449266751352755369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6447984020069635404, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
