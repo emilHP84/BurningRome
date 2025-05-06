@@ -129,13 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66576aea0c438444af16933ee21f4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionClip: {fileID: 8300000, guid: 01de3018e4ac15440a1bb715f3cfaf40, type: 3}
-  vfx: {fileID: 7777699817488945046, guid: 375877a63cad52845a7b40e05fce3f48, type: 3}
-  m_delayBetweenExplose: 3
-  m_delayExplose: 1
-  m_ExplosionPatern: {fileID: 7460194404273549144}
+  ManualDetonation: 0
+  isPiercing: 0
+  fx_bombExplosion: {fileID: 7777699817488945046, guid: 375877a63cad52845a7b40e05fce3f48,
+    type: 3}
   explosionRange: 1
-  isPercing: 0
+  delayBeforeExplosion: 3
 --- !u!114 &1879754482895544003
 MonoBehaviour:
   m_ObjectHideFlags: 0

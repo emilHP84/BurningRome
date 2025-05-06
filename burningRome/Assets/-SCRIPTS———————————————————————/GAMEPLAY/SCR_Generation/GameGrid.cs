@@ -33,8 +33,14 @@ public class GameGrid : MonoBehaviour
 
     public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction, bool piercing)
     {
-        if (column < gridColumns.Length-1 || column > gridColumns.Length-1) return;
-        if (row < gridColumns[column].gridRows.Length-1 || row > gridColumns[column].gridRows.Length-1) return;
+        if (column < 0 || column > gridColumns.Length - 1)
+        {
+            return;
+        }
+        if (row < 0 || row > gridColumns[column].gridRows.Length - 1)
+        {
+            return; //gridColumns[column].gridRows.Length-1
+        }
 
         IFlamable targetCell = gridColumns[column].gridRows[row];
         if (targetCell == null) return;

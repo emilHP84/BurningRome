@@ -68,8 +68,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     {
         if (exploded) return;
         exploded = true;
-        int row = Mathf.RoundToInt(transform.position.x);
-        int column = Mathf.RoundToInt(transform.position.z);
+        int row = Mathf.RoundToInt(transform.position.z);
+        int column = Mathf.RoundToInt(transform.position.x);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing);

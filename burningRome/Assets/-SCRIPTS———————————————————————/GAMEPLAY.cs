@@ -23,11 +23,16 @@ public class GAMEPLAY : MonoBehaviour
     private void OnEnable()
     {
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
+        EVENTS.OnGameplay += GamePlayStarted;
     }
+
+
 
     private void OnDisable()
     {
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
+        EVENTS.OnGameplay -= GamePlayStarted;
+
     }
 
     private void Start()
@@ -42,6 +47,12 @@ public class GAMEPLAY : MonoBehaviour
     {
         IncreaseTimer();
         UpdateCurrentState();
+    }
+
+
+    private void GamePlayStarted()
+    {
+        EnterState(GameplayState.joining);
     }
 
     #region PLAYER NUMBER
@@ -103,6 +114,7 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.battle:
+                EVENTS.OnGameplay -= GamePlayStarted;
                 Debug.Log("IsBattle");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = true;

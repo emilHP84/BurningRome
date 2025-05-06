@@ -405,6 +405,12 @@ MonoBehaviour:
     type: 3}
   BlocDestructible: {fileID: 3669069770462250389, guid: 2e1c08ee6742620439ace17d4c09e4b4,
     type: 3}
+--- !u!1 &337393681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4327198544689561352, guid: 05b650487665bb8498517ec7c45d3c6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457612534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &345165798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,7 +2341,11 @@ PrefabInstance:
     - {fileID: 9127066311107618474, guid: 05b650487665bb8498517ec7c45d3c6f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4327198544689561352, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1457612536}
   m_SourcePrefab: {fileID: 100100000, guid: 05b650487665bb8498517ec7c45d3c6f, type: 3}
 --- !u!4 &1457612535 stripped
 Transform:
@@ -2343,6 +2353,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1457612534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1457612536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337393681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ba9a4c97d83c140a2c6d05462384bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1457612535}
 --- !u!1 &1764781127
 GameObject:
   m_ObjectHideFlags: 0
