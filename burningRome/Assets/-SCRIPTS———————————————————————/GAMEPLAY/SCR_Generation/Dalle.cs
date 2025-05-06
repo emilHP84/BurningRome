@@ -10,17 +10,23 @@ public class Dalle : MonoBehaviour, IFlamable
     [SerializeField] GameObject fx_StartBurn;
     bool propagateBurn = true;
 
+    void Start()
+    {
+        flames.SetActive(false);
+    }
+
     public bool BurnFor(float duration)
     {
-        if (burning<=0) StartBurn();
-        if (duration>burning) burning = duration;
+        if (burning<=0) StartBurn(duration);
+        else if (duration > burning) burning = duration;
         return propagateBurn;
     }
 
 
-    void StartBurn()
+    void StartBurn(float duration)
     {
-        burning = 0;
+        burning = duration;
+        Debug.Log("La case " + transform.position.x + "," + transform.position.z + " commmence a bruler");
         if (flames) flames.SetActive(true);
         if (fx_StartBurn) Instantiate(fx_StartBurn,transform.position,transform.rotation);
         StartCoroutine(BurnRoutine());
@@ -28,6 +34,7 @@ public class Dalle : MonoBehaviour, IFlamable
 
     public void StopBurn()
     {
+        Debug.Log("La case " + transform.position.x + "," + transform.position.z + " ne brule plus");
         burning = 0;
         if (flames) flames.SetActive(false);
     }
@@ -36,8 +43,12 @@ public class Dalle : MonoBehaviour, IFlamable
     {
         while (burning>0)
         {
-            Physics.OverlapBoxNonAlloc(transform.position,Vector3.one*0.45f,allocColliders,transform.rotation,burnableLayers);
-            for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<IExplodable>().Explode();
+            if (GAME.MANAGER.CurrentState != State.gameplay) yield return null;
+            burning -= Time.deltaTime;
+            Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
+            foreach(Collider col in hits) if (col.GetComponent<IExplodable>()!=null) col.GetComponent<IExplodable>().Explode();
+            //Physics.OverlapBoxNonAlloc(transform.position,Vector3.one*0.45f,allocColliders,transform.rotation,burnableLayers);
+            //for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<IExplodable>().Explode();
             yield return null;
         }
         StopBurn();

@@ -8,8 +8,7 @@ using UnityEngine.VFX;
 
 public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
 {
-    public AudioClip destroyClip;
-    public GameObject vfx;
+    [SerializeField] GameObject fx_Bloc_Explose;
 
     public void SpawnPowerUp()
     {
@@ -51,12 +50,14 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
 
     public void Explode()
     {
+        Debug.Log("CAISSE EXPLOSEE");
         SpawnPowerUp();
-        GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
-        AudioSource aus = gameObject.AddComponent<AudioSource>();
-        aus.clip = destroyClip;
-        aus.Play();
-        Destroy(Go, aus.clip.length);
+        if (fx_Bloc_Explose) Instantiate(fx_Bloc_Explose,transform.position, Quaternion.identity);
+        //GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+        //AudioSource aus = gameObject.AddComponent<AudioSource>();
+        //aus.clip = destroyClip;
+        //aus.Play();
+        //Destroy(Go, aus.clip.length);
         DestroyObject();
     }
 

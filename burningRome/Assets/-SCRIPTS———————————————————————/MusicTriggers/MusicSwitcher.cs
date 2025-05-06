@@ -6,7 +6,18 @@ public class MusicSwitcher : MonoBehaviour
 
     void OnEnable()
     {
-        MUSIC.PLAYER.SetPlaylist(playlist);
+        SetDesiredPlaylist();
+        EVENTS.OnInitialization += SetDesiredPlaylist;
+    }
+
+    private void OnDisable()
+    {
+        EVENTS.OnInitialization -= SetDesiredPlaylist;
+    }
+
+    private void SetDesiredPlaylist()
+    {
+        if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(playlist);
     }
 
 

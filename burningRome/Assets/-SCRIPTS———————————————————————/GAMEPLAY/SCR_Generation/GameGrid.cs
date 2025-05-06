@@ -33,11 +33,8 @@ public class GameGrid : MonoBehaviour
 
     public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction, bool piercing)
     {
-        if (column < 0 || column > gridColumns.Length - 1)
-        {
-            return;
-        }
-        if (row < 0 || row > gridColumns[column].gridRows.Length - 1)
+        Debug.Log("La case "+column+","+row+" a recu l'ordre de bruler pendant "+duration+" seconde en direction de "+direction);
+        if (column < 0 || column > gridColumns.Length - 1 || row < 0 || row > gridColumns[column].gridRows.Length - 1)
         {
             return; //gridColumns[column].gridRows.Length-1
         }
