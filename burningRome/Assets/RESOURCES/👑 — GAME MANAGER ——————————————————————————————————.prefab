@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1291543132805540031}
   - component: {fileID: 772073094539155736}
   - component: {fileID: 3202178999838077572}
+  - component: {fileID: 2883383006927357224}
   m_Layer: 0
   m_Name: "\U0001F451 \u2014 GAME MANAGER \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014"
   m_TagString: Untagged
@@ -124,6 +125,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2780c3ab0368cb24b8d547f3180478cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2883383006927357224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094687345795912794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8099b71d4fb6b4b84d4fa310e529c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerControl: 0
+  CurrentState: 0
+  timeToJoin: 3
+  timeToSuddenDeath: 60
+  playerPrefabs:
+  - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
+  - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
+  - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
+  - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  Countdown: {fileID: 5865672699505881421}
 --- !u!1001 &265272606160230112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1111,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 265.05
+      value: 299.6
       objectReference: {fileID: 0}
     - target: {fileID: 1909967426357317470, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2786,7 +2809,7 @@ PrefabInstance:
     - target: {fileID: 5589807902338513523, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 322.3
+      value: 363.5
       objectReference: {fileID: 0}
     - target: {fileID: 5698107294926235445, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2811,7 +2834,7 @@ PrefabInstance:
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 270.05
+      value: 304.55
       objectReference: {fileID: 0}
     - target: {fileID: 5765252421239275748, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3651,7 +3674,7 @@ PrefabInstance:
     - target: {fileID: 7902926015600648986, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 161.15
+      value: 181.75
       objectReference: {fileID: 0}
     - target: {fileID: 7919163320590108740, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4142,6 +4165,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3779095870153040274}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5865672699505881421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7283734113983336671, guid: c6b26752e8dc0b34ab30cc91105625db,
+    type: 3}
+  m_PrefabInstance: {fileID: 3779095870153040274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6178928409347774704 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7047567225307298146, guid: c6b26752e8dc0b34ab30cc91105625db,
