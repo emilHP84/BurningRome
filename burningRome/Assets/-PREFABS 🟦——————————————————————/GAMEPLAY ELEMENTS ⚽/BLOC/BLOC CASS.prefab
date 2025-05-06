@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6473623468454915277}
   - component: {fileID: 900247847025847493}
   - component: {fileID: 4972115396966635957}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6465316338360221883}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4122416536778933630}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6169959700742017992}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1340089835911759772}
   - component: {fileID: 5062238719144293575}
   - component: {fileID: 7612435677417979344}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BLOC CASS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2659929833977574488}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4498678404791166542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GRAPH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,6 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca67a623baf85ec4ba70457dea6e7ee0,
         type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca67a623baf85ec4ba70457dea6e7ee0,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -515,6 +520,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bloc Destructible Cage
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a359cd063ff407c469e6bc4bbfb8cfb6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -613,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bloc Destructible Caisse 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cff02a43204fa684485e105d8abcde87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cff02a43204fa684485e105d8abcde87,
         type: 3}

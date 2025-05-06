@@ -51,7 +51,7 @@ public class PlayerBombing : MonoBehaviour
                 }
                 else
                 {
-                    if (bombFx)
+                    if (noBombFx)
                     {
                         Instantiate(noBombFx, transform.position, transform.rotation); 
                     }
