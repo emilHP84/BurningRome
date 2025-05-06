@@ -87,6 +87,7 @@ public class GAMEPLAY : MonoBehaviour
         switch(newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
+                Debug.Log("IsOFF");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = false;
                 DestroyAllPlayers();
@@ -95,12 +96,14 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.joining:
+                Debug.Log("IsJoining");
                 if (totalPlayers>0) CreatePlayer(0); else Debug.Log("Je t'encule thérèse");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
             break;
 
             case GameplayState.battle:
+                Debug.Log("IsBattle");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = true;
                 EVENTS.InvokeBattleStart();
@@ -109,10 +112,12 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.suddenDeath:
+                Debug.Log("IsSuddenDeath");
                 EVENTS.InvokeSuddenDeathStart();
             break;
 
             case GameplayState.end:
+                Debug.Log("IsEnd");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
