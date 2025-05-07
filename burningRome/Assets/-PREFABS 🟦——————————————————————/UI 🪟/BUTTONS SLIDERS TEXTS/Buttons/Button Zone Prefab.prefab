@@ -32,8 +32,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 456951229959331998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.2}
-  m_AnchorMax: {x: 0.9, y: 0.8}
+  m_AnchorMin: {x: 0.17833334, y: 0.21166666}
+  m_AnchorMax: {x: 0.76000005, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -65,10 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BUTTON
+  m_text: BOUTON
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c9350e833d940ba47a3d3d612fe51130, type: 2}
-  m_sharedMaterial: {fileID: -3318051868655622645, guid: c9350e833d940ba47a3d3d612fe51130,
+  m_fontAsset: {fileID: 11400000, guid: 2540d3f6548e52a4ea66227027a998ba, type: 2}
+  m_sharedMaterial: {fileID: 9151964652897641380, guid: 2540d3f6548e52a4ea66227027a998ba,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282203453
-  m_fontColor: {r: 0.23773581, g: 0.23773581, b: 0.23773581, a: 1}
+  m_fontColor: {r: 1, g: 0.9874362, b: 0.6462264, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
-  m_fontSizeMax: 30
+  m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7727215134079208971}
   - component: {fileID: 6855584894009099304}
   m_Layer: 5
-  m_Name: BUTTON Button Graphics
+  m_Name: BOUTON Button Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4040241754921069340}
   m_Father: {fileID: 3331895880277980308}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 3
-  m_AspectRatio: 3.5
+  m_AspectRatio: 2.5
 --- !u!114 &811226315287723063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -2003855454, guid: 90f6daa8972f5624b9c1c71123601fbe, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!114 &8014534119297456313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockPosition: 1
   lockRotation: 1
-  lockScale: 1
+  lockScale: 0
   lockParenting: 1
 --- !u!1 &6904772261322917910
 GameObject:
@@ -363,7 +363,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 456951229959331998}
   m_Father: {fileID: 0}
@@ -371,7 +371,7 @@ RectTransform:
   m_AnchorMin: {x: 0.35, y: 0.3}
   m_AnchorMax: {x: 0.65, y: 0.45}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3583978759715300998
 MonoBehaviour:
@@ -401,5 +401,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockPosition: 1
   lockRotation: 1
-  lockScale: 1
+  lockScale: 0
   lockParenting: 1

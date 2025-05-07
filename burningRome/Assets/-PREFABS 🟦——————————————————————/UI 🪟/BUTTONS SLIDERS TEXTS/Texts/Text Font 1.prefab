@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   en: TEXT
-  fr: TEXTE
+  fr: CREDITS
 --- !u!222 &7551772248778513602
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80,18 +80,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEXT
+  m_text: CREDITS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c9350e833d940ba47a3d3d612fe51130, type: 2}
-  m_sharedMaterial: {fileID: -3318051868655622645, guid: c9350e833d940ba47a3d3d612fe51130,
+  m_fontAsset: {fileID: 11400000, guid: 2540d3f6548e52a4ea66227027a998ba, type: 2}
+  m_sharedMaterial: {fileID: 9151964652897641380, guid: 2540d3f6548e52a4ea66227027a998ba,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3355443455
+  m_fontColor: {r: 1, g: 0, b: 0, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

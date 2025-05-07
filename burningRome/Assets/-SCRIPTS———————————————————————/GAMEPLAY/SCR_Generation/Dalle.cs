@@ -8,7 +8,13 @@ public class Dalle : MonoBehaviour, IFlamable
     Collider[] allocColliders = new Collider[10];
     [SerializeField] GameObject flames;
     [SerializeField] GameObject fx_StartBurn;
+
     bool propagateBurn = true;
+    public bool PropagationBurn
+    {
+        get { return propagateBurn; } 
+        set { propagateBurn = value; }
+    }
 
     void Start()
     {
@@ -17,9 +23,25 @@ public class Dalle : MonoBehaviour, IFlamable
 
     public bool BurnFor(float duration)
     {
+        Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
+
+        bool hited = false;
+
+        foreach (Collider col in hits)
+        {
+            if (col.GetComponent<Indestructible>()) 
+            {
+                return !propagateBurn;
+            }
+            if (col.GetComponent<Obstacle>())
+            {
+                hited = true;
+            }
+        }
+
         if (burning<=0) StartBurn(duration);
         else if (duration > burning) burning = duration;
-        return propagateBurn;
+        return hited ? false : propagateBurn;
     }
 
 

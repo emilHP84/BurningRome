@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: b478daebcd7f02e47aa6bb07590e9940, type: 3}
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b478daebcd7f02e47aa6bb07590e9940, type: 3}
     - target: {fileID: 3957079603222224285, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,7 +81,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2784084754792073632}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7578891522599990498, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5098147561493204936}
   m_SourcePrefab: {fileID: 100100000, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
 --- !u!4 &685953850308060170 stripped
 Transform:
@@ -79,6 +93,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4570768292245764503}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6215812065759055221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7578891522599990498, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4570768292245764503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5098147561493204936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215812065759055221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9346ea911886604eb858142b7d08721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sons: []
+  pitch: {x: 1, y: 1}
 --- !u!1001 &6531136644728273198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 6796952734005719340, guid: dc894b37492354c4db33f1bb2c500b2a,
         type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6796952734005719340, guid: dc894b37492354c4db33f1bb2c500b2a,
         type: 3}

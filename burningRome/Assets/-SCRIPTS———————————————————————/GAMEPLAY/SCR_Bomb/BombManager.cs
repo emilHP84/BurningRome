@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
+    public void Awake()
+    {
+        Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
+    }
     public void SetDelay(float newDelay)
     {
         time = delayBeforeExplosion = newDelay;
@@ -36,10 +40,10 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     {
         Explosion();
     }
-
+    
     [SerializeField]bool ManualDetonation = false;
     [SerializeField]bool isPiercing = false;
-    [SerializeField] GameObject fx_bombExplosion;
+    [SerializeField] GameObject fx_BombPlaced;
     [SerializeField] int explosionRange = 1;
     [SerializeField][Range(0, 10)] float delayBeforeExplosion = 3f;
 
@@ -56,6 +60,9 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
+        Debug.Log(time);
+
+        if (GAME.MANAGER.CurrentState != State.gameplay) return;
         if (ManualDetonation == false)
         {
             time -= Time.deltaTime;
@@ -75,7 +82,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing);
-        if (fx_bombExplosion) Instantiate(fx_bombExplosion,transform.position,transform.rotation);
         if (owner) owner.BombExploded(this);
         Destroy(this.gameObject);
     }
