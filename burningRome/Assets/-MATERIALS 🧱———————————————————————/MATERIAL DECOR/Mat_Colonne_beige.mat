@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6355053649565865813
+--- !u!114 &-6814403925661182661
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Debris5
+  m_Name: Mat_Colonne_beige
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,11 +40,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 8d3fe6dfb7d3f6d4ab296a6152f1eb0b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0371f66f88f7ceb45bc30c5b519ca353, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ef86c852d960407418b8abcbd56e9a58, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6a1e6b0b1af440e45901253aebc333e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8d3fe6dfb7d3f6d4ab296a6152f1eb0b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0371f66f88f7ceb45bc30c5b519ca353, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -129,8 +129,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.7169812, g: 0.5947755, b: 0.41598436, a: 1}
-    - _Color: {r: 0.7169812, g: 0.5947755, b: 0.41598433, a: 1}
+    - _BaseColor: {r: 0.9339623, g: 0.8665618, b: 0.72690463, a: 1}
+    - _Color: {r: 0.9339623, g: 0.8665618, b: 0.72690463, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -93,37 +93,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1227447293686321304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1755961048881668286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1948985338285150731}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1948985338285150731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755961048881668286}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1852798563296634330}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1979055028872832747
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +421,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1744072955411894949
 Transform:
@@ -468,7 +437,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5510468250298489533}
-  - {fileID: 1887525298171550400}
   - {fileID: 8902848101733987308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -730,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2135020108052365827
 Transform:
   m_ObjectHideFlags: 0
@@ -969,7 +937,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8658609631218478047
 Transform:
@@ -1016,7 +984,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9bbe5dd70f1e11c459b3a2e01ca220e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1074,7 +1042,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5510468250298489533
 Transform:
@@ -1090,11 +1058,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8658609631218478047}
-  - {fileID: 6471788418564125038}
-  - {fileID: 5116191103041382833}
-  - {fileID: 5992231585186071413}
-  - {fileID: 1595425072020602765}
-  - {fileID: 3414690374688591383}
   m_Father: {fileID: 1744072955411894949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8386678529675517719
@@ -1288,6 +1251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1315,6 +1283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -1470,6 +1443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1493,6 +1471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -1583,6 +1566,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1671,6 +1659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -1836,6 +1829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1855,21 +1853,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2135020108052365827}
     m_Modifications:
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.97087395
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.970874
-      objectReference: {fileID: 0}
     - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1948,6 +1931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -2108,6 +2096,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2217,6 +2210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2310,6 +2308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2398,6 +2401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2488,6 +2496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2576,6 +2589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris4 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2670,6 +2688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2780,6 +2803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2873,6 +2901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2962,6 +2995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2985,6 +3023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -3061,6 +3104,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
     type: 3}
   m_PrefabInstance: {fileID: 800468490108990681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &858802057103971677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6359173010961923456}
+    m_Modifications:
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00087000936
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07920001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000010433722
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807831574790056509, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+        type: 3}
+      propertyPath: m_Name
+      value: Colonne
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d, type: 3}
+--- !u!4 &1852798563296634330 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1323325542042759303, guid: 43f882a4a3e0d2e4f9543a45c48a9d4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 858802057103971677}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &943673968280326038
 PrefabInstance:
@@ -3144,6 +3261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3234,6 +3356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3322,6 +3449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris5 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3412,6 +3544,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3435,6 +3572,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -3610,6 +3752,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3637,6 +3784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -3802,6 +3954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3911,6 +4068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3926,95 +4088,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1380046634757786405}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1423860061311363427
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5510468250298489533}
-    m_Modifications:
-    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_Name
-      value: DECOR_Debris1 (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9708739
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9708741
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.08879998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.028459992
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 361ece0fb0698e34bb52da5f313bf2c4, type: 3}
---- !u!4 &6471788418564125038 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1423860061311363427}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1467516366359200918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4027,6 +4100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -4207,6 +4285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entree
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3550631f5da43a84988f71d3b3e3ce19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4230,6 +4313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -4405,6 +4493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4518,6 +4611,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4611,6 +4709,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4634,6 +4737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -4794,6 +4902,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4883,6 +4996,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4971,6 +5089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5080,6 +5203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colonne (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5194,6 +5322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5204,199 +5337,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
     type: 3}
   m_PrefabInstance: {fileID: 1996802727080987655}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2044211301656806342
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5510468250298489533}
-    m_Modifications:
-    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_Name
-      value: DECOR_Debris3 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.9505002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9505005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9505006
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.093579985
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.019559994
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.97297776
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.23089886
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -26.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1bbd6d020d307584dada2f57205d2f92, type: 3}
---- !u!4 &5992231585186071413 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-    type: 3}
-  m_PrefabInstance: {fileID: 2044211301656806342}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2142428365874363691
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1744072955411894949}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.72
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_Name
-      value: "Colis\xE9eProto"
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7350da9b3e294fd4986823d4ddcc9beb, type: 3}
---- !u!4 &1887525298171550400 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7350da9b3e294fd4986823d4ddcc9beb,
-    type: 3}
-  m_PrefabInstance: {fileID: 2142428365874363691}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2145359458236640078
 PrefabInstance:
@@ -5476,6 +5416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5499,6 +5444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -5580,119 +5530,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
     type: 3}
   m_PrefabInstance: {fileID: 2171491971132427780}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2178843950643348017
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6359173010961923456}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00087000936
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.07920001
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70710677
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.000000010433722
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: f91cc0f7f4e34ae4099682d1db7c7360, type: 2}
-    - target: {fileID: -7511558181221131132, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 652f752c73a201a499ccf99a58a6dfe9, type: 2}
-    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      propertyPath: m_Name
-      value: Colonne
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1948985338285150731}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3f3742510ae58dc46b655f61f3ddd813, type: 3}
---- !u!4 &1852798563296634330 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f3742510ae58dc46b655f61f3ddd813,
-    type: 3}
-  m_PrefabInstance: {fileID: 2178843950643348017}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2204843052123187037
 PrefabInstance:
@@ -5792,6 +5629,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5819,6 +5661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -5999,6 +5846,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6026,6 +5878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -6115,6 +5972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -6209,6 +6071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -6364,6 +6231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6473,6 +6345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6565,6 +6442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6659,6 +6541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6768,6 +6655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colonne (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6882,6 +6774,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entree (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3550631f5da43a84988f71d3b3e3ce19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6970,6 +6867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7060,6 +6962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7083,6 +6990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -7172,6 +7084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -7352,6 +7269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -7465,6 +7387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -7558,6 +7485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7581,6 +7513,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -7676,6 +7613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7765,6 +7707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris3 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7846,95 +7793,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3896650908778100693}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3913392935257349457
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5510468250298489533}
-    m_Modifications:
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.97087395
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.970874
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.97087413
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0897
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0385
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.09559988
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.2747876
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.57248193
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.76656175
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -124.397
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -249.968
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 54.724
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_Name
-      value: DECOR_Debris2 (10)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 960dd1fd8ee583541840984d228ae2d0, type: 3}
---- !u!4 &5116191103041382833 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3913392935257349457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3922640678614484812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7947,6 +7805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -8102,6 +7965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8190,6 +8058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris5 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8299,6 +8172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colonne (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8413,6 +8291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -8506,6 +8389,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8529,6 +8417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -8684,6 +8577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8773,6 +8671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8796,6 +8699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -8951,6 +8859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9040,6 +8953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9063,6 +8981,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -9223,6 +9146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9332,6 +9260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entree (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3550631f5da43a84988f71d3b3e3ce19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9420,6 +9353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris5 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9510,6 +9448,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9533,21 +9476,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9708739
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9708741
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -9622,6 +9550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -9777,6 +9710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9865,6 +9803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9975,6 +9918,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -10068,6 +10016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10091,6 +10044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -10185,6 +10143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -10345,6 +10308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10433,6 +10401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10523,6 +10496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10546,6 +10524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -10638,21 +10621,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.9505002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9505005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.9505006
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.007239213
       objectReference: {fileID: 0}
@@ -10701,11 +10669,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 58.909
       objectReference: {fileID: 0}
-    - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10725,21 +10688,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2135020108052365827}
     m_Modifications:
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.97087395
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.970874
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.97087413
-      objectReference: {fileID: 0}
     - target: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10818,6 +10766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -10907,6 +10860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -11062,6 +11020,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11150,6 +11113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris4 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11254,11 +11222,16 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 652f752c73a201a499ccf99a58a6dfe9, type: 2}
+      objectReference: {fileID: 2100000, guid: 59a11fedcb25b4840a2e39c32b001443, type: 2}
     - target: {fileID: 919132149155446097, guid: fd794f5605c4a24489212cb3c75221fd,
         type: 3}
       propertyPath: m_Name
       value: Colise fINAL
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd794f5605c4a24489212cb3c75221fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11369,6 +11342,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11462,6 +11440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11485,6 +11468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -11579,6 +11567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -11739,6 +11732,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11749,95 +11747,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8164875012159976672, guid: 960dd1fd8ee583541840984d228ae2d0,
     type: 3}
   m_PrefabInstance: {fileID: 6720460721572551875}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6842524417850487775
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5510468250298489533}
-    m_Modifications:
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9708739
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9708741
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.096959986
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.032519992
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.5463295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7417762
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0075372187
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.38888988
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -233.576
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 80.248
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 47.264008
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_Name
-      value: DECOR_Debris5 (7)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ada8bfb6774ff1f4a84bfe0c183c1f58, type: 3}
---- !u!4 &3414690374688591383 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-    type: 3}
-  m_PrefabInstance: {fileID: 6842524417850487775}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6874710850499596299
 PrefabInstance:
@@ -11916,6 +11825,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris4 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12006,6 +11920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12029,6 +11948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -12204,6 +12128,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entree (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3550631f5da43a84988f71d3b3e3ce19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12227,6 +12156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -12387,6 +12321,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12496,6 +12435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -12523,6 +12467,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -12698,6 +12647,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -12791,6 +12745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12879,6 +12838,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris5 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12969,6 +12933,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12992,6 +12961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -13167,6 +13141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13190,6 +13169,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1744072955411894949}
     m_Modifications:
+    - target: {fileID: 1340089835911759772, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340089835911759772, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340089835911759772, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.02
+      objectReference: {fileID: 0}
     - target: {fileID: 1340089835911759772, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13240,6 +13234,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1340089835911759772, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3669069770462250389, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
         type: 3}
       propertyPath: m_Name
@@ -13264,6 +13263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285534976639769931, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469588989553592509, guid: 45ad2d68e62f5e24d9a913bc75c55d6c,
         type: 3}
@@ -13483,6 +13487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13576,6 +13585,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13599,6 +13613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
@@ -13759,6 +13778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13769,95 +13793,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
     type: 3}
   m_PrefabInstance: {fileID: 8173012073980330344}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8294656784105508102
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5510468250298489533}
-    m_Modifications:
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.97087395
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.970874
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.10219999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0014000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.026559994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6769382
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.6767019
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.20476645
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.20469499
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 33.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-        type: 3}
-      propertyPath: m_Name
-      value: DECOR_Debris4 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0bba4bbd39c4d72428dc48fe39bd3c83, type: 3}
---- !u!4 &1595425072020602765 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7293751960106087051, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
-    type: 3}
-  m_PrefabInstance: {fileID: 8294656784105508102}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8402202230159769320
 PrefabInstance:
@@ -13936,6 +13871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris4 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14026,6 +13966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14115,6 +14060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8792335153288605274, guid: 960dd1fd8ee583541840984d228ae2d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14138,6 +14088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -14233,6 +14188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris3 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -14327,6 +14287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4708839711981191863, guid: 361ece0fb0698e34bb52da5f313bf2c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5337601640831916045, guid: 361ece0fb0698e34bb52da5f313bf2c4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -14415,6 +14380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -14595,6 +14565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -14622,6 +14597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -14787,6 +14767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14876,6 +14861,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14895,21 +14885,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2135020108052365827}
     m_Modifications:
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9708739
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9708742
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9708741
-      objectReference: {fileID: 0}
     - target: {fileID: 8184990479921216968, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15054,6 +15029,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15143,6 +15123,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15166,6 +15151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917087559429118473, guid: 1bbd6d020d307584dada2f57205d2f92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725994572101943475, guid: 1bbd6d020d307584dada2f57205d2f92,
         type: 3}
@@ -15346,6 +15336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colonne (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -15439,6 +15434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris4
       objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15528,6 +15528,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DECOR_Debris5 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8853300428173485938, guid: ada8bfb6774ff1f4a84bfe0c183c1f58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15616,6 +15621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DECOR_Debris4 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958789006645192753, guid: 0bba4bbd39c4d72428dc48fe39bd3c83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
