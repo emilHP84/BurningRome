@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
       propertyPath: m_text
-      value: ROLE
+      value: "R\xD4LE"
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
@@ -117,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
       propertyPath: m_enableAutoSizing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7430388141503853304, guid: e3d412880b713864ca05b2d73d416bc5, type: 3}
