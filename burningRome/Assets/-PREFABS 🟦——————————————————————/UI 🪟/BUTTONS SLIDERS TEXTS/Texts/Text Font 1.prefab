@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   en: TEXT
-  fr: TEXTE
+  fr: CREDITS
 --- !u!222 &7551772248778513602
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEXTE
+  m_text: CREDITS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2540d3f6548e52a4ea66227027a998ba, type: 2}
   m_sharedMaterial: {fileID: 9151964652897641380, guid: 2540d3f6548e52a4ea66227027a998ba,
