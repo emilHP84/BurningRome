@@ -7355,21 +7355,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 462675886}
     m_Modifications:
-    - target: {fileID: 1259326667435032698, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259326667435032698, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587762841399548241, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7420,80 +7405,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2231484094475241378, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 265.77686
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231484094475241378, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 265.77686
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231484094475241378, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 265.77686
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231484094475241378, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15.364
-      objectReference: {fileID: 0}
-    - target: {fileID: 2231484094475241378, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7706
-      objectReference: {fileID: 0}
     - target: {fileID: 3815114950235149118, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
       propertyPath: m_Name
       value: PRFB_ARENE_3D
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815114950235149118, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5957414073291209497, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6273004486279932469, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9bbe5dd70f1e11c459b3a2e01ca220e9, type: 2}
-    - target: {fileID: 7648643615118946778, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886161306544008927, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902848101733987308, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902848101733987308, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902848101733987308, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8902848101733987308, guid: c11d12de7b29a2d4494963375fe76eb8,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -249,8 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23445f93ea98ed845a92c988d0c568d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyClip: {fileID: 0}
-  vfx: {fileID: 0}
+  fx_Bloc_Explose: {fileID: 0}
   powerUps: []
 --- !u!1 &5493415881143209302
 GameObject:
@@ -307,9 +306,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7285534976639769931}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 154664465748511137}
@@ -317,7 +316,7 @@ Transform:
   - {fileID: 4181461468135667203}
   - {fileID: 6473623468454915277}
   m_Father: {fileID: 1340089835911759772}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &409761588462857802
 PrefabInstance:
   m_ObjectHideFlags: 0
