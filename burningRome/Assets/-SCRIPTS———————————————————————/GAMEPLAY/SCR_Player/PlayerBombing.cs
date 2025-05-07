@@ -14,7 +14,6 @@ public class PlayerBombing : MonoBehaviour
 
     [SerializeField] GameObject bombPrefab;
     List<BombManager> activeBombs = new List<BombManager>();
-    [SerializeField] GameObject bombFx, noBombFx;
     [SerializeField] private int explosionRange = 1;
     public int ExplosionRange => explosionRange;
     int manualDetonation = 0;
@@ -49,13 +48,6 @@ public class PlayerBombing : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    if (noBombFx)
-                    {
-                        Instantiate(noBombFx, transform.position, transform.rotation); 
-                    }
-                }
             }
         }
 
@@ -87,7 +79,6 @@ public class PlayerBombing : MonoBehaviour
             nextBombIsHadesFire = false;
         }
         RemainingBombs--;
-        if (bombFx) Instantiate(bombFx,bombPos,transform.rotation);
     }
 
     void OnEnable()

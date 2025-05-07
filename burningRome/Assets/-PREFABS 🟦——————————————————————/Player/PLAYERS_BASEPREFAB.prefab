@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: -7359346081132695092}
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
+  - component: {fileID: 3588181838191853796}
   m_Layer: 6
   m_Name: PLAYERS_BASEPREFAB
   m_TagString: Untagged
@@ -1206,9 +1207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415274fdf10ac3d4090b99c5c035a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fx_DeathPlayer: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
+    type: 3}
   playerID: 0
   isAlive: 0
-  deathTime: 1
+  deathTime: 0
 --- !u!114 &6785318492805869051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,8 +1261,6 @@ MonoBehaviour:
   maxBomb: 1
   bombPrefab: {fileID: 2457780494778257777, guid: cfa4b7a09fb6bee4f8ddbb44d089e30e,
     type: 3}
-  bombFx: {fileID: 7777699817488945046, guid: 375877a63cad52845a7b40e05fce3f48, type: 3}
-  noBombFx: {fileID: 0}
   explosionRange: 1
 --- !u!114 &2662228773827575180
 MonoBehaviour:
@@ -1458,6 +1459,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 1, y: 1}
   stepSize: 0.5
+--- !u!114 &3588181838191853796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279451766137512850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44c5b7a7b05d0e448b8362ce77846d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 1352595978297202342, guid: effeeb5d84aa0984bb33b7362ad2c391, type: 3}
 --- !u!1 &7684300763994532345
 GameObject:
   m_ObjectHideFlags: 0

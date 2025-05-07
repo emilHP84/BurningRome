@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BlessedByGodsScript : MonoBehaviour, IExplodable
 {
+
     // Update is called once per frame
     void Update()
     {
@@ -13,6 +14,7 @@ public class BlessedByGodsScript : MonoBehaviour, IExplodable
 
     private void OnTriggerEnter(Collider other)
     {
+
         var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {

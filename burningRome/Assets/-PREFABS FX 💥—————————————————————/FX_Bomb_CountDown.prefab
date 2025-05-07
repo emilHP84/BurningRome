@@ -248,16 +248,6 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxGradient.m_NumColorKeys
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
-        type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 903b9aa44ca52af4e9a5aa0ea5b11c06, type: 3}
-    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 903b9aa44ca52af4e9a5aa0ea5b11c06, type: 3}
     - target: {fileID: 3757717654246124519, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -316,10 +306,11 @@ PrefabInstance:
     - target: {fileID: 6089237566075303425, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_Name
-      value: FX_PU_PickUp
+      value: FX_Bomb_CountDown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7784425942646283147, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}

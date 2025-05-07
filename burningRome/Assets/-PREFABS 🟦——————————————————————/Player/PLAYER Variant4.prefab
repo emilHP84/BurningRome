@@ -3373,8 +3373,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7734200395286784495}
   - component: {fileID: 127122546503649628}
-  - component: {fileID: 1399566543700205448}
   - component: {fileID: 2887002769860484110}
+  - component: {fileID: 4216613428235558064}
   m_Layer: 0
   m_Name: Venus_Idle
   m_TagString: Untagged
@@ -3452,24 +3452,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!111 &1399566543700205448
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496982837147763294}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: bb04c61c83b1def40bbc6ff38e1ced06, type: 2}
-  - {fileID: 7400000, guid: 76df39dde180a854cb4e1a1b660edeb6, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!114 &2887002769860484110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,6 +3484,28 @@ MonoBehaviour:
     m_Extent: {x: 5.530776, y: 6.145676, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!95 &4216613428235558064
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496982837147763294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12cb05fd7b42ee54c8d6bc0b59232bfc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8803829253485869920
 GameObject:
   m_ObjectHideFlags: 0
