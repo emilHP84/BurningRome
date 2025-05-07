@@ -56,6 +56,9 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
+        Debug.Log(time);
+
+        if (GAME.MANAGER.CurrentState != State.gameplay) return;
         if (ManualDetonation == false)
         {
             time -= Time.deltaTime;
