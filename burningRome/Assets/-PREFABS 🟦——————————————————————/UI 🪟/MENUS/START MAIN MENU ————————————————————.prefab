@@ -350,12 +350,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3029672224728101949}
-  m_Father: {fileID: 2599209753283813651}
+  m_Father: {fileID: 9219180178901118709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35, y: 0.2}
-  m_AnchorMax: {x: 0.65, y: 0.35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4946003640431452913
 MonoBehaviour:
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9955b2624f96349884ff5efcfefaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockPosition: 1
+  lockPosition: 0
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
@@ -431,7 +431,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2438595659042718068
 MonoBehaviour:
@@ -448,7 +448,7 @@ MonoBehaviour:
   lockPosition: 0
   lockRotation: 1
   lockScale: 1
-  lockParenting: 0
+  lockParenting: 1
 --- !u!114 &3677722429989216902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +506,6 @@ RectTransform:
   - {fileID: 1320996527876871786}
   - {fileID: 9188772909326275287}
   - {fileID: 8198879147703480279}
-  - {fileID: 1094573041508063750}
   - {fileID: 9219180178901118709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -691,7 +690,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9105422721702518630
 MonoBehaviour:
@@ -708,7 +707,7 @@ MonoBehaviour:
   lockPosition: 0
   lockRotation: 1
   lockScale: 1
-  lockParenting: 0
+  lockParenting: 1
 --- !u!114 &7007648174994039467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,10 +795,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: DEMARRER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c9350e833d940ba47a3d3d612fe51130, type: 2}
-  m_sharedMaterial: {fileID: -3318051868655622645, guid: c9350e833d940ba47a3d3d612fe51130,
+  m_fontAsset: {fileID: 11400000, guid: 17f0b6aca9898724b8a928b095b95893, type: 2}
+  m_sharedMaterial: {fileID: -795744858955833449, guid: 17f0b6aca9898724b8a928b095b95893,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -898,6 +897,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1094573041508063750}
   - {fileID: 3947916482484858313}
   - {fileID: 8049264344074156745}
   - {fileID: 8408752679757470476}
@@ -1140,7 +1140,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4334070485135302364
 MonoBehaviour:
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   lockPosition: 0
   lockRotation: 1
   lockScale: 1
-  lockParenting: 0
+  lockParenting: 1
 --- !u!114 &6608172351438824432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: START
+      value: DEMARRER
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1321,7 +1321,7 @@ PrefabInstance:
     - target: {fileID: 3583978759715300998, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: fr
-      value: "D\xC9MARRER"
+      value: DEMARRER
       objectReference: {fileID: 0}
     - target: {fileID: 4040241754921069340, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1341,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: START Button Graphics
+      value: DEMARRER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1546,7 +1546,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: SETTINGS
+      value: PARAMETRES
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1651,7 +1651,7 @@ PrefabInstance:
     - target: {fileID: 3583978759715300998, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: fr
-      value: "PARAM\xC8TRES"
+      value: PARAMETRES
       objectReference: {fileID: 0}
     - target: {fileID: 4999631699898198112, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1661,7 +1661,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: SETTINGS Button Graphics
+      value: PARAMETRES Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1777,7 +1777,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: CREDITS
+      value: EQUIPE
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1882,7 +1882,7 @@ PrefabInstance:
     - target: {fileID: 3583978759715300998, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: fr
-      value: "CR\xC9DITS"
+      value: EQUIPE
       objectReference: {fileID: 0}
     - target: {fileID: 4999631699898198112, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -1892,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: CREDITS Button Graphics
+      value: EQUIPE Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -2008,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: QUIT
+      value: QUITTER
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -2123,7 +2123,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: QUIT Button Graphics
+      value: QUITTER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}

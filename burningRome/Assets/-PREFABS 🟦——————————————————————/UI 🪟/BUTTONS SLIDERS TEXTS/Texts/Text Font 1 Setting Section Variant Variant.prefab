@@ -126,12 +126,28 @@ PrefabInstance:
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
       propertyPath: m_text
-      value: SETTING SECTION
+      value: "SECTION DE PARAM\xC8TRES"
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
-      propertyPath: m_fontColor.a
-      value: 0.2509804
+      propertyPath: m_fontSize
+      value: 68.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec,
+        type: 2}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
@@ -140,8 +156,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
+        type: 2}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
