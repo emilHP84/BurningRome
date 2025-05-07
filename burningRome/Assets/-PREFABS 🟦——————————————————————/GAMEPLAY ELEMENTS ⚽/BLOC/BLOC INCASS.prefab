@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6473623468454915277}
   - component: {fileID: 900247847025847493}
   - component: {fileID: 4972115396966635957}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6465316338360221883}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4122416536778933630}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6169959700742017992}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,8 +189,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1340089835911759772}
+  - component: {fileID: 477229635986783341}
   - component: {fileID: 8320937707503399848}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BLOC INCASS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,6 +216,18 @@ Transform:
   - {fileID: 6465316338360221883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477229635986783341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669069770462250389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5fb9ec367bb9241ac6a298954e3b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &8320937707503399848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,7 +247,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5493415881143209302
 GameObject:
@@ -245,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2659929833977574488}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4498678404791166542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GRAPH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,6 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 521a3eaa1aa082041a914c98085051cd,
         type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 521a3eaa1aa082041a914c98085051cd,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -467,6 +485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea4664e6bd3736649ba57c07c89439d8,
         type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea4664e6bd3736649ba57c07c89439d8,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -548,6 +571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bloc Indestructible 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be52e4dd833ed9e45938610b4a5b41d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: be52e4dd833ed9e45938610b4a5b41d8,
         type: 3}

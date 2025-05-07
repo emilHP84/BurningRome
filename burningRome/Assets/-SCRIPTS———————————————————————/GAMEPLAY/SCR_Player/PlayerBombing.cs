@@ -20,7 +20,7 @@ public class PlayerBombing : MonoBehaviour
     BombManager manualBomb;
     bool nextBombIsHadesFire = false;
 
-    float bombExplodeDelay = 1;
+    float bombExplodeDelay = 3f;
 
     void Update()
     {
