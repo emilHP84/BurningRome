@@ -21,15 +21,14 @@ public class Dalle : MonoBehaviour, IFlamable
         flames.SetActive(false);
     }
 
-    public bool BurnFor(float duration)
+    public bool BurnFor(float duration, bool piercing)
     {
         Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
-
         bool hited = false;
 
         foreach (Collider col in hits)
         {
-            if (col.GetComponent<Indestructible>()) 
+            if (col.GetComponent<Indestructible>() && !piercing ) 
             {
                 return !propagateBurn;
             }

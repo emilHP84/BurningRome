@@ -44,7 +44,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     [SerializeField]bool ManualDetonation = false;
     [SerializeField]bool isPiercing = false;
     [SerializeField] GameObject fx_BombPlaced;
-    [SerializeField] int explosionRange = 1;
+    [SerializeField] int explosionRange = 2;
     [SerializeField][Range(0, 10)] float delayBeforeExplosion = 3f;
 
     bool exploded = false;

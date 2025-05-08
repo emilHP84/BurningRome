@@ -41,7 +41,7 @@ public class GameGrid : MonoBehaviour
 
         IFlamable targetCell = gridColumns[column].gridRows[row];
         if (targetCell == null) return;
-        bool cellAuthorizePropagation = gridColumns[column].gridRows[row].BurnFor(duration);
+        bool cellAuthorizePropagation = gridColumns[column].gridRows[row].BurnFor(duration,piercing);
         if (cellAuthorizePropagation || piercing) // Si la case autorise la propagation ou que la bombe est perçante
         {
             propagation--;
