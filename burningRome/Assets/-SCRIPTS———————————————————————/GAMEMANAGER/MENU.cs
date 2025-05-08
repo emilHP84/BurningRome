@@ -10,13 +10,14 @@ using UnityEngine.EventSystems;
 public class MENU : MonoBehaviour
 {
     Player player;
-    [SerializeField] GameObject mainCanvas,menusList,inGameList,mainMenu,pauseMenu,settingsMenu,creditsMenu; //<-- Reference to all the menus and the in-game UI
+    [SerializeField] GameObject mainCanvas,menusList,inGameList,mainMenu,pauseMenu,settingsMenu,creditsMenu,endMenu; //<-- Reference to all the menus and the in-game UI
     void AllMenus(bool wanted) // <-- Don't forget to add new menus here too
     {
         mainMenu.SetActive(wanted);
         pauseMenu.SetActive(wanted);
         settingsMenu.SetActive(wanted);
         creditsMenu.SetActive(wanted);
+        endMenu.SetActive(wanted);
     }
 
 
