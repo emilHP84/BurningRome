@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6473623468454915277}
   - component: {fileID: 900247847025847493}
   - component: {fileID: 4972115396966635957}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6465316338360221883}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4122416536778933630}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6169959700742017992}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1340089835911759772}
   - component: {fileID: 5062238719144293575}
   - component: {fileID: 7612435677417979344}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BLOC CASS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2659929833977574488}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4498678404791166542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GRAPH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,6 +434,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a359cd063ff407c469e6bc4bbfb8cfb6,
         type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a359cd063ff407c469e6bc4bbfb8cfb6,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -547,6 +552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d001692e6f2ac6f498e20e6e2e8a5437,
         type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d001692e6f2ac6f498e20e6e2e8a5437,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -647,6 +657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bloc Destructible Cage Humain 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 41312cd61c7575046a8b9267610e1531,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -751,6 +766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bloc Destructible Cage Tordu2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 871c625c98a03dc43809c1e6ce25e64d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 871c625c98a03dc43809c1e6ce25e64d,
         type: 3}
@@ -875,6 +895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bloc Destructible Cage Humain 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38d6238c48b704844991e72e1f11ffac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -969,6 +994,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bloc Destructible Cage Humain 5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fe03c958c6d211c40b07a1d78ceb4b65,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1062,6 +1092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bloc Destructible Cage Humain 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8606e2df3357e545926f9f74ae6e9cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

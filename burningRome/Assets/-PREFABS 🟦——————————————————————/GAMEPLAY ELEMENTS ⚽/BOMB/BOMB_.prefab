@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3493195930186587012}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1789298228353090975}
   - component: {fileID: 1879754482895544003}
   - component: {fileID: 3625055421433150178}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BOMB_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,8 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ManualDetonation: 0
   isPiercing: 0
-  fx_bombExplosion: {fileID: 7777699817488945046, guid: 375877a63cad52845a7b40e05fce3f48,
-    type: 3}
   fx_BombPlaced: {fileID: 7777699817488945046, guid: 3494a933f052c57448511566e6ed676d,
     type: 3}
   explosionRange: 1
@@ -256,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2217091928195260484}
   - component: {fileID: 2408704600183822985}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5806267012052427429}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Graph-----------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +374,7 @@ GameObject:
   - component: {fileID: 5015348774235437631}
   - component: {fileID: 3998776353445745172}
   - component: {fileID: 2782035297918484275}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
