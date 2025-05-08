@@ -41,14 +41,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6028491410831937624}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4840,6 +4840,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: cc67686435fd6bc41a4b330cba93496f, type: 3}
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cc67686435fd6bc41a4b330cba93496f, type: 3}
     - target: {fileID: 3957079603222224285, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_LocalPosition.x

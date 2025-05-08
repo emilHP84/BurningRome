@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
+    [SerializeField] GameObject Fx_DeathPlayer;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
-  
+
     public int PlayerID
     {
         get { return playerID; }
@@ -22,7 +23,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         private set { isAlive = value; }
     }
     [SerializeField] private float deathTime;
-    public bool Invincible{get{return invincible;}}
+    public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
 
@@ -38,10 +39,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     IEnumerator OnDeath(float deathTime)
     {
 
-        if (isAlive==false) yield break;
+        if (isAlive == false) yield break;
         transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        yield return new WaitForSeconds(deathTime);
+        yield return new WaitForSeconds(0);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }
@@ -55,10 +56,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void OnDetectionWith(IDetect detect)
     {
-        if (invincible == false)
-        {
-           StartCoroutine(OnDeath(deathTime));
-        }
+        //if (invincible == false)
+        //{
+        //    StartCoroutine(OnDeath(deathTime));
+        //}
     }
 
     public void OnCollisionWith(ICollisionable collisionable)
@@ -67,10 +68,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     }
 
     public void Explode()
-    { 
+    {
         if (!invincible)
         {
-           StartCoroutine(OnDeath(deathTime));
+            StartCoroutine(OnDeath(deathTime));
         }
     }
 
@@ -85,9 +86,9 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     IEnumerator WaitForInvincibilityEnd()
     {
         invincible = true;
-        while(invincibilityTime>0)
+        while (invincibilityTime > 0)
         {
-            if (GAME.MANAGER.CurrentState==State.gameplay) invincibilityTime-=Time.deltaTime;
+            if (GAME.MANAGER.CurrentState == State.gameplay) invincibilityTime -= Time.deltaTime;
             yield return null;
         }
         invincible = false;
@@ -95,7 +96,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (invincible) 
+        if (invincible)
         {
             if (collision.gameObject.GetComponent<Obstacle>())
             {

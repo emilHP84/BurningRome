@@ -17,7 +17,8 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [Range(0.8f,2f)][SerializeField] float hoverScale = 1.2f;
     [SerializeField] Ease scaleEasing = Ease.InOutQuad;
     [Range(0f,1f)][SerializeField] float scaleDuration = 0.2f;
-    [SerializeField] AudioClipExtended buttonHover, buttonExit, buttonClick;
+    [SerializeField] AudioClipExtended buttonHover, buttonExit;
+    [SerializeField] AudioClipExtended[] buttonsclick;
     [SerializeField]GameObject fxButtonClick;
     Transform _transform => transform;
     Button button => GetComponent<Button>();
@@ -58,7 +59,8 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     void ClickButtonEffect()
     {
         clickEffect = true;
-        if (buttonClick.clip) PlaySound(buttonClick.clip,buttonClick.volume);
+        AudioClipExtended chosenclip = buttonsclick[Random.Range(0, buttonsclick.Length)];
+        if (chosenclip.clip) PlaySound(chosenclip.clip,chosenclip.volume);
         if (fxButtonClick) Instantiate(fxButtonClick,transform.position, transform.rotation);
         Vector3 currentScale =  _transform.localScale;
         _transform.DOKill();

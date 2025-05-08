@@ -14,14 +14,13 @@ public class PlayerBombing : MonoBehaviour
 
     [SerializeField] GameObject bombPrefab;
     List<BombManager> activeBombs = new List<BombManager>();
-    [SerializeField] GameObject bombFx, noBombFx;
     [SerializeField] private int explosionRange = 1;
     public int ExplosionRange => explosionRange;
     int manualDetonation = 0;
     BombManager manualBomb;
     bool nextBombIsHadesFire = false;
 
-    float bombExplodeDelay = 1;
+    float bombExplodeDelay = 3f;
 
     void Update()
     {
@@ -47,13 +46,6 @@ public class PlayerBombing : MonoBehaviour
                             manualBomb.SetManualDetonation(true);
                             manualDetonation = 1;
                         }
-                    }
-                }
-                else
-                {
-                    if (noBombFx)
-                    {
-                        Instantiate(noBombFx, transform.position, transform.rotation); 
                     }
                 }
             }
@@ -87,7 +79,6 @@ public class PlayerBombing : MonoBehaviour
             nextBombIsHadesFire = false;
         }
         RemainingBombs--;
-        if (bombFx) Instantiate(bombFx,bombPos,transform.rotation);
     }
 
     void OnEnable()

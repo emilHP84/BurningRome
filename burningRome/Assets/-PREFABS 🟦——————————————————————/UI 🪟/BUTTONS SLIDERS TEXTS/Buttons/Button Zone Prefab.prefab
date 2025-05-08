@@ -196,16 +196,22 @@ MonoBehaviour:
   scaleEasing: 7
   scaleDuration: 0.2
   buttonHover:
-    clip: {fileID: 8300000, guid: 94e194d3b729a9d44806825a8a10f82d, type: 3}
+    clip: {fileID: 8300000, guid: 651a080afefa87241b7872bc69720018, type: 3}
     volume: 0.25
     looping: 0
   buttonExit:
     clip: {fileID: 0}
     volume: 1
     looping: 0
-  buttonClick:
-    clip: {fileID: 8300000, guid: 59eb75edc9bddc54682eea572e60b99a, type: 3}
-    volume: 1
+  buttonsclick:
+  - clip: {fileID: 8300000, guid: 7088fc4e5c97a2043992e87f22bd7093, type: 3}
+    volume: 0.25
+    looping: 0
+  - clip: {fileID: 8300000, guid: 8aac9515b5d4ef9459e4b42734699b12, type: 3}
+    volume: 0.25
+    looping: 0
+  - clip: {fileID: 8300000, guid: eb75a47d1ee3fd4419cbc0508f1fb01b, type: 3}
+    volume: 0.25
     looping: 0
   fxButtonClick: {fileID: 0}
   pulseEffect: 1

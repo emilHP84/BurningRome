@@ -15,6 +15,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935225746388349070, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935225746388349070, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935225746388349070, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -86,12 +101,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: cea0658e63bf37d43b7c419d93917c50, type: 3}
+      objectReference: {fileID: 8300000, guid: 845e28ed5eeee19498949debbc537611, type: 3}
     - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: cea0658e63bf37d43b7c419d93917c50, type: 3}
+      objectReference: {fileID: 8300000, guid: 845e28ed5eeee19498949debbc537611, type: 3}
     - target: {fileID: 3957079603222224285, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_LocalPosition.x
