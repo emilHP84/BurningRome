@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 [RequireComponent(typeof(AudioSource))]
 public class MENU : MonoBehaviour
@@ -52,6 +53,7 @@ public class MENU : MonoBehaviour
         EVENTS.OnGamePause += EnableUIInputs;
         EVENTS.OnMenuExit += DisableUIInputs;
         EVENTS.OnGameResume += DisableUIInputs;
+        EVENTS.OnEndGame += ShowEndMenu;
     }
 
     void OnDisable()
@@ -66,6 +68,7 @@ public class MENU : MonoBehaviour
         EVENTS.OnGamePause -= EnableUIInputs;
         EVENTS.OnMenuExit -= DisableUIInputs;
         EVENTS.OnGameResume -= DisableUIInputs;
+        EVENTS.OnEndGame -= ShowEndMenu;
     }
 
     void Start()
@@ -406,7 +409,20 @@ public class MENU : MonoBehaviour
     }
 // ——————————————————————————————————————————————————————————————————————————————————————
 
+    void ShowEndMenu(EventArgs e)
+    {
+        StartCoroutine(ShowiEndGame());
+    }
 
+    IEnumerator ShowiEndGame() 
+    {
+        Black.screen.IrisIn(1f);
+        yield return new WaitForSeconds(2f);
+        menusList.SetActive(true);
+        mainMenu.SetActive(false);
+        endMenu.SetActive(true);
+        Black.screen.IrisOut(1f);
+    }
 } // SCRIPT END
 
 

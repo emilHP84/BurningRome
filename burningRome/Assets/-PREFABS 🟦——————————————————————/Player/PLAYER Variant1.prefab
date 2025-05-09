@@ -4701,8 +4701,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
+      propertyPath: isAlive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
       propertyPath: playerID
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: deathTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5554427252523844925, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}

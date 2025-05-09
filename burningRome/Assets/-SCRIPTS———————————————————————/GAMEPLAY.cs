@@ -22,6 +22,7 @@ public class GAMEPLAY : MonoBehaviour
     
     private void OnEnable()
     {
+        EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
         EVENTS.OnGameplay += GamePlayStarted;
     }
@@ -30,6 +31,7 @@ public class GAMEPLAY : MonoBehaviour
 
     private void OnDisable()
     {
+        EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
         EVENTS.OnGameplay -= GamePlayStarted;
 
@@ -132,6 +134,7 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsEnd");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
+                
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
             break;
         }
@@ -170,8 +173,9 @@ public class GAMEPLAY : MonoBehaviour
             case GameplayState.end:
                 if (timer>3f)
                 {
-                    SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
+                    //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
                     GAME.MANAGER.SwitchTo(State.menu);
+                    EVENTS.InvokeEndGame();
                     EnterState(GameplayState.off);
                 }
             break;
@@ -194,6 +198,11 @@ public class GAMEPLAY : MonoBehaviour
     public void Rematch()
     {
         EnterState(GameplayState.battle);
+    }
+
+    public void LaunchGameplayBoucle()
+    {
+        EnterState(GameplayState.joining);
     }
 
 
