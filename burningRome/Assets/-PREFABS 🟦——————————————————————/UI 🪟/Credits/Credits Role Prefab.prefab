@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2205f90ae6199849a2e5200b57afb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  en: ROLE
-  fr: "R\xD4LE"
+  en: 2D
+  fr: 2D
 --- !u!1001 &4117191645375409571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,12 +102,27 @@ PrefabInstance:
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
       propertyPath: m_text
-      value: "R\xD4LE"
+      value: 2D
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
       propertyPath: m_fontSize
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.514151
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.9694754
       objectReference: {fileID: 0}
     - target: {fileID: 9196120756759110954, guid: e3d412880b713864ca05b2d73d416bc5,
         type: 3}
