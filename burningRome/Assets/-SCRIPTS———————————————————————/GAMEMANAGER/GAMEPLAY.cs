@@ -14,6 +14,12 @@ public class GAMEPLAY : MonoBehaviour
     public float timeToJoin = 3f;
     public float timeToSuddenDeath = 60f;
     int totalPlayers = 0;
+    public int TotalPlayers
+    {
+        get { return totalPlayers; }
+        set { totalPlayers = value; }
+    }
+
     int alivePlayers = 0;
     float timer;
     [SerializeField]GameObject[] playerPrefabs;
