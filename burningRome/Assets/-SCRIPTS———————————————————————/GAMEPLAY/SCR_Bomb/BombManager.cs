@@ -83,6 +83,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing);
         if (owner) owner.BombExploded(this);
+        isPiercing = false;
         Destroy(this.gameObject);
     }
 

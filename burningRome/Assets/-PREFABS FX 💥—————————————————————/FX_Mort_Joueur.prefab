@@ -13,6 +13,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mort_Joueur
       objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4.85
+      objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
       propertyPath: m_LocalScale.x

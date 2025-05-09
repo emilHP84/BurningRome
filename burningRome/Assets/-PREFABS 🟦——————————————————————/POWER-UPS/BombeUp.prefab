@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4098160477775688299}
   - component: {fileID: -1106338217916066454}
   - component: {fileID: 3526357400802070387}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BombeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf279aba2efae014e93c5450daeb39d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fxDestroyed: {fileID: 0}
+  fxPickedUp: {fileID: 0}
 --- !u!114 &-1106338217916066454
 MonoBehaviour:
   m_ObjectHideFlags: 0

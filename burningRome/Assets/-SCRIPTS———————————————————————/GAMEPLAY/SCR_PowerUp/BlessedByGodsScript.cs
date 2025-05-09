@@ -5,11 +5,21 @@ using UnityEngine;
 
 public class BlessedByGodsScript : MonoBehaviour, IExplodable
 {
+    float time;
+    bool invulnerability;
+    void Start()
+    {
+        invulnerability = true;
+        time = 0;
+    }
 
-    // Update is called once per frame
     void Update()
     {
-
+        time += Time.deltaTime;
+        if (time >= 1.5)
+        {
+            invulnerability = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +35,9 @@ public class BlessedByGodsScript : MonoBehaviour, IExplodable
 
     public void Explode()
     {
-        Destroy(gameObject);
+        if (!invulnerability)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ManualDetonation: 0
-  isPiercing: 0
+  isPiercing: 1
   fx_BombPlaced: {fileID: 7777699817488945046, guid: 3494a933f052c57448511566e6ed676d,
     type: 3}
-  explosionRange: 3
+  explosionRange: 1
   delayBeforeExplosion: 3
 --- !u!114 &1879754482895544003
 MonoBehaviour:

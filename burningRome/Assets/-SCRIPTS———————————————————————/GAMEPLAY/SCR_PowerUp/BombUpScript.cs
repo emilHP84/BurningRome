@@ -3,13 +3,30 @@ using UnityEngine;
 public class BombUpScript : MonoBehaviour, IExplodable
 {
     [SerializeField] GameObject fxDestroyed, fxPickedUp;
-
-    public void Explode()
+    float time;
+    bool invulnerability;
+    void Start()
     {
-        if (fxDestroyed) Instantiate(fxDestroyed,transform.position, transform.rotation);
-        Destroy(gameObject);        //  Et on détruit le power-up
+        invulnerability = true;
+        time = 0;
     }
 
+    void Update()
+    {
+        time += Time.deltaTime;
+        if (time >= 1.5) 
+        {
+            invulnerability = false;
+        }
+    }
+    public void Explode()
+    {
+        if (!invulnerability)
+        {
+            if (fxDestroyed) Instantiate(fxDestroyed, transform.position, transform.rotation);
+            Destroy(gameObject);        //  Et on détruit le power-up
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
