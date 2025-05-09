@@ -4,7 +4,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     public void Awake()
     {
-        Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
+        vfx.transform.SetParent(transform);
     }
     public void SetDelay(float newDelay)
     {
