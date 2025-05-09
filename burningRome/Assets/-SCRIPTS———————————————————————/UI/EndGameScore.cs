@@ -1,5 +1,7 @@
+using Rewired;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,40 +9,64 @@ public class EndGameScore : MonoBehaviour
 {
     [Header("base Srpite")]
     public List<GameObject> Sprites = new List<GameObject>();
+    public List<TextMeshProUGUI> text = new List<TextMeshProUGUI>();
+
+
 
     [Header("victory Sprite")]
-    public List<GameObject> victorySprites = new List<GameObject>();
+    public List<Sprite> victorySprites = new List<Sprite>();
 
     [Header("Death Sprite")]
-    public List<GameObject> deathSprites = new List<GameObject>();
+    public List<Sprite> deathSprites = new List<Sprite>();
+
+    [Header("Death Sprite")]
+    public List<int> Points = new List<int>();
 
     private void OnEnable()
     {
         EVENTS.OnPlayerDeath += SetDeathSprite;
+        EVENTS.OnBattleStart += SetVictorySprite;
+        EVENTS.OnGameStart += ResetSprite;
     }
 
     private void OnDisable()
     {
         EVENTS.OnPlayerDeath -= SetDeathSprite;
+        EVENTS.OnBattleStart -= SetVictorySprite;
+        EVENTS.OnGameStart -= ResetSprite;
     }
 
-    void Start()
+    void ResetSprite()
     {
-        int spriteCount = 0;
-        foreach (GameObject obj in Sprites)
+        foreach (GameObject sprite in Sprites) 
         {
-            SetVictorySprite(spriteCount);
+            int spriteCount = 0;
+            sprite.SetActive(false);
             spriteCount++;
+
+            
         }
     }
 
     void SetDeathSprite(int playerID)
     {
-        Sprites[playerID].GetComponent<Image>().sprite = deathSprites[playerID].GetComponent<Image>().sprite;
+        Debug.Log("hahaya");
+        Sprites[playerID].GetComponent<Image>().sprite = deathSprites[playerID];
+        //Points[playerID]-=1;
+        text[playerID].text = Points[playerID].ToString();
     }
 
-    void SetVictorySprite(int playerID)
+    void SetVictorySprite()
     {
-        Sprites[playerID].GetComponent<Image>().sprite = victorySprites[playerID].GetComponent<Image>().sprite;
+        int spriteCount = 0;
+        for(int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
+        {
+            Sprites[spriteCount].SetActive(true);
+            Sprites[spriteCount].GetComponent<Image>().sprite = victorySprites[spriteCount];
+            spriteCount++;
+
+            Points[spriteCount] += 1;
+            text[spriteCount].text = Points[spriteCount].ToString();
+        }
     }
 }
