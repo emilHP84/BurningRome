@@ -38,11 +38,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     IEnumerator OnDeath(float deathTime)
     {
-
         if (isAlive == false) yield break;
         transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(1);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }

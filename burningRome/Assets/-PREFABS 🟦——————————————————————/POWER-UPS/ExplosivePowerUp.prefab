@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2869539839238301727}
   - component: {fileID: 6676870952962743254}
-  - component: {fileID: 8159288422040746946}
   - component: {fileID: -1132561360616503435}
   - component: {fileID: 1248540872364501456}
   - component: {fileID: 7616569969592398781}
-  m_Layer: 0
+  - component: {fileID: -7574584124002896499}
+  m_Layer: 15
   m_Name: ExplosivePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,18 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8159288422040746946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3617961079453434432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545df91288fd0344695ceaa1f8336dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &-1132561360616503435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,3 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 7777699817488945046, guid: dafea151e295d0b429cb0e0f4379a88a, type: 3}
+--- !u!114 &-7574584124002896499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617961079453434432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a355692a113dd8f4ab503f2b245fb682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxDestroyed: {fileID: 0}
+  fxPickedUp: {fileID: 1352595978297202342, guid: effeeb5d84aa0984bb33b7362ad2c391,
+    type: 3}

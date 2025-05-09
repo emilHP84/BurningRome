@@ -4,9 +4,30 @@ using UnityEngine;
 
 public class RangeUpScript : MonoBehaviour, IExplodable
 {
+
+    float time;
+    bool invulnerability;
+    void Start()
+    {
+        invulnerability = true;
+        time = 0;
+    }
+
+    void Update()
+    {
+        time += Time.deltaTime;
+        if (time >= 1.5)
+        {
+            invulnerability = false;
+        }
+    }
+
     public void Explode()
     {
-        Destroy(gameObject);        //  Et on détruit le power-up
+        if (!invulnerability)
+        {
+            Destroy(gameObject);        //  Et on détruit le power-up
+        }
     }
 
     // Start is called before the first frame update

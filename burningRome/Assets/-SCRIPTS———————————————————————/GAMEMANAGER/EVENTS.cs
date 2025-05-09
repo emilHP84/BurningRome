@@ -101,6 +101,9 @@ public class EVENTS
     public static event Action<int> OnPlayerDeath;
     public static void InvokePlayerDeath(int deadID) {LogEventInConsole("☠️Player Death! #"+deadID); OnPlayerDeath?.Invoke(deadID);}
 
+    public static event Action<EventArgs> OnEndGame;
+    public static void InvokeEndGame() { LogEventInConsole("☠️it's End Game! #"); OnEndGame?.Invoke(new System.EventArgs()); }
+
 
 
 } // SCRIPT END
