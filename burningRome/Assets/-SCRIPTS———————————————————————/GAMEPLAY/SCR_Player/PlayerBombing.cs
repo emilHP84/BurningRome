@@ -28,26 +28,23 @@ public class PlayerBombing : MonoBehaviour
         {
             if (player.GetButtonDown("Bomb"))
             {
-                if (RemainingBombs>0)
+                if (manualDetonation>0)
                 {
-                    if (manualDetonation<1) NewBomb();
-                    else
+                    if(manualDetonation<2)
                     {
-                        if(manualDetonation<2)
-                        {
-                            if (manualBomb!=null) manualBomb.Explode();
-                            else NewBomb();
-                            manualDetonation = 0;
-                        }
-                        else
-                        {
-                            NewBomb();
-                            manualBomb = activeBombs[activeBombs.Count-1];
-                            manualBomb.SetManualDetonation(true);
-                            manualDetonation = 1;
-                        }
+                        if (manualBomb!=null) manualBomb.Explode();
+                        else if (remainingBombs>0) NewBomb();
+                        manualDetonation = 0;
+                    }
+                    else if (remainingBombs>0)
+                    {
+                        NewBomb();
+                        manualBomb = activeBombs[activeBombs.Count-1];
+                        manualBomb.SetManualDetonation(true);
+                        manualDetonation = 1;
                     }
                 }
+                else if (RemainingBombs>0) NewBomb();
             }
         }
 
@@ -137,6 +134,7 @@ public class PlayerBombing : MonoBehaviour
 
     public void AddManualDetonation()
     {
+        Debug.Log("manual detonation");
         manualDetonation=2;
     }
 
