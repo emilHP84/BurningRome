@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dalle : MonoBehaviour, IFlamable
@@ -8,6 +9,7 @@ public class Dalle : MonoBehaviour, IFlamable
     Collider[] allocColliders = new Collider[10];
     [SerializeField] GameObject flames;
     [SerializeField] GameObject fx_StartBurn;
+    int test;
 
     bool propagateBurn = true;
     public bool PropagationBurn
@@ -23,31 +25,45 @@ public class Dalle : MonoBehaviour, IFlamable
 
     public bool BurnFor(float duration, bool piercing)
     {
+        
         Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
-        bool hited = false;
 
         foreach (Collider col in hits)
         {
+            Debug.Log("dalle" + transform.position.x.ToString("f0") + " " + transform.position.z.ToString("f0") + " a trouvé: " + col.name);
+            if(col.GetComponent<BombManager>())
+            {
+                
+            }
+
             if (col.GetComponent<Indestructible>() && !piercing ) 
             {
-                return !propagateBurn;
+                Debug.Log("bombe pas propagé bloc indestructible");
+                return false;
             }
             if (col.GetComponent<Obstacle>())
             {
-                hited = true;
+                Debug.Log("bombe pas propagé bloc destructible");
+                CheckBurn(duration);
+                return false;
             }
         }
 
-        if (burning<=0) StartBurn(duration);
+        CheckBurn(duration);
+        Debug.Log("bombe propagé" + propagateBurn);
+        return propagateBurn;
+    }
+    void CheckBurn(float duration)
+    {
+        if (burning <= 0) StartBurn(duration);
         else if (duration > burning) burning = duration;
-        return hited ? false : propagateBurn;
     }
 
 
     void StartBurn(float duration)
     {
         burning = duration;
-        Debug.Log("La case " + transform.position.x + "," + transform.position.z + " commmence a bruler");
+        //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " commmence a bruler");
         if (flames) flames.SetActive(true);
         if (fx_StartBurn) Instantiate(fx_StartBurn,transform.position,transform.rotation);
         StartCoroutine(BurnRoutine());
@@ -55,7 +71,7 @@ public class Dalle : MonoBehaviour, IFlamable
 
     public void StopBurn()
     {
-        Debug.Log("La case " + transform.position.x + "," + transform.position.z + " ne brule plus");
+        //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " ne brule plus");
         burning = 0;
         if (flames) flames.SetActive(false);
     }

@@ -5,7 +5,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public void Awake()
     {
         GameObject vfx = Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
-        vfx.transform.SetParent(transform);
+        //vfx.transform.SetParent(transform);
     }
     public void SetDelay(float newDelay)
     {
@@ -61,7 +61,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Update()
     {
-        Debug.Log(time);
+        //Debug.Log(time);
 
         if (GAME.MANAGER.CurrentState != State.gameplay) return;
         if (ManualDetonation == false)
