@@ -100,6 +100,7 @@ public class GAMEPLAY : MonoBehaviour
     //-----------------------------------------------------------------------//
     void EnterState(GameplayState newState)
     {
+        if (newState == CurrentState) return;
         ResetTimer();
         CurrentState = newState;
 

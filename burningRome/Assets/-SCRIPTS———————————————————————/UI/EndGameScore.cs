@@ -11,15 +11,13 @@ public class EndGameScore : MonoBehaviour
     public List<GameObject> Sprites = new List<GameObject>();
     public List<TextMeshProUGUI> text = new List<TextMeshProUGUI>();
 
-
-
     [Header("victory Sprite")]
     public List<Sprite> victorySprites = new List<Sprite>();
 
     [Header("Death Sprite")]
     public List<Sprite> deathSprites = new List<Sprite>();
 
-    [Header("Death Sprite")]
+    [Header("Points")]
     public List<int> Points = new List<int>();
 
     private void OnEnable()
@@ -38,22 +36,18 @@ public class EndGameScore : MonoBehaviour
 
     void ResetSprite()
     {
+        int spriteCount = 0;
         foreach (GameObject sprite in Sprites) 
         {
-            int spriteCount = 0;
             sprite.SetActive(false);
             spriteCount++;
-
-            
         }
     }
 
     void SetDeathSprite(int playerID)
     {
-        Debug.Log("hahaya");
         Sprites[playerID].GetComponent<Image>().sprite = deathSprites[playerID];
-        //Points[playerID]-=1;
-        text[playerID].text = Points[playerID].ToString();
+        RemovePoints(playerID);
     }
 
     void SetVictorySprite()
@@ -63,10 +57,20 @@ public class EndGameScore : MonoBehaviour
         {
             Sprites[spriteCount].SetActive(true);
             Sprites[spriteCount].GetComponent<Image>().sprite = victorySprites[spriteCount];
+            SetPoints(spriteCount);
             spriteCount++;
-
-            Points[spriteCount] += 1;
-            text[spriteCount].text = Points[spriteCount].ToString();
         }
+    }
+
+    void SetPoints(int number)
+    {
+        Points[number] += 1;
+        text[number].text = Points[number].ToString();
+    }
+
+    void RemovePoints(int number)
+    {
+        Points[number] -= 1;
+        text[number].text = Points[number].ToString();
     }
 }

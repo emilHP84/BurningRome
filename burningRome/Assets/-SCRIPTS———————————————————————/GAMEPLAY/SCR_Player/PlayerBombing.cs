@@ -19,6 +19,7 @@ public class PlayerBombing : MonoBehaviour
     int manualDetonation = 0;
     BombManager manualBomb;
     bool nextBombIsHadesFire = false;
+    bool nextBombIsPiercing = false;
 
     float bombExplodeDelay = 3f;
 
@@ -67,6 +68,7 @@ public class PlayerBombing : MonoBehaviour
         bombPos.y = 2f;
         BombManager newBomb = Instantiate(bombPrefab,bombPos,transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
+        newBomb.SetPiercing(nextBombIsPiercing);
         newBomb.SetDelay(bombExplodeDelay);
         newBomb.SetExplosionRange(explosionRange);
         newBomb.SetBombOwner(this);
@@ -76,6 +78,7 @@ public class PlayerBombing : MonoBehaviour
             nextBombIsHadesFire = false;
         }
         RemainingBombs--;
+        nextBombIsPiercing = false;
     }
 
     void OnEnable()
@@ -145,7 +148,7 @@ public class PlayerBombing : MonoBehaviour
 
     public void BombPercing()
     {
-        bombPrefab.GetComponent<BombManager>().SetPiercing(true);
+        nextBombIsPiercing = true;
     }
 
     public void NextBombIsHadesFire()
