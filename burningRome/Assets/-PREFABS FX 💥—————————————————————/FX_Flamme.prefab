@@ -9794,17 +9794,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Flamme
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6089237566075303425, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7784425942646283147, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
+    - {fileID: 7578891522599990498, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3957079603222224285, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 9155420661523820272}
     - targetCorrespondingSourceObject: {fileID: 3957079603222224285, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 5640423892255585523}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
