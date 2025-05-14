@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23445f93ea98ed845a92c988d0c568d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fx_Bloc_Explose: {fileID: 7777699817488945046, guid: 5b48d5e6f41a0cc458085502124ca648,
+  fx_Bloc_Explose: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
     type: 3}
   powerUps:
   - prefab: {fileID: 3617961079453434432, guid: 0424db161d48d50428099ad460e0218f,
@@ -328,7 +328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7285534976639769931}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
@@ -338,7 +338,7 @@ Transform:
   - {fileID: 4181461468135667203}
   - {fileID: 6473623468454915277}
   m_Father: {fileID: 1340089835911759772}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &409761588462857802
 PrefabInstance:
   m_ObjectHideFlags: 0
