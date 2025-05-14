@@ -33,7 +33,7 @@ public class MENU : MonoBehaviour
             return;
         }
         SCRIPT = this;
-        player = ReInput.players.GetPlayer(0);
+        player = ReInput.players.GetSystemPlayer();
     }
     GraphicRaycaster gRaycaster => mainCanvas.gameObject.GetComponent<GraphicRaycaster>();
     public AudioSource Audio{get{return source;}}
@@ -82,9 +82,18 @@ public class MENU : MonoBehaviour
         while (GAME.MANAGER.CurrentState==State.menu||GAME.MANAGER.CurrentState==State.paused)
         {
             if (player.GetButtonDown("UICancel")) Back();
+            CheckNewControllers();
             if (PlayerPressDirections() && NoActiveButtonSelected() && menuHistory.Count>0) SetFirstSelectedIn(menuHistory[0]);
             yield return null;
         }
+    }
+
+    List<Controller> systemControllers = new List<Controller>();
+
+    void CheckNewControllers()
+    {
+        Controller lastActive = ReInput.controllers.GetLastActiveController();
+        if (!player.controllers.ContainsController(lastActive)) player.controllers.AddController(lastActive,false);
     }
 
     void OnMouse()

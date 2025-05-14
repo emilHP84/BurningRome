@@ -117,7 +117,7 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.joining:
                 Debug.Log("IsJoining");
-                if (totalPlayers>0) CreatePlayer(0); else Debug.Log("Je t'encule thérèse");
+                Debug.Log("TotalPlayers = "+totalPlayers);
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
             break;
@@ -141,7 +141,6 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsEnd");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
-                
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
             break;
         }
@@ -152,7 +151,6 @@ public class GAMEPLAY : MonoBehaviour
         switch (CurrentState)
         {
             case GameplayState.off:
-                if (activeControllers[0] == null) GetFirstPlayer();
             break;
 
             case GameplayState.joining:
@@ -218,7 +216,7 @@ public class GAMEPLAY : MonoBehaviour
     //-----------------------------------------------------------------------//
     #endregion
 
-    void CreatePlayer(int playerID)
+    void InstantiatePlayerInScene(int playerID)
     {
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
@@ -235,9 +233,9 @@ public class GAMEPLAY : MonoBehaviour
 
 
 
-    // 🎮 CONTROLLER ASSIGNMENT
+    // 🎮 CONTROLLER ASSIGNMENT -----------------------------------------------------------------------------------------------------------------------------------------
     Controller[] activeControllers = new Controller[4];
-
+    bool leftKeyboardAssigned, rightKeyboardAssigned = false;
 
     void ResetAllControllers()
     {
@@ -245,49 +243,84 @@ public class GAMEPLAY : MonoBehaviour
         activeControllers = new Controller[4];
         foreach (Player player in ReInput.players.GetPlayers())
         {
+            player.controllers.maps.SetMapsEnabled(false, ControllerType.Keyboard, 0, 0);
+            player.controllers.maps.SetMapsEnabled(false, ControllerType.Keyboard, 0, 1);
             player.controllers.ClearAllControllers();
             player.isPlaying = false;
         }
-        ReInput.players.GetPlayer(0).controllers.AddController(ControllerType.Mouse, 0, true);
+        Player systemPlayer = ReInput.players.GetSystemPlayer();
+        systemPlayer.controllers.ClearAllControllers();
+        systemPlayer.controllers.AddController(ControllerType.Mouse, 0, true);
+        systemPlayer.controllers.AddController(ControllerType.Keyboard,0,false);
+        leftKeyboardAssigned = rightKeyboardAssigned = false;
+        //Debug.Log("Reset all controllers   SystemPlayer " + ReInput.players.GetSystemPlayer().controllers);
     }
 
-    void GetFirstPlayer()
-    {
-        if (ReInput.controllers.GetAnyButton())
-        {
-            Controller lastActive = ReInput.controllers.GetLastActiveController();
-            if (lastActive.type == ControllerType.Mouse) return;
-            AssignControllerToPlayer(0, lastActive);
-        }
-    }
+
 
     void ListenNewControllers()
     {
-        if (ReInput.controllers.GetAnyButton())
+        if (ReInput.controllers.GetAnyButtonDown())
         {
             Controller lastActive = ReInput.controllers.GetLastActiveController();
-            if (!activeControllers.Contains(lastActive) && lastActive.type!=ControllerType.Mouse)
+            int newPlayer = FirstAvailablePlayer();
+            if (newPlayer<0) return; // all players already have a controller, abort
+
+            if (lastActive.type==ControllerType.Keyboard)
             {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (activeControllers[i] == null)
-                    {
-                        CreatePlayer(i);
-                        ResetTimer();
-                        AssignControllerToPlayer(i, lastActive);
-                        ReInput.players.GetPlayer(i).isPlaying = true;
-                        break;
-                    }
-                }
+                if (leftKeyboardAssigned==false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Space)) AddPlayerKeyboard(newPlayer,2, lastActive);
+                else if (rightKeyboardAssigned==false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Return)) AddPlayerKeyboard(newPlayer,1, lastActive);
+            }
+
+            if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
+            {
+                AddPlayerController(newPlayer, lastActive);
             }
         }
     }
 
 
-    void AssignControllerToPlayer(int playerID, Controller controller)
+    void AddPlayerKeyboard(int playerID, int keyboardSide, Controller keyboard)
+    {
+        Debug.Log("ADD KEYBOARD PLAYER "+playerID+"   keyboardside "+keyboardSide);
+        if (keyboardSide==2) leftKeyboardAssigned = true;
+        if (keyboardSide==1) rightKeyboardAssigned = true;
+        ReInput.players.GetPlayer(playerID).controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard,0, keyboardSide);
+        AddPlayerController(playerID, keyboard);
+    }
+
+
+    void AddPlayerController(int playerID, Controller controller)
+    {
+        InstantiatePlayerInScene(playerID);
+        ResetTimer();
+        AddNewPlayer(playerID, controller);
+        ReInput.players.GetPlayer(playerID).isPlaying = true;
+    }
+
+
+    int FirstAvailablePlayer()
+    {
+        for (int i=0;i<4;i++)
+        {
+            if (activeControllers[i]==null) return i;
+        }
+        return -1;
+    }
+
+
+    void AddNewPlayer(int playerID, Controller controller)
     {
         totalPlayers++;
-        ReInput.players.GetPlayer(playerID).controllers.AddController(controller, true);
+        AssignControllerToPlayer(playerID, controller);
+    }
+
+
+    void AssignControllerToPlayer(int playerID, Controller controller)
+    {
+        bool removeFromOtherPlayers = true;
+        if (controller.type==ControllerType.Keyboard) removeFromOtherPlayers = false;
+        ReInput.players.GetPlayer(playerID).controllers.AddController(controller, removeFromOtherPlayers);
         activeControllers[playerID] = controller;
         Debug.Log("🎮" + controller.name + " to Player" + playerID);
     }
