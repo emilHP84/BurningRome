@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
@@ -50,6 +51,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     bool exploded = false;
     Rigidbody rb => GetComponent<Rigidbody>();
+    BoxCollider boxCollider => GetComponent<BoxCollider>();
+
     PlayerBombing owner;
     float time;
     float flameDuration = 1f;
@@ -93,15 +96,19 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     {
         if (collisionable is PlayerManager)
         {
-            rb.isKinematic = false;
+            Debug.Log("TU FAIT CHIER");
+            boxCollider.isTrigger = true;
         }
-        else if (collisionable is Ground)
+
+        else if (collisionable is Ground )
         {
-            rb.isKinematic = true;
+            Debug.Log("TU FAIT CHIER PTN");
+            boxCollider.isTrigger = false;
         }
+
         if (collisionable is PlayerManager && collisionable is Ground)
         {
-            rb.isKinematic = true;
+            //boxCollider.isTrigger = true;
         }
     }
 

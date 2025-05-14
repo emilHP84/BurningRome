@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockPosition: 1
   lockRotation: 1
-  lockScale: 1
+  lockScale: 0
   lockParenting: 1
 --- !u!1 &532707401249557627
 GameObject:
@@ -318,7 +318,7 @@ MonoBehaviour:
   feetSounds:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 0.9, y: 1.1}
-  stepSize: 0.8
+  stepSize: 1.5
 --- !u!82 &2403647525315291269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1129,7 +1129,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 6
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -1313,7 +1313,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.05
   m_SkinWidth: 0.08

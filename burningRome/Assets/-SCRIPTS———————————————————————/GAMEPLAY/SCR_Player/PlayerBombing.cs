@@ -65,7 +65,7 @@ public class PlayerBombing : MonoBehaviour
         Vector3 bombPos = transform.position;
         bombPos.x = Mathf.Round(bombPos.x);
         bombPos.z = Mathf.Round(bombPos.z);
-        bombPos.y = 2f;
+        bombPos.y = 0.11f;
         BombManager newBomb = Instantiate(bombPrefab,bombPos,transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
         newBomb.SetPiercing(nextBombIsPiercing);
