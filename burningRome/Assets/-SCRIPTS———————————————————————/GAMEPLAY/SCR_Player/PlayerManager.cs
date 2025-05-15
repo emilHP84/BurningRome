@@ -1,5 +1,7 @@
 using DG.Tweening;
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
@@ -33,6 +35,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         isAlive = true;
         invincible = false;
         invincibilityTime = 0;
+        EVENTS.OnVictory += OnVictory;
     }
 
 
@@ -46,9 +49,16 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         gameObject.SetActive(false);
     }
 
+    void OnVictory(EventArgs e) 
+    {
+        EVENTS.InvokeOnCallCamera(this.gameObject);
+    }
+
     private void OnDisable()
     {
         isAlive = false;
+        EVENTS.OnVictory -= OnVictory;
+
     }
 
 

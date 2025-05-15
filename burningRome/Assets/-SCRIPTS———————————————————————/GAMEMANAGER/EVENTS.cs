@@ -104,6 +104,11 @@ public class EVENTS
     public static event Action<EventArgs> OnEndGame;
     public static void InvokeEndGame() { LogEventInConsole("☠️it's End Game! #"); OnEndGame?.Invoke(new System.EventArgs()); }
 
+    public static event Action<EventArgs> OnVictory;
+    public static void InvokeOnVictory() { LogEventInConsole("a player has win! #"); OnVictory?.Invoke(new System.EventArgs()); }
+
+    public static event Action<GameObject,EventArgs> OnCallCamera;
+    public static void InvokeOnCallCamera(GameObject obj) { LogEventInConsole("a player has win! #"); OnCallCamera?.Invoke(obj,new System.EventArgs()); }
 
 
 } // SCRIPT END

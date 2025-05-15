@@ -23,7 +23,7 @@ public class GAMEPLAY : MonoBehaviour
     int alivePlayers = 0;
     float timer;
     [SerializeField]GameObject[] playerPrefabs;
-    List<GameObject> alivePlayersList = new List<GameObject>();
+    [SerializeField] List<GameObject> alivePlayersList = new List<GameObject>();
     [SerializeField] TextMeshProUGUI Countdown;
     
     private void OnEnable()
@@ -168,7 +168,11 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.battle:
                 if (timer >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
-                if (alivePlayers<2) EnterState(GameplayState.end);
+                if (alivePlayers < 2)
+                {
+                    EVENTS.InvokeOnVictory();
+                    EnterState(GameplayState.end);
+                }
             break;
 
             case GameplayState.suddenDeath:
