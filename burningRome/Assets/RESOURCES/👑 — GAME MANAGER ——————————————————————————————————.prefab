@@ -141,10 +141,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
-  m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
+  m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
+  m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -441,6 +441,7 @@ MonoBehaviour:
   - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
   - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
   - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  alivePlayersList: []
   Countdown: {fileID: 6791002203798959336}
 --- !u!1 &5356209012625286950
 GameObject:
@@ -797,7 +798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explosions size +1
+  m_text: Taille explosions +1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -948,10 +949,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
-  m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
+  m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
+  m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1237,10 +1238,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
-  m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
+  m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
+  m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1446,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explosions go through blocs and players
+  m_text: Les explosions traversent blocs et joueurs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1598,7 +1599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Temporarily makes you invincible, destroys blocks and players
+  m_text: "Rend temporairement  invincible, d\xE9truit blocs et joueurs "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1750,7 +1751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The next 2 explosions remain on the battlefield longer
+  m_text: Les 2 prochaine explosions restent sur le terrain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1901,10 +1902,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
-  m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
+  m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
+  m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2039,7 +2040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The left button explodes the last rune
+  m_text: "Le bouton gauche fait exploser la derni\xE8re rune"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -2572,7 +2573,7 @@ PrefabInstance:
     - target: {fileID: 91043201612681755, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: GENERAL
+      value: "G\xC9N\xC9RAL"
       objectReference: {fileID: 0}
     - target: {fileID: 101605745394655538, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2747,7 +2748,7 @@ PrefabInstance:
     - target: {fileID: 473734632942597338, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: VOICES
+      value: VOIX
       objectReference: {fileID: 0}
     - target: {fileID: 497973498826270534, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2777,7 +2778,7 @@ PrefabInstance:
     - target: {fileID: 505375986675072856, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: BACK Button Graphics
+      value: RETOUR Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 526429132477651322, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2822,7 +2823,7 @@ PrefabInstance:
     - target: {fileID: 627940460988835768, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: ENGLISH
+      value: ANGLAIS
       objectReference: {fileID: 0}
     - target: {fileID: 627940460988835768, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2832,7 +2833,7 @@ PrefabInstance:
     - target: {fileID: 631393971201239719, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: START
+      value: DEMARRER
       objectReference: {fileID: 0}
     - target: {fileID: 631393971201239719, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2972,12 +2973,12 @@ PrefabInstance:
     - target: {fileID: 936486061408747627, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: MUSIC
+      value: MUSIQUE
       objectReference: {fileID: 0}
     - target: {fileID: 960390711721777583, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: FRENCH Button Graphics
+      value: FRANCAIS Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 976261117759405048, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3311,7 +3312,7 @@ PrefabInstance:
     - target: {fileID: 1517006417074376435, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: REPLAY Button Graphics
+      value: REJOUER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 1527466853036454014, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3587,12 +3588,12 @@ PrefabInstance:
     - target: {fileID: 2042171218810117263, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: REPLAY
+      value: REJOUER
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: END
+      value: FIN
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3632,7 +3633,7 @@ PrefabInstance:
     - target: {fileID: 2164129306577464237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: SETTINGS
+      value: PARAMETRES
       objectReference: {fileID: 0}
     - target: {fileID: 2164129306577464237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3690,7 +3691,7 @@ PrefabInstance:
     - target: {fileID: 2342876384697035612, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: RESUME Button Graphics
+      value: REPRENDRE Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 2392620765358024515, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3985,7 +3986,7 @@ PrefabInstance:
     - target: {fileID: 2943716497298033742, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: SETTINGS Button Graphics
+      value: PARAMETRES Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 2975769400230426894, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4020,7 +4021,7 @@ PrefabInstance:
     - target: {fileID: 2986955583336364230, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: LEFT JOYSTICK
+      value: 'JOYSTICK GAUCHE '
       objectReference: {fileID: 0}
     - target: {fileID: 2986955583336364230, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4030,7 +4031,7 @@ PrefabInstance:
     - target: {fileID: 2988658351950683144, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3005029463903257282, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4040,7 +4041,7 @@ PrefabInstance:
     - target: {fileID: 3043934509322383584, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: RESET TO DEFAULT Button Graphics
+      value: REGLAGES PAR DEFAUT Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 3047432982512883090, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4552,7 +4553,7 @@ PrefabInstance:
     - target: {fileID: 3631313063004864135, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: QUIT Button Graphics
+      value: QUITTER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 3641125031736639237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4582,7 +4583,7 @@ PrefabInstance:
     - target: {fileID: 3740388333690990139, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: BACK
+      value: RETOUR
       objectReference: {fileID: 0}
     - target: {fileID: 3740388333690990139, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4658,7 +4659,7 @@ PrefabInstance:
     - target: {fileID: 3835527092881014311, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: BACK
+      value: RETOUR
       objectReference: {fileID: 0}
     - target: {fileID: 3835527092881014311, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4953,7 +4954,7 @@ PrefabInstance:
     - target: {fileID: 4235303866793922687, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: CREDITS Button Graphics
+      value: EQUIPE Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 4239527098334686723, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5130,7 +5131,7 @@ PrefabInstance:
     - target: {fileID: 4528260830562070563, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: QUIT
+      value: QUITTER
       objectReference: {fileID: 0}
     - target: {fileID: 4528260830562070563, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5359,7 +5360,7 @@ PrefabInstance:
     - target: {fileID: 4859583522682135900, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: BACK
+      value: RETOUR
       objectReference: {fileID: 0}
     - target: {fileID: 4859583522682135900, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5504,7 +5505,7 @@ PrefabInstance:
     - target: {fileID: 5082412495209172593, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: UNITY PROJECT TEMPLATE BY <B><color=yellow>KARL FAYETON</B>
+      value: TEMPLATE DE PROJET UNITY PAR <B><color=yellow>KARL FAYETON</B>
       objectReference: {fileID: 0}
     - target: {fileID: 5082412495209172593, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5584,7 +5585,7 @@ PrefabInstance:
     - target: {fileID: 5269281918469931947, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: FRENCH
+      value: FRANCAIS
       objectReference: {fileID: 0}
     - target: {fileID: 5269281918469931947, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5694,22 +5695,22 @@ PrefabInstance:
     - target: {fileID: 5526172686541992099, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: START Button Graphics
+      value: DEMARRER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 5531868650738122172, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: ENGLISH Button Graphics
+      value: ANGLAIS Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 5544675371211023438, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: GLOBAL VOLUME
+      value: VOLUME GENERAL
       objectReference: {fileID: 0}
     - target: {fileID: 5552012950779868391, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: SOUND EFFECTS
+      value: EFFETS SONORES
       objectReference: {fileID: 0}
     - target: {fileID: 5565664553516862172, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5783,12 +5784,12 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5798,7 +5799,7 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -28.175995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6225,7 +6226,7 @@ PrefabInstance:
     - target: {fileID: 6519885821465014697, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: SETTINGS Button Graphics
+      value: PARAMETRES Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6525573042992615767, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6547,7 +6548,7 @@ PrefabInstance:
     - target: {fileID: 7273401460544270680, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: RESUME
+      value: REPRENDRE
       objectReference: {fileID: 0}
     - target: {fileID: 7273401460544270680, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6918,7 +6919,7 @@ PrefabInstance:
     - target: {fileID: 7830052425034683978, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: SETTINGS
+      value: PARAMETRES
       objectReference: {fileID: 0}
     - target: {fileID: 7830052425034683978, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7159,7 +7160,7 @@ PrefabInstance:
     - target: {fileID: 7948285926424079076, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: RESET TO DEFAULT
+      value: REGLAGES PAR DEFAUT
       objectReference: {fileID: 0}
     - target: {fileID: 7948285926424079076, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7194,7 +7195,7 @@ PrefabInstance:
     - target: {fileID: 8125551914537552381, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: SETTINGS
+      value: PARAMETRES
       objectReference: {fileID: 0}
     - target: {fileID: 8125551914537552381, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7229,7 +7230,7 @@ PrefabInstance:
     - target: {fileID: 8153855352541758758, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: LANGUAGE
+      value: LANGUE
       objectReference: {fileID: 0}
     - target: {fileID: 8153855352541758758, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7239,7 +7240,7 @@ PrefabInstance:
     - target: {fileID: 8163132967053943843, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: BACK Button Graphics
+      value: RETOUR Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8185608391195448583, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7364,7 +7365,7 @@ PrefabInstance:
     - target: {fileID: 8378698781534411485, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: UI VOLUME
+      value: SONS INTERFACE
       objectReference: {fileID: 0}
     - target: {fileID: 8422940517597632023, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7394,7 +7395,7 @@ PrefabInstance:
     - target: {fileID: 8433829770448430659, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: INPUTS
+      value: "CONTR\xD4LES"
       objectReference: {fileID: 0}
     - target: {fileID: 8443669762217899208, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7439,7 +7440,7 @@ PrefabInstance:
     - target: {fileID: 8509202138959389827, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: QUIT
+      value: QUITTER
       objectReference: {fileID: 0}
     - target: {fileID: 8509202138959389827, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7549,7 +7550,7 @@ PrefabInstance:
     - target: {fileID: 8618560239884727359, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: BACK Button Graphics
+      value: RETOUR Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8729743407773622138, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7644,7 +7645,7 @@ PrefabInstance:
     - target: {fileID: 8837290094940351015, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: QUIT Button Graphics
+      value: QUITTER Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8841279210343611888, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7756,7 +7757,7 @@ PrefabInstance:
     - target: {fileID: 9130225613739641467, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: CREDITS
+      value: EQUIPE
       objectReference: {fileID: 0}
     - target: {fileID: 9130225613739641467, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
