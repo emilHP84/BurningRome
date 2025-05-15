@@ -6,12 +6,27 @@ using UnityEngine.Animations;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using Unity.Properties;
+using UnityEngine.UIElements;
+using Microsoft.Win32.SafeHandles;
 
 [RequireComponent(typeof(AudioSource))]
 public class MENU : MonoBehaviour
 {
+
+    //DelegateProperty(apagnan);
+    //DragLeaveEvent leaveEvent(SafeHandleZeroOrMinusOneIsInvalid)
+    //    apagnan else return ArgumentOutOfRangeException
+    //    Destroy(ParticleSystemEmissionType);
+
+
+    //public AudioSource LEAGUEOFLEGENDS = new AudioSource();
+
+
+
+
     Player player;
-    [SerializeField] GameObject mainCanvas,menusList,inGameList,mainMenu,pauseMenu,settingsMenu,creditsMenu,endMenu; //<-- Reference to all the menus and the in-game UI
+    [SerializeField] GameObject mainCanvas, menusList, inGameList, mainMenu, pauseMenu, settingsMenu, creditsMenu, endMenu; //<-- Reference to all the menus and the in-game UI
     void AllMenus(bool wanted) // <-- Don't forget to add new menus here too
     {
         mainMenu.SetActive(wanted);
@@ -26,7 +41,7 @@ public class MENU : MonoBehaviour
     public static MENU SCRIPT;
     void Awake()
     {
-        if (SCRIPT!=null)
+        if (SCRIPT != null)
         {
             Debug.Log("⚠️ ERROR! MULTIPLE MENU SCRIPTS IN SCENE!");
             Destroy(this);
@@ -36,7 +51,7 @@ public class MENU : MonoBehaviour
         player = ReInput.players.GetSystemPlayer();
     }
     GraphicRaycaster gRaycaster => mainCanvas.gameObject.GetComponent<GraphicRaycaster>();
-    public AudioSource Audio{get{return source;}}
+    public AudioSource Audio { get { return source; } }
     AudioSource source => GetComponent<AudioSource>();
     List<GameObject> menuHistory = new List<GameObject>();
     Coroutine inputRoutine;
@@ -79,11 +94,11 @@ public class MENU : MonoBehaviour
 
     IEnumerator ListenInput()
     {
-        while (GAME.MANAGER.CurrentState==State.menu||GAME.MANAGER.CurrentState==State.paused)
+        while (GAME.MANAGER.CurrentState == State.menu || GAME.MANAGER.CurrentState == State.paused)
         {
             if (player.GetButtonDown("UICancel")) Back();
             CheckNewControllers();
-            if (PlayerPressDirections() && NoActiveButtonSelected() && menuHistory.Count>0) SetFirstSelectedIn(menuHistory[0]);
+            if (PlayerPressDirections() && NoActiveButtonSelected() && menuHistory.Count > 0) SetFirstSelectedIn(menuHistory[0]);
             yield return null;
         }
     }
@@ -93,7 +108,7 @@ public class MENU : MonoBehaviour
     void CheckNewControllers()
     {
         Controller lastActive = ReInput.controllers.GetLastActiveController();
-        if (!player.controllers.ContainsController(lastActive)) player.controllers.AddController(lastActive,false);
+        if (!player.controllers.ContainsController(lastActive)) player.controllers.AddController(lastActive, false);
     }
 
     void OnMouse()
@@ -117,13 +132,13 @@ public class MENU : MonoBehaviour
 
     bool PlayerPressDirections()
     {
-        bool value = (player.GetAxis("UIVertical")!=0 ||player.GetAxis("UIHorizontal")!=0  );
+        bool value = (player.GetAxis("UIVertical") != 0 || player.GetAxis("UIHorizontal") != 0);
         return value;
     }
 
     bool NoActiveButtonSelected()
     {
-        bool value = (EventSystem.current.currentSelectedGameObject==null);
+        bool value = (EventSystem.current.currentSelectedGameObject == null);
         return value;
     }
 
@@ -151,7 +166,7 @@ public class MENU : MonoBehaviour
         Unselect();
         gRaycaster.enabled = false; // disable mouse clicks;
         EventSystem.current.sendNavigationEvents = false; // disable UI navigation from controller and keyboard
-        if (inputRoutine!=null) StopCoroutine(inputRoutine);
+        if (inputRoutine != null) StopCoroutine(inputRoutine);
     }
 
 
@@ -162,10 +177,10 @@ public class MENU : MonoBehaviour
         MenusList(true);
         EnableAllMenus();
         HideAllMenus();
-        menuHistory.Insert(0,mainMenu);
-        StartCoroutine(TransitionToMenu(TransitionType.Iris,mainMenu,0,1f,2f));
+        menuHistory.Insert(0, mainMenu);
+        StartCoroutine(TransitionToMenu(TransitionType.Iris, mainMenu, 0, 1f, 2f));
         CancelInvoke();
-        Invoke("DisableMainMenuAnimations",2f);
+        Invoke("DisableMainMenuAnimations", 2f);
     }
 
     void DisableMainMenuAnimations()
@@ -179,8 +194,8 @@ public class MENU : MonoBehaviour
         EVENTS.InvokeGameOver();
         MenusList(false);
         ClearMenuHistory();
-        menuHistory.Insert(0,mainMenu);
-        StartCoroutine(TransitionToMenu(TransitionType.Iris,mainMenu,1f,1f,2f));
+        menuHistory.Insert(0, mainMenu);
+        StartCoroutine(TransitionToMenu(TransitionType.Iris, mainMenu, 1f, 1f, 2f));
     }
 
 
@@ -193,21 +208,21 @@ public class MENU : MonoBehaviour
     IEnumerator NewGameRoutine()
     {
         MenusList(true);
-        SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene,2f,1f,1f,false,0);
+        SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene, 2f, 1f, 1f, false, 0);
         while (SceneLoader.access.IsLoading) yield return null;
         MenusList(false);
         EVENTS.InvokeGameStart();
     }
-    
 
-    public void LoadNewScene (int desired)
+
+    public void LoadNewScene(int desired)
     {
         StartCoroutine(LoadSceneThenHideMenus(desired));
     }
 
     IEnumerator LoadSceneThenHideMenus(int desired)
     {
-        SceneLoader.access.LoadScene(0,2f,1f,1f,false,0);
+        SceneLoader.access.LoadScene(0, 2f, 1f, 1f, false, 0);
         while (SceneLoader.access.IsLoading) yield return null;
         HideAllMenus();
         MenusList(false);
@@ -228,7 +243,7 @@ public class MENU : MonoBehaviour
 
 
 
-// SETTINGS —————————————————————————————————————————————————————————————————
+    // SETTINGS —————————————————————————————————————————————————————————————————
     public void ShowSettingsFromPause()
     {
         Unselect();
@@ -242,23 +257,23 @@ public class MENU : MonoBehaviour
 
     public void ShowSettingsFromMainMenu()
     {
-        ShowNextMenu(settingsMenu,0.5f,0,0.5f);
+        ShowNextMenu(settingsMenu, 0.5f, 0, 0.5f);
     }
-// —————————————————————————————————————————————————————————————————————————
+    // —————————————————————————————————————————————————————————————————————————
 
 
 
-// CREDITS —————————————————————————————————————————————————————————————————
+    // CREDITS —————————————————————————————————————————————————————————————————
     public void ShowCreditsFromMainMenu()
     {
-        ShowNextMenu(creditsMenu,0.5f,0,0.5f);
+        ShowNextMenu(creditsMenu, 0.5f, 0, 0.5f);
     }
 
     public void ShowCredits() // à la fin du jeu ?
     {
 
     }
-// —————————————————————————————————————————————————————————————————————————
+    // —————————————————————————————————————————————————————————————————————————
 
 
 
@@ -267,9 +282,9 @@ public class MENU : MonoBehaviour
     {
         Debug.Log("BACK");
         Unselect();
-        if (GAME.MANAGER.CurrentState==State.paused)
+        if (GAME.MANAGER.CurrentState == State.paused)
         {
-            if (menuHistory.Count<2)
+            if (menuHistory.Count < 2)
             {
                 MenusList(false);
                 GAME.MANAGER.Resume();
@@ -277,13 +292,13 @@ public class MENU : MonoBehaviour
 
             else
             {
-                if (menuHistory[1]==pauseMenu) MenusList(false);
+                if (menuHistory[1] == pauseMenu) MenusList(false);
                 menuHistory[1].SetActive(true);
                 menuHistory[0].SetActive(false);
                 menuHistory.RemoveAt(0);
             }
         }
-        else if (GAME.MANAGER.CurrentState==State.menu) ShowPreviousMenu(0.5f, 0, 0.5f);
+        else if (GAME.MANAGER.CurrentState == State.menu) ShowPreviousMenu(0.5f, 0, 0.5f);
     }
 
 
@@ -293,7 +308,7 @@ public class MENU : MonoBehaviour
     {
         MenusList(false);
         pauseMenu.SetActive(true);
-        menuHistory.Insert(0,pauseMenu);
+        menuHistory.Insert(0, pauseMenu);
     }
 
     void HidePauseMenu()
@@ -322,19 +337,19 @@ public class MENU : MonoBehaviour
 
     void ShowPreviousMenu(float fadeInDuration, float blackDuration, float fadeOutDuration)
     {
-        if (menuHistory.Count<2) return;
+        if (menuHistory.Count < 2) return;
         GameObject desiredMenu = menuHistory[1];
-        Debug.Log("Previous menu > "+desiredMenu.name+"    From "+menuHistory[0].name);
+        Debug.Log("Previous menu > " + desiredMenu.name + "    From " + menuHistory[0].name);
         menuHistory.RemoveAt(0);
-        StartCoroutine(TransitionToMenu(TransitionType.Fade,desiredMenu,fadeInDuration,blackDuration,fadeOutDuration));
+        StartCoroutine(TransitionToMenu(TransitionType.Fade, desiredMenu, fadeInDuration, blackDuration, fadeOutDuration));
     }
 
 
 
     void ShowNextMenu(GameObject desiredMenu, float fadeInDuration, float blackDuration, float fadeOutDuration)
     {
-        menuHistory.Insert(0,desiredMenu);
-        StartCoroutine(TransitionToMenu(TransitionType.Fade,desiredMenu,fadeInDuration,blackDuration,fadeOutDuration));
+        menuHistory.Insert(0, desiredMenu);
+        StartCoroutine(TransitionToMenu(TransitionType.Fade, desiredMenu, fadeInDuration, blackDuration, fadeOutDuration));
     }
 
 
@@ -371,7 +386,7 @@ public class MENU : MonoBehaviour
             case TransitionType.Iris: Black.screen.IrisOut(fadeOutDuration); break;
             case TransitionType.None: break;
         }
-        while(Black.screen.Progression<0.8f) yield return null;
+        while (Black.screen.Progression < 0.8f) yield return null;
         GAME.MANAGER.SwitchTo(State.menu);
         while (Black.screen.IsWorking) yield return null;
     }
@@ -379,14 +394,14 @@ public class MENU : MonoBehaviour
 
     void SetFirstSelectedIn(GameObject menu)
     {
-        Debug.Log("Trying to select something in "+menu.name);
+        Debug.Log("Trying to select something in " + menu.name);
         Selectable[] selectables = menu.GetComponentsInChildren<Selectable>(false);
-        for (int i=0;i<selectables.Length;i++)
+        for (int i = 0; i < selectables.Length; i++)
         {
             if (selectables[i].gameObject.activeInHierarchy && selectables[i].IsInteractable())
             {
                 EventSystem.current.SetSelectedGameObject(selectables[i].gameObject);
-                Debug.Log(EventSystem.current.currentSelectedGameObject.name+" sélectionné");
+                Debug.Log(EventSystem.current.currentSelectedGameObject.name + " sélectionné");
                 return;
             }
         }
@@ -396,11 +411,11 @@ public class MENU : MonoBehaviour
 
 
 
-// QUIT GAME FUNCTION ———————————————————————————————————————————————————————————————————
+    // QUIT GAME FUNCTION ———————————————————————————————————————————————————————————————————
     Coroutine quitRoutine;
     public void QuitApp()
     {
-        if (quitRoutine==null) quitRoutine = StartCoroutine(QuittingRoutine());
+        if (quitRoutine == null) quitRoutine = StartCoroutine(QuittingRoutine());
     }
 
     IEnumerator QuittingRoutine()
@@ -409,27 +424,29 @@ public class MENU : MonoBehaviour
         Black.screen.IrisIn(1f);
         yield return new WaitForSecondsRealtime(1.2f);
         Application.Quit();
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-        #if UNITY_WEBGL
-            Application.ExternalEval("document.location.reload(true);");
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+#if UNITY_WEBGL
+        Application.ExternalEval("document.location.reload(true);");
+#endif
     }
-// ——————————————————————————————————————————————————————————————————————————————————————
+    // ——————————————————————————————————————————————————————————————————————————————————————
 
     void ShowEndMenu(EventArgs e)
     {
         StartCoroutine(ShowiEndGame());
     }
 
-    IEnumerator ShowiEndGame() 
+    IEnumerator ShowiEndGame()
     {
         Black.screen.IrisIn(1f);
         yield return new WaitForSeconds(2f);
         menusList.SetActive(true);
         mainMenu.SetActive(false);
         endMenu.SetActive(true);
+        GAME.MANAGER.SwitchTo(State.menu);
+        SetFirstSelectedIn(endMenu);
         Black.screen.IrisOut(1f);
     }
 } // SCRIPT END

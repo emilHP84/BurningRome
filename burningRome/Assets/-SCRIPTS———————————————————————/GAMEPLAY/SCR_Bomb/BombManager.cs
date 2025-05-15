@@ -105,11 +105,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             Debug.Log("TU FAIT CHIER PTN");
             boxCollider.isTrigger = false;
         }
-
-        if (collisionable is PlayerManager && collisionable is Ground)
-        {
-            //boxCollider.isTrigger = true;
-        }
     }
 
 } // SCRIPT END
