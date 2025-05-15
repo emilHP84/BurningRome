@@ -1686,6 +1686,31 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 3215230566356946438, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215230566356946438, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215230566356946438, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215230566356946438, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215230566356946438, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 3264490774758108764, guid: 05b650487665bb8498517ec7c45d3c6f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2035,6 +2060,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474709852004515083, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 6474709852004515083, guid: 05b650487665bb8498517ec7c45d3c6f,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6535310791689615512, guid: 05b650487665bb8498517ec7c45d3c6f,
         type: 3}
@@ -2512,13 +2547,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.34256
       objectReference: {fileID: 0}
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
@@ -2624,6 +2674,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658609631218478047, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658609631218478047, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658609631218478047, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658609631218478047, guid: c11d12de7b29a2d4494963375fe76eb8,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8902848101733987308, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}

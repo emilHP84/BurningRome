@@ -243,8 +243,8 @@ public class GAMEPLAY : MonoBehaviour
         activeControllers = new Controller[4];
         foreach (Player player in ReInput.players.GetPlayers())
         {
-            player.controllers.maps.SetMapsEnabled(false, ControllerType.Keyboard, 0, 0);
             player.controllers.maps.SetMapsEnabled(false, ControllerType.Keyboard, 0, 1);
+            player.controllers.maps.SetMapsEnabled(false, ControllerType.Keyboard, 0, 2);
             player.controllers.ClearAllControllers();
             player.isPlaying = false;
         }
