@@ -19,6 +19,7 @@ public class PlayerPowerUps : MonoBehaviour
     public void BombDown(int amount)
     {
         bombSystem.ChangeMaxBomb(bombSystem.MaxBomb - amount);
+        Debug.Log("MAXBOMB = "+bombSystem.MaxBomb);
     }
 
     public void RedButton()
