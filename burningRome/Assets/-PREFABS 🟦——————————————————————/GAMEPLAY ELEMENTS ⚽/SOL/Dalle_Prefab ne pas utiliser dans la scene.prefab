@@ -177,6 +177,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6227488371878372322}
     m_Modifications:
+    - target: {fileID: 3403838168685734941, guid: 8936a24813956a446b425f1283e78d93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3496138065377935046, guid: 8936a24813956a446b425f1283e78d93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,10 +232,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4764692025729574229, guid: 8936a24813956a446b425f1283e78d93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640423892255585523, guid: 8936a24813956a446b425f1283e78d93,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640423892255585523, guid: 8936a24813956a446b425f1283e78d93,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5976215883623847258, guid: 8936a24813956a446b425f1283e78d93,
         type: 3}
       propertyPath: m_Name
       value: FX_Flamme
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155420661523820272, guid: 8936a24813956a446b425f1283e78d93,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.92
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6501709443678808199, guid: 8936a24813956a446b425f1283e78d93, type: 3}
