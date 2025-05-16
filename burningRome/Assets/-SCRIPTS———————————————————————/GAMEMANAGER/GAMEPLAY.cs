@@ -180,11 +180,11 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.end:
-                if (timer>3f)
+                if(timer > 2f) EVENTS.InvokeEndGame();
+                if (timer>4f)
                 {
                     //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
                     GAME.MANAGER.SwitchTo(State.menu);
-                    EVENTS.InvokeEndGame();
                     EnterState(GameplayState.off);
                 }
             break;
