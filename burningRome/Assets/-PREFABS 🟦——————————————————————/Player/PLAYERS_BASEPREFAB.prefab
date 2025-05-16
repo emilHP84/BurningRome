@@ -1210,6 +1210,7 @@ MonoBehaviour:
   Fx_DeathPlayer: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
     type: 3}
   playerID: 0
+  PlayerCollider: {fileID: 7496057769012995901}
   isAlive: 0
   deathTime: 1
 --- !u!114 &6785318492805869051
@@ -1458,7 +1459,7 @@ MonoBehaviour:
   feetSounds:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 1, y: 1}
-  stepSize: 0.5
+  stepSize: 1.5
 --- !u!114 &3588181838191853796
 MonoBehaviour:
   m_ObjectHideFlags: 0

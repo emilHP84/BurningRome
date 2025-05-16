@@ -18,6 +18,7 @@ public class PlayerBombing : MonoBehaviour
     public int ExplosionRange => explosionRange;
     int manualDetonation = 0;
     BombManager manualBomb;
+    public bool NextBombIsHadesFireProp => nextBombIsHadesFire;
     bool nextBombIsHadesFire = false;
     bool nextBombIsPiercing = false;
 
@@ -74,6 +75,7 @@ public class PlayerBombing : MonoBehaviour
         newBomb.SetBombOwner(this);
         if (nextBombIsHadesFire)
         {
+            newBomb.SetIsHadesFire(NextBombIsHadesFireProp);
             newBomb.SetFlameDuration(5f);
             nextBombIsHadesFire = false;
         }

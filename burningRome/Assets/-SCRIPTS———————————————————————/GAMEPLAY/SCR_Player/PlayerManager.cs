@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     [SerializeField] GameObject Fx_DeathPlayer;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
+    public Collider PlayerCollider;
 
     public int PlayerID
     {
@@ -28,7 +29,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
+    private void Start()
+    {
 
+    }
 
     private void OnEnable()
     {
@@ -78,9 +82,11 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void Explode()
     {
-        if (!invincible)
+        if (!invincible && isAlive)
         {
             StartCoroutine(OnDeath(deathTime));
+            Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
+            PlayerCollider.enabled = false;
         }
     }
 

@@ -25,7 +25,7 @@ public interface iPushableBy
 
 public interface IFlamable
 {
-    public bool BurnFor(float duration, bool piercing);
+    public bool BurnFor(float duration, bool piercing,bool isHadesFire);
     public void StopBurn();
 }
 
