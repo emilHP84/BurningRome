@@ -3892,6 +3892,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300234, guid: 99cbc473450af4147999e9e68398877b,
         type: 3}
+    - target: {fileID: 1504259751709443316, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: feetSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504259751709443316, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: 'feetSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fb094266f60ab04695bd59805777d0e, type: 3}
+    - target: {fileID: 1504259751709443316, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: 'feetSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fd4e4465ffa63d346aa1650f24b82f47, type: 3}
+    - target: {fileID: 1504259751709443316, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: 'feetSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e928049113458a94fb4b58c8ff549767, type: 3}
     - target: {fileID: 2235204025215349727, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
