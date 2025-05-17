@@ -31,6 +31,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
         EVENTS.OnGameplay += GamePlayStarted;
+        ReInput.ControllerDisconnectedEvent += CheckDisconnect;
     }
 
 
@@ -40,7 +41,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
         EVENTS.OnGameplay -= GamePlayStarted;
-
+        ReInput.ControllerDisconnectedEvent -= CheckDisconnect;
     }
 
     private void Start()
@@ -324,9 +325,43 @@ public class GAMEPLAY : MonoBehaviour
     {
         bool removeFromOtherPlayers = true;
         if (controller.type==ControllerType.Keyboard) removeFromOtherPlayers = false;
-        ReInput.players.GetPlayer(playerID).controllers.AddController(controller, removeFromOtherPlayers);
+        Player thisPlayer = ReInput.players.GetPlayer(playerID);
+        thisPlayer.controllers.ClearAllControllers();
+        thisPlayer.controllers.AddController(controller, removeFromOtherPlayers);
         activeControllers[playerID] = controller;
         Debug.Log("🎮" + controller.name + " to Player" + playerID);
+    }
+
+
+    void CheckDisconnect(ControllerStatusChangedEventArgs args)
+    {
+        if (CurrentState==GameplayState.off || CurrentState==GameplayState.joining) return;
+        for (int i=0;i<totalPlayers;i++)
+        {
+            if (activeControllers[i]==null)
+            {
+                StartCoroutine(WaitControllerReconnect(i));
+            }
+        }
+    }
+
+    bool allPlayersHaveController = true;
+
+    IEnumerator WaitControllerReconnect(int playerID)
+    {
+        while (activeControllers[playerID]==null)
+        {
+            if (ReInput.controllers.GetAnyButtonDown())
+            {
+                Controller lastActive = ReInput.controllers.GetLastActiveController();
+
+                if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
+                {
+                    AddPlayerController(playerID, lastActive);
+                }
+            }
+            yield return null;
+        }
     }
 
 
