@@ -342,7 +342,7 @@ public class GAMEPLAY : MonoBehaviour
         {
             int index = System.Array.IndexOf(activeControllers, args.controller);
             activeControllers[index] = null;
-            Debug.Log("PLAYER"+index+" HAS NO CONTROLLER!");
+            Debug.Log("🎮 PLAYER"+index+" HAS NO CONTROLLER!");
             StartCoroutine(WaitControllerReconnect(index));
         }
     }
@@ -351,7 +351,7 @@ public class GAMEPLAY : MonoBehaviour
 
     IEnumerator WaitControllerReconnect(int playerID)
     {
-        Debug.Log("🎮WAITING FOR PLAYER"+playerID+" CONTROLLER TO CONNECT");
+        Debug.Log("🎮 WAITING FOR PLAYER"+playerID+" CONTROLLER TO CONNECT");
         while (activeControllers[playerID]==null)
         {
             if (ReInput.controllers.GetAnyButtonDown())
