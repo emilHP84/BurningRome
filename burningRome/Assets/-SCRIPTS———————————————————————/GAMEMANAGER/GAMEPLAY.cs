@@ -31,7 +31,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
         EVENTS.OnGameplay += GamePlayStarted;
-        ReInput.ControllerDisconnectedEvent += CheckDisconnect;
+        ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
     }
 
 
@@ -41,7 +41,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
         EVENTS.OnGameplay -= GamePlayStarted;
-        ReInput.ControllerDisconnectedEvent -= CheckDisconnect;
+        ReInput.ControllerPreDisconnectEvent -= CheckDisconnect;
     }
 
     private void Start()
@@ -335,13 +335,15 @@ public class GAMEPLAY : MonoBehaviour
 
     void CheckDisconnect(ControllerStatusChangedEventArgs args)
     {
+        Debug.Log("🎮 DISCONNECTED "+args.controller.name);
         if (CurrentState==GameplayState.off || CurrentState==GameplayState.joining) return;
-        for (int i=0;i<totalPlayers;i++)
+        if (args.controller.type!=ControllerType.Joystick) return;
+        if (activeControllers.Contains(args.controller))
         {
-            if (activeControllers[i]==null)
-            {
-                StartCoroutine(WaitControllerReconnect(i));
-            }
+            int index = System.Array.IndexOf(activeControllers, args.controller);
+            activeControllers[index] = null;
+            Debug.Log("PLAYER"+index+" HAS NO CONTROLLER!");
+            StartCoroutine(WaitControllerReconnect(index));
         }
     }
 
@@ -349,6 +351,7 @@ public class GAMEPLAY : MonoBehaviour
 
     IEnumerator WaitControllerReconnect(int playerID)
     {
+        Debug.Log("🎮WAITING FOR PLAYER"+playerID+" CONTROLLER TO CONNECT");
         while (activeControllers[playerID]==null)
         {
             if (ReInput.controllers.GetAnyButtonDown())
@@ -357,7 +360,7 @@ public class GAMEPLAY : MonoBehaviour
 
                 if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
                 {
-                    AddPlayerController(playerID, lastActive);
+                    AssignControllerToPlayer(playerID, lastActive);
                 }
             }
             yield return null;
