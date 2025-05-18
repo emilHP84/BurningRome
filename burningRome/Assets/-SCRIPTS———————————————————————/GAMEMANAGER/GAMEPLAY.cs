@@ -22,7 +22,8 @@ public class GAMEPLAY : MonoBehaviour
 
     int alivePlayers = 0;
     float timer;
-    [SerializeField]GameObject[] playerPrefabs;
+    [SerializeField] GameObject[] playerPrefabs;
+    [SerializeField] Transform[] playerSpawnPos;
     [SerializeField] List<GameObject> alivePlayersList = new List<GameObject>();
     [SerializeField] TextMeshProUGUI Countdown;
     
@@ -31,7 +32,6 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
         EVENTS.OnGameplay += GamePlayStarted;
-        ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
     }
 
 
@@ -41,7 +41,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
         EVENTS.OnGameplay -= GamePlayStarted;
-        ReInput.ControllerPreDisconnectEvent -= CheckDisconnect;
+
     }
 
     private void Start()
@@ -224,6 +224,7 @@ public class GAMEPLAY : MonoBehaviour
     void InstantiatePlayerInScene(int playerID)
     {
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
+        EVENTS.InvokeOnPlayerInstance(true, playerSpawnPos[playerID]);
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);
         Debug.Log("CreatePlayer"+playerID);
@@ -325,46 +326,9 @@ public class GAMEPLAY : MonoBehaviour
     {
         bool removeFromOtherPlayers = true;
         if (controller.type==ControllerType.Keyboard) removeFromOtherPlayers = false;
-        Player thisPlayer = ReInput.players.GetPlayer(playerID);
-        thisPlayer.controllers.ClearAllControllers();
-        thisPlayer.controllers.AddController(controller, removeFromOtherPlayers);
+        ReInput.players.GetPlayer(playerID).controllers.AddController(controller, removeFromOtherPlayers);
         activeControllers[playerID] = controller;
         Debug.Log("🎮" + controller.name + " to Player" + playerID);
-    }
-
-
-    void CheckDisconnect(ControllerStatusChangedEventArgs args)
-    {
-        Debug.Log("🎮 DISCONNECTED "+args.controller.name);
-        if (CurrentState==GameplayState.off || CurrentState==GameplayState.joining) return;
-        if (args.controller.type!=ControllerType.Joystick) return;
-        if (activeControllers.Contains(args.controller))
-        {
-            int index = System.Array.IndexOf(activeControllers, args.controller);
-            activeControllers[index] = null;
-            Debug.Log("🎮 PLAYER"+index+" HAS NO CONTROLLER!");
-            StartCoroutine(WaitControllerReconnect(index));
-        }
-    }
-
-    bool allPlayersHaveController = true;
-
-    IEnumerator WaitControllerReconnect(int playerID)
-    {
-        Debug.Log("🎮 WAITING FOR PLAYER"+playerID+" CONTROLLER TO CONNECT");
-        while (activeControllers[playerID]==null)
-        {
-            if (ReInput.controllers.GetAnyButtonDown())
-            {
-                Controller lastActive = ReInput.controllers.GetLastActiveController();
-
-                if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
-                {
-                    AssignControllerToPlayer(playerID, lastActive);
-                }
-            }
-            yield return null;
-        }
     }
 
 

@@ -434,13 +434,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerControl: 0
   CurrentState: 0
-  timeToJoin: 3
+  timeToJoin: 5
   timeToSuddenDeath: 60
   playerPrefabs:
   - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
   - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
   - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
   - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  playerSpawnPos:
+  - {fileID: 609961564694689636, guid: 6ccaac2ac64941c448f29032b980a64b, type: 3}
+  - {fileID: 4938446663891923077, guid: f109077691784ed4bbfcddf96971f496, type: 3}
+  - {fileID: 310383315152015967, guid: 3a91b4dd22d8df8419e94f2aaf254a27, type: 3}
+  - {fileID: 3975543396704698724, guid: faac4c04305acd84f9152903319228f7, type: 3}
   alivePlayersList: []
   Countdown: {fileID: 6791002203798959336}
 --- !u!1 &5356209012625286950
@@ -798,7 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Taille explosions +1
+  m_text: Explosions size +1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1447,7 +1452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Les explosions traversent blocs et joueurs
+  m_text: Explosions go through blocs and players
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1599,7 +1604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rend temporairement  invincible, d\xE9truit blocs et joueurs "
+  m_text: Temporarily makes you invincible, destroys blocks and players
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -1751,7 +1756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Les 2 prochaine explosions restent sur le terrain
+  m_text: The next 2 explosions remain on the battlefield longer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -2040,7 +2045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Le bouton gauche fait exploser la derni\xE8re rune"
+  m_text: The left button explodes the last rune
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90fe577efda3d88429b16da587b9ce59, type: 2}
   m_sharedMaterial: {fileID: -2250968962040835101, guid: 90fe577efda3d88429b16da587b9ce59,
@@ -2573,7 +2578,7 @@ PrefabInstance:
     - target: {fileID: 91043201612681755, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: "G\xC9N\xC9RAL"
+      value: GENERAL
       objectReference: {fileID: 0}
     - target: {fileID: 101605745394655538, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2683,12 +2688,12 @@ PrefabInstance:
     - target: {fileID: 237365380176369238, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 569.77856
+      value: 721.60004
       objectReference: {fileID: 0}
     - target: {fileID: 237365380176369238, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -545.5368
+      value: -612.69995
       objectReference: {fileID: 0}
     - target: {fileID: 326097621256293641, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2748,7 +2753,7 @@ PrefabInstance:
     - target: {fileID: 473734632942597338, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: VOIX
+      value: VOICES
       objectReference: {fileID: 0}
     - target: {fileID: 497973498826270534, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2778,7 +2783,7 @@ PrefabInstance:
     - target: {fileID: 505375986675072856, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: RETOUR Button Graphics
+      value: BACK Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 526429132477651322, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2823,7 +2828,7 @@ PrefabInstance:
     - target: {fileID: 627940460988835768, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: ANGLAIS
+      value: ENGLISH
       objectReference: {fileID: 0}
     - target: {fileID: 627940460988835768, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2833,7 +2838,7 @@ PrefabInstance:
     - target: {fileID: 631393971201239719, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: DEMARRER
+      value: START
       objectReference: {fileID: 0}
     - target: {fileID: 631393971201239719, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -2973,12 +2978,12 @@ PrefabInstance:
     - target: {fileID: 936486061408747627, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: MUSIQUE
+      value: MUSIC
       objectReference: {fileID: 0}
     - target: {fileID: 960390711721777583, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: FRANCAIS Button Graphics
+      value: FRENCH Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 976261117759405048, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3312,7 +3317,7 @@ PrefabInstance:
     - target: {fileID: 1517006417074376435, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: REJOUER Button Graphics
+      value: REPLAY Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 1527466853036454014, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3426,21 +3431,6 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 304.55
       objectReference: {fileID: 0}
-    - target: {fileID: 1750526245139878882, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750526245139878882, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750526245139878882, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -922107019
-      objectReference: {fileID: 0}
     - target: {fileID: 1793016484227951183, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3469,7 +3459,7 @@ PrefabInstance:
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 132.1
+      value: 158.85
       objectReference: {fileID: 0}
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3603,17 +3593,17 @@ PrefabInstance:
     - target: {fileID: 2042171218810117263, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: REJOUER
+      value: REPLAY
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: FIN
+      value: END
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 106.15
+      value: 124.35
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3648,7 +3638,7 @@ PrefabInstance:
     - target: {fileID: 2164129306577464237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: PARAMETRES
+      value: SETTINGS
       objectReference: {fileID: 0}
     - target: {fileID: 2164129306577464237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3706,7 +3696,7 @@ PrefabInstance:
     - target: {fileID: 2342876384697035612, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: REPRENDRE Button Graphics
+      value: RESUME Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 2392620765358024515, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3888,36 +3878,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.ctime2
-      value: 16769
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.ctime3
-      value: 32960
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704373073471187039, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.ctime4
-      value: 51079
-      objectReference: {fileID: 0}
     - target: {fileID: 2717760744391796854, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
@@ -4031,7 +3991,7 @@ PrefabInstance:
     - target: {fileID: 2943716497298033742, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: PARAMETRES Button Graphics
+      value: SETTINGS Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 2975769400230426894, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4066,7 +4026,7 @@ PrefabInstance:
     - target: {fileID: 2986955583336364230, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: 'JOYSTICK GAUCHE '
+      value: LEFT JOYSTICK
       objectReference: {fileID: 0}
     - target: {fileID: 2986955583336364230, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4076,7 +4036,7 @@ PrefabInstance:
     - target: {fileID: 2988658351950683144, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3005029463903257282, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4086,7 +4046,7 @@ PrefabInstance:
     - target: {fileID: 3043934509322383584, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: REGLAGES PAR DEFAUT Button Graphics
+      value: RESET TO DEFAULT Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 3047432982512883090, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4411,12 +4371,12 @@ PrefabInstance:
     - target: {fileID: 3380184971760098494, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 169.77856
+      value: 321.60004
       objectReference: {fileID: 0}
     - target: {fileID: 3380184971760098494, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.5368
+      value: -202.69998
       objectReference: {fileID: 0}
     - target: {fileID: 3437182850057587495, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4476,12 +4436,12 @@ PrefabInstance:
     - target: {fileID: 3471968310130651260, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 169.77856
+      value: 321.60004
       objectReference: {fileID: 0}
     - target: {fileID: 3471968310130651260, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -545.5368
+      value: -612.69995
       objectReference: {fileID: 0}
     - target: {fileID: 3475401742643423359, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4598,7 +4558,7 @@ PrefabInstance:
     - target: {fileID: 3631313063004864135, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: QUITTER Button Graphics
+      value: QUIT Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 3641125031736639237, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4628,12 +4588,12 @@ PrefabInstance:
     - target: {fileID: 3740388333690990139, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: RETOUR
+      value: BACK
       objectReference: {fileID: 0}
     - target: {fileID: 3740388333690990139, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 34.4
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3740388333690990139, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4704,7 +4664,7 @@ PrefabInstance:
     - target: {fileID: 3835527092881014311, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: RETOUR
+      value: BACK
       objectReference: {fileID: 0}
     - target: {fileID: 3835527092881014311, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5176,7 +5136,7 @@ PrefabInstance:
     - target: {fileID: 4528260830562070563, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: QUITTER
+      value: QUIT
       objectReference: {fileID: 0}
     - target: {fileID: 4528260830562070563, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5248,7 +5208,7 @@ PrefabInstance:
     - target: {fileID: 4591637008869024029, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -138.93759
+      value: -166.33975
       objectReference: {fileID: 0}
     - target: {fileID: 4591637008869024029, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5405,12 +5365,12 @@ PrefabInstance:
     - target: {fileID: 4859583522682135900, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: RETOUR
+      value: BACK
       objectReference: {fileID: 0}
     - target: {fileID: 4859583522682135900, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 31.6
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4878815504101410678, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5461,11 +5421,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RETOUR Button Graphics
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976163183159853893, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: fr
-      value: CREDITS
       objectReference: {fileID: 0}
     - target: {fileID: 4996144883206679199, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5555,7 +5510,7 @@ PrefabInstance:
     - target: {fileID: 5082412495209172593, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: TEMPLATE DE PROJET UNITY PAR <B><color=yellow>KARL FAYETON</B>
+      value: UNITY PROJECT TEMPLATE BY <B><color=yellow>KARL FAYETON</B>
       objectReference: {fileID: 0}
     - target: {fileID: 5082412495209172593, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5635,7 +5590,7 @@ PrefabInstance:
     - target: {fileID: 5269281918469931947, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: FRANCAIS
+      value: FRENCH
       objectReference: {fileID: 0}
     - target: {fileID: 5269281918469931947, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5715,12 +5670,12 @@ PrefabInstance:
     - target: {fileID: 5493151220635426435, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 969.77856
+      value: 1121.6001
       objectReference: {fileID: 0}
     - target: {fileID: 5493151220635426435, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -545.5368
+      value: -612.69995
       objectReference: {fileID: 0}
     - target: {fileID: 5506912969246788047, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5745,22 +5700,22 @@ PrefabInstance:
     - target: {fileID: 5526172686541992099, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: DEMARRER Button Graphics
+      value: START Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 5531868650738122172, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: ANGLAIS Button Graphics
+      value: ENGLISH Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 5544675371211023438, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: VOLUME GENERAL
+      value: GLOBAL VOLUME
       objectReference: {fileID: 0}
     - target: {fileID: 5552012950779868391, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: EFFETS SONORES
+      value: SOUND EFFECTS
       objectReference: {fileID: 0}
     - target: {fileID: 5565664553516862172, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5834,12 +5789,12 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5849,12 +5804,12 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -24.0522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 135.55
+      value: 162.3
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5916,12 +5871,12 @@ PrefabInstance:
     - target: {fileID: 5768954072878392320, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 569.77856
+      value: 721.60004
       objectReference: {fileID: 0}
     - target: {fileID: 5768954072878392320, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.5368
+      value: -202.69998
       objectReference: {fileID: 0}
     - target: {fileID: 5783762721409369024, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6276,7 +6231,7 @@ PrefabInstance:
     - target: {fileID: 6519885821465014697, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: PARAMETRES Button Graphics
+      value: SETTINGS Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6525573042992615767, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6510,21 +6465,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7138597574852540763, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7138597574852540763, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7138597574852540763, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7169275094954758910, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6613,7 +6553,7 @@ PrefabInstance:
     - target: {fileID: 7273401460544270680, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: REPRENDRE
+      value: RESUME
       objectReference: {fileID: 0}
     - target: {fileID: 7273401460544270680, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6682,12 +6622,12 @@ PrefabInstance:
     - target: {fileID: 7340055138043952737, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 969.77856
+      value: 1121.6001
       objectReference: {fileID: 0}
     - target: {fileID: 7340055138043952737, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.5368
+      value: -202.69998
       objectReference: {fileID: 0}
     - target: {fileID: 7345993254523695615, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -6984,12 +6924,12 @@ PrefabInstance:
     - target: {fileID: 7830052425034683978, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: PARAMETRES
+      value: SETTINGS
       objectReference: {fileID: 0}
     - target: {fileID: 7830052425034683978, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 36.65
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7831652227848019878, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7129,12 +7069,12 @@ PrefabInstance:
     - target: {fileID: 7902926015600648986, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: EQUIPE
+      value: CREDITS
       objectReference: {fileID: 0}
     - target: {fileID: 7902926015600648986, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 103.85
+      value: 124.35
       objectReference: {fileID: 0}
     - target: {fileID: 7902926015600648986, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7195,12 +7135,12 @@ PrefabInstance:
     - target: {fileID: 7919163320590108740, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1369.7786
+      value: 1521.6001
       objectReference: {fileID: 0}
     - target: {fileID: 7919163320590108740, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.5368
+      value: -202.69998
       objectReference: {fileID: 0}
     - target: {fileID: 7926815238878257423, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7225,7 +7165,7 @@ PrefabInstance:
     - target: {fileID: 7948285926424079076, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: REGLAGES PAR DEFAUT
+      value: RESET TO DEFAULT
       objectReference: {fileID: 0}
     - target: {fileID: 7948285926424079076, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7260,7 +7200,7 @@ PrefabInstance:
     - target: {fileID: 8125551914537552381, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: PARAMETRES
+      value: SETTINGS
       objectReference: {fileID: 0}
     - target: {fileID: 8125551914537552381, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7295,7 +7235,7 @@ PrefabInstance:
     - target: {fileID: 8153855352541758758, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: LANGUE
+      value: LANGUAGE
       objectReference: {fileID: 0}
     - target: {fileID: 8153855352541758758, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7305,7 +7245,7 @@ PrefabInstance:
     - target: {fileID: 8163132967053943843, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: RETOUR Button Graphics
+      value: BACK Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8185608391195448583, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7430,7 +7370,7 @@ PrefabInstance:
     - target: {fileID: 8378698781534411485, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: SONS INTERFACE
+      value: UI VOLUME
       objectReference: {fileID: 0}
     - target: {fileID: 8422940517597632023, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7460,17 +7400,12 @@ PrefabInstance:
     - target: {fileID: 8433829770448430659, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: "CONTR\xD4LES"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8443669762217899208, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: en
-      value: TEAM
+      value: INPUTS
       objectReference: {fileID: 0}
     - target: {fileID: 8443669762217899208, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: fr
-      value: EQUIPE
+      value: CREDITS
       objectReference: {fileID: 0}
     - target: {fileID: 8486474101228156663, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7495,12 +7430,12 @@ PrefabInstance:
     - target: {fileID: 8486474101228156663, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1369.7786
+      value: 1521.6001
       objectReference: {fileID: 0}
     - target: {fileID: 8486474101228156663, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -545.5368
+      value: -612.69995
       objectReference: {fileID: 0}
     - target: {fileID: 8497854674361535134, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7510,7 +7445,7 @@ PrefabInstance:
     - target: {fileID: 8509202138959389827, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
-      value: QUITTER
+      value: QUIT
       objectReference: {fileID: 0}
     - target: {fileID: 8509202138959389827, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7620,7 +7555,7 @@ PrefabInstance:
     - target: {fileID: 8618560239884727359, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: RETOUR Button Graphics
+      value: BACK Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8729743407773622138, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7715,7 +7650,7 @@ PrefabInstance:
     - target: {fileID: 8837290094940351015, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_Name
-      value: QUITTER Button Graphics
+      value: QUIT Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 8841279210343611888, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
