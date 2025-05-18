@@ -4,8 +4,10 @@ using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
+    [SerializeField] GameObject FeedBack;
     public void Awake()
     {
+        FeedBack.SetActive(false);
         GameObject vfx = Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
         //vfx.transform.SetParent(transform);
     }
@@ -94,6 +96,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing, isHadesFire);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing, isHadesFire);
         if (owner) owner.BombExploded(this);
+        FeedBack.SetActive(true);
         Destroy(this.gameObject);
     }
 

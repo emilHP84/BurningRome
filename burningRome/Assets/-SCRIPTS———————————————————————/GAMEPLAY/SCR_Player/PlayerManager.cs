@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
+    [SerializeField] GameObject FeedBack;
     [SerializeField] GameObject Fx_DeathPlayer;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
@@ -29,9 +30,9 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
-    private void Start()
+    private void Awake()
     {
-
+        FeedBack.SetActive(false);
     }
 
     private void OnEnable()
@@ -84,6 +85,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
         if (!invincible && isAlive)
         {
+            FeedBack?.SetActive(true);
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;

@@ -722,6 +722,53 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
+--- !u!1 &3515083190086755177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8569530129289063088}
+  - component: {fileID: 5069069837679419075}
+  m_Layer: 6
+  m_Name: FeedBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8569530129289063088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515083190086755177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3399903589023675348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5069069837679419075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515083190086755177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e35ecaf50c8ce3478be8ee1ae09fef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenShake: 0
+  freezeMilliseconds: 90
+  freezeBeforeShake: 0
 --- !u!1 &3681659557141213065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1269,7 @@ Transform:
   - {fileID: 4174364889293765417}
   - {fileID: 7135923782216670669}
   - {fileID: 6570753610026162270}
+  - {fileID: 8569530129289063088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5205925518300675493
@@ -1236,6 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415274fdf10ac3d4090b99c5c035a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FeedBack: {fileID: 3515083190086755177}
   Fx_DeathPlayer: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
     type: 3}
   playerID: 0
