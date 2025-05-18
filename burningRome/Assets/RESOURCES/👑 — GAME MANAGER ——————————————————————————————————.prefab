@@ -434,13 +434,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerControl: 0
   CurrentState: 0
-  timeToJoin: 3
+  timeToJoin: 5
   timeToSuddenDeath: 60
   playerPrefabs:
   - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
   - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
   - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
   - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  playerSpawnPos:
+  - {fileID: 609961564694689636, guid: 6ccaac2ac64941c448f29032b980a64b, type: 3}
+  - {fileID: 4938446663891923077, guid: f109077691784ed4bbfcddf96971f496, type: 3}
+  - {fileID: 310383315152015967, guid: 3a91b4dd22d8df8419e94f2aaf254a27, type: 3}
+  - {fileID: 3975543396704698724, guid: faac4c04305acd84f9152903319228f7, type: 3}
   alivePlayersList: []
   Countdown: {fileID: 6791002203798959336}
 --- !u!1 &5356209012625286950
