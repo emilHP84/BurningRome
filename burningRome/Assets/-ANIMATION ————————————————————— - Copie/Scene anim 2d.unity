@@ -3172,7 +3172,7 @@ Transform:
   m_Children:
   - {fileID: 1920824805}
   m_Father: {fileID: 333722473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 171.52472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 168.42093}
 --- !u!1 &486430134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4915,7 +4915,7 @@ Transform:
   m_Children:
   - {fileID: 831083434}
   m_Father: {fileID: 333722473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -167.16284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -165.52399}
 --- !u!1 &687466645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,7 +6041,7 @@ Transform:
   m_Children:
   - {fileID: 126854377}
   m_Father: {fileID: 683852330}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.08216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.272928}
 --- !u!1 &837960906
 GameObject:
   m_ObjectHideFlags: 0
@@ -14708,8 +14708,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1902240327}
   - component: {fileID: 1902240330}
-  - component: {fileID: 1902240329}
   - component: {fileID: 1902240331}
+  - component: {fileID: 1902240332}
   m_Layer: 0
   m_Name: Venus_Idle
   m_TagString: Untagged
@@ -14733,23 +14733,6 @@ Transform:
   - {fileID: 1157483908}
   m_Father: {fileID: 847594971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1902240329
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902240326}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: bb04c61c83b1def40bbc6ff38e1ced06, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!212 &1902240330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14836,6 +14819,28 @@ MonoBehaviour:
     m_Extent: {x: 5.302881, y: 6.4468713, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!95 &1902240332
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902240326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14faec987cfa1604bb794ea66b4d4332, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1916611589
 GameObject:
   m_ObjectHideFlags: 0
@@ -14930,7 +14935,7 @@ Transform:
   m_Children:
   - {fileID: 1229979640}
   m_Father: {fileID: 483715377}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.518105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.680559}
 --- !u!1 &1923497579
 GameObject:
   m_ObjectHideFlags: 0

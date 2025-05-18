@@ -50,7 +50,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
 
     public void Explode()
     {
-        Debug.Log("CAISSE EXPLOSEE");
+        //Debug.Log("CAISSE EXPLOSEE");
         SpawnPowerUp();
         if (fx_Bloc_Explose) Instantiate(fx_Bloc_Explose,transform.position, Quaternion.identity);
         //GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
