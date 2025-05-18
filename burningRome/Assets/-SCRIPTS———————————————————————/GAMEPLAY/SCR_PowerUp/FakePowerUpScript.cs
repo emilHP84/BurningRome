@@ -35,7 +35,7 @@ public class FakePowerUpScript : MonoBehaviour, IExplodable
         var input = other.GetComponent<PlayerPowerUps>();
         if (input != null)
         {
-            input.BombDown(1);
+            input.BombDown(-1);
             Destroy(gameObject);
         }
     }

@@ -34,7 +34,6 @@ public class PlayerPowerUps : MonoBehaviour
 
     public void HadesFire()
     {
-
         bombSystem.NextBombIsHadesFire();
     }
 

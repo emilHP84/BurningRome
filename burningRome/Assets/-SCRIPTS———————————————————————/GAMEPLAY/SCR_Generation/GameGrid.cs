@@ -28,12 +28,12 @@ public class GameGrid : MonoBehaviour
 
     public void BurnCell(int column, int row, float duration)
     {
-        BurnCell(column,row,duration,0,Cardinal.North,false,false);
+        BurnCell(column,row,duration,0,Cardinal.North,false);
     }
 
-    public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction, bool piercing, bool isHadesFire)
+    public void BurnCell(int column, int row, float duration, int propagation, Cardinal direction, bool piercing)
     {
-        //Debug.Log("La case "+column+","+row+" a recu l'ordre de bruler pendant "+duration+" seconde en direction de "+direction);
+        Debug.Log("La case "+column+","+row+" a recu l'ordre de bruler pendant "+duration+" seconde en direction de "+direction);
         if (column < 0 || column > gridColumns.Length - 1 || row < 0 || row > gridColumns[column].gridRows.Length - 1)
         {
             return; //gridColumns[column].gridRows.Length-1
@@ -41,7 +41,7 @@ public class GameGrid : MonoBehaviour
 
         IFlamable targetCell = gridColumns[column].gridRows[row];
         if (targetCell == null) return;
-        bool cellAuthorizePropagation = gridColumns[column].gridRows[row].BurnFor(duration,piercing,isHadesFire);
+        bool cellAuthorizePropagation = gridColumns[column].gridRows[row].BurnFor(duration,piercing);
         if (cellAuthorizePropagation || piercing) // Si la case autorise la propagation ou que la bombe est perçante
         {
             propagation--;
@@ -54,7 +54,7 @@ public class GameGrid : MonoBehaviour
                     case Cardinal.East: column++; break;
                     case Cardinal.West: column--; break;
                 }
-                BurnCell(column,row,duration,propagation,direction, piercing, isHadesFire);
+                BurnCell(column,row,duration,propagation,direction, piercing);
             }
         }
     }
