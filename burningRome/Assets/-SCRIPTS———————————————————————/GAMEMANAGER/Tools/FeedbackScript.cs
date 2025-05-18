@@ -15,7 +15,6 @@ public class FeedbackScript : MonoBehaviour
 
     void Awake()
     {
-        transform.SetParent(null);
         sounds = GetComponentsInChildren<AudioSource>();
         particles = GetComponentsInChildren<ParticleSystem>();
         StartCoroutine(WaitForDestruction());
