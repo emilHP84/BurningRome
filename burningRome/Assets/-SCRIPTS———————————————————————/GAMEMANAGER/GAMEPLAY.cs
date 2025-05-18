@@ -22,8 +22,7 @@ public class GAMEPLAY : MonoBehaviour
 
     int alivePlayers = 0;
     float timer;
-    [SerializeField] GameObject[] playerPrefabs;
-    [SerializeField] Transform[] playerSpawnPos;
+    [SerializeField]GameObject[] playerPrefabs;
     [SerializeField] List<GameObject> alivePlayersList = new List<GameObject>();
     [SerializeField] TextMeshProUGUI Countdown;
     
@@ -225,7 +224,6 @@ public class GAMEPLAY : MonoBehaviour
     void InstantiatePlayerInScene(int playerID)
     {
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
-        EVENTS.InvokeOnPlayerInstance(true, playerSpawnPos[playerID]);
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);
         Debug.Log("CreatePlayer"+playerID);

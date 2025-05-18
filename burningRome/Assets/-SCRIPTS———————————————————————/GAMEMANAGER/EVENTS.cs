@@ -110,8 +110,5 @@ public class EVENTS
     public static event Action<GameObject,EventArgs> OnCallCamera;
     public static void InvokeOnCallCamera(GameObject obj) { LogEventInConsole("a player has win! #"); OnCallCamera?.Invoke(obj,new System.EventArgs()); }
 
-    public static event Action<bool, Transform, EventArgs> OnPlayerInstance;
-    public static void InvokeOnPlayerInstance(bool isCalled,  Transform targetPos) { LogEventInConsole("a player has win! #"); OnPlayerInstance?.Invoke(isCalled, targetPos, new System.EventArgs()); }
-
 
 } // SCRIPT END
