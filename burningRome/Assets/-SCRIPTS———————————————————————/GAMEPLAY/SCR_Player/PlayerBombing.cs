@@ -126,6 +126,7 @@ public class PlayerBombing : MonoBehaviour
 
     public void ChangeMaxBomb(int desired)
     {
+        Debug.Log("Bomb up Récupérer");
         if (desired<1) desired = 1;
         int difference = desired-maxBomb;
         maxBomb = desired;
@@ -134,7 +135,8 @@ public class PlayerBombing : MonoBehaviour
 
     public void ChangeRange(int desired)
     {
-        explosionRange += Mathf.Clamp(desired,1,99);
+        Debug.Log(" Range UP Récupérer");
+        explosionRange = Mathf.Clamp(desired,1,99);
     }
 
     public void AddManualDetonation()
@@ -150,11 +152,13 @@ public class PlayerBombing : MonoBehaviour
 
     public void BombPercing()
     {
+        Debug.Log("Piercing Récupérer");
         nextBombIsPiercing = true;
     }
 
     public void NextBombIsHadesFire()
     {
+        Debug.Log("Hades Récupérer");
         nextBombIsHadesFire = true;
     }
 

@@ -92,6 +92,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void InvincibilityFor(float duration)
     {
+        Debug.Log("Invincibility Récupérer");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
     }

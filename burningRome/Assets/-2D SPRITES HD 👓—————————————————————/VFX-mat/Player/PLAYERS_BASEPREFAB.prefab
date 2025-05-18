@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 8596951764582306087}
   - component: {fileID: 7496057769012995901}
   - component: {fileID: 1124380909050489139}
+  - component: {fileID: 1218324407565480753}
   m_Layer: 6
   m_Name: TriggerCapsule
   m_TagString: Untagged
@@ -1134,7 +1135,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!114 &1124380909050489139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,6 +1152,33 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
+--- !u!54 &1218324407565480753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899251842572463881}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7279451766137512850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1195,6 @@ GameObject:
   - component: {fileID: 2662228773827575180}
   - component: {fileID: 2831283191497542371}
   - component: {fileID: 9092949447849222937}
-  - component: {fileID: -7359346081132695092}
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
   - component: {fileID: 3588181838191853796}
@@ -1322,33 +1349,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!54 &-7359346081132695092
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7279451766137512850}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &6665027211940049455
 AudioSource:
   m_ObjectHideFlags: 0

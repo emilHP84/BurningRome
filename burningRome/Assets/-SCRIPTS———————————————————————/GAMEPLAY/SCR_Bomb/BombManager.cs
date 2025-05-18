@@ -88,7 +88,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         exploded = true;
         int row = Mathf.RoundToInt(transform.position.z);
         int column = Mathf.RoundToInt(transform.position.x);
-        Debug.Log("Explosion de la case " + column + "," + row);
+        //Debug.Log("Explosion de la case " + column + "," + row);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing, isHadesFire);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing, isHadesFire);
         GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing, isHadesFire);
