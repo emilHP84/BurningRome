@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: -7359346081132695092}
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
+  - component: {fileID: -3069820194409009769}
   - component: {fileID: 3588181838191853796}
   m_Layer: 6
   m_Name: PLAYERS_BASEPREFAB
@@ -1459,6 +1460,43 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 1, y: 1}
   stepSize: 0.5
+--- !u!114 &-3069820194409009769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279451766137512850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02bf61d6ec23424bb50c7fabb8faa3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  delay: 50
 --- !u!114 &3588181838191853796
 MonoBehaviour:
   m_ObjectHideFlags: 0
