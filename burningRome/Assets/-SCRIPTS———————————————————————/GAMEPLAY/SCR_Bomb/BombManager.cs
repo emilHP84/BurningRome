@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
-    [SerializeField] GameObject FeedBack;
     public void Awake()
     {
-        FeedBack.SetActive(false);
         GameObject vfx = Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
         //vfx.transform.SetParent(transform);
     }
@@ -41,11 +38,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         flameDuration = newDuration;
     }
 
-    public void SetIsHadesFire(bool nextBombIsHadesFire)
-    {
-        isHadesFire = nextBombIsHadesFire;
-    }
-
     public void Explode()
     {
         Explosion();
@@ -64,7 +56,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     PlayerBombing owner;
     float time;
     float flameDuration = 1f;
-    private bool isHadesFire;
 
     void Start()
     {
@@ -90,13 +81,12 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         exploded = true;
         int row = Mathf.RoundToInt(transform.position.z);
         int column = Mathf.RoundToInt(transform.position.x);
-        //Debug.Log("Explosion de la case " + column + "," + row);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing, isHadesFire);
+        Debug.Log("Explosion de la case " + column + "," + row);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing);
+        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing);
         if (owner) owner.BombExploded(this);
-        FeedBack.SetActive(true);
         Destroy(this.gameObject);
     }
 
@@ -116,6 +106,5 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             boxCollider.isTrigger = false;
         }
     }
-
 
 } // SCRIPT END

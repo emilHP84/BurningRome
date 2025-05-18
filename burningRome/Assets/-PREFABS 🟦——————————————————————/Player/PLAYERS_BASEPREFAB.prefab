@@ -316,9 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feetSounds:
-  - {fileID: 8300000, guid: 8fb094266f60ab04695bd59805777d0e, type: 3}
-  - {fileID: 8300000, guid: fd4e4465ffa63d346aa1650f24b82f47, type: 3}
-  - {fileID: 8300000, guid: e928049113458a94fb4b58c8ff549767, type: 3}
+  - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 0.9, y: 1.1}
   stepSize: 1.5
 --- !u!82 &2403647525315291269
@@ -722,53 +720,6 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
---- !u!1 &3515083190086755177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8569530129289063088}
-  - component: {fileID: 5069069837679419075}
-  m_Layer: 6
-  m_Name: FeedBack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &8569530129289063088
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3515083190086755177}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3399903589023675348}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5069069837679419075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3515083190086755177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e35ecaf50c8ce3478be8ee1ae09fef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenShake: 0
-  freezeMilliseconds: 2000
-  freezeBeforeShake: 1
 --- !u!1 &3681659557141213065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1088,6 @@ GameObject:
   - component: {fileID: 8596951764582306087}
   - component: {fileID: 7496057769012995901}
   - component: {fileID: 1124380909050489139}
-  - component: {fileID: 1218324407565480753}
   m_Layer: 6
   m_Name: TriggerCapsule
   m_TagString: Untagged
@@ -1182,7 +1132,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1124380909050489139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,33 +1149,6 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
---- !u!54 &1218324407565480753
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6899251842572463881}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &7279451766137512850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,8 +1165,10 @@ GameObject:
   - component: {fileID: 2662228773827575180}
   - component: {fileID: 2831283191497542371}
   - component: {fileID: 9092949447849222937}
+  - component: {fileID: -7359346081132695092}
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
+  - component: {fileID: -3069820194409009769}
   - component: {fileID: 3588181838191853796}
   m_Layer: 6
   m_Name: PLAYERS_BASEPREFAB
@@ -1269,7 +1194,6 @@ Transform:
   - {fileID: 4174364889293765417}
   - {fileID: 7135923782216670669}
   - {fileID: 6570753610026162270}
-  - {fileID: 8569530129289063088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5205925518300675493
@@ -1284,11 +1208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415274fdf10ac3d4090b99c5c035a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FeedBack: {fileID: 3515083190086755177}
   Fx_DeathPlayer: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
     type: 3}
   playerID: 0
-  PlayerCollider: {fileID: 7496057769012995901}
   isAlive: 0
   deathTime: 1
 --- !u!114 &6785318492805869051
@@ -1398,6 +1320,33 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &-7359346081132695092
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279451766137512850}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &6665027211940049455
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1510,7 +1459,44 @@ MonoBehaviour:
   feetSounds:
   - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
   pitch: {x: 1, y: 1}
-  stepSize: 1.5
+  stepSize: 0.5
+--- !u!114 &-3069820194409009769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279451766137512850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02bf61d6ec23424bb50c7fabb8faa3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  delay: 50
 --- !u!114 &3588181838191853796
 MonoBehaviour:
   m_ObjectHideFlags: 0
