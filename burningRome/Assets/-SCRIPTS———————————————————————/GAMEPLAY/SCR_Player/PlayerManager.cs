@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
+    [SerializeField] GameObject FeedBack;
     [SerializeField] GameObject Fx_DeathPlayer;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
+    public Collider PlayerCollider;
 
     public int PlayerID
     {
@@ -28,7 +30,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
-
+    private void Awake()
+    {
+        FeedBack.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -78,14 +83,18 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void Explode()
     {
-        if (!invincible)
+        if (!invincible && isAlive)
         {
+            FeedBack?.SetActive(true);
             StartCoroutine(OnDeath(deathTime));
+            Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
+            PlayerCollider.enabled = false;
         }
     }
 
     public void InvincibilityFor(float duration)
     {
+        Debug.Log("Invincibility Récupérer");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
     }
