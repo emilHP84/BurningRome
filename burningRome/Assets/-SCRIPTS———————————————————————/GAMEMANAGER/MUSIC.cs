@@ -4,6 +4,9 @@ using UnityEngine.Audio;
 
 public class MUSIC : MonoBehaviour
 {
+    private bool m_hasFocus = true;
+    
+    
     public void SetPlaylist(SO_Playlist desired)
     {
         SetPlaylist(desired,false);
@@ -139,16 +142,24 @@ public class MUSIC : MonoBehaviour
 
     void StartTrack(Music desired)
     {
-        if (desired.clip!=null)
+        if (players[current].clip == desired.clip && players[current].isPlaying)
+        {
+            Debug.Log("Le morceau est déjà en cours de lecture, pas besoin de le redémarrer.");
+            return;
+        }
+
+        Debug.Log("Démarrage du morceau : " + desired.clip.name);
+        if (desired.clip != null)
         {
             players[current].loop = false;
             players[current].clip = desired.clip;
             players[current].volume = desired.volume;
             players[current].Play();
-            if (playRoutine!=null) StopCoroutine(playRoutine);
+            if (playRoutine != null) StopCoroutine(playRoutine);
             playRoutine = StartCoroutine(PlayAndCheckTrackEnd());
             ApplyFinalMusicPitch();
             currentMusic = desired;
+            paused = false;
         }
     }
 
@@ -225,25 +236,33 @@ public class MUSIC : MonoBehaviour
 
     void TrackEnded()
     {
-        if (currentPlaylist==null) // If playlist was deleted during play
+        if (currentPlaylist == null) 
         {
-            Stop(); // stop the music
-            return; // do not try to find what next track is
+            Stop();
+            return;
         }
+        
+        if (!m_hasFocus) 
+        {
+            Debug.Log("La fenêtre n'a pas le focus, annulation de la reprise.");
+            return;
+        }
+
         currentPlaylistIndex += 1;
-        if (currentPlaylist.tracks.Length>currentPlaylistIndex) // If this was not the last track
+        if (currentPlaylist.tracks.Length > currentPlaylistIndex)
         {
-            PlayMusic(currentPlaylist.tracks[currentPlaylistIndex]); // Play next track
+            PlayMusic(currentPlaylist.tracks[currentPlaylistIndex]);
         }
-        else if (currentPlaylist.looping) // If this was the last track but playlist is in loop mode
+        else if (currentPlaylist.looping)
+        {
+            Debug.Log("Dernière piste atteinte, redémarrage de la playlist.");
+            currentPlaylistIndex = 0;
+            StartTrack(currentPlaylist.tracks[currentPlaylistIndex]);
+        }
+        else
         {
             currentPlaylistIndex = 0;
-            StartTrack(currentPlaylist.tracks[currentPlaylistIndex]); // Play first track
-        }
-        else // If this was the last track and playlist is not in loop mode
-        {
-            currentPlaylistIndex = 0;
-            Stop(); // Stop the music
+            Stop();
         }
     }
 
@@ -262,6 +281,46 @@ public class MUSIC : MonoBehaviour
     int OtherPlayer()
     {
         return current==0 ? 1 : 0;
+    }
+    
+    void OnApplicationFocus(bool focus)
+    {
+        m_hasFocus = focus;
+        if (!focus)
+        {
+            Debug.Log("Fenêtre du jeu a perdu le focus.");
+            Pause(); // Mettre en pause la musique
+        }
+        else
+        {
+            Debug.Log("Fenêtre du jeu a repris le focus.");
+            Resume(); // Reprendre la musique
+        }
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        m_hasFocus = !pauseStatus;
+        if (pauseStatus)
+        {
+            Debug.Log("Jeu mis en pause.");
+            Pause(); // Mettre en pause la musique
+        }
+        else
+        {
+            Debug.Log("Jeu repris.");
+            Resume(); // Reprendre la musique
+        }
+    }
+
+    public void Resume()
+    {
+        if (players[current].clip != null && paused)
+        {
+            players[current].UnPause();
+            paused = false;
+            Debug.Log("🎸MUSIC RESUME");
+        }
     }
 
 
