@@ -177,7 +177,11 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.suddenDeath:
-                if (alivePlayers<2) EnterState(GameplayState.end);
+                if (alivePlayers < 2)
+                {
+                    EVENTS.InvokeOnVictory();
+                    EnterState(GameplayState.end);
+                }
             break;
 
             case GameplayState.end:
