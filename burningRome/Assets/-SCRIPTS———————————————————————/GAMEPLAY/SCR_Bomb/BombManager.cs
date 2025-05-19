@@ -7,8 +7,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     [SerializeField] GameObject FeedBack;
     public void Awake()
     {
-        FeedBack.SetActive(false);
-        GameObject vfx = Instantiate(fx_BombPlaced,transform.position, Quaternion.identity);
+        if (ManualDetonation == false)
+        {
+            FeedBack.SetActive(false);
+            GameObject vfx = Instantiate(fx_BombPlaced, transform.position, Quaternion.identity);
+        }
         //vfx.transform.SetParent(transform);
     }
     public void SetDelay(float newDelay)
@@ -49,11 +52,18 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public void Explode()
     {
         Explosion();
+        if(stockFXBomb != null)
+        {
+            Destroy(stockFXBomb);
+        }
     }
     
     [SerializeField]bool ManualDetonation = false;
     [SerializeField]bool isPiercing = false;
     [SerializeField] GameObject fx_BombPlaced;
+    [SerializeField] GameObject fx_BombGrosBouttonRougePlaced;
+    GameObject stockFXBomb;
+
     [SerializeField] int explosionRange = 2;
     [SerializeField][Range(0, 10)] float delayBeforeExplosion = 3f;
 
@@ -69,6 +79,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     void Start()
     {
         time = delayBeforeExplosion;
+        if(ManualDetonation == true)
+        {
+            GameObject vfx = Instantiate(fx_BombGrosBouttonRougePlaced, transform.position, Quaternion.identity);
+            stockFXBomb = vfx;
+        }
     }
 
     void Update()
