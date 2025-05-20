@@ -18,6 +18,10 @@ public class EVENTS
     public static event Action OnGameStart;
     public static void InvokeGameStart() {/*LogEventInConsole("▶️GameStart");*/ OnGameStart?.Invoke();}
 
+    public static event Action OnAfterGameStart;
+
+    public static void InvokeAfterGameStart() {/*LogEventInConsole("▶️GameStart");*/ OnAfterGameStart?.Invoke(); }
+
     public static event Action OnGameOver;
     public static void InvokeGameOver() {/*LogEventInConsole("💀GameOver");*/ OnGameOver?.Invoke();}
 

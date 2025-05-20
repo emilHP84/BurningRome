@@ -21,6 +21,7 @@ public class MENU : MonoBehaviour
 
 
     //public AudioSource LEAGUEOFLEGENDS = new AudioSource();
+    public bool AlreadyStartFirstGame = false;
 
 
 
@@ -204,6 +205,10 @@ public class MENU : MonoBehaviour
     {
         StartCoroutine(NewGameRoutine());
     }
+    public void AfterNewGame()
+    {
+        StartCoroutine(AfterGameRoutine());
+    }
 
     IEnumerator NewGameRoutine()
     {
@@ -212,6 +217,16 @@ public class MENU : MonoBehaviour
         while (SceneLoader.access.IsLoading) yield return null;
         MenusList(false);
         EVENTS.InvokeGameStart();
+    }
+
+    IEnumerator AfterGameRoutine()
+    {
+        //AlreadyStartFirstGame = true;
+        MenusList(true);
+        SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene, 2f, 1f, 1f, false, 0);
+        while (SceneLoader.access.IsLoading) yield return null;
+        MenusList(false);
+        EVENTS.InvokeAfterGameStart();
     }
 
 

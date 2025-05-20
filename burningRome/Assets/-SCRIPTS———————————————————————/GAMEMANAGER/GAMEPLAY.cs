@@ -8,6 +8,14 @@ using TMPro;
 
 public class GAMEPLAY : MonoBehaviour
 {
+    class PlayerData
+    {
+        public int playerID;
+        public Controller controller;
+        public int keyboardSide;
+    }
+    List<PlayerData> persistentPlayers = new List<PlayerData>();
+
     public static GAMEPLAY access;
     public bool PlayerControl = false;
     public GameplayState CurrentState;
@@ -31,6 +39,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
         EVENTS.OnGameplay += GamePlayStarted;
+        EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
     }
 
@@ -41,6 +50,7 @@ public class GAMEPLAY : MonoBehaviour
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
         EVENTS.OnGameplay -= GamePlayStarted;
+        EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent -= CheckDisconnect;
     }
 
@@ -48,7 +58,10 @@ public class GAMEPLAY : MonoBehaviour
     {
         access = this;
         EnterState(GameplayState.off);
-        DestroyAllPlayers();
+        if (MENU.SCRIPT.AlreadyStartFirstGame == false)
+        {
+            DestroyAllPlayers();
+        }
         ResetAllControllers();
     }
 
@@ -72,6 +85,7 @@ public class GAMEPLAY : MonoBehaviour
     private void RemovePlayerNumber(int deadID)
     {
         alivePlayers--;
+        Debug.Log("💀 Player died: " + deadID + " — Players alive: " + alivePlayers);
     }
 
     //-----------------------------------------------------------------------//
@@ -111,7 +125,10 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsOFF");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = false;
-                DestroyAllPlayers();
+                if(MENU.SCRIPT.AlreadyStartFirstGame == false)
+                {
+                    DestroyAllPlayers();
+                }            
                 ResetAllControllers();
                 GAME.MANAGER.SwitchTo(State.menu);
             break;
@@ -169,6 +186,7 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.battle:
                 if (timer >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
+               
                 if (alivePlayers < 2)
                 {
                     EVENTS.InvokeOnVictory();
@@ -191,6 +209,7 @@ public class GAMEPLAY : MonoBehaviour
                     //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
                     GAME.MANAGER.SwitchTo(State.menu);
                     EnterState(GameplayState.off);
+                    //persistentPlayers.Clear();
                 }
             break;
         }
@@ -211,6 +230,27 @@ public class GAMEPLAY : MonoBehaviour
 
     public void Rematch()
     {
+        foreach (PlayerData data in persistentPlayers)
+        {
+            Player player = ReInput.players.GetPlayer(data.playerID);
+            InstantiatePlayerInScene(data.playerID);
+            AddPlayerController(data.playerID,data.controller);
+            if (data.controller.type == ControllerType.Keyboard)
+            {
+                player.controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard, 0, data.keyboardSide);
+                if (data.keyboardSide == 1) rightKeyboardAssigned = true;
+                if (data.keyboardSide == 2) leftKeyboardAssigned = true;
+            }
+            else if (data.controller.type == ControllerType.Joystick)
+            {
+                player.controllers.maps.SetMapsEnabled(true, ControllerType.Joystick, 0);
+            }
+            //AssignControllerToPlayer(data.playerID, data.controller);
+            ReInput.players.GetPlayer(data.playerID).isPlaying = true;
+        }
+        alivePlayers = totalPlayers;
+
+        Debug.Log("CA PASSSEEEE ICIIIIIII");
         EnterState(GameplayState.battle);
     }
 
@@ -219,6 +259,11 @@ public class GAMEPLAY : MonoBehaviour
         EnterState(GameplayState.joining);
     }
 
+    public void GameplayAfterFirstBattle()
+
+    {
+        Rematch();
+    }
 
 
 
@@ -291,6 +336,12 @@ public class GAMEPLAY : MonoBehaviour
 
     void AddPlayerKeyboard(int playerID, int keyboardSide, Controller keyboard)
     {
+        persistentPlayers.Add(new PlayerData
+        {
+            playerID = playerID,
+            controller = keyboard,
+            keyboardSide = keyboardSide
+        });
         Debug.Log("ADD KEYBOARD PLAYER "+playerID+"   keyboardside "+keyboardSide);
         if (keyboardSide==2) leftKeyboardAssigned = true;
         if (keyboardSide==1) rightKeyboardAssigned = true;
@@ -321,12 +372,17 @@ public class GAMEPLAY : MonoBehaviour
     void AddNewPlayer(int playerID, Controller controller)
     {
         totalPlayers++;
+        if(!persistentPlayers.Exists(x=>x.playerID == playerID))
+        {
+            persistentPlayers.Add(new PlayerData { playerID = playerID, controller = controller });
+        }
         AssignControllerToPlayer(playerID, controller);
     }
 
 
     void AssignControllerToPlayer(int playerID, Controller controller)
     {
+        
         bool removeFromOtherPlayers = true;
         if (controller.type==ControllerType.Keyboard) removeFromOtherPlayers = false;
         Player thisPlayer = ReInput.players.GetPlayer(playerID);
