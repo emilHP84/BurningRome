@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable, IDestructible
+public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable
 {
     [SerializeField] GameObject fx_Bloc_Explose;
 
@@ -33,7 +33,10 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
 
     public void OnCollisionWith(ICollisionable collisionable)
     {
-
+        if (collisionable is DeadZone)
+        {
+            Explode();
+        }
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -52,7 +55,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     {
         //Debug.Log("CAISSE EXPLOSEE");
         SpawnPowerUp();
-        if (fx_Bloc_Explose) Instantiate(fx_Bloc_Explose,transform.position, Quaternion.identity);
+        if (fx_Bloc_Explose) Instantiate(fx_Bloc_Explose, transform.position, Quaternion.identity);
         //GameObject Go = Instantiate(new GameObject(), transform.position, Quaternion.identity);
         //AudioSource aus = gameObject.AddComponent<AudioSource>();
         //aus.clip = destroyClip;
@@ -65,14 +68,6 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     {
         Destroy(gameObject);
     }
-
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
-
-
-
 
     [SerializeField]
     private List<PowerUpData> powerUps;

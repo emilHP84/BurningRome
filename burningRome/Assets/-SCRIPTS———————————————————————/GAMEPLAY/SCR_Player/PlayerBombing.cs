@@ -7,9 +7,9 @@ public class PlayerBombing : MonoBehaviour
     [SerializeField] int playerID = 0;
     Player player;
     bool canBomb = false;
-    public int MaxBomb{get{return maxBomb;}}
+    public int MaxBomb { get { return maxBomb; } }
     [SerializeField] int maxBomb = 1;
-    int RemainingBombs{ get{return remainingBombs;} set{remainingBombs = Mathf.Clamp(value,0,maxBomb);} }
+    int RemainingBombs { get { return remainingBombs; } set { remainingBombs = Mathf.Clamp(value, 0, maxBomb); } }
     int remainingBombs = 1;
 
     [SerializeField] GameObject bombPrefab;
@@ -30,29 +30,29 @@ public class PlayerBombing : MonoBehaviour
         {
             if (player.GetButtonDown("Bomb"))
             {
-                if (manualDetonation>0)
+                if (manualDetonation > 0)
                 {
-                    if(manualDetonation<2)
+                    if (manualDetonation < 2)
                     {
-                        if (manualBomb!=null) manualBomb.Explode();
-                        else if (remainingBombs>0) NewBomb();
+                        if (manualBomb != null) manualBomb.Explode();
+                        else if (remainingBombs > 0) NewBomb();
                         manualDetonation = 0;
                     }
-                    else if (remainingBombs>0)
+                    else if (remainingBombs > 0)
                     {
                         NewBomb();
-                        manualBomb = activeBombs[activeBombs.Count-1];
+                        manualBomb = activeBombs[activeBombs.Count - 1];
                         manualBomb.SetManualDetonation(true);
                         manualDetonation = 1;
                     }
                 }
-                else if (RemainingBombs>0) NewBomb();
+                else if (RemainingBombs > 0) NewBomb();
             }
         }
 
-        for (int i =0; i<activeBombs.Count; i++)
+        for (int i = 0; i < activeBombs.Count; i++)
         {
-            if(activeBombs[i]==null)
+            if (activeBombs[i] == null)
             {
                 RemainingBombs++;
                 activeBombs.RemoveAt(i);
@@ -62,12 +62,12 @@ public class PlayerBombing : MonoBehaviour
 
     void NewBomb()
     {
-        if (bombPrefab==null) return;
+        if (bombPrefab == null) return;
         Vector3 bombPos = transform.position;
         bombPos.x = Mathf.Round(bombPos.x);
         bombPos.z = Mathf.Round(bombPos.z);
         bombPos.y = 0.11f;
-        BombManager newBomb = Instantiate(bombPrefab,bombPos,transform.rotation).GetComponent<BombManager>();
+        BombManager newBomb = Instantiate(bombPrefab, bombPos, transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
         newBomb.SetPiercing(nextBombIsPiercing);
         newBomb.SetDelay(bombExplodeDelay);
@@ -88,7 +88,7 @@ public class PlayerBombing : MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
         EVENTS.OnGameplay += Activate;
         EVENTS.OnGameplayExit += Disable;
-        if (GAME.MANAGER.CurrentState==State.gameplay) Activate();
+        if (GAME.MANAGER.CurrentState == State.gameplay) Activate();
     }
 
     void OnDisable()
@@ -127,8 +127,8 @@ public class PlayerBombing : MonoBehaviour
     public void ChangeMaxBomb(int desired)
     {
         Debug.Log("Bomb up Récupérer");
-        if (desired<1) desired = 1;
-        int difference = desired-maxBomb;
+        if (desired < 1) desired = 1;
+        int difference = desired - maxBomb;
         maxBomb = desired;
         RemainingBombs += difference;
     }
@@ -136,13 +136,14 @@ public class PlayerBombing : MonoBehaviour
     public void ChangeRange(int desired)
     {
         Debug.Log(" Range UP Récupérer");
-        explosionRange = Mathf.Clamp(desired,1,99);
+        explosionRange = Mathf.Clamp(desired, 1, 99);
     }
 
     public void AddManualDetonation()
     {
         Debug.Log("manual detonation");
-        manualDetonation=2;
+        if (manualDetonation > 0) return;
+        manualDetonation = 2;
     }
 
     public void Switchdelay(float newBombDelay)
