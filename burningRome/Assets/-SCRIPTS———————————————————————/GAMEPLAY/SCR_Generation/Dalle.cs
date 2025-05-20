@@ -37,12 +37,18 @@ public class Dalle : MonoBehaviour, IFlamable
         {
             //Debug.Log("dalle" + transform.position.x.ToString("f0") + " " + transform.position.z.ToString("f0") + " a trouvé: " + col.name);
 
+            if (col.GetComponentInParent<BombManager>())
+            {
+                Debug.Log("azerty");
+                col.GetComponentInParent<IExplodable>().Explode();
+            }
 
             if (col.GetComponent<Indestructible>() && !piercing ) 
             {
                 //Debug.Log("bombe pas propagé bloc indestructible");
                 return false;
             }
+
             if (col.GetComponent<Obstacle>())
             {
                 //Debug.Log("bombe pas propagé bloc destructible");
