@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     private void Awake()
     {
-        FeedBack.SetActive(false);
+        
     }
 
     private void OnEnable()
@@ -85,7 +85,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
         if (!invincible && isAlive)
         {
-            FeedBack?.SetActive(true);
+            Instantiate(FeedBack,transform.position,Quaternion.identity);
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;

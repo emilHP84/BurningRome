@@ -185,7 +185,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.0016047145, w: 0.99999875}
   m_LocalPosition: {x: 3.4271133, y: 0.04634748, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1537340047826722486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1206,7 +1206,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.70331556, w: 0.71087784}
   m_LocalPosition: {x: 0.1618939, y: 1.571294, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4206871242874090936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1365,7 +1365,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.15786141, w: 0.98746127}
   m_LocalPosition: {x: 3.9537764, y: -0.24244411, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 170559844305536493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1989,7 +1989,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.0015924944, w: 0.9999988}
   m_LocalPosition: {x: 1.37, y: 0.024682505, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 857861808283457242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2830,7 +2830,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.025411744, w: 0.99967706}
   m_LocalPosition: {x: 3.299092, y: -0.12535168, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4836462770416199471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3164,7 +3164,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.70331556, w: 0.71087784}
   m_LocalPosition: {x: 0.08232408, y: -1.71759, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9208049680199351500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3876,6 +3876,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129830297105122168, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 532707401249557627, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_IsActive
@@ -3885,6 +3890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playerID
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336235047637632186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400003657309469747, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -3953,6 +3963,11 @@ PrefabInstance:
       propertyPath: moveright
       value: 
       objectReference: {fileID: 3312181893126668957}
+    - target: {fileID: 2578960439312768186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2941618876757015035, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_Sprite
@@ -4048,7 +4063,7 @@ PrefabInstance:
     - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: playerID
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5554427252523844925, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -4063,7 +4078,7 @@ PrefabInstance:
     - target: {fileID: 6785318492805869051, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: playerID
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057137391412115863, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}

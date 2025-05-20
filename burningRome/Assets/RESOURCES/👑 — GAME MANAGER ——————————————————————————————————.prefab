@@ -438,9 +438,9 @@ MonoBehaviour:
   timeToSuddenDeath: 2500
   playerPrefabs:
   - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
-  - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
-  - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
   - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
+  - {fileID: 5278160238434083447, guid: 37af13081be597d4894915e82d27d297, type: 3}
+  - {fileID: 5278160238434083447, guid: 108c5b5f913aa44498ca45bb5e638682, type: 3}
   alivePlayersList: []
   Countdown: {fileID: 6791002203798959336}
 --- !u!1 &5356209012625286950
@@ -5620,7 +5620,7 @@ PrefabInstance:
     - target: {fileID: 5269281918469931947, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 32.4
+      value: 34.55
       objectReference: {fileID: 0}
     - target: {fileID: 5365922655357710792, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7215,7 +7215,7 @@ PrefabInstance:
     - target: {fileID: 7948285926424079076, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 18.55
+      value: 22.6
       objectReference: {fileID: 0}
     - target: {fileID: 8102662717260151679, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7285,7 +7285,7 @@ PrefabInstance:
     - target: {fileID: 8153855352541758758, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 25
+      value: 24.2
       objectReference: {fileID: 0}
     - target: {fileID: 8163132967053943843, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7965,15 +7965,9 @@ MonoBehaviour:
     clip: {fileID: 0}
     volume: 1
     looping: 0
-  buttonsclick:
-  - clip: {fileID: 8300000, guid: 7088fc4e5c97a2043992e87f22bd7093, type: 3}
-    volume: 0.25
-    looping: 0
-  - clip: {fileID: 8300000, guid: 8aac9515b5d4ef9459e4b42734699b12, type: 3}
-    volume: 0.25
-    looping: 0
-  - clip: {fileID: 8300000, guid: eb75a47d1ee3fd4419cbc0508f1fb01b, type: 3}
-    volume: 0.25
+  buttonClick:
+    clip: {fileID: 0}
+    volume: 1
     looping: 0
   fxButtonClick: {fileID: 0}
   pulseEffect: 1
