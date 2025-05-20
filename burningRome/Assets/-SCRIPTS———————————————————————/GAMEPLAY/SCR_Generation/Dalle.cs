@@ -39,7 +39,6 @@ public class Dalle : MonoBehaviour, IFlamable
 
             if (col.GetComponentInParent<BombManager>())
             {
-                Debug.Log("azerty");
                 col.GetComponentInParent<IExplodable>().Explode();
             }
 

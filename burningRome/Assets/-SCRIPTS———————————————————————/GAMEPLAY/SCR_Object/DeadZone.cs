@@ -14,8 +14,11 @@ public class DeadZone : MonoBehaviour, ICollisionable
         }
         if(collisionable is PlayerManager player) 
         {
-            Debug.Log("test");
             player.Explode();
+        }
+        if(collisionable is BombManager bomb) 
+        {
+            bomb.Explode();
         }
     }
 
