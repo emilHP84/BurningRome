@@ -25,6 +25,7 @@ public class FreezeFrameScript : MonoBehaviour
 
     public static void AddMilliseconds(int howMany)
     {
+        Debug.Log("Freeze"+ howMany);
         if (freezeTime<howMany) freezeTime = howMany*0.001f;
     }
 

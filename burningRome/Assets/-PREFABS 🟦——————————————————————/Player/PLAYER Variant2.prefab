@@ -3889,7 +3889,7 @@ PrefabInstance:
     - target: {fileID: 532707401249557627, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 870808681067165037, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -4095,12 +4095,6 @@ PrefabInstance:
       propertyPath: playerID
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
-        type: 3}
-      propertyPath: Fx_DeathPlayer
-      value: 
-      objectReference: {fileID: 7777699817488945046, guid: b62800155630a154eb95fa545d419e70,
-        type: 3}
     - target: {fileID: 5698197962871771557, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: lockRotation

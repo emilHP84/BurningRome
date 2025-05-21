@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 5f;
     PlayerAnim anims => GetComponent<PlayerAnim>();
     Vector3 lastPos;
+    bool IsAnimDeathPlaying = false;
 
     void OnEnable()
     {
@@ -31,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
         if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
         else if (canMove && GAMEPLAY.access.PlayerControl) Movement();
         else anims.PlayIdle();
+    }
+
+    public void DeathPlaying()
+    {
+        IsAnimDeathPlaying = true;
     }
 
     void Activate()
@@ -61,22 +67,26 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 realMovement = transform.localPosition - lastPos;
         realMovement.y = 0;
-        if (realMovement.sqrMagnitude==0)
+        if(IsAnimDeathPlaying == false)
         {
-            if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
-            else anims.PlayIdle();
-        }
-        else
-        {
-            if (Mathf.Abs(realMovement.z)>=Mathf.Abs(realMovement.x))
+            if (realMovement.sqrMagnitude == 0)
             {
-                if (realMovement.z>0) anims.PlayMoveUp(); else anims.PlayMoveDown();
+                if (GAMEPLAY.access.CurrentState == GameplayState.joining) anims.PlaySpawn();
+                else anims.PlayIdle();
             }
             else
             {
-                if (realMovement.x>0) anims.PlayMoveRight(); else anims.PlayMoveLeft();
+                if (Mathf.Abs(realMovement.z) >= Mathf.Abs(realMovement.x))
+                {
+                    if (realMovement.z > 0) anims.PlayMoveUp(); else anims.PlayMoveDown();
+                }
+                else
+                {
+                    if (realMovement.x > 0) anims.PlayMoveRight(); else anims.PlayMoveLeft();
+                }
             }
         }
+        
     }
 
     void LateUpdate()

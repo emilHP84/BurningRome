@@ -263,7 +263,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3573029808220162683, guid: f4da7ebce4b944e4daa117649ded8efb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4da7ebce4b944e4daa117649ded8efb, type: 3}
@@ -355,6 +356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: screenShake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: freezeMilliseconds
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

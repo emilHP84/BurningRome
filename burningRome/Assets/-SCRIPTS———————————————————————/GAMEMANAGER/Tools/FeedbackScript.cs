@@ -15,6 +15,7 @@ public class FeedbackScript : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("FX "+gameObject.name);
         transform.SetParent(null);
         sounds = GetComponentsInChildren<AudioSource>();
         particles = GetComponentsInChildren<ParticleSystem>();

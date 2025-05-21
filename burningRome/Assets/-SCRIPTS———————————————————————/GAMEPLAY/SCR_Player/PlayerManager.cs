@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    [SerializeField] GameObject FeedBack;
     [SerializeField] GameObject Fx_DeathPlayer;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
+    PlayerAnim anim => GetComponent<PlayerAnim>();
+    PlayerMovement Movement => GetComponent<PlayerMovement>();
+   
 
     public int PlayerID
     {
@@ -47,9 +49,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     IEnumerator OnDeath(float deathTime)
     {
         if (isAlive == false) yield break;
-        transform.DOScale(new Vector3(0, 0, 0), deathTime);
+        //transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        yield return new WaitForSeconds(1);
+        anim.PlayDeath();
+        yield return new WaitForSeconds(2);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }
@@ -65,8 +68,6 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         EVENTS.OnVictory -= OnVictory;
 
     }
-
-
 
     public void OnDetectionWith(IDetect detect)
     {
@@ -85,7 +86,8 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
         if (!invincible && isAlive)
         {
-            Instantiate(FeedBack,transform.position,Quaternion.identity);
+            Movement.DeathPlaying();
+            anim.PlayDeath();
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;
