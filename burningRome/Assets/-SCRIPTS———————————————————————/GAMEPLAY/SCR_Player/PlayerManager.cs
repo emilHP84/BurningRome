@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
+    [Header("VFX")]
     [SerializeField] GameObject FeedBack;
     [SerializeField] GameObject Fx_DeathPlayer;
+    [SerializeField] Material OnInvincibility;
+
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
@@ -112,13 +115,14 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         invincible = false;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Le joueur est entré dans : " + other.name);
         if (invincible)
         {
-            if (collision.gameObject.GetComponent<Obstacle>())
+            if (other.gameObject.GetComponent<Obstacle>())
             {
-                Destroy(collision.gameObject);
+                other.gameObject.GetComponent<Obstacle>().Explode();
             }
         }
     }

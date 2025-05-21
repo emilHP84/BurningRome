@@ -4095,6 +4095,11 @@ PrefabInstance:
       propertyPath: playerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: PlayerCollider
+      value: 
+      objectReference: {fileID: 4917188376023574232}
     - target: {fileID: 5698197962871771557, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: lockRotation
@@ -4278,6 +4283,12 @@ Transform:
 --- !u!1 &4517469586477368671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336235047637632186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4917188376023574232 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 7496057769012995901, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
