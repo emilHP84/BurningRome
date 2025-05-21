@@ -17,8 +17,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [Range(0.8f,2f)][SerializeField] float hoverScale = 1.2f;
     [SerializeField] Ease scaleEasing = Ease.InOutQuad;
     [Range(0f,1f)][SerializeField] float scaleDuration = 0.2f;
-    [SerializeField] AudioClipExtended buttonHover, buttonExit;
-    [SerializeField] AudioClipExtended[] buttonsclick;
+    [SerializeField] AudioClipExtended buttonHover, buttonExit, buttonClick;
     [SerializeField]GameObject fxButtonClick;
     Transform _transform => transform;
     Button button => GetComponent<Button>();
@@ -32,11 +31,11 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     void Start(){buttonName = tmpro==null ? t.text : tmpro.text;}
     #endif
     bool clickEffect = false;
-
-
+    bool selected = true;
 
     void SelectButtonEffect()
     {
+        selected = true;
         EVENTS.InvokeUIElementSelected(button);
         if (buttonHover.clip) PlaySound(buttonHover.clip,buttonHover.volume);
         _transform.DOScale(hoverScale,scaleDuration).SetEase(scaleEasing).SetUpdate(true).OnComplete(SelectedPulseEffect);
@@ -44,6 +43,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     void UnselectButtonEffect()
     {
+        selected = false;
         EVENTS.InvokeUIElementUnselect(button);
         EventSystemUnselectThis();
         StartCoroutine(WaitForUnselectEffect());
@@ -59,8 +59,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     void ClickButtonEffect()
     {
         clickEffect = true;
-        AudioClipExtended chosenclip = buttonsclick[Random.Range(0, buttonsclick.Length)];
-        if (chosenclip.clip) PlaySound(chosenclip.clip,chosenclip.volume);
+        if (buttonClick.clip) PlaySound(buttonClick.clip,buttonClick.volume);
         if (fxButtonClick) Instantiate(fxButtonClick,transform.position, transform.rotation);
         Vector3 currentScale =  _transform.localScale;
         _transform.DOKill();
@@ -153,12 +152,12 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnSelect(BaseEventData eventData)
     {
-        SelectButtonEffect();
+        if (selected==false) SelectButtonEffect();
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        UnselectButtonEffect();
+        if (selected) UnselectButtonEffect();
     }
 
     public void OnSubmit(BaseEventData eventData)
