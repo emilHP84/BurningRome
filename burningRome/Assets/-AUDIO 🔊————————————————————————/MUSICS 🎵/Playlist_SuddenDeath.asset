@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40ade8f64d82a7c4fb641157b75b125b, type: 3}
-  m_Name: Playlist_Menu
+  m_Name: Playlist_SuddenDeath
   m_EditorClassIdentifier: 
   playlist:
     looping: 1
@@ -19,6 +19,6 @@ MonoBehaviour:
     fadeInDuration: 2
     fadeOutDuration: 1
     tracks:
-    - clipTitle: Musc_Menu_01
-      clip: {fileID: 8300000, guid: 3c31eeff6fdbd4c408364df70c18c9a6, type: 3}
+    - clipTitle: Musc_MortSubit
+      clip: {fileID: 8300000, guid: d24f38e6085db1a41914930150680ee3, type: 3}
       volume: 1

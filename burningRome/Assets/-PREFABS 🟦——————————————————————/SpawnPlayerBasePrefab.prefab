@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6306540050761136367}
   - component: {fileID: 478174064912264852}
+  - component: {fileID: 6050755408742099328}
   m_Layer: 0
   m_Name: Silhouette
   m_TagString: Untagged
@@ -86,6 +87,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6050755408742099328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881540528251331584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081c7f31e50284840aa1596d3814be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5292610573626521484
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +200,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5292610573626521484}
-  m_Text: Appuyez sur un bouton
+  m_Text: Press Button To Join
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 2.44
