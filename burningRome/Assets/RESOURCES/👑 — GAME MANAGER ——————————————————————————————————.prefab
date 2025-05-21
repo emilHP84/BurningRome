@@ -3595,6 +3595,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2027377483554277141, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027377483554277141, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 2042171218810117263, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_text
@@ -3608,7 +3618,7 @@ PrefabInstance:
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 124.25
+      value: 124.35
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4041,7 +4051,7 @@ PrefabInstance:
     - target: {fileID: 2988658351950683144, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3005029463903257282, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4956,6 +4966,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4226536691675007518, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4226536691675007518, guid: c6b26752e8dc0b34ab30cc91105625db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 4231687976066202037, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5814,12 +5834,12 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5829,7 +5849,7 @@ PrefabInstance:
     - target: {fileID: 5701829396785605242, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -28.157959
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7965,10 +7985,7 @@ MonoBehaviour:
     clip: {fileID: 0}
     volume: 1
     looping: 0
-  buttonClick:
-    clip: {fileID: 0}
-    volume: 1
-    looping: 0
+  buttonsclick: []
   fxButtonClick: {fileID: 0}
   pulseEffect: 1
   unselectAfterClicked: 0
@@ -8113,9 +8130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprites:
   - {fileID: 5333213448714301283}
+  - {fileID: 1592535093441839953}
   - {fileID: 8890392136674802683}
   - {fileID: 4727788288992635660}
-  - {fileID: 1592535093441839953}
   text:
   - {fileID: 7359009637337597570}
   - {fileID: 2986689452022864048}
@@ -8123,14 +8140,14 @@ MonoBehaviour:
   - {fileID: 2605048456805289704}
   victorySprites:
   - {fileID: -879399021, guid: 22b5b9323dd96ac42a1fc521b72314f6, type: 3}
-  - {fileID: -2129136810, guid: 76f62407a92468c4e87fceb12d0c0b9b, type: 3}
-  - {fileID: 758973182, guid: b47f2b8a6365a6a4f99e37e022335804, type: 3}
   - {fileID: 1983791370, guid: 700cb8106f9d6a049b3a3206629a8721, type: 3}
+  - {fileID: 758973182, guid: b47f2b8a6365a6a4f99e37e022335804, type: 3}
+  - {fileID: -2129136810, guid: 76f62407a92468c4e87fceb12d0c0b9b, type: 3}
   deathSprites:
   - {fileID: -1802736716, guid: 313bbfca521f8704bbbb8180d22c90c0, type: 3}
-  - {fileID: 1118224438, guid: ca3e249128a51a14baa5407b9fda5235, type: 3}
-  - {fileID: 1875605675, guid: 44cce366f6dd5224f9077c72fc842570, type: 3}
   - {fileID: -1193871739, guid: 769766b445d356e42a447e221327e528, type: 3}
+  - {fileID: 1875605675, guid: 44cce366f6dd5224f9077c72fc842570, type: 3}
+  - {fileID: 1118224438, guid: ca3e249128a51a14baa5407b9fda5235, type: 3}
   Points: 00000000000000000000000000000000
 --- !u!1 &8890392136674802683 stripped
 GameObject:
