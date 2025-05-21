@@ -17,6 +17,7 @@ public class GAMEPLAY : MonoBehaviour
     List<PlayerData> persistentPlayers = new List<PlayerData>();
 
     public static GAMEPLAY access;
+
     public bool PlayerControl = false;
     public GameplayState CurrentState;
     public float timeToJoin = 3f;
@@ -172,6 +173,7 @@ public class GAMEPLAY : MonoBehaviour
             break;
 
             case GameplayState.joining:
+
                 if (totalPlayers > 1)
                 {
                     Countdown.transform.parent.parent.gameObject.SetActive(true);
@@ -276,6 +278,7 @@ public class GAMEPLAY : MonoBehaviour
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);
         Debug.Log("CreatePlayer"+playerID);
+        EVENTS.InvokePlayerSpawn(playerID);
     }
 
     void DestroyAllPlayers()

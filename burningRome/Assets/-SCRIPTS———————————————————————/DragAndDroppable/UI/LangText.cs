@@ -13,6 +13,8 @@ public class LangText : MonoBehaviour
     TextMeshProUGUI[] tmpros => GetComponentsInChildren<TextMeshProUGUI>();
     Text[] ts => GetComponentsInChildren<Text>();
 
+    TextMesh[] tms => GetComponentsInChildren<TextMesh>();
+
     void OnEnable()
     {
         SetLanguage();
@@ -62,6 +64,7 @@ public class LangText : MonoBehaviour
         { 
             foreach (TextMeshProUGUI tmpro in tmpros) tmpro.text = desired;
             foreach (Text t in ts) t.text = desired;
+            foreach (TextMesh t in tms) t.text = desired;
         }
     }
 

@@ -2843,7 +2843,7 @@ PrefabInstance:
     - target: {fileID: 631393971201239719, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 39.8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 686252616422308136, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3469,7 +3469,7 @@ PrefabInstance:
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 94.55
+      value: 158.85
       objectReference: {fileID: 0}
     - target: {fileID: 1819514887804974528, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -5662,11 +5662,6 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 5162888368695160191, guid: c6b26752e8dc0b34ab30cc91105625db,
-        type: 3}
-      propertyPath: buttonClick.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7088fc4e5c97a2043992e87f22bd7093, type: 3}
     - target: {fileID: 5216447802201259379, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5954,7 +5949,7 @@ PrefabInstance:
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 98.05
+      value: 162.3
       objectReference: {fileID: 0}
     - target: {fileID: 5764259325831122907, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7154,7 +7149,7 @@ PrefabInstance:
     - target: {fileID: 7830052425034683978, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 26.5
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7831652227848019878, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -7680,7 +7675,7 @@ PrefabInstance:
     - target: {fileID: 8509202138959389827, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 29.75
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8518680667961867748, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -8002,7 +7997,7 @@ PrefabInstance:
     - target: {fileID: 9130225613739641467, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 29.75
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9209848409499878637, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -8150,7 +8145,10 @@ MonoBehaviour:
     clip: {fileID: 0}
     volume: 1
     looping: 0
-  buttonsclick: []
+  buttonClick:
+    clip: {fileID: 0}
+    volume: 1
+    looping: 0
   fxButtonClick: {fileID: 0}
   pulseEffect: 1
   unselectAfterClicked: 0

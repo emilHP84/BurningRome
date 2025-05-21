@@ -1,17 +1,17 @@
 using DG.Tweening;
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    [SerializeField] GameObject Fx_DeathPlayer;
+    [SerializeField] GameObject Fx_DeathPlayer,fxspawn;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
     PlayerAnim anim => GetComponent<PlayerAnim>();
     PlayerMovement Movement => GetComponent<PlayerMovement>();
+   
    
 
     public int PlayerID
@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     private void Awake()
     {
-        
+        if(fxspawn)Instantiate(fxspawn,transform.position,Quaternion.identity);
     }
 
     private void OnEnable()
