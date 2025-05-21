@@ -18,18 +18,41 @@ public class LightInterpolator : MonoBehaviour
         sourceLight = GetComponent<Light>();
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        StopAllCoroutines();
+        EVENTS.OnSuddenDeathStart += MortSubite;
+    }
+
+    private void OnDestroy()
+    {
+        EVENTS.OnSuddenDeathStart -= MortSubite;
+    }
+
+
+    void MortSubite()
+    {
+        StartCoroutine(MortSubiteRoutine());
+    }
+
+    IEnumerator MortSubiteRoutine()
     {
         if (targetLight == null || sourceLight == null)
-            return;
+            yield break;
 
-        // Interpolation de la couleur
-        sourceLight.color = Color.Lerp(sourceLight.color, targetLight.color, Time.deltaTime * transitionSpeed);
+        while (sourceLight.color != targetLight.color)
+        {
+            // Interpolation de la couleur
+            sourceLight.color = Color.Lerp(sourceLight.color, targetLight.color, Time.deltaTime * transitionSpeed);
 
-        // Interpolation de l'intensité
-        sourceLight.intensity = Mathf.Lerp(sourceLight.intensity, targetLight.intensity, Time.deltaTime * transitionSpeed);
+            // Interpolation de l'intensité
+            sourceLight.intensity = Mathf.Lerp(sourceLight.intensity, targetLight.intensity, Time.deltaTime * transitionSpeed);
 
-        // Interpolation de la rotation (direction de la lumière)
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetLight.transform.rotation, Time.deltaTime * transitionSpeed);
+            // Interpolation de la rotation (direction de la lumière)
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetLight.transform.rotation, Time.deltaTime * transitionSpeed);
+            yield return null;
+        }
+
+       
     }
 }

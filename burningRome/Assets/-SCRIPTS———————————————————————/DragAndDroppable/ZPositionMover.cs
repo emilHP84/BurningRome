@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ZPositionMover : MonoBehaviour
 {
@@ -10,10 +11,18 @@ public class ZPositionMover : MonoBehaviour
     [Header("Vitesse de déplacement")]
     [SerializeField] private float moveSpeed = 2f;
 
-    private void Update()
+    private void OnEnable()
     {
-        Vector3 currentPosition = transform.position;
-        float newZ = Mathf.Lerp(currentPosition.z, targetZ, Time.deltaTime * moveSpeed);
-        transform.position = new Vector3(currentPosition.x, currentPosition.y, newZ);
+        EVENTS.OnSuddenDeathStart += MortSubite;
     }
+    private void OnDisable()
+    {
+        EVENTS.OnSuddenDeathStart -= MortSubite;
+    }
+
+    void MortSubite()
+    {
+        transform.DOMoveZ(targetZ, moveSpeed).SetSpeedBased();
+    }
+
 }
