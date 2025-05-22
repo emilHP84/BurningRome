@@ -146,8 +146,9 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsBattle");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = true;
-                EVENTS.InvokeBattleStart();
                 alivePlayers = totalPlayers;
+                Debug.Log("🟢 Battle Start — alivePlayers = " + alivePlayers);
+                EVENTS.InvokeBattleStart();
                 GAME.MANAGER.SwitchTo(State.gameplay);
             break;
 
@@ -232,10 +233,13 @@ public class GAMEPLAY : MonoBehaviour
 
     public void Rematch()
     {
+        DestroyAllPlayers();
+        Debug.Log("🔁 Rematch: persistentPlayers count = " + persistentPlayers.Count);
         foreach (PlayerData data in persistentPlayers)
         {
+            Debug.Log("🔁 Player in rematch: ID = " + data.playerID);
             Player player = ReInput.players.GetPlayer(data.playerID);
-            InstantiatePlayerInScene(data.playerID);
+            //InstantiatePlayerInScene(data.playerID);
             AddPlayerController(data.playerID,data.controller);
             if (data.controller.type == ControllerType.Keyboard)
             {
@@ -250,9 +254,8 @@ public class GAMEPLAY : MonoBehaviour
             //AssignControllerToPlayer(data.playerID, data.controller);
             ReInput.players.GetPlayer(data.playerID).isPlaying = true;
         }
-        alivePlayers = totalPlayers;
-
-        Debug.Log("CA PASSSEEEE ICIIIIIII");
+        totalPlayers = persistentPlayers.Count;
+        //alivePlayers = totalPlayers;
         EnterState(GameplayState.battle);
     }
 
@@ -274,6 +277,14 @@ public class GAMEPLAY : MonoBehaviour
 
     void InstantiatePlayerInScene(int playerID)
     {
+        foreach (var player in FindObjectsOfType<PlayerManager>())
+        {
+            if (player.PlayerID == playerID)
+            {
+                Debug.LogWarning($"⚠️ Duplicate PlayerID {playerID} detected, destroying old instance");
+                Destroy(player.gameObject);
+            }
+        }
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
         SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);

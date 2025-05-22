@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
         EVENTS.OnGameplay += Activate;
         EVENTS.OnGameplayExit += Disable;
         if (GAME.MANAGER.CurrentState==State.gameplay) Activate();
+        ResetDeath();
     }
 
     void OnDisable()
@@ -26,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
         EVENTS.OnGameplayExit -= Disable;
     }
 
+    public void ResetDeath()
+    {
+        IsAnimDeathPlaying = false;
+        canMove = true;
+    }
 
     void Update()
     {
@@ -37,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public void DeathPlaying()
     {
         IsAnimDeathPlaying = true;
+        //canMove = false;
     }
 
     void Activate()

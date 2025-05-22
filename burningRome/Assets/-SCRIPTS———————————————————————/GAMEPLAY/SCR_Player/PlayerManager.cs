@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     PlayerMovement Movement => GetComponent<PlayerMovement>();
    
     private Transform playerTransform => this.gameObject.transform;
+    private bool isDying = false; // nouvelle variable
 
     public int PlayerID
     {
@@ -40,8 +41,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     private void OnEnable()
     {
         isAlive = true;
+        isDying = false;
         invincible = false;
         invincibilityTime = 0;
+        PlayerCollider.enabled = true;
         EVENTS.OnVictory += OnVictory;
     }
 
@@ -49,9 +52,8 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     IEnumerator OnDeath(float deathTime)
     {
         if (isAlive == false) yield break;
-        //transform.DOScale(new Vector3(0, 0, 0), deathTime);
+        isDying = true; //  empêche les doublons
         isAlive = false;
-        //anim.PlayDeath();
         yield return new WaitForSeconds(2);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
@@ -84,8 +86,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void Explode()
     {
+        Debug.Log(" Explode called");
         if (!invincible && isAlive)
         {
+            isDying = true;
             Movement.DeathPlaying();
             //anim.PlayDeath();
             StartCoroutine(OnDeath(deathTime));
