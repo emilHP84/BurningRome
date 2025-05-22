@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    [SerializeField] GameObject Fx_DeathPlayer,fxspawn;
+    [SerializeField] GameObject Fx_DeathPlayer,fxspawn,fx_BlessByGod;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
     PlayerAnim anim => GetComponent<PlayerAnim>();
     PlayerMovement Movement => GetComponent<PlayerMovement>();
    
-   
+    private Transform playerTransform => this.gameObject.transform;
 
     public int PlayerID
     {
@@ -99,6 +99,9 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         Debug.Log("Invincibility Récupérer");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
+        GameObject obj = Instantiate(fx_BlessByGod, playerTransform);
+        obj.transform.parent = transform;
+
     }
 
     float invincibilityTime = 0;
@@ -120,7 +123,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         {
             if (collision.gameObject.GetComponent<Obstacle>())
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Obstacle>().ExplodeWithoutPU();
             }
         }
     }

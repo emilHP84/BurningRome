@@ -64,6 +64,12 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
         DestroyObject();
     }
 
+    public void ExplodeWithoutPU()
+    {
+        if (fx_Bloc_Explose) Instantiate(fx_Bloc_Explose, transform.position, Quaternion.identity);
+        DestroyObject();
+    }
+
     private void DestroyObject()
     {
         Destroy(gameObject);
