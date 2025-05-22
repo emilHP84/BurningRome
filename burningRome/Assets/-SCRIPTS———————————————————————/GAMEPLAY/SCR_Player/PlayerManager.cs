@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     [Header("VFX")]
     [SerializeField] GameObject FeedBack;
     [SerializeField] GameObject Fx_DeathPlayer;
-    [SerializeField] Material OnInvincibility;
+    [SerializeField] GameObject Fx_OnInvincibility;
 
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
@@ -32,6 +32,8 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     [SerializeField] private float deathTime;
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
+
+    private Transform playerTransform => gameObject.transform;
 
     private void Awake()
     {
@@ -100,6 +102,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         Debug.Log("Invincibility Récupérer");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
+        Instantiate(Fx_OnInvincibility,playerTransform);
     }
 
     float invincibilityTime = 0;
