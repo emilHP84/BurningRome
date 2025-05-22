@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         if (isAlive == false) yield break;
         //transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        anim.PlayDeath();
+        //anim.PlayDeath();
         yield return new WaitForSeconds(2);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
@@ -87,7 +87,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         if (!invincible && isAlive)
         {
             Movement.DeathPlaying();
-            anim.PlayDeath();
+            //anim.PlayDeath();
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;

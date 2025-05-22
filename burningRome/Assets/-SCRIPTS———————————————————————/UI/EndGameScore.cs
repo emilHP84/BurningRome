@@ -52,7 +52,6 @@ public class EndGameScore : MonoBehaviour
     void SetVictorySprite()
     {
         int spriteCount = 0;
-        //int spriteCount = Mathf.Clamp(0, 0, 99);
         for (int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
         {
             Sprites[spriteCount].SetActive(true);
@@ -64,7 +63,6 @@ public class EndGameScore : MonoBehaviour
 
     void SetPoints(int number)
     {
-        //number = Mathf.Clamp(0, 0, 99);
         Points[number] += 1;
         text[number].text = Points[number].ToString();
     }

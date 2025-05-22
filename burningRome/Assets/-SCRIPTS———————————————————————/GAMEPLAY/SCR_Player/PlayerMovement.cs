@@ -86,6 +86,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        else if (IsAnimDeathPlaying == true)
+        {
+            anims.PlayDeath();
+        }
         
     }
 
