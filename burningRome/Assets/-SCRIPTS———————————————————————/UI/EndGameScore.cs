@@ -51,9 +51,9 @@ public class EndGameScore : MonoBehaviour
 
     void SetVictorySprite()
     {
-        //int spriteCount = 0;
-        int spriteCount = Mathf.Clamp(0, 0, 99);
-        for(int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
+        int spriteCount = 0;
+        //int spriteCount = Mathf.Clamp(0, 0, 99);
+        for (int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
         {
             Sprites[spriteCount].SetActive(true);
             Sprites[spriteCount].GetComponent<Image>().sprite = victorySprites[spriteCount];
@@ -64,13 +64,19 @@ public class EndGameScore : MonoBehaviour
 
     void SetPoints(int number)
     {
+        //number = Mathf.Clamp(0, 0, 99);
         Points[number] += 1;
         text[number].text = Points[number].ToString();
     }
 
     void RemovePoints(int number)
     {
-        Points[number] -= 1;
+        number = Mathf.Clamp(number, 0, Points.Count - 1); // Vérifie que l'index est valide
+
+        if (Points[number] > 0) // Vérifie que la valeur est supérieure à 0 avant de décrémenter
+        {
+            Points[number] -= 1;
+        }
         text[number].text = Points[number].ToString();
     }
 }

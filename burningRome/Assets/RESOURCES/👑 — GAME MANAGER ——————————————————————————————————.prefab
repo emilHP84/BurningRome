@@ -6693,7 +6693,7 @@ PrefabInstance:
     - target: {fileID: 7209721338272304932, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewGame
+      value: AfterNewGame
       objectReference: {fileID: 0}
     - target: {fileID: 7209721338272304932, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -8156,7 +8156,7 @@ MonoBehaviour:
     volume: 1
     looping: 0
   buttonClick:
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: eb75a47d1ee3fd4419cbc0508f1fb01b, type: 3}
     volume: 1
     looping: 0
   fxButtonClick: {fileID: 0}
