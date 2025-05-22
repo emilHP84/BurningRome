@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BOUTON
+  m_text: BUTTON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2540d3f6548e52a4ea66227027a998ba, type: 2}
   m_sharedMaterial: {fileID: 9151964652897641380, guid: 2540d3f6548e52a4ea66227027a998ba,
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7727215134079208971}
   - component: {fileID: 6855584894009099304}
   m_Layer: 5
-  m_Name: BOUTON Button Graphics
+  m_Name: BUTTON Button Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,15 +203,9 @@ MonoBehaviour:
     clip: {fileID: 0}
     volume: 1
     looping: 0
-  buttonsclick:
-  - clip: {fileID: 8300000, guid: 7088fc4e5c97a2043992e87f22bd7093, type: 3}
-    volume: 0.25
-    looping: 0
-  - clip: {fileID: 8300000, guid: 8aac9515b5d4ef9459e4b42734699b12, type: 3}
-    volume: 0.25
-    looping: 0
-  - clip: {fileID: 8300000, guid: eb75a47d1ee3fd4419cbc0508f1fb01b, type: 3}
-    volume: 0.25
+  buttonClick:
+    clip: {fileID: 8300000, guid: eb75a47d1ee3fd4419cbc0508f1fb01b, type: 3}
+    volume: 1
     looping: 0
   fxButtonClick: {fileID: 0}
   pulseEffect: 1
@@ -377,7 +371,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3583978759715300998
 MonoBehaviour:

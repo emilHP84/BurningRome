@@ -73,6 +73,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Explosion Bombe
       objectReference: {fileID: 0}
+    - target: {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: screenShake
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: freezeMilliseconds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7784425942646283147, guid: 4811bc64d2d12d749a0af386f0ce3ed1, type: 3}
@@ -101,6 +111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion Bombe
+      objectReference: {fileID: 0}
+    - target: {fileID: 431313984897085736, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8935225746388349070, guid: 0a2062b054a922048bbcc061b71840e1,
         type: 3}
@@ -152,7 +167,64 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: ClampVelocityModule.dampen
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011419962566448170, guid: 0a2062b054a922048bbcc061b71840e1,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].time
+      value: 0.81889135
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6796952734005719340, guid: 0a2062b054a922048bbcc061b71840e1, type: 3}
+    - {fileID: 1124220819475954460, guid: 0a2062b054a922048bbcc061b71840e1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -13,7 +13,6 @@ public class EndGameScore : MonoBehaviour
 
     [Header("victory Sprite")]
     public List<Sprite> victorySprites = new List<Sprite>();
-
     [Header("Death Sprite")]
     public List<Sprite> deathSprites = new List<Sprite>();
 
@@ -52,7 +51,8 @@ public class EndGameScore : MonoBehaviour
 
     void SetVictorySprite()
     {
-        int spriteCount = 0;
+        //int spriteCount = 0;
+        int spriteCount = Mathf.Clamp(0, 0, 99);
         for(int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
         {
             Sprites[spriteCount].SetActive(true);

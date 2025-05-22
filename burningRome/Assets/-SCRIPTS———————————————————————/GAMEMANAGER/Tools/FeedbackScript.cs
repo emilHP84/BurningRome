@@ -15,6 +15,8 @@ public class FeedbackScript : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("FX "+gameObject.name);
+        transform.SetParent(null);
         sounds = GetComponentsInChildren<AudioSource>();
         particles = GetComponentsInChildren<ParticleSystem>();
         StartCoroutine(WaitForDestruction());
@@ -26,6 +28,7 @@ public class FeedbackScript : MonoBehaviour
     IEnumerator WaitForDestruction()
     {
         destroyable = false;
+
         if (freezeMilliseconds>0) FreezeFrameScript.AddMilliseconds(freezeMilliseconds);
         if (freezeBeforeShake) yield return new WaitForSeconds(freezeMilliseconds/15000f);
         if (screenShake>0) ScreenShake.AddShake(screenShake);
@@ -34,13 +37,13 @@ public class FeedbackScript : MonoBehaviour
         {
             yield return null;
             destroyable = true;
-            for (i=0; i<sounds.Length;i++)
+            for (i = 0; i < sounds.Length; i++)
             {
-                if (sounds[i]!=null && sounds[i].isPlaying) destroyable = false;
+                if (sounds[i] != null && sounds[i].isPlaying) destroyable = false;
             }
-            for (i=0; i<particles.Length;i++)
+            for (i = 0; i < particles.Length; i++)
             {
-                if (particles[i]!=null && particles[i].isPlaying) destroyable = false;
+                if (particles[i] != null && particles[i].isPlaying) destroyable = false;
             }
         }
 

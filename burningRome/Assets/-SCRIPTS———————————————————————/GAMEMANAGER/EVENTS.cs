@@ -18,6 +18,10 @@ public class EVENTS
     public static event Action OnGameStart;
     public static void InvokeGameStart() {/*LogEventInConsole("▶️GameStart");*/ OnGameStart?.Invoke();}
 
+    public static event Action OnAfterGameStart;
+
+    public static void InvokeAfterGameStart() {/*LogEventInConsole("▶️GameStart");*/ OnAfterGameStart?.Invoke(); }
+
     public static event Action OnGameOver;
     public static void InvokeGameOver() {/*LogEventInConsole("💀GameOver");*/ OnGameOver?.Invoke();}
 
@@ -100,6 +104,9 @@ public class EVENTS
 
     public static event Action<int> OnPlayerDeath;
     public static void InvokePlayerDeath(int deadID) {LogEventInConsole("☠️Player Death! #"+deadID); OnPlayerDeath?.Invoke(deadID);}
+
+    public static event Action<int> OnPlayerSpawn;
+    public static void InvokePlayerSpawn(int ID) { LogEventInConsole("Player Spawn! #" + ID); OnPlayerSpawn?.Invoke(ID); }
 
     public static event Action<EventArgs> OnEndGame;
     public static void InvokeEndGame() { LogEventInConsole("☠️it's End Game! #"); OnEndGame?.Invoke(new System.EventArgs()); }

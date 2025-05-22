@@ -34,6 +34,7 @@ public class PlayerAnim : MonoBehaviour
     }
     public void PlayDeath()
     {
+        Debug.Log("OOOOOOOOOHHHHHHHH CAAAAAA JOUEEEEEE");
         Play(death);
     }
 

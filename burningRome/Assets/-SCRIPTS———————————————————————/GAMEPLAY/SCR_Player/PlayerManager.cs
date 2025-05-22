@@ -1,19 +1,18 @@
 using DG.Tweening;
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    [Header("VFX")]
-    [SerializeField] GameObject FeedBack;
-    [SerializeField] GameObject Fx_DeathPlayer;
-    [SerializeField] GameObject Fx_OnInvincibility;
-
+    [SerializeField] GameObject Fx_DeathPlayer,fxspawn;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
+    PlayerAnim anim => GetComponent<PlayerAnim>();
+    PlayerMovement Movement => GetComponent<PlayerMovement>();
+   
+   
 
     public int PlayerID
     {
@@ -33,11 +32,9 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
-    private Transform playerTransform => gameObject.transform;
-
     private void Awake()
     {
-        FeedBack.SetActive(false);
+        if(fxspawn)Instantiate(fxspawn,transform.position,Quaternion.identity);
     }
 
     private void OnEnable()
@@ -52,9 +49,10 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     IEnumerator OnDeath(float deathTime)
     {
         if (isAlive == false) yield break;
-        transform.DOScale(new Vector3(0, 0, 0), deathTime);
+        //transform.DOScale(new Vector3(0, 0, 0), deathTime);
         isAlive = false;
-        yield return new WaitForSeconds(1);
+        anim.PlayDeath();
+        yield return new WaitForSeconds(2);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }
@@ -70,8 +68,6 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         EVENTS.OnVictory -= OnVictory;
 
     }
-
-
 
     public void OnDetectionWith(IDetect detect)
     {
@@ -90,7 +86,8 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     {
         if (!invincible && isAlive)
         {
-            FeedBack?.SetActive(true);
+            Movement.DeathPlaying();
+            anim.PlayDeath();
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;
@@ -102,7 +99,6 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         Debug.Log("Invincibility Récupérer");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
-        Instantiate(Fx_OnInvincibility,playerTransform);
     }
 
     float invincibilityTime = 0;
@@ -118,14 +114,13 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         invincible = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Le joueur est entré dans : " + other.name);
         if (invincible)
         {
-            if (other.gameObject.GetComponent<Obstacle>())
+            if (collision.gameObject.GetComponent<Obstacle>())
             {
-                other.gameObject.GetComponent<Obstacle>().Explode();
+                Destroy(collision.gameObject);
             }
         }
     }

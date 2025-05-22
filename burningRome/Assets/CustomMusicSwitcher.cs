@@ -1,0 +1,40 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CustomMusicSwitcher : MonoBehaviour
+{
+    [SerializeField] SO_Playlist battleplaylist, suddendeathplaylist, endplaylist;
+
+    void OnEnable()
+    {
+        //SetDesiredPlaylist();
+        EVENTS.OnBattleStart += SetBattlePlaylist;
+        EVENTS.OnSuddenDeathStart += SetSuddenDeathPlaylist;
+        EVENTS.OnEndGame += SetEndPlaylist;
+    }
+
+    private void OnDisable()
+    {
+        EVENTS.OnBattleStart -= SetBattlePlaylist;
+        EVENTS.OnSuddenDeathStart -= SetSuddenDeathPlaylist;
+        EVENTS.OnEndGame -= SetEndPlaylist;
+    }
+
+    private void SetBattlePlaylist()
+    {
+        if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(battleplaylist);
+    }
+
+    private void SetSuddenDeathPlaylist()
+    {
+        if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(suddendeathplaylist);
+    }
+    void SetEndPlaylist(EventArgs e)
+    {
+        if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(endplaylist);
+    }
+
+
+} // SCRIPT END

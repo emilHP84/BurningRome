@@ -43,6 +43,11 @@ PrefabInstance:
       propertyPath: SubModule.subEmitters.Array.data[0].type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1124220819475954460, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53c966d405d23024ca1f3bac36f519f2, type: 2}
     - target: {fileID: 3351643414857681143, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
@@ -66,12 +71,111 @@ PrefabInstance:
     - target: {fileID: 3573029808220162683, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5961370687531391102, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.tilesX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.timeMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.startFrame.scalar
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.startFrame.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.startFrame.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.frameOverTime.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb874202ab91b2a4fa69fa39f0f42f1b,
+        type: 3}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1a596811d838b643980659868fee7f3,
+        type: 3}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96af0a5aabfe64a49b93afedc979816f,
+        type: 3}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a9cf1cbcf50283840939bf554a940387,
+        type: 3}
+    - target: {fileID: 6796952734005719340, guid: f4da7ebce4b944e4daa117649ded8efb,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7670111743137357841, guid: f4da7ebce4b944e4daa117649ded8efb,
         type: 3}
@@ -159,7 +263,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3573029808220162683, guid: f4da7ebce4b944e4daa117649ded8efb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4da7ebce4b944e4daa117649ded8efb, type: 3}
@@ -240,7 +345,7 @@ PrefabInstance:
     - target: {fileID: 6089237566075303425, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_Name
-      value: FX_Mort_Joueur
+      value: FX_Mort_Pluton
       objectReference: {fileID: 0}
     - target: {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
@@ -251,6 +356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: screenShake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652994954808560604, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: freezeMilliseconds
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
