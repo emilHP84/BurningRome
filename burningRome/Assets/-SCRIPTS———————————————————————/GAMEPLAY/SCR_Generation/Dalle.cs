@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Dalle : MonoBehaviour, IFlamable
@@ -27,9 +28,20 @@ public class Dalle : MonoBehaviour, IFlamable
         fx_StartBurn.SetActive(false);
     }
 
-    public bool BurnFor(float duration, bool piercing, bool isHadesFire)
+    public bool BurnFor(float duration, bool piercing, bool wantHadesFire)
     {
-        this.isHadesFire = isHadesFire;
+        //if(isHadesFire) 
+        //{ 
+        //    Debug.Log("lol");
+        //    if (burning <= 1)
+        //    {
+        //        Debug.Log("lol");
+
+        //    }
+        //}
+        if(!isHadesFire || (isHadesFire && duration > burning)) 
+            isHadesFire = wantHadesFire;
+
 
         Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
 
@@ -39,6 +51,7 @@ public class Dalle : MonoBehaviour, IFlamable
 
             if (col.GetComponentInParent<BombManager>())
             {
+                CheckBurn(duration);
                 col.GetComponentInParent<IExplodable>().Explode();
             }
 
@@ -62,14 +75,29 @@ public class Dalle : MonoBehaviour, IFlamable
     }
     void CheckBurn(float duration)
     {
+
         if (burning <= 0) StartBurn(duration);
-        else if (duration > burning) burning = duration;
+        else if (duration > burning) 
+        {
+            SwitchFlammeVFX();
+            burning = duration; 
+        }
+        
     }
 
+    void SwitchFlammeVFX()
+    {
+        fx_StartBurn?.SetActive(isHadesFire);
+        flames?.SetActive(!isHadesFire);
+    }
 
     void StartBurn(float duration)
     {
-        burning = duration;
+        if (duration == 0)
+        {
+            Debug.Log("lol");
+        }
+            burning = duration;
         //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " commmence a bruler");
         if (fx_StartBurn && isHadesFire) fx_StartBurn.SetActive(true);
         else if (flames) flames.SetActive(true);
@@ -82,6 +110,7 @@ public class Dalle : MonoBehaviour, IFlamable
     {
         //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " ne brule plus");
         burning = 0;
+        isHadesFire = false;
         fx_StartBurn?.SetActive(false);
         flames?.SetActive(false);
         

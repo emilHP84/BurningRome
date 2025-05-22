@@ -63,7 +63,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     [SerializeField] GameObject fx_BombGrosBouttonRougePlaced;
     GameObject stockFXBomb;
 
-    [SerializeField] int explosionRange = 2;
+    [SerializeField] int explosionRange = 1;
     [SerializeField][Range(0, 10)] float delayBeforeExplosion = 3f;
 
     bool exploded = false;

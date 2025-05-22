@@ -4492,6 +4492,11 @@ PrefabInstance:
       propertyPath: deathTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5205925518300675493, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
+      propertyPath: PlayerCollider
+      value: 
+      objectReference: {fileID: 4917188376023574232}
     - target: {fileID: 5554427252523844925, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -4592,8 +4597,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7496057769012995901, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496057769012995901, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+        type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7551913959494250804, guid: 5f92cb56d3be1014e86f7c58776ee71e,
         type: 3}
@@ -4715,6 +4725,12 @@ Transform:
 --- !u!1 &4517469586477368671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336235047637632186, guid: 5f92cb56d3be1014e86f7c58776ee71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3186864177633493477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4917188376023574232 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 7496057769012995901, guid: 5f92cb56d3be1014e86f7c58776ee71e,
     type: 3}
   m_PrefabInstance: {fileID: 3186864177633493477}
   m_PrefabAsset: {fileID: 0}
