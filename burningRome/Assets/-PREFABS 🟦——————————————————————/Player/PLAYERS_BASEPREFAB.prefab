@@ -1196,6 +1196,7 @@ GameObject:
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
   - component: {fileID: 3588181838191853796}
+  - component: {fileID: 2823633359942277953}
   m_Layer: 6
   m_Name: PLAYERS_BASEPREFAB
   m_TagString: Untagged
@@ -1237,6 +1238,8 @@ MonoBehaviour:
   Fx_DeathPlayer: {fileID: 6089237566075303425, guid: 8d72f965deb3f954692e3aacc67b558e,
     type: 3}
   fxspawn: {fileID: 7207092099895976251, guid: 152196d287a483d4085834da3d5305c8, type: 3}
+  fx_BlessByGod: {fileID: 8727811603977153634, guid: 49e813443b979ff4c97ba96627d43333,
+    type: 3}
   playerID: 0
   PlayerCollider: {fileID: 7496057769012995901}
   isAlive: 0
@@ -1474,6 +1477,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 1352595978297202342, guid: effeeb5d84aa0984bb33b7362ad2c391, type: 3}
+--- !u!135 &2823633359942277953
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279451766137512850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.51
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7684300763994532345
 GameObject:
   m_ObjectHideFlags: 0
