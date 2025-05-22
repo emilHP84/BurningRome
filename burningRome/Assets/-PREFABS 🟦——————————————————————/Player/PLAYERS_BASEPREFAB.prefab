@@ -317,8 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feetSounds:
   - {fileID: 8300000, guid: 8fb094266f60ab04695bd59805777d0e, type: 3}
-  - {fileID: 8300000, guid: fd4e4465ffa63d346aa1650f24b82f47, type: 3}
-  - {fileID: 8300000, guid: e928049113458a94fb4b58c8ff549767, type: 3}
   pitch: {x: 0.9, y: 1.1}
   stepSize: 1.25
 --- !u!82 &2403647525315291269
@@ -1460,7 +1458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feetSounds:
-  - {fileID: 8300000, guid: 5d858012f68ee3e43879e892e8c9e5ed, type: 3}
+  - {fileID: 8300000, guid: 8fb094266f60ab04695bd59805777d0e, type: 3}
   pitch: {x: 1, y: 1}
   stepSize: 1.5
 --- !u!114 &3588181838191853796

@@ -5141,6 +5141,16 @@ PrefabInstance:
       propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[2].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 343b7adfd64ff9f41948542127f80779, type: 3}
+    - target: {fileID: 3718262042042446997, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 343b7adfd64ff9f41948542127f80779, type: 3}
     - target: {fileID: 3757717654246124519, guid: 4811bc64d2d12d749a0af386f0ce3ed1,
         type: 3}
       propertyPath: m_RenderMode

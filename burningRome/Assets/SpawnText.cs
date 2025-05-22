@@ -29,7 +29,7 @@ public class SpawnText : MonoBehaviour
 
     void HideText()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false) ;
 
     }
 }
