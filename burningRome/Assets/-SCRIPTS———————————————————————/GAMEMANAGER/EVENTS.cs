@@ -96,6 +96,9 @@ public class EVENTS
 
     // <-- Add new game events here
 
+    public static event Action DestroyAllBombs;
+    public static void InvokeDestroyAllBombs() { LogEventInConsole("All BOMB DESTROYED");  DestroyAllBombs?.Invoke();}
+
     public static event Action OnBattleStart;
     public static void InvokeBattleStart() {LogEventInConsole("🏁Battle Start"); OnBattleStart?.Invoke();}
 

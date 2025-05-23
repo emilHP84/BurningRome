@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
    
     private Transform playerTransform => this.gameObject.transform;
     private bool isDying = false; // nouvelle variable
-
+     GAMEPLAY  gameplay => GetComponent<GAMEPLAY>();
     public int PlayerID
     {
         get { return playerID; }

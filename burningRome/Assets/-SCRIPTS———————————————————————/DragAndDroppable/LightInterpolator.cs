@@ -9,13 +9,16 @@ public class LightInterpolator : MonoBehaviour
     [SerializeField] private Light targetLight;
 
     [Header("Vitesse d'interpolation")]
-    [SerializeField] private float transitionSpeed = 1f;
+    [SerializeField] private float transitionSpeed = 100f;
+    bool alreadyInterpolated = false;
 
     private Light sourceLight;
+    float time;
 
     private void Awake()
     {
         sourceLight = GetComponent<Light>();
+
     }
 
     private void OnEnable()
@@ -29,9 +32,15 @@ public class LightInterpolator : MonoBehaviour
         EVENTS.OnSuddenDeathStart -= MortSubite;
     }
 
+    private void Update()
+    {
+        time += Time.deltaTime;
+    }
 
     void MortSubite()
     {
+        if (alreadyInterpolated) return;
+        alreadyInterpolated = true;
         StartCoroutine(MortSubiteRoutine());
     }
 
@@ -53,6 +62,6 @@ public class LightInterpolator : MonoBehaviour
             yield return null;
         }
 
-       
+
     }
 }

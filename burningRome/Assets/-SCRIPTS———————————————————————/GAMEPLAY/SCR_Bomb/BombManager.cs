@@ -1,17 +1,37 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
     [SerializeField] GameObject bombExplodeFx;
+    public bool canbeplaced = true;
+    private void OnEnable()
+    {
+        EVENTS.DestroyAllBombs += CanPlaceBomb;
+    }
+    private void OnDisable()
+    {
+        EVENTS.DestroyAllBombs -= CanPlaceBomb;
+    }
     public void Awake()
     {
+        fx_BombPlaced.SetActive(true);
         if (ManualDetonation == false)
         {
+
             GameObject vfx = Instantiate(fx_BombPlaced, transform.position, Quaternion.identity);
+
         }
         //vfx.transform.SetParent(transform);
+    }
+
+    void CanPlaceBomb()
+    {
+        canbeplaced = false;
+        fx_BombPlaced.SetActive(false);
+        Destroy(this.gameObject);
     }
     public void SetDelay(float newDelay)
     {
@@ -50,15 +70,17 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     public void Explode()
     {
-        Explosion();
-        if(stockFXBomb != null)
+        if (canbeplaced == true)
+            Explosion();
+
+        if (stockFXBomb != null)
         {
             Destroy(stockFXBomb);
         }
     }
-    
-    [SerializeField]bool ManualDetonation = false;
-    [SerializeField]bool isPiercing = false;
+
+    [SerializeField] bool ManualDetonation = false;
+    [SerializeField] bool isPiercing = false;
     [SerializeField] GameObject fx_BombPlaced;
     [SerializeField] GameObject fx_BombGrosBouttonRougePlaced;
     GameObject stockFXBomb;
@@ -78,7 +100,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     void Start()
     {
         time = delayBeforeExplosion;
-        if(ManualDetonation == true)
+        if (ManualDetonation == true)
         {
             GameObject vfx = Instantiate(fx_BombGrosBouttonRougePlaced, transform.position, Quaternion.identity);
             stockFXBomb = vfx;
@@ -105,12 +127,12 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         int row = Mathf.RoundToInt(transform.position.z);
         int column = Mathf.RoundToInt(transform.position.x);
         //Debug.Log("Explosion de la case " + column + "," + row);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.North, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.South, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.East, isPiercing, isHadesFire);
-        GameGrid.access.BurnCell(column,row,flameDuration,explosionRange,Cardinal.West, isPiercing, isHadesFire);
+        GameGrid.access.BurnCell(column, row, flameDuration, explosionRange, Cardinal.North, isPiercing, isHadesFire);
+        GameGrid.access.BurnCell(column, row, flameDuration, explosionRange, Cardinal.South, isPiercing, isHadesFire);
+        GameGrid.access.BurnCell(column, row, flameDuration, explosionRange, Cardinal.East, isPiercing, isHadesFire);
+        GameGrid.access.BurnCell(column, row, flameDuration, explosionRange, Cardinal.West, isPiercing, isHadesFire);
         if (owner) owner.BombExploded(this);
-        if(bombExplodeFx)Instantiate(bombExplodeFx,transform.position,Quaternion.identity);
+        if (bombExplodeFx) Instantiate(bombExplodeFx, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
@@ -123,7 +145,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
             boxCollider.isTrigger = true;
         }
 
-        else if (collisionable is Ground )
+        else if (collisionable is Ground)
         {
             boxCollider.isTrigger = false;
         }

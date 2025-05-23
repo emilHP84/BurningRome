@@ -157,10 +157,11 @@ public class GAMEPLAY : MonoBehaviour
                 EVENTS.InvokeSuddenDeathStart();
             break;
 
-            case GameplayState.end:
+            case GameplayState.end:              
                 Debug.Log("IsEnd");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
+
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
             break;
         }
@@ -192,6 +193,7 @@ public class GAMEPLAY : MonoBehaviour
                
                 if (alivePlayers < 2)
                 {
+                    EVENTS.InvokeDestroyAllBombs();
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
@@ -200,13 +202,15 @@ public class GAMEPLAY : MonoBehaviour
             case GameplayState.suddenDeath:
                 if (alivePlayers < 2)
                 {
+                    EVENTS.InvokeDestroyAllBombs();
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
             break;
 
             case GameplayState.end:
-                if(timer > 2f) EVENTS.InvokeEndGame();
+                EVENTS.InvokeEndGame();
+                EVENTS.InvokeDestroyAllBombs();
                 if (timer>4f)
                 {
                     //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
