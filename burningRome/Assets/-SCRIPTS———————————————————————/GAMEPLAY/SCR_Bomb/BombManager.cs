@@ -9,11 +9,11 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
     public bool canbeplaced = true;
     private void OnEnable()
     {
-        EVENTS.DestroyAllBombs += CanPlaceBomb;
+
     }
     private void OnDisable()
     {
-        EVENTS.DestroyAllBombs -= CanPlaceBomb;
+
     }
     public void Awake()
     {
@@ -27,12 +27,6 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         //vfx.transform.SetParent(transform);
     }
 
-    void CanPlaceBomb()
-    {
-        canbeplaced = false;
-        fx_BombPlaced.SetActive(false);
-        Destroy(this.gameObject);
-    }
     public void SetDelay(float newDelay)
     {
         time = delayBeforeExplosion = newDelay;
