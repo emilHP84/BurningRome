@@ -23,6 +23,7 @@ public class GAMEPLAY : MonoBehaviour
     public float timeToJoin = 3f;
     public float timeToSuddenDeath = 60f;
     int totalPlayers = 0;
+    public int ActivePlayers = 0;
     public int TotalPlayers
     {
         get { return totalPlayers; }
@@ -31,10 +32,10 @@ public class GAMEPLAY : MonoBehaviour
 
     int alivePlayers = 0;
     float timer;
-    [SerializeField]GameObject[] playerPrefabs;
+    [SerializeField] GameObject[] playerPrefabs;
     [SerializeField] List<GameObject> alivePlayersList = new List<GameObject>();
     [SerializeField] TextMeshProUGUI Countdown;
-    
+
     private void OnEnable()
     {
         EVENTS.OnGameStart += LaunchGameplayBoucle;
@@ -62,6 +63,7 @@ public class GAMEPLAY : MonoBehaviour
         if (MENU.SCRIPT.AlreadyStartFirstGame == false)
         {
             DestroyAllPlayers();
+
         }
         ResetAllControllers();
     }
@@ -120,26 +122,26 @@ public class GAMEPLAY : MonoBehaviour
         ResetTimer();
         CurrentState = newState;
 
-        switch(newState) // Fonction Start quand on rentre dans un nouvel état
+        switch (newState) // Fonction Start quand on rentre dans un nouvel état
         {
             case GameplayState.off:
                 Debug.Log("IsOFF");
                 Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = false;
-                if(MENU.SCRIPT.AlreadyStartFirstGame == false)
+                if (MENU.SCRIPT.AlreadyStartFirstGame == false)
                 {
                     DestroyAllPlayers();
-                }            
+                }
                 ResetAllControllers();
                 GAME.MANAGER.SwitchTo(State.menu);
-            break;
+                break;
 
             case GameplayState.joining:
                 Debug.Log("IsJoining");
-                Debug.Log("TotalPlayers = "+totalPlayers);
+                Debug.Log("TotalPlayers = " + totalPlayers);
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
-            break;
+                break;
 
             case GameplayState.battle:
                 EVENTS.OnGameplay -= GamePlayStarted;
@@ -150,29 +152,29 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("🟢 Battle Start — alivePlayers = " + alivePlayers);
                 EVENTS.InvokeBattleStart();
                 GAME.MANAGER.SwitchTo(State.gameplay);
-            break;
+                break;
 
             case GameplayState.suddenDeath:
                 Debug.Log("IsSuddenDeath");
                 EVENTS.InvokeSuddenDeathStart();
-            break;
+                break;
 
-            case GameplayState.end:              
+            case GameplayState.end:
                 Debug.Log("IsEnd");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
 
                 // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
-            break;
+                break;
         }
     }
-    
+
     private void UpdateCurrentState() // L'Update de ma machine à état
     {
         switch (CurrentState)
         {
             case GameplayState.off:
-            break;
+                break;
 
             case GameplayState.joining:
 
@@ -185,19 +187,19 @@ public class GAMEPLAY : MonoBehaviour
                 {
                     EnterState(GameplayState.battle);
                 }
-                if (totalPlayers<4) ListenNewControllers();
-            break;
+                if (totalPlayers < 4) ListenNewControllers();
+                break;
 
             case GameplayState.battle:
                 if (timer >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
-               
+
                 if (alivePlayers < 2)
                 {
                     EVENTS.InvokeDestroyAllBombs();
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
-            break;
+                break;
 
             case GameplayState.suddenDeath:
                 if (alivePlayers < 2)
@@ -206,20 +208,27 @@ public class GAMEPLAY : MonoBehaviour
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
-            break;
+                break;
 
             case GameplayState.end:
-                EVENTS.InvokeEndGame();
+
                 EVENTS.InvokeDestroyAllBombs();
-                if (timer>4f)
+                if (timer > 2f)
+                    EVENTS.InvokeEndGame();
+                if (timer > 4f)
                 {
                     //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
                     GAME.MANAGER.SwitchTo(State.menu);
                     EnterState(GameplayState.off);
                     //persistentPlayers.Clear();
                 }
-            break;
+                break;
         }
+    }
+
+    public void CheckActivePlayers(int activeplayers)
+    {
+
     }
 
     public void WaitPlayersToJoin()
@@ -244,7 +253,7 @@ public class GAMEPLAY : MonoBehaviour
             Debug.Log("🔁 Player in rematch: ID = " + data.playerID);
             Player player = ReInput.players.GetPlayer(data.playerID);
             //InstantiatePlayerInScene(data.playerID);
-            AddPlayerController(data.playerID,data.controller);
+            AddPlayerController(data.playerID, data.controller);
             if (data.controller.type == ControllerType.Keyboard)
             {
                 player.controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard, 0, data.keyboardSide);
@@ -259,7 +268,7 @@ public class GAMEPLAY : MonoBehaviour
             ReInput.players.GetPlayer(data.playerID).isPlaying = true;
         }
         totalPlayers = persistentPlayers.Count;
-        //alivePlayers = totalPlayers;
+        ActivePlayers = totalPlayers;
         EnterState(GameplayState.battle);
     }
 
@@ -269,7 +278,6 @@ public class GAMEPLAY : MonoBehaviour
     }
 
     public void GameplayAfterFirstBattle()
-
     {
         Rematch();
     }
@@ -290,15 +298,17 @@ public class GAMEPLAY : MonoBehaviour
             }
         }
         GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
-        SceneManager.MoveGameObjectToScene(newPlayer,SceneManager.GetActiveScene());
+        SceneManager.MoveGameObjectToScene(newPlayer, SceneManager.GetActiveScene());
         alivePlayersList.Add(newPlayer);
-        Debug.Log("CreatePlayer"+playerID);
+        Debug.Log("CreatePlayer" + playerID);
         EVENTS.InvokePlayerSpawn(playerID);
+        ActivePlayers++;
+        Debug.Log("il y a Actuellement " + ActivePlayers + "joueur");
     }
 
     void DestroyAllPlayers()
     {
-        for (int i=0; i<alivePlayersList.Count;i++) Destroy(alivePlayersList[i]);
+        for (int i = 0; i < alivePlayersList.Count; i++) Destroy(alivePlayersList[i]);
         alivePlayersList = new List<GameObject>();
         alivePlayers = totalPlayers = 0;
     }
@@ -323,7 +333,7 @@ public class GAMEPLAY : MonoBehaviour
         Player systemPlayer = ReInput.players.GetSystemPlayer();
         systemPlayer.controllers.ClearAllControllers();
         systemPlayer.controllers.AddController(ControllerType.Mouse, 0, true);
-        systemPlayer.controllers.AddController(ControllerType.Keyboard,0,false);
+        systemPlayer.controllers.AddController(ControllerType.Keyboard, 0, false);
         leftKeyboardAssigned = rightKeyboardAssigned = false;
         //Debug.Log("Reset all controllers   SystemPlayer " + ReInput.players.GetSystemPlayer().controllers);
     }
@@ -336,15 +346,15 @@ public class GAMEPLAY : MonoBehaviour
         {
             Controller lastActive = ReInput.controllers.GetLastActiveController();
             int newPlayer = FirstAvailablePlayer();
-            if (newPlayer<0) return; // all players already have a controller, abort
+            if (newPlayer < 0) return; // all players already have a controller, abort
 
-            if (lastActive.type==ControllerType.Keyboard)
+            if (lastActive.type == ControllerType.Keyboard)
             {
-                if (leftKeyboardAssigned==false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Space)) AddPlayerKeyboard(newPlayer,2, lastActive);
-                else if (rightKeyboardAssigned==false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Return)) AddPlayerKeyboard(newPlayer,1, lastActive);
+                if (leftKeyboardAssigned == false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Space)) AddPlayerKeyboard(newPlayer, 2, lastActive);
+                else if (rightKeyboardAssigned == false && ReInput.controllers.Keyboard.GetKeyDown(KeyCode.Return)) AddPlayerKeyboard(newPlayer, 1, lastActive);
             }
 
-            if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
+            if (lastActive.type == ControllerType.Joystick && !activeControllers.Contains(lastActive))
             {
                 AddPlayerController(newPlayer, lastActive);
             }
@@ -360,16 +370,16 @@ public class GAMEPLAY : MonoBehaviour
             controller = keyboard,
             keyboardSide = keyboardSide
         });
-        Debug.Log("ADD KEYBOARD PLAYER "+playerID+"   keyboardside "+keyboardSide);
-        if (keyboardSide==2) leftKeyboardAssigned = true;
-        if (keyboardSide==1) rightKeyboardAssigned = true;
-        ReInput.players.GetPlayer(playerID).controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard,0, keyboardSide);
+        Debug.Log("ADD KEYBOARD PLAYER " + playerID + "   keyboardside " + keyboardSide);
+        if (keyboardSide == 2) leftKeyboardAssigned = true;
+        if (keyboardSide == 1) rightKeyboardAssigned = true;
+        ReInput.players.GetPlayer(playerID).controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard, 0, keyboardSide);
         AddPlayerController(playerID, keyboard);
     }
 
 
     void AddPlayerController(int playerID, Controller controller)
-    {
+    {      
         InstantiatePlayerInScene(playerID);
         ResetTimer();
         AddNewPlayer(playerID, controller);
@@ -379,9 +389,9 @@ public class GAMEPLAY : MonoBehaviour
 
     int FirstAvailablePlayer()
     {
-        for (int i=0;i<4;i++)
+        for (int i = 0; i < 4; i++)
         {
-            if (activeControllers[i]==null) return i;
+            if (activeControllers[i] == null) return i;
         }
         return -1;
     }
@@ -390,7 +400,7 @@ public class GAMEPLAY : MonoBehaviour
     void AddNewPlayer(int playerID, Controller controller)
     {
         totalPlayers++;
-        if(!persistentPlayers.Exists(x=>x.playerID == playerID))
+        if (!persistentPlayers.Exists(x => x.playerID == playerID))
         {
             persistentPlayers.Add(new PlayerData { playerID = playerID, controller = controller });
         }
@@ -400,9 +410,9 @@ public class GAMEPLAY : MonoBehaviour
 
     void AssignControllerToPlayer(int playerID, Controller controller)
     {
-        
+
         bool removeFromOtherPlayers = true;
-        if (controller.type==ControllerType.Keyboard) removeFromOtherPlayers = false;
+        if (controller.type == ControllerType.Keyboard) removeFromOtherPlayers = false;
         Player thisPlayer = ReInput.players.GetPlayer(playerID);
         thisPlayer.controllers.ClearAllControllers();
         thisPlayer.controllers.AddController(controller, removeFromOtherPlayers);
@@ -413,14 +423,14 @@ public class GAMEPLAY : MonoBehaviour
 
     void CheckDisconnect(ControllerStatusChangedEventArgs args)
     {
-        Debug.Log("🎮 DISCONNECTED "+args.controller.name);
-        if (CurrentState==GameplayState.off || CurrentState==GameplayState.joining) return;
-        if (args.controller.type!=ControllerType.Joystick) return;
+        Debug.Log("🎮 DISCONNECTED " + args.controller.name);
+        if (CurrentState == GameplayState.off || CurrentState == GameplayState.joining) return;
+        if (args.controller.type != ControllerType.Joystick) return;
         if (activeControllers.Contains(args.controller))
         {
             int index = System.Array.IndexOf(activeControllers, args.controller);
             activeControllers[index] = null;
-            Debug.Log("🎮 PLAYER"+index+" HAS NO CONTROLLER!");
+            Debug.Log("🎮 PLAYER" + index + " HAS NO CONTROLLER!");
             StartCoroutine(WaitControllerReconnect(index));
         }
     }
@@ -429,14 +439,14 @@ public class GAMEPLAY : MonoBehaviour
 
     IEnumerator WaitControllerReconnect(int playerID)
     {
-        Debug.Log("🎮 WAITING FOR PLAYER"+playerID+" CONTROLLER TO CONNECT");
-        while (activeControllers[playerID]==null)
+        Debug.Log("🎮 WAITING FOR PLAYER" + playerID + " CONTROLLER TO CONNECT");
+        while (activeControllers[playerID] == null)
         {
             if (ReInput.controllers.GetAnyButtonDown())
             {
                 Controller lastActive = ReInput.controllers.GetLastActiveController();
 
-                if (lastActive.type==ControllerType.Joystick && !activeControllers.Contains(lastActive))
+                if (lastActive.type == ControllerType.Joystick && !activeControllers.Contains(lastActive))
                 {
                     AssignControllerToPlayer(playerID, lastActive);
                 }

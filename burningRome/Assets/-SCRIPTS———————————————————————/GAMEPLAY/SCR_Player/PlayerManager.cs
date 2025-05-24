@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
+    PlayerAnim playerAnim => GetComponent<PlayerAnim>();
     [SerializeField] GameObject Fx_DeathPlayer,fxspawn,fx_BlessByGod;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
     PlayerAnim anim => GetComponent<PlayerAnim>();
     PlayerMovement Movement => GetComponent<PlayerMovement>();
-   
+    GAMEPLAY gameplay => FindObjectOfType<GAMEPLAY>();
+
     private Transform playerTransform => this.gameObject.transform;
     private bool isDying = false; // nouvelle variable
-     GAMEPLAY  gameplay => GetComponent<GAMEPLAY>();
+
+
+
     public int PlayerID
     {
         get { return playerID; }
@@ -54,7 +58,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         if (isAlive == false) yield break;
         isDying = true; //  empêche les doublons
         isAlive = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         EVENTS.InvokePlayerDeath(playerID);
         gameObject.SetActive(false);
     }
@@ -86,12 +90,16 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void Explode()
     {
-        Debug.Log(" Explode called");
         if (!invincible && isAlive)
         {
             isDying = true;
             Movement.DeathPlaying();
-            //anim.PlayDeath();
+            gameplay.ActivePlayers--;
+            Debug.Log("Il Reste actuellement " +  gameplay.ActivePlayers);   
+            if (gameplay.ActivePlayers < 2)
+            {
+                EVENTS.InvokeDestroyAllBombs();
+            }
             StartCoroutine(OnDeath(deathTime));
             Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
             PlayerCollider.enabled = false;
@@ -132,4 +140,11 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         }
     }
 
-} // FIN DU SCRIPT
+}
+namespace ApplyPlayers
+{
+    public class yes
+    {
+
+    }
+}// FIN DU SCRIPT

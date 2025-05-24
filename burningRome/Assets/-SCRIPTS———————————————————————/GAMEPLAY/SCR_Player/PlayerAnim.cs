@@ -34,7 +34,6 @@ public class PlayerAnim : MonoBehaviour
     }
     public void PlayDeath()
     {
-        Debug.Log("OOOOOOOOOHHHHHHHH CAAAAAA JOUEEEEEE");
         Play(death);
     }
 
@@ -51,7 +50,7 @@ public class PlayerAnim : MonoBehaviour
 
 
 
-    [SerializeField] GameObject idle, movedown, moveup, moveleft, moveright, spawn,death;
+    [SerializeField] public  GameObject idle, movedown, moveup, moveleft, moveright, spawn,death;
 
     Vector3 lastPos;
     

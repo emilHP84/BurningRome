@@ -16,11 +16,16 @@ public class BombSystemManager : MonoBehaviour
 
     private void DestroyAllBombs()
     {
-        BombManager[] bombs = FindObjectsOfType<BombManager>();
-        Debug.Log(" Suppression de toutes les bombes (" + bombs.Length + ")");
-        foreach (BombManager bomb in bombs)
+        BombManager[] allManagers = FindObjectsOfType<BombManager>();
+
+        foreach (BombManager bm in allManagers)
         {
-            Destroy(bomb.gameObject);
+            if (bm.gameObject.name.Contains("Bomb")) // ou == "NomExact"
+            {
+                Debug.Log("BombManager trouvé sur : " + bm.gameObject.name);
+              
+                Destroy(bm.gameObject);
+            }
         }
     }
 }

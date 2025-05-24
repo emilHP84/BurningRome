@@ -5,8 +5,11 @@ using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
+    GAMEPLAY gameplay => FindObjectOfType<GAMEPLAY>();
     [SerializeField] GameObject bombExplodeFx;
     public bool canbeplaced = true;
+
+
     private void OnEnable()
     {
 
@@ -20,9 +23,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         fx_BombPlaced.SetActive(true);
         if (ManualDetonation == false)
         {
-
-            GameObject vfx = Instantiate(fx_BombPlaced, transform.position, Quaternion.identity);
-
+            Instantiate(fx_BombPlaced, transform.position, Quaternion.identity);
         }
         //vfx.transform.SetParent(transform);
     }
@@ -93,6 +94,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 
     void Start()
     {
+        fx_BombPlaced.SetActive(true);
         time = delayBeforeExplosion;
         if (ManualDetonation == true)
         {
@@ -110,12 +112,14 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         {
             time -= Time.deltaTime;
         }
-        if (time < 0) Explosion();
+        if (time < 0 && gameplay.ActivePlayers > 1)
+        { Explosion(); }
     }
 
 
     void Explosion()
     {
+
         if (exploded) return;
         exploded = true;
         int row = Mathf.RoundToInt(transform.position.z);
@@ -128,6 +132,8 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         if (owner) owner.BombExploded(this);
         if (bombExplodeFx) Instantiate(bombExplodeFx, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+
+
     }
 
 

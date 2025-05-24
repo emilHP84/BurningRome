@@ -16,7 +16,7 @@ public class Dalle : MonoBehaviour, IFlamable
     bool propagateBurn = true;
     public bool PropagationBurn
     {
-        get { return propagateBurn; } 
+        get { return propagateBurn; }
         set { propagateBurn = value; }
     }
 
@@ -38,7 +38,7 @@ public class Dalle : MonoBehaviour, IFlamable
 
         //    }
         //}
-        if(!isHadesFire || (isHadesFire && duration > burning)) 
+        if (!isHadesFire || (isHadesFire && duration > burning))
             isHadesFire = wantHadesFire;
 
 
@@ -54,7 +54,7 @@ public class Dalle : MonoBehaviour, IFlamable
                 col.GetComponentInParent<IExplodable>().Explode();
             }
 
-            if (col.GetComponent<Indestructible>() && !piercing ) 
+            if (col.GetComponent<Indestructible>() && !piercing)
             {
                 //Debug.Log("bombe pas propagé bloc indestructible");
                 return false;
@@ -76,12 +76,12 @@ public class Dalle : MonoBehaviour, IFlamable
     {
 
         if (burning <= 0) StartBurn(duration);
-        else if (duration > burning) 
+        else if (duration > burning)
         {
             SwitchFlammeVFX();
-            burning = duration; 
+            burning = duration;
         }
-        
+
     }
 
     void SwitchFlammeVFX()
@@ -96,12 +96,11 @@ public class Dalle : MonoBehaviour, IFlamable
         {
             Debug.Log("lol");
         }
-            burning = duration;
-        //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " commmence a bruler");
+        burning = duration;
+
         if (fx_StartBurn && isHadesFire) fx_StartBurn.SetActive(true);
         else if (flames) flames.SetActive(true);
-        
-        //if (fx_StartBurn) Instantiate(fx_StartBurn,transform.position,transform.rotation);
+
         StartCoroutine(BurnRoutine());
     }
 
@@ -112,17 +111,16 @@ public class Dalle : MonoBehaviour, IFlamable
         isHadesFire = false;
         fx_StartBurn?.SetActive(false);
         flames?.SetActive(false);
-        
     }
 
     IEnumerator BurnRoutine()
     {
-        while (burning>0)
+        while (burning > 0)
         {
             if (GAME.MANAGER.CurrentState != State.gameplay) yield return null;
             burning -= Time.deltaTime;
             Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
-            foreach(Collider col in hits) if (col.GetComponent<IExplodable>()!=null) col.GetComponent<IExplodable>().Explode();
+            foreach (Collider col in hits) if (col.GetComponent<IExplodable>() != null) col.GetComponent<IExplodable>().Explode();
             //Physics.OverlapBoxNonAlloc(transform.position,Vector3.one*0.45f,allocColliders,transform.rotation,burnableLayers);
             //for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<IExplodable>().Explode();
             yield return null;
@@ -130,5 +128,5 @@ public class Dalle : MonoBehaviour, IFlamable
         StopBurn();
     }
 
-    
+
 } // FIN DU SCRIPT
