@@ -195,7 +195,7 @@ public class GAMEPLAY : MonoBehaviour
 
                 if (alivePlayers < 2)
                 {
-                    EVENTS.InvokeDestroyAllBombs();
+                    //EVENTS.InvokeDestroyAllBombs();
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
@@ -204,7 +204,7 @@ public class GAMEPLAY : MonoBehaviour
             case GameplayState.suddenDeath:
                 if (alivePlayers < 2)
                 {
-                    EVENTS.InvokeDestroyAllBombs();
+                    //EVENTS.InvokeDestroyAllBombs();
                     EVENTS.InvokeOnVictory();
                     EnterState(GameplayState.end);
                 }
@@ -212,7 +212,7 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.end:
 
-                EVENTS.InvokeDestroyAllBombs();
+                //EVENTS.InvokeDestroyAllBombs();
                 if (timer > 2f)
                     EVENTS.InvokeEndGame();
                 if (timer > 4f)
