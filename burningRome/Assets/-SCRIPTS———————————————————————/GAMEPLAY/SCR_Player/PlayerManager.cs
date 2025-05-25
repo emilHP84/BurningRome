@@ -140,11 +140,5 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         }
     }
 
-}
-namespace ApplyPlayers
-{
-    public class yes
-    {
 
-    }
 }// FIN DU SCRIPT
