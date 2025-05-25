@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerBombing : MonoBehaviour
 {
+    HideInput hide => GetComponentInChildren<HideInput>();
     [SerializeField] int playerID = 0;
     Player player;
     bool canBomb = false;
@@ -30,6 +31,7 @@ public class PlayerBombing : MonoBehaviour
         {
             if (player.GetButtonDown("Bomb"))
             {
+                hide.Hide();
                 if (manualDetonation > 0)
                 {
                     if (manualDetonation < 2)
