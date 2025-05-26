@@ -5,20 +5,26 @@ using UnityEngine;
 
 public class HideInput : MonoBehaviour
 {
+    private SpriteRenderer sprite;
 
     private void Awake()
     {
+        sprite = GetComponent<SpriteRenderer>();
         EVENTS.OnBattleStart += Show;
-        gameObject.SetActive(false);
+        sprite.enabled = false ;
     }
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if(sprite != null)
+        {
+            sprite.enabled = false;
+        }
+       
     }
 
     public void Show ()
     {
-        gameObject.SetActive(true);
+        sprite.enabled = true;
         transform.DOScale(Vector3.one * 1.15f, 0.5f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 }
