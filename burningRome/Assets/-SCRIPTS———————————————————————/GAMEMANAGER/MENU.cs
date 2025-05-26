@@ -217,7 +217,7 @@ public class MENU : MonoBehaviour
         ShowNextMenu(joinMenu, 0, 0, 1f);
         //while (Black.screen.IsWorking) yield return null;
         GAMEPLAY.access.LaunchJoin();
-       
+        ClearMenuHistory();
     }
     
     IEnumerator AfterGameRoutine()
