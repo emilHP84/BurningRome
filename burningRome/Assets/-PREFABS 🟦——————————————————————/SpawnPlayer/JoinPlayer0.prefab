@@ -61,7 +61,12 @@ PrefabInstance:
     - target: {fileID: 4567151775757642027, guid: 77740b5761578184aa3c086e65737d40,
         type: 3}
       propertyPath: m_Name
-      value: JoinPlayer0 Variant
+      value: JoinPlayer0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130188200498029262, guid: 77740b5761578184aa3c086e65737d40,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
