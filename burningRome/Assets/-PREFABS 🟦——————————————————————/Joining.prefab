@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9287ac18e9120f84a9fb1de0c86113b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startBattleButton: {fileID: 0}
+  pressButtonText: {fileID: 8400159727620524122}
 --- !u!114 &2310091190911984415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Appuyez pour rejoindre
+  m_text: Press Button To Join
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
   m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,
