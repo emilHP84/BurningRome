@@ -143,6 +143,7 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsBattle");
                 PlayerControl = true;
                 alivePlayers = totalPlayers;
+                gameEnded = false;
                 Debug.Log("🟢 Battle Start — alivePlayers = " + alivePlayers);
                 EVENTS.InvokeBattleStart();
                 GAME.MANAGER.SwitchTo(State.gameplay);
@@ -199,8 +200,11 @@ public class GAMEPLAY : MonoBehaviour
             case GameplayState.end:
 
                 //EVENTS.InvokeDestroyAllBombs();
-                if (timer > 2f)
+                if (timer > 2f && gameEnded == false)
+                {
+                    gameEnded = true;
                     EVENTS.InvokeEndGame();
+                }
                 if (timer > 4f)
                 {
                     //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
@@ -211,6 +215,8 @@ public class GAMEPLAY : MonoBehaviour
                 break;
         }
     }
+
+    bool gameEnded = false;
 
     public void OnStartClick()
     {

@@ -1,30 +1,36 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HideInput : MonoBehaviour
 {
-    private SpriteRenderer sprite;
+    private SpriteRenderer sprite => GetComponent<SpriteRenderer>();
 
-    private void Awake()
+    private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        EVENTS.OnBattleStart += Show;
-        sprite.enabled = false ;
+        Hide();
     }
+
+    void OnEnable()
+    {
+        EVENTS.OnBattleStart += Show;
+    }
+
+    void OnDisable()
+    {
+        EVENTS.OnBattleStart -= Show;
+    }
+    
     public void Hide()
     {
-        if(sprite != null)
-        {
-            sprite.enabled = false;
-        }
-       
+        if (sprite == null) return;
+        sprite.enabled = false;
     }
 
     public void Show ()
     {
+        if (sprite == null) return;
         sprite.enabled = true;
+        transform.DOKill();
         transform.DOScale(Vector3.one * 1.15f, 0.5f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 }

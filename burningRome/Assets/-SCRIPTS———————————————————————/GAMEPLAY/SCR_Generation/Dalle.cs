@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
 
 public class Dalle : MonoBehaviour, IFlamable
@@ -8,7 +8,7 @@ public class Dalle : MonoBehaviour, IFlamable
     [SerializeField] LayerMask burnableLayers;
     Collider[] allocColliders = new Collider[10];
     [SerializeField] GameObject flames;
-    [SerializeField] GameObject fx_StartBurn;
+    [SerializeField] GameObject hadesFlames;
     int test;
     bool isHadesFire;
 
@@ -22,22 +22,12 @@ public class Dalle : MonoBehaviour, IFlamable
 
     void Start()
     {
-
         flames.SetActive(false);
-        fx_StartBurn.SetActive(false);
+        hadesFlames.SetActive(false);
     }
 
     public bool BurnFor(float duration, bool piercing, bool wantHadesFire)
     {
-        //if(isHadesFire) 
-        //{ 
-        //    Debug.Log("lol");
-        //    if (burning <= 1)
-        //    {
-        //        Debug.Log("lol");
-
-        //    }
-        //}
         if (!isHadesFire || (isHadesFire && duration > burning))
             isHadesFire = wantHadesFire;
 
@@ -46,7 +36,7 @@ public class Dalle : MonoBehaviour, IFlamable
 
         foreach (Collider col in hits)
         {
-            //Debug.Log("dalle" + transform.position.x.ToString("f0") + " " + transform.position.z.ToString("f0") + " a trouvé: " + col.name);
+            //Debug.Log("dalle" + transform.position.x.ToString("f0") + " " + transform.position.z.ToString("f0") + " a trouvï¿½: " + col.name);
 
             if (col.GetComponentInParent<BombManager>())
             {
@@ -56,20 +46,20 @@ public class Dalle : MonoBehaviour, IFlamable
 
             if (col.GetComponent<Indestructible>() && !piercing)
             {
-                //Debug.Log("bombe pas propagé bloc indestructible");
+                //Debug.Log("bombe pas propagï¿½ bloc indestructible");
                 return false;
             }
 
             if (col.GetComponent<Obstacle>())
             {
-                //Debug.Log("bombe pas propagé bloc destructible");
+                //Debug.Log("bombe pas propagï¿½ bloc destructible");
                 CheckBurn(duration);
                 return false;
             }
         }
 
         CheckBurn(duration);
-        //Debug.Log("bombe propagé" + propagateBurn);
+        //Debug.Log("bombe propagï¿½" + propagateBurn);
         return propagateBurn;
     }
     void CheckBurn(float duration)
@@ -86,21 +76,29 @@ public class Dalle : MonoBehaviour, IFlamable
 
     void SwitchFlammeVFX()
     {
-        fx_StartBurn?.SetActive(isHadesFire);
+        hadesFlames?.SetActive(isHadesFire);
         flames?.SetActive(!isHadesFire);
     }
 
     void StartBurn(float duration)
     {
-        if (duration == 0)
+        if (duration <= 0)
         {
             Debug.Log("lol");
+            return;
         }
         burning = duration;
 
-        if (fx_StartBurn && isHadesFire) fx_StartBurn.SetActive(true);
-        else if (flames) flames.SetActive(true);
-
+        if (isHadesFire)
+        {
+            hadesFlames.SetActive(true);
+            hadesFlames.transform.DOScale(Vector3.one, 0.2f).From(0).SetEase(Ease.OutBack);
+        }
+        else if (flames)
+        {
+            flames.SetActive(true);
+            flames.transform.DOScale(Vector3.one, 0.2f).From(0).SetEase(Ease.OutBack);
+        }
         StartCoroutine(BurnRoutine());
     }
 
@@ -109,8 +107,26 @@ public class Dalle : MonoBehaviour, IFlamable
         //Debug.Log("La case " + transform.position.x + "," + transform.position.z + " ne brule plus");
         burning = 0;
         isHadesFire = false;
-        fx_StartBurn?.SetActive(false);
-        flames?.SetActive(false);
+        if (flames.activeSelf)
+        {
+            flames.transform.DOKill();
+            flames.transform.DOScale(Vector3.zero, 2f).From(1f).SetEase(Ease.OutExpo).OnComplete(DisableHadesFlames);
+        }
+        if (hadesFlames.activeSelf)
+        {
+            hadesFlames.transform.DOKill();
+            hadesFlames.transform.DOScale(Vector3.zero, 2f).From(1f).SetEase(Ease.OutExpo).OnComplete(DisableFlames);
+        }
+    }
+
+    void DisableFlames()
+    {
+        flames.SetActive(false); 
+    }
+
+    void DisableHadesFlames()
+    {
+        hadesFlames.SetActive(false);
     }
 
     IEnumerator BurnRoutine()
