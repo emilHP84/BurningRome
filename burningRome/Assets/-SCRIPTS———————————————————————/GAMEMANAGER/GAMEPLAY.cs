@@ -77,7 +77,7 @@ public class GAMEPLAY : MonoBehaviour
 
     private void GamePlayStarted()
     {
-        EnterState(GameplayState.joining);
+        EnterState(GameplayState.battle);
     }
 
     #region PLAYER NUMBER
@@ -126,8 +126,8 @@ public class GAMEPLAY : MonoBehaviour
         {
             case GameplayState.off:
                 Debug.Log("IsOFF");
-                Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = false;
+                InBattle = false;
                 if (MENU.SCRIPT.AlreadyStartFirstGame == false)
                 {
                     DestroyAllPlayers();
@@ -140,13 +140,12 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsJoining");
                 Debug.Log("TotalPlayers = " + totalPlayers);
                 PlayerControl = false;
-                GAME.MANAGER.SwitchTo(State.waiting);
+                GAME.MANAGER.SwitchTo(State.menu);
                 break;
 
             case GameplayState.battle:
                 EVENTS.OnGameplay -= GamePlayStarted;
                 Debug.Log("IsBattle");
-                Countdown.transform.parent.parent.gameObject.SetActive(false);
                 PlayerControl = true;
                 alivePlayers = totalPlayers;
                 Debug.Log("🟢 Battle Start — alivePlayers = " + alivePlayers);
@@ -161,6 +160,7 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.end:
                 Debug.Log("IsEnd");
+                InBattle = false;
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.waiting);
 
@@ -178,15 +178,6 @@ public class GAMEPLAY : MonoBehaviour
 
             case GameplayState.joining:
 
-                if (totalPlayers > 1)
-                {
-                    Countdown.transform.parent.parent.gameObject.SetActive(true);
-                    Countdown.text = Mathf.CeilToInt(timeToJoin - timer).ToString();
-                }
-                if (timer >= timeToJoin && totalPlayers > 1)
-                {
-                    EnterState(GameplayState.battle);
-                }
                 if (totalPlayers < 4) ListenNewControllers();
                 break;
 
@@ -226,6 +217,14 @@ public class GAMEPLAY : MonoBehaviour
         }
     }
 
+    public void OnStartClick()
+    {
+        if (totalPlayers < 2) return;
+
+        MENU.SCRIPT.MenusList(false);
+        EVENTS.InvokeGameStart();
+        //EnterState(GameplayState.battle);
+    }
     public void CheckActivePlayers(int activeplayers)
     {
 
@@ -272,7 +271,20 @@ public class GAMEPLAY : MonoBehaviour
         EnterState(GameplayState.battle);
     }
 
-    public void LaunchGameplayBoucle()
+    bool InBattle = false;
+    void LaunchGameplayBoucle()
+    {
+        if (InBattle) return;
+        StartCoroutine(StartBattle());
+    }
+
+    IEnumerator StartBattle()
+    {
+        InBattle = true;
+        yield return new WaitForSeconds(1f);
+        EnterState(GameplayState.battle);
+    }
+    public void LaunchJoin()
     {
         EnterState(GameplayState.joining);
     }

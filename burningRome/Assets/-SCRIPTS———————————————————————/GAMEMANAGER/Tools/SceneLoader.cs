@@ -104,7 +104,7 @@ public class SceneLoader : MonoBehaviour
         loading = false;
         float waitTimeRemaining = minWait-(Time.time-timeBeforeLoad);
         if (waitTimeRemaining>0) yield return new WaitForSecondsRealtime(waitTimeRemaining);
-        GAME.MANAGER.SwitchTo(State.gameplay);
+        //GAME.MANAGER.SwitchTo(State.gameplay);
         if (fadeOut>0) Black.screen.IrisOut(fadeOut);
         while (Black.screen.IsWorking) yield return null;
         Black.screen.Hide();

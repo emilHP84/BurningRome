@@ -6,9 +6,7 @@ using UnityEngine.Animations;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
-using Unity.Properties;
-using UnityEngine.UIElements;
-using Microsoft.Win32.SafeHandles;
+
 
 [RequireComponent(typeof(AudioSource))]
 public class MENU : MonoBehaviour
@@ -27,7 +25,7 @@ public class MENU : MonoBehaviour
 
 
     Player player;
-    [SerializeField] GameObject mainCanvas, menusList, inGameList, mainMenu, pauseMenu, settingsMenu, creditsMenu, endMenu; //<-- Reference to all the menus and the in-game UI
+    [SerializeField] GameObject mainCanvas, menusList, inGameList, mainMenu, pauseMenu, settingsMenu, creditsMenu, endMenu,joinMenu; //<-- Reference to all the menus and the in-game UI
     void AllMenus(bool wanted) // <-- Don't forget to add new menus here too
     {
         mainMenu.SetActive(wanted);
@@ -35,6 +33,7 @@ public class MENU : MonoBehaviour
         settingsMenu.SetActive(wanted);
         creditsMenu.SetActive(wanted);
         endMenu.SetActive(wanted);
+        joinMenu.SetActive(wanted);
     }
 
 
@@ -215,10 +214,12 @@ public class MENU : MonoBehaviour
         MenusList(true);
         SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene, 2f, 1f, 1f, false, 0);
         while (SceneLoader.access.IsLoading) yield return null;
-        MenusList(false);
-        EVENTS.InvokeGameStart();
+        ShowNextMenu(joinMenu, 0, 0, 1f);
+        //while (Black.screen.IsWorking) yield return null;
+        GAMEPLAY.access.LaunchJoin();
+       
     }
-
+    
     IEnumerator AfterGameRoutine()
     {
         //AlreadyStartFirstGame = true;
@@ -245,7 +246,7 @@ public class MENU : MonoBehaviour
 
 
 
-    void MenusList(bool wanted)
+    public void MenusList(bool wanted)
     {
         menusList.SetActive(wanted);
         inGameList.SetActive(!wanted);
@@ -458,8 +459,9 @@ public class MENU : MonoBehaviour
         Black.screen.IrisIn(1f);
         yield return new WaitForSeconds(2f);
         menusList.SetActive(true);
-        mainMenu.SetActive(false);
+        AllMenus(false);
         endMenu.SetActive(true);
+        ClearMenuHistory();
         GAME.MANAGER.SwitchTo(State.menu);
         SetFirstSelectedIn(endMenu);
         Black.screen.IrisOut(1f);

@@ -31,7 +31,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     void Start(){buttonName = tmpro==null ? t.text : tmpro.text;}
     #endif
     bool clickEffect = false;
-    bool selected = true;
+    bool selected = false;
 
     void SelectButtonEffect()
     {
