@@ -29,7 +29,7 @@ public class PlayerPowerUps : MonoBehaviour
 
     public void Invincibility()
     {
-        manager.InvincibilityFor(10f);
+        manager.InvincibilityFor(2f);
     }
 
     public void HadesFire()

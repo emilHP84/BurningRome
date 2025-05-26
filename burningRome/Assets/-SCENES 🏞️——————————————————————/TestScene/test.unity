@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLight: {fileID: 761127984}
-  transitionSpeed: 1
+  animDuration: 10
 --- !u!1001 &98501491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e818d0c9c629145a065aba4eee6a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 60
+  Delay: 45
   BlocApparitionDuration: 0.5
   height: 17
   width: 11
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetZ: 0
-  moveSpeed: 0.2
+  moveSpeed: 2
 --- !u!114 &609220336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,13 +1580,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761127980}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.056059226, y: -0.6046921, z: 0.36563545, w: 0.70534784}
+  m_LocalRotation: {x: 0.0007018149, y: -0.58737695, z: 0.35888374, w: 0.72538984}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 66958058}
-  m_LocalEulerAnglesHint: {x: 32.418, y: -135.856, z: -28.045}
+  m_LocalEulerAnglesHint: {x: 25, y: -70, z: 35}
 --- !u!1 &871649708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 881342795662764950, guid: c6afd87c99580a248991791a034401c4,
