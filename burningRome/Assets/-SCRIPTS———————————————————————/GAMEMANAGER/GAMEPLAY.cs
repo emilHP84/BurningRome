@@ -301,7 +301,7 @@ public class GAMEPLAY : MonoBehaviour
 
     void InstantiatePlayerInScene(int playerID)
     {
-        foreach (var player in FindObjectsOfType<PlayerManager>())
+        foreach (var player in FindObjectsByType<PlayerManager>(FindObjectsSortMode.None))
         {
             if (player.PlayerID == playerID)
             {

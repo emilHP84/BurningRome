@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayPlayer0 : MonoBehaviour
+public class DisplayPlayer : MonoBehaviour
 {
     [SerializeField] int targetPlayerID; // ID du joueur pour cet affichage
     [SerializeField] GameObject BlackSprite;
@@ -24,6 +22,5 @@ public class DisplayPlayer0 : MonoBehaviour
         if (playerID != targetPlayerID) return;
         BlackSprite.SetActive(false);
         ReadySprite.SetActive(true);
-
     }
 }
