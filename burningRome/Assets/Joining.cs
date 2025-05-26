@@ -20,7 +20,7 @@ public class Joining : MonoBehaviour
         EVENTS.OnJoiningStart += Display;
         EVENTS.OnJoiningDone += UnDisplay;
         EVENTS.OnPlayerSpawn += CheckPlayerQuantity;
-        if (GAMEPLAY.access.CurrentState == GameplayState.joining) Display();
+        if (GAMEPLAY.access && GAMEPLAY.access.CurrentState == GameplayState.joining) Display();
     }
 
     private void OnDisable()
@@ -32,6 +32,7 @@ public class Joining : MonoBehaviour
 
     public void UnDisplay()
     {
+        startBattleButton.gameObject.SetActive(false);
         transform.DOKill(); // security to avoid multiple dotween
         transform.DOScale(0, 0.5f).From(startScale).SetEase(Ease.InCirc).OnComplete(DisableObject);
     }
