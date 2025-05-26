@@ -1,8 +1,5 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class SuddenDeathParticle : MonoBehaviour
 {
@@ -19,6 +16,7 @@ public class SuddenDeathParticle : MonoBehaviour
     {
         foreach(ParticleSystem particle in GetComponentsInChildren<ParticleSystem>())
         {
+            particle.transform.DOScale(Vector3.one,3f).From(0).SetEase(Ease.OutBack);
             particle.Play();
         }
     }

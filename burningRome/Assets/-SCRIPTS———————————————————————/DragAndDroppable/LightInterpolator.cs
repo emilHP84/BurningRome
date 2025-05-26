@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(Light))]
 public class LightInterpolator : MonoBehaviour
@@ -9,7 +10,7 @@ public class LightInterpolator : MonoBehaviour
     [SerializeField] private Light targetLight;
 
     [Header("Vitesse d'interpolation")]
-    [SerializeField] private float transitionSpeed = 100f;
+    [SerializeField] private float animDuration = 2f;
     bool alreadyInterpolated = false;
 
     private Light sourceLight;
@@ -39,9 +40,12 @@ public class LightInterpolator : MonoBehaviour
 
     void MortSubite()
     {
-        if (alreadyInterpolated) return;
-        alreadyInterpolated = true;
-        StartCoroutine(MortSubiteRoutine());
+        //if (alreadyInterpolated) return;
+        //alreadyInterpolated = true;
+        sourceLight.DOColor(targetLight.color, animDuration).SetEase(Ease.InOutQuad);
+        sourceLight.DOIntensity(targetLight.intensity, animDuration);
+        transform.DORotateQuaternion(targetLight.transform.rotation,animDuration);
+        //StartCoroutine(MortSubiteRoutine());
     }
 
     IEnumerator MortSubiteRoutine()
@@ -52,13 +56,13 @@ public class LightInterpolator : MonoBehaviour
         while (sourceLight.color != targetLight.color)
         {
             // Interpolation de la couleur
-            sourceLight.color = Color.Lerp(sourceLight.color, targetLight.color, Time.deltaTime * transitionSpeed);
+            sourceLight.color = Color.Lerp(sourceLight.color, targetLight.color, Time.deltaTime * animDuration);
 
             // Interpolation de l'intensité
-            sourceLight.intensity = Mathf.Lerp(sourceLight.intensity, targetLight.intensity, Time.deltaTime * transitionSpeed);
+            sourceLight.intensity = Mathf.Lerp(sourceLight.intensity, targetLight.intensity, Time.deltaTime * animDuration);
 
             // Interpolation de la rotation (direction de la lumière)
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetLight.transform.rotation, Time.deltaTime * transitionSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetLight.transform.rotation, Time.deltaTime * animDuration);
             yield return null;
         }
 

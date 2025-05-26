@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6138954700896137384}
-  - component: {fileID: 8834994479327481855}
+  - component: {fileID: 5119902301189208084}
   m_Layer: 0
   m_Name: Feu Mort subite
   m_TagString: Untagged
@@ -415,7 +415,7 @@ Transform:
   - {fileID: 3820019379758558039}
   m_Father: {fileID: 3507419288774456523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8834994479327481855
+--- !u!114 &5119902301189208084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -847,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &756218951250561506
 Transform:
   m_ObjectHideFlags: 0
@@ -3008,6 +3008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3f3742510ae58dc46b655f61f3ddd813,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3f3742510ae58dc46b655f61f3ddd813,
+        type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4819,6 +4824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fd794f5605c4a24489212cb3c75221fd,
         type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fd794f5605c4a24489212cb3c75221fd,
+        type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4840,6 +4850,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd794f5605c4a24489212cb3c75221fd,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd794f5605c4a24489212cb3c75221fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd794f5605c4a24489212cb3c75221fd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
