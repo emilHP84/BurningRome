@@ -117,7 +117,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: COMMENCER
+      value: START
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -252,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: COMMENCER Button Graphics
+      value: START Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -315,6 +315,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 961654775069484129}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6124610986639902508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 961654775069484129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1576878470055661745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,6 +340,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1852635152671757384, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: startBattleButton
+      value: 
+      objectReference: {fileID: 6124610986639902508}
     - target: {fileID: 2283210586964641514, guid: dc1cbf0049eb00343b84000d7044b07a,
         type: 3}
       propertyPath: m_SortingLayer
