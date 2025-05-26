@@ -11,8 +11,20 @@ PrefabInstance:
     - target: {fileID: 6860286523940176938, guid: 7c9024d33a96c8345b1820076cc94288,
         type: 3}
       propertyPath: m_Name
-      value: JoinPlayer0 Variant 3
+      value: JoinPlayer3
       objectReference: {fileID: 0}
+    - target: {fileID: 6987840669592985301, guid: 7c9024d33a96c8345b1820076cc94288,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a45c0f820710596429fa98ffc8e2b455,
+        type: 3}
+    - target: {fileID: 8793328826764716748, guid: 7c9024d33a96c8345b1820076cc94288,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a45c0f820710596429fa98ffc8e2b455,
+        type: 3}
     - target: {fileID: 9213951529899237512, guid: 7c9024d33a96c8345b1820076cc94288,
         type: 3}
       propertyPath: m_LocalPosition.x

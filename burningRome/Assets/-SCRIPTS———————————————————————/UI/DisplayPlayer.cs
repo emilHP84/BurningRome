@@ -9,11 +9,18 @@ public class DisplayPlayer : MonoBehaviour
     private void OnEnable()
     {
         EVENTS.OnPlayerSpawn += DisplaySprite;
+        ShowBlackSprite();
     }
 
     private void OnDisable()
     {
         EVENTS.OnPlayerSpawn -= DisplaySprite;
+    }
+
+    void ShowBlackSprite()
+    {
+        BlackSprite.SetActive(true);
+        ReadySprite.SetActive(false);
     }
 
 

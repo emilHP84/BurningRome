@@ -105,6 +105,12 @@ public class EVENTS
     public static event Action OnSuddenDeathStart;
     public static void InvokeSuddenDeathStart() {LogEventInConsole("⌚Sudden Death!"); OnSuddenDeathStart?.Invoke();}
 
+    public static event Action OnJoiningStart;
+    public static void InvokeJoiningStart() {LogEventInConsole("Entering JOINING"); OnJoiningStart?.Invoke();}
+
+    public static event Action OnJoiningDone;
+    public static void InvokeJoiningDone() {LogEventInConsole("Finished JOINING"); OnJoiningDone?.Invoke();}
+
     public static event Action<int> OnPlayerDeath;
     public static void InvokePlayerDeath(int deadID) {LogEventInConsole("☠️Player Death! #"+deadID); OnPlayerDeath?.Invoke(deadID);}
 

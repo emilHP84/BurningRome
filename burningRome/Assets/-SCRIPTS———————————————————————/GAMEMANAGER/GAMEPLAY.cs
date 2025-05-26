@@ -40,7 +40,6 @@ public class GAMEPLAY : MonoBehaviour
     {
         EVENTS.OnGameStart += LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath += RemovePlayerNumber;
-        EVENTS.OnGameplay += GamePlayStarted;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
     }
@@ -51,7 +50,6 @@ public class GAMEPLAY : MonoBehaviour
     {
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= RemovePlayerNumber;
-        EVENTS.OnGameplay -= GamePlayStarted;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent -= CheckDisconnect;
     }
@@ -75,10 +73,7 @@ public class GAMEPLAY : MonoBehaviour
     }
 
 
-    private void GamePlayStarted()
-    {
-        EnterState(GameplayState.battle);
-    }
+
 
     #region PLAYER NUMBER
     //-----------------------------------------------------------------------//
@@ -141,10 +136,10 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("TotalPlayers = " + totalPlayers);
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.menu);
+                EVENTS.InvokeJoiningStart();
                 break;
 
             case GameplayState.battle:
-                EVENTS.OnGameplay -= GamePlayStarted;
                 Debug.Log("IsBattle");
                 PlayerControl = true;
                 alivePlayers = totalPlayers;
@@ -220,10 +215,7 @@ public class GAMEPLAY : MonoBehaviour
     public void OnStartClick()
     {
         if (totalPlayers < 2) return;
-
-        MENU.SCRIPT.MenusList(false);
         EVENTS.InvokeGameStart();
-        //EnterState(GameplayState.battle);
     }
     public void CheckActivePlayers(int activeplayers)
     {
@@ -280,8 +272,11 @@ public class GAMEPLAY : MonoBehaviour
 
     IEnumerator StartBattle()
     {
+        if (InBattle) yield break;
         InBattle = true;
+        EVENTS.InvokeJoiningDone();
         yield return new WaitForSeconds(1f);
+        MENU.SCRIPT.MenusList(false);
         EnterState(GameplayState.battle);
     }
     public void LaunchJoin()

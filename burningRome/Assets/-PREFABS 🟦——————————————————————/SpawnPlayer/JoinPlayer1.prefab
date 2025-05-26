@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 153607631609778795, guid: 6c784186a1547da4caa3df7f057f662a,
         type: 3}
       propertyPath: m_Name
-      value: JoinPlayer0 Variant 1
+      value: JoinPlayer1
       objectReference: {fileID: 0}
     - target: {fileID: 2507259752400484041, guid: 6c784186a1547da4caa3df7f057f662a,
         type: 3}
@@ -63,6 +63,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2818468960225868941, guid: 6c784186a1547da4caa3df7f057f662a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2576bdee67abd040a2834fc7fd70d41,
+        type: 3}
+    - target: {fileID: 4462178260039977108, guid: 6c784186a1547da4caa3df7f057f662a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2576bdee67abd040a2834fc7fd70d41,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

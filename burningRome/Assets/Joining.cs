@@ -12,12 +12,14 @@ public class Joining : MonoBehaviour
 
     private void OnEnable()
     {
-        EVENTS.OnBattleStart += UnDisplay;
+        EVENTS.OnJoiningStart += Display;
+        EVENTS.OnJoiningDone += UnDisplay;
     }
 
     private void OnDisable()
     {
-        EVENTS.OnBattleStart -= UnDisplay;
+        EVENTS.OnJoiningStart -= Display;
+        EVENTS.OnJoiningDone -= UnDisplay;
     }
 
     public void UnDisplay()
@@ -25,6 +27,13 @@ public class Joining : MonoBehaviour
         transform.DOKill(); // security to avoid multiple dotween
         transform.DOScale(0, 0.5f).From(startScale).SetEase(Ease.InCirc).OnComplete(DisableObject);
     }
+
+    void Display()
+    {
+        transform.DOKill(); // security to avoid multiple dotween
+        transform.DOScale(startScale, 0.5f).From(0).SetEase(Ease.OutCirc);
+    }
+
 
     void DisableObject()
     {
