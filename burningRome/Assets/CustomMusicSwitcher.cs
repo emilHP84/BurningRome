@@ -9,7 +9,7 @@ public class CustomMusicSwitcher : MonoBehaviour
 
     void OnEnable()
     {
-        EVENTS.OnInitialization += SetMenuPlaylist;
+        EVENTS.OnMenu += SetMenuPlaylist;
         EVENTS.OnBattleStart += SetBattlePlaylist;
         EVENTS.OnSuddenDeathStart += SetSuddenDeathPlaylist;
         EVENTS.OnEndGame += SetEndPlaylist;
@@ -17,7 +17,7 @@ public class CustomMusicSwitcher : MonoBehaviour
 
     private void OnDisable()
     {
-        EVENTS.OnInitialization -= SetMenuPlaylist;
+        EVENTS.OnMenu -= SetMenuPlaylist;
         EVENTS.OnBattleStart -= SetBattlePlaylist;
         EVENTS.OnSuddenDeathStart -= SetSuddenDeathPlaylist;
         EVENTS.OnEndGame -= SetEndPlaylist;
