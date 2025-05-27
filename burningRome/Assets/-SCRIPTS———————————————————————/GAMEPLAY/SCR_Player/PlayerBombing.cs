@@ -67,7 +67,7 @@ public class PlayerBombing : MonoBehaviour
         Vector3 bombPos = transform.position;
         bombPos.x = Mathf.Round(bombPos.x);
         bombPos.z = Mathf.Round(bombPos.z);
-        bombPos.y = 0.11f;
+        bombPos.y = 0f;
         BombManager newBomb = Instantiate(bombPrefab, bombPos, transform.rotation).GetComponent<BombManager>();
         activeBombs.Add(newBomb);
         newBomb.SetPiercing(nextBombIsPiercing);
@@ -127,7 +127,7 @@ public class PlayerBombing : MonoBehaviour
 
     public void ChangeMaxBomb(int desired)
     {
-        Debug.Log("Bomb up Récupérer");
+        Debug.Log("Bomb up Rï¿½cupï¿½rer");
         if (desired < 1) desired = 1;
         int difference = desired - maxBomb;
         maxBomb = desired;
@@ -136,7 +136,7 @@ public class PlayerBombing : MonoBehaviour
 
     public void ChangeRange(int desired)
     {
-        Debug.Log(" Range UP Récupérer");
+        Debug.Log(" Range UP Rï¿½cupï¿½rer");
         explosionRange = Mathf.Clamp(desired, 1, 99);
     }
 
@@ -154,13 +154,13 @@ public class PlayerBombing : MonoBehaviour
 
     public void BombPercing()
     {
-        Debug.Log("Piercing Récupérer");
+        Debug.Log("Piercing Rï¿½cupï¿½rer");
         nextBombIsPiercing = true;
     }
 
     public void NextBombIsHadesFire()
     {
-        Debug.Log("Hades Récupérer");
+        Debug.Log("Hades Rï¿½cupï¿½rer");
         nextBombIsHadesFire = true;
     }
 

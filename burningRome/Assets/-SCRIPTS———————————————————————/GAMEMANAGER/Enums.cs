@@ -6,7 +6,7 @@ public enum Direction{Up,Down,Left,Right,Forward,Back}
 
 public enum State{menu,gameplay,paused,waiting}
 
-public enum GameplayState {off, joining, battle, suddenDeath, end }
+public enum GameplayState {off, joining, battle, suddenDeath, battleOver, end}
 
 public enum TransitionType{Fade,Iris,None}
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerationTiles : MonoBehaviour
@@ -21,12 +19,12 @@ public class GenerationTiles : MonoBehaviour
                 if (i % 2 != 0 && j % 2 != 0 && !estZoneSpawn && j > 0 && j < 10)
                 {
                     estIndestructible = true;
-                    Instantiate(BlocInDestructible, new Vector3(i, 0.6f, j), Quaternion.identity).transform.parent = GenerationTerrain;
+                    Instantiate(BlocInDestructible, new Vector3(i, 0, j), Quaternion.identity).transform.parent = GenerationTerrain;
                 }
 
                 if (!estZoneSpawn && !estIndestructible && Random.value <= 0.9f)
                 {
-                    Instantiate(BlocDestructible, new Vector3(i, 0.6f, j), Quaternion.identity).transform.parent = GenerationTerrain;
+                    Instantiate(BlocDestructible, new Vector3(i, 0, j), Quaternion.identity).transform.parent = GenerationTerrain;
                 }
             }
         }

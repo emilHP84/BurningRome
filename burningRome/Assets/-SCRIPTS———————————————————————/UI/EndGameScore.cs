@@ -1,5 +1,3 @@
-using Rewired;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,74 +5,61 @@ using UnityEngine.UI;
 
 public class EndGameScore : MonoBehaviour
 {
-    [Header("base Srpite")]
+    [Header("Base Sprite")]
     public List<GameObject> Sprites = new List<GameObject>();
     public List<TextMeshProUGUI> text = new List<TextMeshProUGUI>();
 
-    [Header("victory Sprite")]
+    [Header("Victory Sprite")]
     public List<Sprite> victorySprites = new List<Sprite>();
     [Header("Death Sprite")]
     public List<Sprite> deathSprites = new List<Sprite>();
 
-    [Header("Points")]
-    public List<int> Points = new List<int>();
+
 
     private void OnEnable()
     {
-        EVENTS.OnPlayerDeath += SetDeathSprite;
-        EVENTS.OnBattleStart += SetVictorySprite;
-        EVENTS.OnGameStart += ResetSprite;
+        EVENTS.OnVictory += SetWinner;
+        EVENTS.OnEndGame += DisplayScores;
     }
 
     private void OnDisable()
     {
-        EVENTS.OnPlayerDeath -= SetDeathSprite;
-        EVENTS.OnBattleStart -= SetVictorySprite;
-        EVENTS.OnGameStart -= ResetSprite;
+        EVENTS.OnVictory -= SetWinner;
+        EVENTS.OnEndGame -= DisplayScores;
     }
 
-    void ResetSprite()
+
+    void SetWinner(int winnerID)
     {
-        int spriteCount = 0;
-        foreach (GameObject sprite in Sprites) 
-        {
-            sprite.SetActive(false);
-            spriteCount++;
-        }
+        DisplayScores();
+        Sprites[winnerID].GetComponent<Image>().sprite = victorySprites[winnerID];
     }
 
-    void SetDeathSprite(int playerID)
+    void DisplayLosers()
     {
-        Sprites[playerID].GetComponent<Image>().sprite = deathSprites[playerID];
-        RemovePoints(playerID);
-    }
-
-    void SetVictorySprite()
-    {
-        int spriteCount = 0;
         for (int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
         {
-            Sprites[spriteCount].SetActive(true);
-            Sprites[spriteCount].GetComponent<Image>().sprite = victorySprites[spriteCount];
-            SetPoints(spriteCount);
-            spriteCount++;
+            Sprites[i].SetActive(true);
+            Sprites[i].GetComponent<Image>().sprite = deathSprites[i];
         }
-    }
-
-    void SetPoints(int number)
-    {
-        Points[number] += 1;
-        text[number].text = Points[number].ToString();
-    }
-
-    void RemovePoints(int number)
-    {
-        number = Mathf.Clamp(number, 0, Points.Count - 1); // Vérifie que l'index est valide
-
-        if (Points[number] > 0) // Vérifie que la valeur est supérieure à 0 avant de décrémenter
+        for (int i = 3; i >= GAMEPLAY.access.TotalPlayers; i--)
         {
-            Points[number] -= 1;
+            Sprites[i].SetActive(false);
         }
-        text[number].text = Points[number].ToString();
     }
-}
+
+    void DisplayScores()
+    {
+        for (int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
+        {
+            text[i].text = "" + GAMEPLAY.access.GetPlayerScore(i);
+            text[i].gameObject.SetActive(true);
+        }
+        for (int i = 3; i >= GAMEPLAY.access.TotalPlayers; i--)
+        {
+            text[i].gameObject.SetActive(false);
+        }
+        DisplayLosers();
+    }
+
+} // FIN DU SCRIPT

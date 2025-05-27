@@ -1,22 +1,14 @@
-using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 {
-    PlayerAnim playerAnim => GetComponent<PlayerAnim>();
     [SerializeField] GameObject Fx_DeathPlayer,fxspawn,fx_BlessByGod;
     [Header("GAME SYSTEM")]
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
-    PlayerAnim anim => GetComponent<PlayerAnim>();
     PlayerMovement Movement => GetComponent<PlayerMovement>();
-    GAMEPLAY gameplay => FindObjectOfType<GAMEPLAY>();
-
-    private Transform playerTransform => this.gameObject.transform;
-    private bool isDying = false; // nouvelle variable
-
 
 
     public int PlayerID
@@ -37,51 +29,60 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     public bool Invincible { get { return invincible; } }
     bool invincible = false;
 
-    private void Awake()
-    {
-        if(fxspawn)Instantiate(fxspawn,transform.position,Quaternion.identity);
-    }
+
 
     private void OnEnable()
     {
-        isAlive = true;
-        isDying = false;
-        invincible = false;
-        invincibilityTime = 0;
-        PlayerCollider.enabled = true;
         EVENTS.OnVictory += OnVictory;
-    }
-
-
-    IEnumerator OnDeath(float deathTime)
-    {
-        if (isAlive == false) yield break;
-        isDying = true; //  empêche les doublons
-        isAlive = false;
-        yield return new WaitForSeconds(2f);
-        EVENTS.InvokePlayerDeath(playerID);
-        gameObject.SetActive(false);
-    }
-
-    void OnVictory(EventArgs e) 
-    {
-        EVENTS.InvokeOnCallCamera(this.gameObject);
+        Spawn();
     }
 
     private void OnDisable()
     {
-        isAlive = false;
         EVENTS.OnVictory -= OnVictory;
-
     }
 
-    public void OnDetectionWith(IDetect detect)
+    void Spawn()
     {
-        //if (invincible == false)
-        //{
-        //    StartCoroutine(OnDeath(deathTime));
-        //}
+        isAlive = true;
+        invincible = false;
+        invincibilityTime = 0;
+        PlayerCollider.enabled = true;
+        if(fxspawn)Instantiate(fxspawn,transform.position,Quaternion.identity);
     }
+
+
+
+    IEnumerator DeathSequenceRoutine(float deathTime)
+    {
+        if (isAlive == false) yield break;
+        isAlive = false;
+        Movement.DeathPlaying();
+        EVENTS.InvokePlayerDeath(PlayerID);
+        Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
+        PlayerCollider.enabled = false;
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
+
+    void OnVictory(int winnerID)
+    {
+        if (PlayerID == winnerID)
+        {
+            if (victoryRoutine != null) StopCoroutine(victoryRoutine);
+            victoryRoutine = StartCoroutine(WaitThenCallCameraZoom());
+        }
+    }
+
+    Coroutine victoryRoutine;
+
+    IEnumerator WaitThenCallCameraZoom()
+    {
+        yield return new WaitForSeconds(3f);
+        EVENTS.InvokeOnCallCamera(this.gameObject);
+    }
+
+
 
     public void OnCollisionWith(ICollisionable collisionable)
     {
@@ -90,30 +91,18 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
 
     public void Explode()
     {
-        if (!invincible && isAlive)
+        if (!invincible && isAlive && GAME.MANAGER.CurrentState==State.gameplay)
         {
-            isDying = true;
-            Movement.DeathPlaying();
-            gameplay.ActivePlayers--;
-            Debug.Log("Il Reste actuellement " +  gameplay.ActivePlayers);   
-            if (gameplay.ActivePlayers < 2)
-            {
-                EVENTS.InvokeDestroyAllBombs();
-            }
-            StartCoroutine(OnDeath(deathTime));
-            Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
-            PlayerCollider.enabled = false;
+            StartCoroutine(DeathSequenceRoutine(deathTime));
         }
     }
 
     public void InvincibilityFor(float duration)
     {
-        Debug.Log("Invincibility Récupérer");
+        Debug.Log("Invincibility");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
-        GameObject obj = Instantiate(fx_BlessByGod, playerTransform);
-        obj.transform.parent = transform;
-
+        fx_BlessByGod.SetActive(true);
     }
 
     float invincibilityTime = 0;
@@ -127,18 +116,21 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
             yield return null;
         }
         invincible = false;
+        fx_BlessByGod.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (invincible)
         {
-            if (collision.gameObject.GetComponent<Obstacle>())
-            {
-                collision.gameObject.GetComponent<Obstacle>().ExplodeWithoutPU();
-            }
+            Obstacle obstacle = collision.GetComponentInParent<Obstacle>();
+            if(obstacle!=null) obstacle.ExplodeWithoutPU();
         }
     }
 
 
+    public void OnDetectionWith(IDetect detect)
+    {
+        throw new NotImplementedException();
+    }
 }// FIN DU SCRIPT

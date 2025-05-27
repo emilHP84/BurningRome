@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2409224089047130274}
-  - component: {fileID: 1852635152671757384}
   - component: {fileID: 2310091190911984415}
   m_Layer: 0
   m_Name: Joining
@@ -122,20 +121,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1852635152671757384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4688355022185779540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9287ac18e9120f84a9fb1de0c86113b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startBattleButton: {fileID: 0}
-  pressButtonText: {fileID: 8400159727620524122}
 --- !u!114 &2310091190911984415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Button To Join
+  m_text: Appuyez pour rejoindre
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b9705f80eea484782532a48ef035ec, type: 2}
   m_sharedMaterial: {fileID: 4844491503135231033, guid: c5b9705f80eea484782532a48ef035ec,

@@ -6,7 +6,8 @@ public class Joining : MonoBehaviour
 {
     Vector3 startScale;
     [SerializeField] Button startBattleButton;
-    [SerializeField] GameObject pressButtonText;
+    [SerializeField] GameObject pressButtonText, joinScreen;
+
 
     void Awake()
     {
@@ -20,7 +21,7 @@ public class Joining : MonoBehaviour
         EVENTS.OnJoiningStart += Display;
         EVENTS.OnJoiningDone += UnDisplay;
         EVENTS.OnPlayerSpawn += CheckPlayerQuantity;
-        if (GAMEPLAY.access && GAMEPLAY.access.CurrentState == GameplayState.joining) Display();
+        Display();
     }
 
     private void OnDisable()
@@ -33,28 +34,29 @@ public class Joining : MonoBehaviour
     public void UnDisplay()
     {
         startBattleButton.gameObject.SetActive(false);
-        transform.DOKill(); // security to avoid multiple dotween
-        transform.DOScale(0, 0.5f).From(startScale).SetEase(Ease.InCirc).OnComplete(DisableObject);
+        joinScreen.transform.DOKill(); // security to avoid multiple dotween
+        joinScreen.transform.DOScale(0, 0.5f).From(startScale).SetEase(Ease.InCirc).OnComplete(DisableObject);
     }
 
     void Display()
     {
         startBattleButton.gameObject.SetActive(false);
         pressButtonText.gameObject.SetActive(true);
-        transform.DOKill(); // security to avoid multiple dotween
-        transform.DOScale(startScale, 0.5f).From(0).SetEase(Ease.OutCirc);
+        joinScreen.SetActive(true);
+        joinScreen.transform.DOKill(); // security to avoid multiple dotween
+        joinScreen.transform.DOScale(startScale, 0.5f).From(0).SetEase(Ease.OutCirc);
     }
 
 
     void DisableObject()
     {
-        gameObject.SetActive(false); // hide
-        transform.localScale = startScale; // reset scale to max
+        joinScreen.SetActive(false); // hide
+        joinScreen.transform.localScale = startScale; // reset scale to max
     }
 
     void CheckPlayerQuantity(int playerID)
     {
-        if (GAMEPLAY.access.TotalPlayers > 0)
+        if (GAMEPLAY.access.TotalPlayers > 1)
         {
             startBattleButton.gameObject.SetActive(true);
             pressButtonText.gameObject.SetActive(false);
@@ -62,4 +64,4 @@ public class Joining : MonoBehaviour
     }
 
   
-}
+} // FIN DU SCRIPT

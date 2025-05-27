@@ -1,10 +1,6 @@
-using DG.Tweening;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodable
 {
@@ -14,7 +10,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
     {
         if (UnityEngine.Random.Range(0f, 1f) >= 1f)
         {
-            return; // Échec du tirage global  rien ne se passe
+            return; // ï¿½chec du tirage global  rien ne se passe
         }
 
         foreach (PowerUpData powerUp in powerUps)
@@ -25,7 +21,7 @@ public class Obstacle : MonoBehaviour, ICollisionable, ISpawnPowerUp, IExplodabl
             if (tirage < chance)
             {
                 Instantiate(powerUp.prefab, transform.position, Quaternion.identity);
-                break; // On stoppe dès qu’un power-up est choisi
+                break; // On stoppe dï¿½s quï¿½un power-up est choisi
             }
         }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
 
 
 [RequireComponent(typeof(AudioSource))]
@@ -19,7 +18,6 @@ public class MENU : MonoBehaviour
 
 
     //public AudioSource LEAGUEOFLEGENDS = new AudioSource();
-    public bool AlreadyStartFirstGame = false;
 
 
 
@@ -68,7 +66,7 @@ public class MENU : MonoBehaviour
         EVENTS.OnGamePause += EnableUIInputs;
         EVENTS.OnMenuExit += DisableUIInputs;
         EVENTS.OnGameResume += DisableUIInputs;
-        EVENTS.OnEndGame += ShowEndMenu;
+        EVENTS.OnScoreDisplay += ShowEndMenu;
     }
 
     void OnDisable()
@@ -83,7 +81,7 @@ public class MENU : MonoBehaviour
         EVENTS.OnGamePause -= EnableUIInputs;
         EVENTS.OnMenuExit -= DisableUIInputs;
         EVENTS.OnGameResume -= DisableUIInputs;
-        EVENTS.OnEndGame -= ShowEndMenu;
+        EVENTS.OnScoreDisplay -= ShowEndMenu;
     }
 
     void Start()
@@ -192,7 +190,7 @@ public class MENU : MonoBehaviour
     public void BackToMainMenu()
     {
         EVENTS.InvokeGameOver();
-        MenusList(false);
+        //MenusList(false);
         ClearMenuHistory();
         menuHistory.Insert(0, mainMenu);
         StartCoroutine(TransitionToMenu(TransitionType.Iris, mainMenu, 1f, 1f, 2f));
@@ -204,9 +202,9 @@ public class MENU : MonoBehaviour
     {
         StartCoroutine(NewGameRoutine());
     }
-    public void AfterNewGame()
+    public void Rematch()
     {
-        StartCoroutine(AfterGameRoutine());
+        StartCoroutine(RematchRoutine());
     }
 
     IEnumerator NewGameRoutine()
@@ -214,20 +212,19 @@ public class MENU : MonoBehaviour
         MenusList(true);
         SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene, 2f, 1f, 1f, false, 0);
         while (SceneLoader.access.IsLoading) yield return null;
+        ClearMenuHistory();
         ShowNextMenu(joinMenu, 0, 0, 1f);
         //while (Black.screen.IsWorking) yield return null;
         GAMEPLAY.access.LaunchJoin();
-        ClearMenuHistory();
     }
     
-    IEnumerator AfterGameRoutine()
+    IEnumerator RematchRoutine()
     {
-        //AlreadyStartFirstGame = true;
-        MenusList(true);
         SceneLoader.access.LoadScene(SceneLoader.access.CurrentScene, 2f, 1f, 1f, false, 0);
         while (SceneLoader.access.IsLoading) yield return null;
         MenusList(false);
-        EVENTS.InvokeAfterGameStart();
+        ClearMenuHistory();
+        EVENTS.InvokeRematch();
     }
 
 
@@ -449,7 +446,7 @@ public class MENU : MonoBehaviour
     }
     // ——————————————————————————————————————————————————————————————————————————————————————
 
-    void ShowEndMenu(EventArgs e)
+    void ShowEndMenu()
     {
         StartCoroutine(ShowiEndGame());
     }

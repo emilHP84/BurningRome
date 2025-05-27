@@ -1,11 +1,8 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BombManager : MonoBehaviour, ICollisionable, IExplodable
 {
-    GAMEPLAY gameplay => FindObjectOfType<GAMEPLAY>();
     [SerializeField] GameObject bombExplodeFx;
     public bool canbeplaced = true;
 
@@ -112,7 +109,7 @@ public class BombManager : MonoBehaviour, ICollisionable, IExplodable
         {
             time -= Time.deltaTime;
         }
-        if (time < 0 && gameplay.ActivePlayers > 1)
+        if (time < 0 && GAMEPLAY.access.AlivePlayers > 1)
         { Explosion(); }
     }
 

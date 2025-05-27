@@ -4,44 +4,50 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
-using TMPro;
+
+class PlayerData
+{
+    public int playerID;
+    public Controller controller;
+    public int score;
+    public GameObject gameObjectInstance;
+    public PlayerManager manager;
+}
 
 public class GAMEPLAY : MonoBehaviour
 {
-    class PlayerData
-    {
-        public int playerID;
-        public Controller controller;
-        public int keyboardSide;
-    }
-    List<PlayerData> persistentPlayers = new List<PlayerData>();
-
     public static GAMEPLAY access;
-
+    List<PlayerData> players = new List<PlayerData>();
+    List<PlayerData> alivePlayersList = new List<PlayerData>();
     public bool PlayerControl = false;
     public GameplayState CurrentState;
     public float timeToJoin = 3f;
     public float timeToSuddenDeath = 60f;
-    int totalPlayers = 0;
-    public int ActivePlayers = 0;
+    public int AlivePlayers
+    {
+        get { return alivePlayersList.Count; }
+    }
     public int TotalPlayers
     {
-        get { return totalPlayers; }
-        set { totalPlayers = value; }
+        get { return players.Count; }
     }
-
-    int alivePlayers = 0;
     float timer;
     [SerializeField] GameObject[] playerPrefabs;
-    [SerializeField] List<GameObject> alivePlayersList = new List<GameObject>();
-    [SerializeField] TextMeshProUGUI Countdown;
+
+
+
+    void Awake()
+    {
+        access = this;
+    }
 
     private void OnEnable()
     {
         EVENTS.OnGameStart += LaunchGameplayBoucle;
-        EVENTS.OnPlayerDeath += RemovePlayerNumber;
+        EVENTS.OnPlayerDeath += PlayerDeath;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
+        EVENTS.OnRematch += Rematch;
     }
 
 
@@ -49,20 +55,15 @@ public class GAMEPLAY : MonoBehaviour
     private void OnDisable()
     {
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
-        EVENTS.OnPlayerDeath -= RemovePlayerNumber;
+        EVENTS.OnPlayerDeath -= PlayerDeath;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent -= CheckDisconnect;
+        EVENTS.OnRematch -= Rematch;
     }
 
     private void Start()
     {
-        access = this;
         EnterState(GameplayState.off);
-        if (MENU.SCRIPT.AlreadyStartFirstGame == false)
-        {
-            DestroyAllPlayers();
-
-        }
         ResetAllControllers();
     }
 
@@ -74,20 +75,24 @@ public class GAMEPLAY : MonoBehaviour
 
 
 
-
-    #region PLAYER NUMBER
-    //-----------------------------------------------------------------------//
-    //-PLAYER-NUMBER---------------------------------------------------------//
-    //-----------------------------------------------------------------------//
-
-    private void RemovePlayerNumber(int deadID)
+    private void PlayerDeath(int deadID)
     {
-        alivePlayers--;
-        Debug.Log("💀 Player died: " + deadID + " — Players alive: " + alivePlayers);
+        Debug.Log("💀 Player died: " + deadID);
+        for (int i = 0; i < alivePlayersList.Count; i++)
+        {
+            if (alivePlayersList[i].playerID == deadID) alivePlayersList.RemoveAt(i);
+        }
+        //foreach (PlayerData deadPlayer in alivePlayersList) if (deadPlayer.playerID == deadID) alivePlayersList.Remove(deadPlayer);
+        if (AlivePlayers < 2) EnterState(GameplayState.battleOver);
     }
 
-    //-----------------------------------------------------------------------//
-    #endregion
+    public int GetPlayerScore(int playerID)
+    {
+        if (players.Count <= playerID) return -1;
+        else return players[playerID].score;
+    }
+
+
 
     #region TIME
     //-----------------------------------------------------------------------//
@@ -123,30 +128,25 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsOFF");
                 PlayerControl = false;
                 InBattle = false;
-                if (MENU.SCRIPT.AlreadyStartFirstGame == false)
-                {
-                    DestroyAllPlayers();
-                }
-                ResetAllControllers();
                 GAME.MANAGER.SwitchTo(State.menu);
                 break;
 
             case GameplayState.joining:
                 Debug.Log("IsJoining");
-                Debug.Log("TotalPlayers = " + totalPlayers);
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.menu);
+                ResetAllPlayers();
+                ResetAllControllers();
                 EVENTS.InvokeJoiningStart();
                 break;
 
             case GameplayState.battle:
                 Debug.Log("IsBattle");
                 PlayerControl = true;
-                alivePlayers = totalPlayers;
                 gameEnded = false;
-                Debug.Log("🟢 Battle Start — alivePlayers = " + alivePlayers);
-                EVENTS.InvokeBattleStart();
+                Debug.Log("🟢 Battle Start — alivePlayers = " + AlivePlayers);
                 GAME.MANAGER.SwitchTo(State.gameplay);
+                EVENTS.InvokeBattleStart();
                 break;
 
             case GameplayState.suddenDeath:
@@ -154,13 +154,15 @@ public class GAMEPLAY : MonoBehaviour
                 EVENTS.InvokeSuddenDeathStart();
                 break;
 
+            case GameplayState.battleOver:
+                PlayerControl = false;
+                break;
+
             case GameplayState.end:
                 Debug.Log("IsEnd");
                 InBattle = false;
-                PlayerControl = false;
-                GAME.MANAGER.SwitchTo(State.waiting);
-
-                // ⚠️ ICI IL FAUDRAIT DÉSACTIVER TOUTES LES BOMBES ACTUELLEMENT À L'ÉCRAN
+                GAME.MANAGER.SwitchTo(State.menu);
+                EVENTS.InvokeScoreDisplay();
                 break;
         }
     }
@@ -170,57 +172,50 @@ public class GAMEPLAY : MonoBehaviour
         switch (CurrentState)
         {
             case GameplayState.off:
-                break;
+            break;
 
             case GameplayState.joining:
-
-                if (totalPlayers < 4) ListenNewControllers();
-                break;
+                if (TotalPlayers < 4) ListenNewControllers();
+            break;
 
             case GameplayState.battle:
                 if (timer >= timeToSuddenDeath) EnterState(GameplayState.suddenDeath);
-
-                if (alivePlayers < 2)
-                {
-                    //EVENTS.InvokeDestroyAllBombs();
-                    EVENTS.InvokeOnVictory();
-                    EnterState(GameplayState.end);
-                }
-                break;
+            break;
 
             case GameplayState.suddenDeath:
-                if (alivePlayers < 2)
-                {
-                    //EVENTS.InvokeDestroyAllBombs();
-                    EVENTS.InvokeOnVictory();
-                    EnterState(GameplayState.end);
-                }
-                break;
+            break;
 
-            case GameplayState.end:
-
-                //EVENTS.InvokeDestroyAllBombs();
-                if (timer > 2f && gameEnded == false)
+            case GameplayState.battleOver:
+                if (timer > 0.1f && gameEnded == false)
                 {
                     gameEnded = true;
                     EVENTS.InvokeEndGame();
+                    if (AlivePlayers > 0)
+                    {
+                        alivePlayersList[0].score++;
+                        EVENTS.InvokeOnVictory(alivePlayersList[0].playerID);
+                    }
+                    GAME.MANAGER.SwitchTo(State.waiting);
                 }
-                if (timer > 4f)
+
+                if (timer > 6f)
                 {
-                    //SceneLoader.access.LoadScene(1, 1, 0.25f, 1, false, 0.5f); // ⚠️ IL FAUDRAIT QUE L'ÉCRAN DE FIN NE SOIT PAS UNE SCÈNE À PART MAIS UN SIMPLE MENU
-                    GAME.MANAGER.SwitchTo(State.menu);
-                    EnterState(GameplayState.off);
-                    //persistentPlayers.Clear();
+                    EnterState(GameplayState.end);
                 }
-                break;
+            break;
+
+            case GameplayState.end:
+            break;
         }
     }
+
+
 
     bool gameEnded = false;
 
     public void OnStartClick()
     {
-        if (totalPlayers < 2) return;
+        if (TotalPlayers < 2) return;
         EVENTS.InvokeGameStart();
     }
     public void CheckActivePlayers(int activeplayers)
@@ -241,33 +236,30 @@ public class GAMEPLAY : MonoBehaviour
         EnterState(GameplayState.joining);
     }
 
-    public void Rematch()
+    void Rematch()
     {
-        DestroyAllPlayers();
-        Debug.Log("🔁 Rematch: persistentPlayers count = " + persistentPlayers.Count);
-        foreach (PlayerData data in persistentPlayers)
+        StartCoroutine(RematchRoutine());
+    }
+
+    IEnumerator RematchRoutine()
+    {
+        foreach (PlayerData alivePlayer in alivePlayersList) Destroy(alivePlayer.gameObjectInstance);
+        alivePlayersList = new List<PlayerData>();
+
+        foreach (PlayerData playingPlayer in players)
         {
-            Debug.Log("🔁 Player in rematch: ID = " + data.playerID);
-            Player player = ReInput.players.GetPlayer(data.playerID);
-            //InstantiatePlayerInScene(data.playerID);
-            AddPlayerController(data.playerID, data.controller);
-            if (data.controller.type == ControllerType.Keyboard)
-            {
-                player.controllers.maps.SetMapsEnabled(true, ControllerType.Keyboard, 0, data.keyboardSide);
-                if (data.keyboardSide == 1) rightKeyboardAssigned = true;
-                if (data.keyboardSide == 2) leftKeyboardAssigned = true;
-            }
-            else if (data.controller.type == ControllerType.Joystick)
-            {
-                player.controllers.maps.SetMapsEnabled(true, ControllerType.Joystick, 0);
-            }
-            //AssignControllerToPlayer(data.playerID, data.controller);
-            ReInput.players.GetPlayer(data.playerID).isPlaying = true;
+            alivePlayersList.Add(playingPlayer);
+            GameObject restartingPlayer = InstantiatePlayerInScene(playingPlayer.playerID);
         }
-        totalPlayers = persistentPlayers.Count;
-        ActivePlayers = totalPlayers;
+        yield return null;
+        while (Black.screen.IsWorking) yield return null;
+        EVENTS.InvokeGameStart();
         EnterState(GameplayState.battle);
     }
+
+
+
+
 
     bool InBattle = false;
     void LaunchGameplayBoucle()
@@ -300,31 +292,24 @@ public class GAMEPLAY : MonoBehaviour
     //-----------------------------------------------------------------------//
     #endregion
 
-    void InstantiatePlayerInScene(int playerID)
+
+    void ResetAllPlayers()
     {
-        foreach (var player in FindObjectsByType<PlayerManager>(FindObjectsSortMode.None))
-        {
-            if (player.PlayerID == playerID)
-            {
-                Debug.LogWarning($"⚠️ Duplicate PlayerID {playerID} detected, destroying old instance");
-                Destroy(player.gameObject);
-            }
-        }
-        GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
-        SceneManager.MoveGameObjectToScene(newPlayer, SceneManager.GetActiveScene());
-        alivePlayersList.Add(newPlayer);
-        Debug.Log("CreatePlayer" + playerID);
-        EVENTS.InvokePlayerSpawn(playerID);
-        ActivePlayers++;
-        Debug.Log("il y a Actuellement " + ActivePlayers + "joueur");
+        foreach (PlayerData player in players) Destroy(player.gameObjectInstance);
+        alivePlayersList = new List<PlayerData>();
+        players = new List<PlayerData>();
     }
 
-    void DestroyAllPlayers()
+
+    GameObject InstantiatePlayerInScene(int playerID)
     {
-        for (int i = 0; i < alivePlayersList.Count; i++) Destroy(alivePlayersList[i]);
-        alivePlayersList = new List<GameObject>();
-        alivePlayers = totalPlayers = 0;
+        Debug.Log("CreatePlayer" + playerID);
+        GameObject newPlayer = Instantiate(playerPrefabs[playerID], playerPrefabs[playerID].transform.localPosition, Quaternion.identity);
+        SceneManager.MoveGameObjectToScene(newPlayer, SceneManager.GetActiveScene());
+        return newPlayer;
     }
+
+
 
 
 
@@ -334,7 +319,6 @@ public class GAMEPLAY : MonoBehaviour
 
     void ResetAllControllers()
     {
-        totalPlayers = 0;
         activeControllers = new Controller[4];
         foreach (Player player in ReInput.players.GetPlayers())
         {
@@ -377,12 +361,6 @@ public class GAMEPLAY : MonoBehaviour
 
     void AddPlayerKeyboard(int playerID, int keyboardSide, Controller keyboard)
     {
-        persistentPlayers.Add(new PlayerData
-        {
-            playerID = playerID,
-            controller = keyboard,
-            keyboardSide = keyboardSide
-        });
         Debug.Log("ADD KEYBOARD PLAYER " + playerID + "   keyboardside " + keyboardSide);
         if (keyboardSide == 2) leftKeyboardAssigned = true;
         if (keyboardSide == 1) rightKeyboardAssigned = true;
@@ -392,8 +370,7 @@ public class GAMEPLAY : MonoBehaviour
 
 
     void AddPlayerController(int playerID, Controller controller)
-    {      
-        InstantiatePlayerInScene(playerID);
+    {
         ResetTimer();
         AddNewPlayer(playerID, controller);
         ReInput.players.GetPlayer(playerID).isPlaying = true;
@@ -412,18 +389,28 @@ public class GAMEPLAY : MonoBehaviour
 
     void AddNewPlayer(int playerID, Controller controller)
     {
-        totalPlayers++;
-        if (!persistentPlayers.Exists(x => x.playerID == playerID))
+        if (!players.Exists(x => x.playerID == playerID))
         {
-            persistentPlayers.Add(new PlayerData { playerID = playerID, controller = controller });
+            GameObject newPlayerInstance = InstantiatePlayerInScene(playerID);
+            PlayerData newPlayerData = new PlayerData
+            {
+                playerID = playerID,
+                controller = controller,
+                gameObjectInstance = newPlayerInstance,
+                score = 0,
+                manager = newPlayerInstance.GetComponentInChildren<PlayerManager>()
+            };
+            AssignControllerToPlayer(playerID, controller);
+            players.Add(newPlayerData);
+            alivePlayersList.Add(newPlayerData);
+            EVENTS.InvokePlayerSpawn(playerID);
         }
-        AssignControllerToPlayer(playerID, controller);
+        else Debug.Log("❌ERROR PLAYER" + playerID + " ALREADY EXISTS!");
     }
 
 
     void AssignControllerToPlayer(int playerID, Controller controller)
     {
-
         bool removeFromOtherPlayers = true;
         if (controller.type == ControllerType.Keyboard) removeFromOtherPlayers = false;
         Player thisPlayer = ReInput.players.GetPlayer(playerID);
@@ -447,8 +434,6 @@ public class GAMEPLAY : MonoBehaviour
             StartCoroutine(WaitControllerReconnect(index));
         }
     }
-
-    bool allPlayersHaveController = true;
 
     IEnumerator WaitControllerReconnect(int playerID)
     {

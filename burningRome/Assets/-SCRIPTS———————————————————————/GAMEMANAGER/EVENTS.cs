@@ -96,8 +96,8 @@ public class EVENTS
 
     // <-- Add new game events here
 
-    public static event Action DestroyAllBombs;
-    public static void InvokeDestroyAllBombs() { LogEventInConsole("All BOMB DESTROYED");  DestroyAllBombs?.Invoke();}
+    public static event Action OnRematch;
+    public static void InvokeRematch() {LogEventInConsole("🏁REMATCH"); OnRematch?.Invoke();}    
 
     public static event Action OnBattleStart;
     public static void InvokeBattleStart() {LogEventInConsole("🏁Battle Start"); OnBattleStart?.Invoke();}
@@ -117,14 +117,17 @@ public class EVENTS
     public static event Action<int> OnPlayerSpawn;
     public static void InvokePlayerSpawn(int ID) { LogEventInConsole("Player Spawn! #" + ID); OnPlayerSpawn?.Invoke(ID); }
 
-    public static event Action<EventArgs> OnEndGame;
-    public static void InvokeEndGame() { LogEventInConsole("☠️it's End Game! #"); OnEndGame?.Invoke(new System.EventArgs()); }
+    public static event Action OnEndGame;
+    public static void InvokeEndGame() { LogEventInConsole("☠️it's End Game! #"); OnEndGame?.Invoke(); }
 
-    public static event Action<EventArgs> OnVictory;
-    public static void InvokeOnVictory() { LogEventInConsole("a player has win! #"); OnVictory?.Invoke(new System.EventArgs()); }
+    public static event Action OnScoreDisplay;
+    public static void InvokeScoreDisplay() { LogEventInConsole("Score Display"); OnScoreDisplay?.Invoke(); }
 
-    public static event Action<GameObject,EventArgs> OnCallCamera;
-    public static void InvokeOnCallCamera(GameObject obj) { LogEventInConsole("a player has win! #"); OnCallCamera?.Invoke(obj,new System.EventArgs()); }
+    public static event Action<int> OnVictory;
+    public static void InvokeOnVictory(int winnerID) { LogEventInConsole("a player has win! #"); OnVictory?.Invoke(winnerID); }
+
+    public static event Action<GameObject> OnCallCamera;
+    public static void InvokeOnCallCamera(GameObject obj) { LogEventInConsole("a player has win! #"); OnCallCamera?.Invoke(obj); }
 
 
 } // SCRIPT END

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5421272792177828660}
   - component: {fileID: 1610275781239923390}
   - component: {fileID: 5422351683519753774}
+  - component: {fileID: 1959926799922487187}
   m_Layer: 5
   m_Name: "JOIN MENU \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014"
   m_TagString: Untagged
@@ -76,6 +77,21 @@ MonoBehaviour:
   lockRotation: 1
   lockScale: 1
   lockParenting: 1
+--- !u!114 &1959926799922487187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223427029688508316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9287ac18e9120f84a9fb1de0c86113b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startBattleButton: {fileID: 6124610986639902508}
+  pressButtonText: {fileID: 7021514622729197803}
+  joinScreen: {fileID: 6121043424497648101}
 --- !u!1001 &961654775069484129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_text
-      value: COMMENCER
+      value: START
       objectReference: {fileID: 0}
     - target: {fileID: 722590726480801720, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -252,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 5653400515240392124, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
       propertyPath: m_Name
-      value: COMMENCER Button Graphics
+      value: START Button Graphics
       objectReference: {fileID: 0}
     - target: {fileID: 6459998953733841741, guid: 3ee834a07d046ee4ebebee9a58cafa8f,
         type: 3}
@@ -330,6 +346,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5291936644342201213}
     m_Modifications:
+    - target: {fileID: 140203946052109211, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 140203946052109211, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1467850872359089424, guid: dc1cbf0049eb00343b84000d7044b07a,
         type: 3}
       propertyPath: m_SortingLayer
@@ -340,6 +366,16 @@ PrefabInstance:
       propertyPath: startBattleButton
       value: 
       objectReference: {fileID: 6124610986639902508}
+    - target: {fileID: 2161728435915738357, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161728435915738357, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2283210586964641514, guid: dc1cbf0049eb00343b84000d7044b07a,
         type: 3}
       propertyPath: m_SortingLayer
@@ -405,10 +441,30 @@ PrefabInstance:
       propertyPath: m_Text
       value: Appuyez pour rejoindre
       objectReference: {fileID: 0}
+    - target: {fileID: 7122427397188397485, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122427397188397485, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7167591622581068722, guid: dc1cbf0049eb00343b84000d7044b07a,
         type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576950692492417623, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576950692492417623, guid: dc1cbf0049eb00343b84000d7044b07a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8974122280499522780, guid: dc1cbf0049eb00343b84000d7044b07a,
         type: 3}
@@ -423,6 +479,18 @@ PrefabInstance:
 --- !u!224 &3786817098715951123 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2409224089047130274, guid: dc1cbf0049eb00343b84000d7044b07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576878470055661745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6121043424497648101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4688355022185779540, guid: dc1cbf0049eb00343b84000d7044b07a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576878470055661745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7021514622729197803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400159727620524122, guid: dc1cbf0049eb00343b84000d7044b07a,
     type: 3}
   m_PrefabInstance: {fileID: 1576878470055661745}
   m_PrefabAsset: {fileID: 0}

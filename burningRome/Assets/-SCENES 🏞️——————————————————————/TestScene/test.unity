@@ -361,7 +361,6 @@ GameObject:
   - component: {fileID: 210773472}
   - component: {fileID: 210773471}
   - component: {fileID: 210773470}
-  - component: {fileID: 210773473}
   m_Layer: 0
   m_Name: GENERATION-SYSTEM
   m_TagString: Untagged
@@ -440,18 +439,6 @@ MonoBehaviour:
     type: 3}
   BlocDestructible: {fileID: 3669069770462250389, guid: 2e1c08ee6742620439ace17d4c09e4b4,
     type: 3}
---- !u!114 &210773473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210773466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90b59c7f49c09f40a774e323556f1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &345165798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1833,7 @@ PrefabInstance:
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34256
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 1744072955411894949, guid: c11d12de7b29a2d4494963375fe76eb8,
         type: 3}
