@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CustomMusicSwitcher : MonoBehaviour
 {
-    [SerializeField] SO_Playlist battleplaylist, suddendeathplaylist, endplaylist;
+    [SerializeField] SO_Playlist menuplaylist,battleplaylist, suddendeathplaylist, endplaylist;
 
     void OnEnable()
     {
-        //SetDesiredPlaylist();
+        EVENTS.OnInitialization += SetMenuPlaylist;
         EVENTS.OnBattleStart += SetBattlePlaylist;
         EVENTS.OnSuddenDeathStart += SetSuddenDeathPlaylist;
         EVENTS.OnEndGame += SetEndPlaylist;
@@ -17,11 +17,16 @@ public class CustomMusicSwitcher : MonoBehaviour
 
     private void OnDisable()
     {
+        EVENTS.OnInitialization -= SetMenuPlaylist;
         EVENTS.OnBattleStart -= SetBattlePlaylist;
         EVENTS.OnSuddenDeathStart -= SetSuddenDeathPlaylist;
         EVENTS.OnEndGame -= SetEndPlaylist;
     }
 
+    private void SetMenuPlaylist()
+    {
+        if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(menuplaylist);
+    }
     private void SetBattlePlaylist()
     {
         if (MUSIC.PLAYER) MUSIC.PLAYER.SetPlaylist(battleplaylist);

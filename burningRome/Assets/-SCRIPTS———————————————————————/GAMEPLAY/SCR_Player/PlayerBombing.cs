@@ -30,8 +30,7 @@ public class PlayerBombing : MonoBehaviour
         if (canBomb && GAMEPLAY.access.PlayerControl)
         {
             if (player.GetButtonDown("Bomb"))
-            {
-                hide.Hide();
+            {        
                 if (manualDetonation > 0)
                 {
                     if (manualDetonation < 2)
