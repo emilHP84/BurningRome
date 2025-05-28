@@ -44,6 +44,7 @@ public class GAMEPLAY : MonoBehaviour
     private void OnEnable()
     {
         EVENTS.OnGameStart += LaunchGameplayBoucle;
+        EVENTS.OnGameOver += BackToMainMenu;
         EVENTS.OnPlayerDeath += PlayerDeath;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
         ReInput.ControllerPreDisconnectEvent += CheckDisconnect;
@@ -54,6 +55,7 @@ public class GAMEPLAY : MonoBehaviour
 
     private void OnDisable()
     {
+        EVENTS.OnGameOver -= BackToMainMenu;
         EVENTS.OnGameStart -= LaunchGameplayBoucle;
         EVENTS.OnPlayerDeath -= PlayerDeath;
         EVENTS.OnAfterGameStart += GameplayAfterFirstBattle;
@@ -128,6 +130,8 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsOFF");
                 PlayerControl = false;
                 InBattle = false;
+                ResetAllPlayers();
+                ResetAllControllers();
                 GAME.MANAGER.SwitchTo(State.menu);
                 break;
 
@@ -135,8 +139,6 @@ public class GAMEPLAY : MonoBehaviour
                 Debug.Log("IsJoining");
                 PlayerControl = false;
                 GAME.MANAGER.SwitchTo(State.menu);
-                ResetAllPlayers();
-                ResetAllControllers();
                 EVENTS.InvokeJoiningStart();
                 break;
 
@@ -218,10 +220,12 @@ public class GAMEPLAY : MonoBehaviour
         if (TotalPlayers < 2) return;
         EVENTS.InvokeGameStart();
     }
-    public void CheckActivePlayers(int activeplayers)
-    {
 
+    public void BackToMainMenu()
+    {
+        EnterState(GameplayState.off);
     }
+
 
     public void WaitPlayersToJoin()
     {
