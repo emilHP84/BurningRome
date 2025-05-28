@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     PlayerMovement Movement => GetComponent<PlayerMovement>();
     PlayerAnim playerAnim => GetComponent<PlayerAnim>();
 
+    private Transform playerTransform =>this.gameObject.transform;
+
 
     public int PlayerID
     {
@@ -104,7 +106,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         Debug.Log("Invincibility");
         invincibilityTime = duration;
         StartCoroutine(WaitForInvincibilityEnd());
-        fx_BlessByGod.SetActive(true);
+        Instantiate(fx_BlessByGod, transform.position, Quaternion.identity, transform);
     }
 
     float invincibilityTime = 0;
@@ -118,14 +120,14 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
             yield return null;
         }
         invincible = false;
-        fx_BlessByGod.SetActive(false);
+        //fx_BlessByGod.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (invincible)
         {
-            Obstacle obstacle = collision.GetComponentInParent<Obstacle>();
+            Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
             if(obstacle!=null) obstacle.ExplodeWithoutPU();
         }
     }

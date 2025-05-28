@@ -16,7 +16,7 @@ public class BlessedByGodsScript : MonoBehaviour, IExplodable
     void Update()
     {
         time += Time.deltaTime;
-        if (time >= 1.5)
+        if (time >= 2)
         {
             invulnerability = false;
         }
