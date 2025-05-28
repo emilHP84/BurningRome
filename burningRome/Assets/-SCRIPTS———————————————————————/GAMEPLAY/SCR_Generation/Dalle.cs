@@ -135,7 +135,7 @@ public class Dalle : MonoBehaviour, IFlamable
         {
             if (GAME.MANAGER.CurrentState != State.gameplay) yield return null;
             burning -= Time.deltaTime;
-            Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.45f, Quaternion.identity, burnableLayers);
+            Collider[] hits = Physics.OverlapBox(transform.position, Vector3.one * 0.2f, Quaternion.identity, burnableLayers);
             foreach (Collider col in hits) if (col.GetComponent<IExplodable>() != null) col.GetComponent<IExplodable>().Explode();
             //Physics.OverlapBoxNonAlloc(transform.position,Vector3.one*0.45f,allocColliders,transform.rotation,burnableLayers);
             //for (int i=0;i<allocColliders.Length;i++) allocColliders[i]?.GetComponent<IExplodable>().Explode();
