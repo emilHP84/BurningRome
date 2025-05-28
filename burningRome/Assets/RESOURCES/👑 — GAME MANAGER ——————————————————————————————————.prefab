@@ -222,7 +222,7 @@ MonoBehaviour:
   PlayerControl: 0
   CurrentState: 0
   timeToJoin: 3
-  timeToSuddenDeath: 60
+  timeToSuddenDeath: 45
   playerPrefabs:
   - {fileID: 5278160238434083447, guid: 99338748f8275cc48a17c74c2cd4a5ff, type: 3}
   - {fileID: 5278160238434083447, guid: 8cb044ec768ced145bb8b23020c2107e, type: 3}
@@ -2287,7 +2287,7 @@ PrefabInstance:
     - target: {fileID: 703263059290693552, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -111.37454
+      value: -111.37451
       objectReference: {fileID: 0}
     - target: {fileID: 756021590364776035, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -3168,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_fontSize
-      value: 124.3
+      value: 124.35
       objectReference: {fileID: 0}
     - target: {fileID: 2104561457201162365, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
@@ -4206,7 +4206,7 @@ PrefabInstance:
     - target: {fileID: 3475401742643423359, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -334.12357
+      value: -334.12354
       objectReference: {fileID: 0}
     - target: {fileID: 3497113145136823877, guid: c6b26752e8dc0b34ab30cc91105625db,
         type: 3}
