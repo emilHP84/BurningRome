@@ -37,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GAMEPLAY.access.CurrentState==GameplayState.joining) anims.PlaySpawn();
         else if (canMove && GAMEPLAY.access.PlayerControl) Movement();
-        else anims.PlayIdle();
+        else if (IsAnimDeathPlaying == false) anims.PlayIdle();
+            
     }
 
     public void DeathPlaying()

@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
     [SerializeField] private int playerID;
     public Collider PlayerCollider;
     PlayerMovement Movement => GetComponent<PlayerMovement>();
+    PlayerAnim playerAnim => GetComponent<PlayerAnim>();
 
 
     public int PlayerID
@@ -58,6 +59,7 @@ public class PlayerManager : MonoBehaviour, IDetect, ICollisionable, IExplodable
         if (isAlive == false) yield break;
         isAlive = false;
         Movement.DeathPlaying();
+        playerAnim.PlayDeath();
         EVENTS.InvokePlayerDeath(PlayerID);
         Instantiate(Fx_DeathPlayer,transform.position,Quaternion.identity);
         PlayerCollider.enabled = false;
