@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class EndGameScore : MonoBehaviour
 {
     [Header("Base Sprite")]
-    public List<GameObject> Sprites = new List<GameObject>();
+    public List<Image> Halo = new List<Image>();
+    public List<Image> Sprites = new List<Image>();
     public List<TextMeshProUGUI> text = new List<TextMeshProUGUI>();
 
     [Header("Victory Sprite")]
@@ -32,19 +33,25 @@ public class EndGameScore : MonoBehaviour
     void SetWinner(int winnerID)
     {
         DisplayScores();
-        Sprites[winnerID].GetComponent<Image>().sprite = victorySprites[winnerID];
+        Sprites[winnerID].GetComponentInChildren<Image>().sprite = victorySprites[winnerID];
+        if (Halo.Count>winnerID) Halo[winnerID].gameObject.SetActive(true);
     }
 
     void DisplayLosers()
     {
+
+        foreach(Image image in Halo)
+        {
+            image.gameObject.SetActive(false);
+        }
         for (int i = 0; i < GAMEPLAY.access.TotalPlayers; i++)
         {
-            Sprites[i].SetActive(true);
-            Sprites[i].GetComponent<Image>().sprite = deathSprites[i];
+            Sprites[i].enabled = true;
+            Sprites[i].GetComponentInChildren<Image>().sprite = deathSprites[i];
         }
         for (int i = 3; i >= GAMEPLAY.access.TotalPlayers; i--)
         {
-            Sprites[i].SetActive(false);
+            Sprites[i].enabled = false;
         }
     }
 
