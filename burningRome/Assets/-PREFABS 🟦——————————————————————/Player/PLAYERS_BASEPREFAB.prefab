@@ -1195,7 +1195,6 @@ GameObject:
   - component: {fileID: 9092949447849222937}
   - component: {fileID: 6665027211940049455}
   - component: {fileID: 5417028115921187552}
-  - component: {fileID: 3588181838191853796}
   - component: {fileID: 2823633359942277953}
   m_Layer: 6
   m_Name: PLAYERS_BASEPREFAB
@@ -1306,6 +1305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2475efd1b3ded394f8f7e78959427995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positivePickup: {fileID: 1352595978297202342, guid: effeeb5d84aa0984bb33b7362ad2c391,
+    type: 3}
+  negativePickup: {fileID: 1352595978297202342, guid: 8c70201f0c7cceb45b8309226976d02c,
+    type: 3}
+  oneTimePickup: {fileID: 1352595978297202342, guid: 53f378512660073499227a1acf882323,
+    type: 3}
 --- !u!114 &2831283191497542371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,19 +1469,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8fb094266f60ab04695bd59805777d0e, type: 3}
   pitch: {x: 1, y: 1}
   stepSize: 1.5
---- !u!114 &3588181838191853796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7279451766137512850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44c5b7a7b05d0e448b8362ce77846d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfx: {fileID: 1352595978297202342, guid: effeeb5d84aa0984bb33b7362ad2c391, type: 3}
 --- !u!135 &2823633359942277953
 SphereCollider:
   m_ObjectHideFlags: 0
